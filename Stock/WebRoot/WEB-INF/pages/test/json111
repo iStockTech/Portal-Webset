@@ -1,0 +1,31 @@
+{
+"type2":[  
+			{"title":"aaaa21","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"aaaa221","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"aaaa2311","time":"2014-11-16","author":"新华社","content":"xxxxxxx"}
+		],
+"type3":[  
+			{"title":"aaaa3111","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"aaaa3211","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"aaaa3311","time":"2014-11-16","author":"新华社","content":"xxxxxxx"}
+		],
+"type4":[  
+			{"title":"aaaa41","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"aaaa4211","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"aaaa4311","time":"2014-11-16","author":"新华社","content":"xxxxxxx"}
+		],
+"all":[  
+			{"title":"ttabd1","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd2","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd3","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd4","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd5","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd6","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd7","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd8","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd9","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd10","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd12","time":"2014-11-16","author":"新华社","content":"xxxxxxx"},
+            {"title":"ttabd13","time":"2014-11-16","author":"新华社","content":"xxxxxxx"}
+		],
+}

@@ -1,0 +1,40 @@
+{"newsInfo":
+    {"type2":
+            [
+                 {"title":"type21","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type22","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type23","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type24","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""}
+            ],
+     "type3":
+     		[
+                {"title":"type31","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type32","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type33","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type34","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type35","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type36","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type37","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type38","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""}
+            ],
+     "type4":
+            [
+                {"title":"type41","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type42","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type43","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type44","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type45","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type46","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type47","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"type48","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""}
+            ],
+       "all":
+            [
+                {"title":"all11","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"all12","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""},
+                {"title":"all13","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":""}
+            ]
+    },
+"pagination":{"total":"20","type2":"4","type3":"8","type4":"8"},
+"numPerPage":2
+}

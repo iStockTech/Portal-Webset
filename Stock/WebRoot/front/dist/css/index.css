@@ -1,0 +1,208 @@
+/*myCarousel*/
+#myCarousel{
+	min-height: 200px;
+}
+#myCarousel .carousel-inner .item{
+	min-height: 200px;
+}
+#myCarousel .carousel-inner .item img{
+	margin: 0 10px 0 10px;
+}
+#myCarousel .left{
+	background-image: url('../img/index_slide_left.png');
+	background-repeat:no-repeat;
+	background-size:100% auto;
+	width: 84px;height: 80px;
+}
+#myCarousel .right{
+	background-image: url('../img/index_slide_right.png');
+	background-repeat:no-repeat;
+	background-size:100% auto;
+	width: 84px;height: 80px;
+}
+#myCarousel .carousel-indicators>li{
+	background-color: #DADADA;
+}
+#myCarousel .carousel-indicators .active{
+	background-color: #ba2635;
+}
+
+@media (max-width: 767px){
+	#myCarousel .carousel-inner .item img{
+		width: 70px;height: 70px;
+	}
+	.partner-link img{
+		width: 50px;height: 50px;
+	}
+	#myCarousel .right{
+		width: 70px;height: 70px;
+	}
+	#myCarousel .left{
+		width: 70px;height: 70px;
+	}
+}
+
+@media (min-width: 768px) {
+	#myCarousel .carousel-inner .item img{
+		width: 70px;height: 70px;
+	}
+	.partner-link img{
+		width: 50px;height: 50px;
+	}
+	#myCarousel .right{
+		width: 70px;height: 70px;
+	}
+	#myCarousel .left{
+		width: 70px;height: 70px;
+	}
+}
+
+@media (min-width: 992px) {
+	#myCarousel .carousel-inner .item img{
+		width: 100px;height: 100px;
+	}
+	.partner-link img{
+		width: 80px;height: 80px;
+	}
+	#myCarousel .right{
+		width: 84px;height: 80px;
+	}
+	#myCarousel .left{
+		width: 84px;height: 80px;
+	}
+}
+
+@media (min-width: 1200px) {
+	#myCarousel .carousel-inner .item img{
+		width: 120px;height: 120px;
+	}
+	.partner-link img{
+		width: 100px;height: 100px;
+	}
+	#myCarousel .right{
+		width: 84px;height: 80px;
+	}
+	#myCarousel .left{
+		width: 84px;height: 80px;
+	}
+}
+/*end myCarousel*/
+
+/* poster main */
+.link-button {
+	display:inline-block;
+	width: 292px;
+	height: 70px;	
+	background: transparent url('../img/index_quick_view.png') no-repeat !important;
+}
+
+
+/* Sections list */
+.sections-list {
+	max-width: 100%;
+	background: url('../img/index_sections_bg.jpg');
+	padding-bottom: 100px;
+}
+
+.sections-list .pin {
+	margin-top: -54px;
+	text-align: center;
+}
+
+.sections-list .pin.pin-white{
+	background: url('../img/index_pin_white.png');
+}
+
+.sections-list .pin.pin-gray{
+	background: url('../img/index_pin_gray.png');
+}
+
+.sections-list .section {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.sections-list .section.section-nomargin {
+	margin-top: 0px;
+}
+
+.sections-list .section.section-margin {
+	margin-top: 120px;
+}
+
+.sections-list .section.section-white {
+	background-color: white;
+	padding-bottom: 140px;
+}
+
+/* End of sections list */
+
+/* Wisdom-saying Style */
+.wisdom-saying {
+	margin-top: 30px;
+}
+
+.wisdom-saying .portrait {
+	
+}
+
+.wisdom-saying .author-name {
+	font-size: 18px;
+	font-family: KaiTi !important;
+	color: #555;
+}
+
+.wisdom-saying .content {
+	color: #555;
+	line-height: 150%;
+	font-size: 20px;
+	font-family: KaiTi !important;
+}
+
+.wisdom-saying .important-data {
+	color: #ba2635;
+	line-height: 100%;
+	font-size: 26px;
+	font-family: Microsoft YaHei !important;
+}
+
+.wisdom-saying .ignore-data {
+	color: #ba2635;
+	text-decoration: line-through;
+	line-height: 100%;
+	font-size: 18px;
+	font-family: Microsoft YaHei !important;
+}
+
+.wisdom-saying .explaination {
+	font-size: 24px;
+	margin-top: 40px;
+}
+
+.wisdom-saying .link {
+	margin-top: 30px;
+	font-size: 18px;
+}
+
+.wisdom-saying .link a {
+	font-family: Microsoft YaHei !important;
+	font-size: 18px;
+	color: #ba2635;
+	border-bottom: #ba2635 1px solid;
+}
+
+.wisdom-saying .link a:hover{
+	color: #1abc9c;
+	border-bottom: #1abc9c 1px solid;
+	text-decoration: none;
+}
+
+.wisdom-saying .link .link-icon {
+	width: 23px;
+	height: 23px;
+	background: url('../img/index_icon_goto.png');
+}
+
+.wisdom-saying .content .partner{
+	color:#7D7B79;
+}
