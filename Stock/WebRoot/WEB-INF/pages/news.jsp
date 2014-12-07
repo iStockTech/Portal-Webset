@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>斯多克 -- 咨询中心</title>  
+<title>斯多克 -- 资讯中心</title>  
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">    
@@ -28,12 +28,13 @@ div{
   
 <body>
 <jsp:include page="_header.jsp?index=news"></jsp:include>
+<div id="wrapmain">
 	<div class="container text-center">
 		<!-- hot news -->
 		<div class="row text-left hotnews" data-type="type1">
-			<div class="col-lg-4"><img alt="news1" src="front/dist/img/news/news1.jpg"><p class="profile"><a href="javascript:viod(0);"></a></p></div>
-			<div class="col-lg-4"><img alt="news2" src="front/dist/img/news/news1.jpg"><p class="profile"><a href="javascript:viod(0);"></a></p></div>
-			<div class="col-lg-4"><img alt="news3" src="front/dist/img/news/news1.jpg"><p class="profile"><a href="javascript:viod(0);"></a></p></div>
+			<div class="col-lg-4"><img alt="HotNews" ><p class="profile"><a href="javascript:viod(0);"></a></p></div>
+			<div class="col-lg-4"><img alt="HotNews" ><p class="profile"><a href="javascript:viod(0);"></a></p></div>
+			<div class="col-lg-4"><img alt="HotNews" ><p class="profile"><a href="javascript:viod(0);"></a></p></div>
 		</div>
 		<!-- end hot news -->
 		<div class="row">
@@ -160,6 +161,7 @@ div{
 			<!-- end 指数板块 -->
 		</div>
 	</div>
+</div>
 <jsp:include page="_footer.jsp"></jsp:include>
 <!-- 
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>

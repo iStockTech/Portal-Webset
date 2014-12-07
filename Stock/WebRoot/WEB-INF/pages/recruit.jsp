@@ -46,6 +46,8 @@
 
 <body data-spy="scroll" data-target="#myScrollspy">
 <jsp:include page="_header.jsp?index=about" />
+<div id="wrapmain">
+
 <div class="container">
     <div class="row">
         <div class="col-xs-3" id="myScrollspy">
@@ -129,6 +131,8 @@
 		    <br><br>
         </div>
     </div>
+</div>
+
 </div>
 <jsp:include page="_footer.jsp" />
 <!-- 

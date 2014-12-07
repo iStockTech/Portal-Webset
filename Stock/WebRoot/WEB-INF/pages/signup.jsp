@@ -21,11 +21,12 @@
 <link rel="icon" href="front/dist/img/icon_stockii_square.png">
 </head>
 <body>
-	<jsp:include page="_header.jsp?index=signup" />
+<jsp:include page="_header.jsp?index=signup" />
+<div id="wrapmain">	
 	
 	<div class="container sign-up-section">
     	<div class="col-md-6">
-		<form action="UserRegisterServlet" method="post" onSubmit="return validate(this)">
+		<form action="userRegister" method="post" onSubmit="return validate(this)">
 			<div class="row sign-up-input">
 				<div class="sign-up-field">
 					<h3>邮箱*</h3>
@@ -43,8 +44,16 @@
 				</div>
 				
 				<div class="sign-up-field">
+					<h3>确认密码*</h3>
+					<input id="id_passwordConf" class="form-control" type="password"
+						name="conf" placeholder="密码确认"
+						onBlur="validatePswConf(this.value)">
+					<h5 id="tip_pswconf"></h5>
+				</div>
+				
+				<div class="sign-up-field">
 					<h3>身份证号*</h3>
-					<input id="id_idno" class="form-control" type="text" name="userId"
+					<input id="id_idno" class="form-control" type="text" name="idNum"
 						placeholder="身份证号/护照号" maxlength="50"
 						onBlur="validateIdNumber(this.value)">
 					<h5 id="tip_idnumber"></h5>
@@ -53,14 +62,21 @@
 				<div class="sign-up-field">
 					<h3>真实姓名*</h3>
 					<input id="id_realname" class="form-control" type="text"
-						name="realname" placeholder="斯多克服务要求实名认证" maxlength="50"
+						name="realName" placeholder="斯多克服务要求实名认证" maxlength="50"
 						onBlur="validateRealName(this.value)">
 					<h5 id="tip_realname"></h5>
+				</div>
+				
+				<div class="sign-up-field">
+					<h3>性别</h3>
+					<input type="radio" name="sex" value="male" checked="checked" />男
+					<input type="radio" name="sex" value="female" />女
+					<h5 id="tip_sex"></h5>
 				</div>
 
 				<div class="sign-up-field">
 					<h3>用户名</h3>
-					<input id="id_name" class="form-control" type="text" name="name"
+					<input id="id_name" class="form-control" type="text" name="mid"
 						placeholder="您的昵称是？" maxlength="50"
 						onBlur="validateUserName(this.value)">
 					<h5 id="tip_username"></h5>
@@ -68,33 +84,34 @@
 
 				<div class="sign-up-field">
 					<h3>电话</h3>
-					<input id="id_phone" class="form-control" type=tel name="userPhone"
-						placeholder="填入手机号有利于帐户安全" onBlur="validatePhone(this.value)">
+					<input id="id_phone" class="form-control" type=tel name="phone"
+						placeholder="填入手机号有利于帐户安全" onBlur="validateTelephone(this.value)">
 					<h5 id="tip_phone"></h5>
 				</div>
 
 				<div class="sign-up-field">
 					<h3>公司</h3>
 					<input id="id_company" class="form-control" type="text"
-						name="company" placeholder="填入公司信息帮助我们更好的认识您">
+						name="info" placeholder="填入公司信息帮助我们更好的认识您">
 					<h5 id="tip_company"></h5>
 				</div>
 
 				<div class="note">
 					点击注册表示您同意我们的 <a href="https://istocktech.com/terms/">条款</a> and <a
 						href="https://istocktech.com/privacy/">隐私协议</a>.
-				<button class="btn btn-success">注册</button>
 				</div>
+				<button class="btn btn-success" type="submit">注册</button>
+
 			</div>
-		</form>
+			</form>
 		</div>    
     </div>
+</div>
+<jsp:include page="_footer.jsp" />
 	
-	<jsp:include page="_footer.jsp" />
-	<!-- 
-    <script language="javascript" charset="GBK" src="../js/signup_validate.js"></script>
-    <script type="text/javascript" src="front/dist/js/jquery.min.js"></script>
-	<script type="text/javascript" src="front/dist/js/bootstrap.min.js"></script>
-	 -->
+<!-- <script language="javascript" charset="GBK" src="../js/signup_validate.js"></script>
+<script type="text/javascript" src="front/dist/js/jquery.min.js"></script>
+<script type="text/javascript" src="front/dist/js/bootstrap.min.js"></script> -->
+	
 </body>
 </html>

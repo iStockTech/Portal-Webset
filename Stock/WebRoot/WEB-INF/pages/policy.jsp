@@ -34,6 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
 <body>
 <jsp:include page="_header.jsp?index=project" />
+<div id="wrapmain">
 
 <div id="policy_bd">
 <ul id="myTab" class="nav nav-tabs">
@@ -150,9 +151,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
    </div>
 </div>
-
 </div>
-
+</div>
 <jsp:include page="_footer.jsp" />
 <!-- 
 <script src="front/dist/js/jquery.min.js" type="text/javascript"></script>

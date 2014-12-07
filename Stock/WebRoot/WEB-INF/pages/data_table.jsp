@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <jsp:include page="_header.jsp?index=product" />
+<div id="wrapmain">
 	<div class="container" style="height: 1000px; padding-bottom: 300px;">
 		<h1 style="font-size: 30px; padding: 20px;">A股所有公司</h1>
 		
@@ -41,6 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<!-- 此处可以是url，可以是action，要注意不是每种html都可以加，是跟当前网页有相同布局的才可以。另外一个重要的地方是page参数，这个一定要加在这里，它的作用是指出当前页面页码，没加载一次数据，page自动+1,我们可以从服务器用request拿到他然后进行后面的分页处理。-->
 		</div>
 	</div>
+</div>
 <%-- <jsp:include page="_footer.jsp" /> --%>
 
 <script type="text/javascript">

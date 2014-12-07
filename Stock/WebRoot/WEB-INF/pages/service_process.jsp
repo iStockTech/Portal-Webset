@@ -31,9 +31,11 @@
 </head>
 <body>
 <jsp:include page="_header.jsp" />
+<div id="wrapmain">
 <div class="service_process">
 	<span>斯多克服务流程</span>
 	<img alt="service process" src="front/dist/img/service-process.png">
+</div>
 </div>
 <jsp:include page="_footer.jsp" />
 <!-- 

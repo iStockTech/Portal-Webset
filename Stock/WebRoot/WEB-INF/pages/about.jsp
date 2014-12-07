@@ -30,7 +30,7 @@ if(request.getParameter("id")=="" || request.getParameter("id")==null){
 	id=request.getParameter("id");
 }
 %>
-
+<div id="wrapmain">
 <div class="container mgb40 mgt40">
  <div class="row tab">
  	<div class="col-md-2">
@@ -207,11 +207,9 @@ if(request.getParameter("id")=="" || request.getParameter("id")==null){
 	  		</div>
 		</div>
 	
-  </div>
-	
-	
+  </div>	
 </div>
-
+</div>
 <jsp:include page="_footer.jsp"></jsp:include>
 <!-- 
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>

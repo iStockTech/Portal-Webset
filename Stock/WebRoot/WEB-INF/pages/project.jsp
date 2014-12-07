@@ -17,6 +17,8 @@
 </head>
 <body>
 <jsp:include page="_header.jsp?index=project" />
+<div id="wrapmain">
+
 <div class="suspend">
 	<dl>
 		<dt class="IE6PNG"></dt>
@@ -149,6 +151,8 @@
 </div>
 
 <br>
+
+</div>
 <jsp:include page="_footer.jsp" />
 <!-- 
 <script src="front/dist/js/jquery.min.js" type="text/javascript"></script>

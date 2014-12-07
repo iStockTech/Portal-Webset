@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <jsp:include page="_header.jsp?index=product" />
+<div id="wrapmain">
 
 <div id="productDetail">
 	<div class="topBackground">
@@ -105,6 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>
 
+</div>
 <jsp:include page="_footer.jsp" />
 <!-- 
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>

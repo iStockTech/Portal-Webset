@@ -65,10 +65,21 @@ nav ul.nav.navbar-nav li.active > a{
 	color: #ba2635;
 }
 
+/*fix bug for footer*/
+#wrapmain{
+	 height: auto; min-height: 100%;
+	padding-bottom: 368px; /*equal to footer height*/
+}
+
+
 /* Styles for footer elements */
 footer{
 	background: #272727;
 	padding: 0;
+	position: relative;
+	margin-top: -368px; footer高度的负值
+	height: 368px;
+	clear:both; 
 }
 
 footer .footer-panel {

@@ -23,10 +23,9 @@
 }
 </style>
 </head>
-<!-- NAVBAR
-================================================== -->
-  <body>
-    <jsp:include page="_header.jsp?index=vip" />
+<body>
+<jsp:include page="_header.jsp?index=vip" />
+<div id="wrapmain">
 	<header class="jumbotron " id="overview">
 		<div class="container">	
 		    <h1>VIP服务 <small>享受斯多克更多个性化服务</small></h1>
@@ -36,7 +35,8 @@
 		
 	</div>
 	
-	<jsp:include page="_footer.jsp" />
+</div>
+<jsp:include page="_footer.jsp" />
 
 </body>
 </html>

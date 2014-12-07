@@ -21,6 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
 <body>
 <jsp:include page="_header.jsp?para=project"></jsp:include> 
+<div id="wrapmain">
+
 <div class="suspend">
 		<dl>
 			<dt class="IE6PNG"></dt>
@@ -73,6 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </div>
 
+</div>
 <jsp:include page="_footer.jsp"></jsp:include>
 <!-- 
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>

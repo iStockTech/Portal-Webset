@@ -19,11 +19,10 @@
 
 <body>
     <jsp:include page="_header.jsp?index=account" />
-	
+	<div id="wrapmain">
 	<div class=" maxbg container">
 		<div class="row">
 			<div class="col-md-2">
-<!-- 				<img alt="img-left" src="front/dist/img/account.png"> -->
 			</div>
 			<div id="img-tips" class="col-md-5">
 				<img alt="img-tips" src="front/dist/img/account_tips.png">
@@ -62,7 +61,16 @@
 		</div>	
 	</div>
 	
+	</div>
 	
+    
+    <!-- <footer>
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background: red;height: 100px;"></div>
+    		</div>
+    	</div>
+    </footer> -->
     
     <jsp:include page="_footer.jsp" />
     

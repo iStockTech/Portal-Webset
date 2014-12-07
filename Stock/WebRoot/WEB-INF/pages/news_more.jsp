@@ -30,7 +30,7 @@ if(more==""||more==null){
  %>
 
 <jsp:include page="_header.jsp?index=news"></jsp:include>
-
+<div id="wrapmain">
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">
@@ -51,7 +51,7 @@ if(more==""||more==null){
 					<div class="block" data-aim="js-type-all" data-type="all">
 						<div class="news">
 							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src="front/dist/img/news/news1.jpg"></div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" ></div>
 								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
 									<div class="fagement">
 										<p class="title"><a href="javascript:void(0);"></a></p>
@@ -63,7 +63,7 @@ if(more==""||more==null){
 						</div>
 						<div class="news">
 							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src="front/dist/img/news/news1.jpg"></div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" ></div>
 								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
 									<div class="fagement">
 										<p class="title"><a href="javascript:void(0);"></a></p>
@@ -108,205 +108,14 @@ if(more==""||more==null){
 									</div>
 								</div>
 							</div>					
-						</div>
-						
+						</div>						
 					</div><!-- end 全部新闻 -->
 					
-					<!-- 财经头条 -->
-					<!-- <div class="block hide" data-aim="js-type-2" data-type="type2">
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src="front/dist/img/news/news1.jpg"></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>							
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src="front/dist/img/news/news1.jpg"></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src=""></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src=""></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src=""></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div> -->
-					</div><!-- end 财经头条 -->
-					
-					<!-- 财经要闻 type3 -->
-					<!-- <div class="block hide" data-aim="js-type-3" data-type="type3">
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src="front/dist/img/news/news1.jpg"></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>							
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src="front/dist/img/news/news1.jpg"></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src=""></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src=""></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src=""></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div> -->
-					</div><!-- end 财经要闻 type3 -->
-					
-					<!-- 投资者管理 type4 -->
-					<!-- <div class="block hide" data-aim="js-type-4" data-type="type4">
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src="front/dist/img/news/news1.jpg"></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>							
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src="front/dist/img/news/news1.jpg"></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src=""></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src=""></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div>
-						<div class="news">
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><img class="imply" alt="新闻1+1" src=""></div>
-								<div class="col-lg-9 col-lg-9 col-sm-9 col-xs-9">
-									<div class="fagement">
-										<p class="title"><a href="javascript:void(0);"></a></p>
-										<p class="source"></p>
-										<div class="body"></div>
-									</div>
-								</div>
-							</div>					
-						</div> -->
-					</div><!-- end 投资者管理 type5 -->
 				</div>
 			</div>
 		</div>
 	</div>
+	
 </div>
 
 <div class="container text-center">
@@ -325,14 +134,15 @@ if(more==""||more==null){
 	</div>
 </div>
 
+</div>
 <jsp:include page="_footer.jsp" />
 <!-- 
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery-ui.min.js"></script>
 <script type="text/javascript" language="javascript" src="front/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
- -->
 </script>
+ -->
 <script type="text/javascript">
 $(function(){
 	var currentPage=1;
@@ -453,6 +263,7 @@ $(function(){
 			}
 		});
 	}	
+	
 	/*新闻类别切换==初始显示*/
 	function switchTab_hor(){
 		var target=$(this).attr("data-target");

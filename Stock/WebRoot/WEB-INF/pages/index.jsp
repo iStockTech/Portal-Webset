@@ -25,7 +25,8 @@
 <!-- NAVBAR
 ================================================== -->
 <body>
-	<jsp:include page="_header.jsp?index=index" />
+<jsp:include page="_header.jsp?index=index" />
+<div id="wrapmain">
 	<div class="container-fluid">
 		<div class="row-fluid poster-main" style="padding-top:430px;height:659px;background-image: url('front/dist/img/index_main_bg.jpg');background-size:100% 100% ">
 			<div style="text-align: center;"><a onFocus="this.blur()"class="link-button" href="product"></a></div>
@@ -237,6 +238,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 </div>
 <jsp:include page="_footer.jsp" />
 

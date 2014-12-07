@@ -29,7 +29,7 @@ if(id==""||id==null){
 }
  %>
 <jsp:include page="_header.jsp?index=news"></jsp:include>
-
+<div id="wrapmain">
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 news-general">
@@ -40,7 +40,7 @@ if(id==""||id==null){
 		</div>
 	</div>
 </div>
-
+</div>
 <jsp:include page="_footer.jsp"></jsp:include>  
 <!-- 
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>

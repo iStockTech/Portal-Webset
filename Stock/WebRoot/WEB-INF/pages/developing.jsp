@@ -25,6 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <jsp:include page="_header.jsp" />
+  <div id="wrapmain">
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="maxbg">
@@ -54,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-
+	</div>
 	<jsp:include page="_footer.jsp" /> 
     
     <!-- <script type="text/javascript" src="front/dist/js/jquery.min.js"></script>

@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <jsp:include page="_header.jsp?index=corpration" />
-
+<div id="wrapmain">
 <!-- QQ service -->
 <div class="suspend">   
 	<dl>
@@ -144,7 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div><!-- end F & Q -->
 	
 </div>
-
+</div>
 <jsp:include page="_footer.jsp" />
 <script type="text/javascript">
 $(".btn-view").click(function(){

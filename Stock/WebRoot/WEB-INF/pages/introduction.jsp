@@ -17,7 +17,7 @@
 </head>
 <body>
 <jsp:include page="_header.jsp" />
-
+<div id="wrapmain">
 <!-- START THE FEATURETTES -->
   <div class="container featurette">
   <hr class="featurette-divider">
@@ -58,7 +58,7 @@
   </div>
   </div>
   <hr class="featurette-divider">
-
+</div>
 <jsp:include page="_footer.jsp" />
 <!-- 
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>

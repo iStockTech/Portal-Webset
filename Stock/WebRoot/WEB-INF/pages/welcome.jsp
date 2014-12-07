@@ -15,8 +15,8 @@
 </head>
 
 <body>
-    <jsp:include page="_header.jsp?index=account" />
-
+<jsp:include page="_header.jsp?index=account" />
+<div id="wrapmain">
     <header class="jumbotron subhead-freshgreen" id="overview">
 		<div class="container">
 			<h1>我的帐户</h1>
@@ -42,6 +42,8 @@
 			}
 		%>
 	</div>
-	<jsp:include page="_footer.jsp" />
+
+</div>
+<jsp:include page="_footer.jsp" />
 </body>
 </html>

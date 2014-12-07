@@ -1,6 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 
-<div class="container-fluid">
+<!-- <div class="container-fluid"> -->
 	<nav class="nav navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -21,7 +21,7 @@
 				 <li class='${param.index=="corpration"?"active":"" }'>
 					<a href="corpration" onFocus="this.blur()">合作</a></li>
 				<li class='${param.index=="news"?"active":"" }'>
-					<a href="news" onFocus="this.blur()">咨询中心</a></li>
+					<a href="news" onFocus="this.blur()">资讯中心</a></li>
 				 <li class='${param.index=="about"?"active":"" }'>
 					<a href="about" onFocus="this.blur()">关于我们</a></li>
             </ul>
@@ -36,4 +36,4 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-</div>
+<!-- </div> -->

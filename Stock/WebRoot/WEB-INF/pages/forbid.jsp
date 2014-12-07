@@ -27,12 +27,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <jsp:include page="_header.jsp"></jsp:include>
+<div id="wrapmain">
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="min-height: 600px;"><h1 style="line-height: 600px;">对不起，您请求的资源不被允许。点击<a href="index">[ 这里 ]</a>返回主页</h1></div>
 	</div>
 </div>
-
+</div>
 <jsp:include page="_footer.jsp"></jsp:include>
 </body>
 </html>
