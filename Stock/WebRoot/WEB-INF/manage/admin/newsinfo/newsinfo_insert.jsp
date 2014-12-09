@@ -112,8 +112,12 @@
 	</tr>
 	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
 		<td><font size="2">附件：</font></td>
-		<td><input type="file" name="attachment""></td>
+		<td><input type="file" name="attachment"></td>
 		<td><input type="button" value="添加" onclick="addFile()"></td>
+	</tr>
+	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
+		<td><font size="2">新闻图片：</font></td>
+		<td><input type="file" name="imageFile"></td>
 	</tr>
 	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
 		<td colspan="2"><font size="2">内容：</font></td>

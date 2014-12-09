@@ -36,7 +36,7 @@
 	</tx:advice>
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 
-	<!-- 那些类的哪些方法参与事务 -->
+	<!-- 那些类的哪些方法参与事务 -->  
 	<aop:config>
 		<aop:pointcut id="allManagerMethod"
 			expression="execution(* org.news.service.impl.*.*(..))" />
@@ -68,6 +68,14 @@
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
+	<bean id="imageDAO" class="org.news.dao.ImageHibernateDAO">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="stockDayInfoHibernateDAO" class="org.news.dao.StockDayInfoHibernateDAO">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
 	
 	<bean id="adminService" class="org.news.service.impl.AdminServiceImpl">
 		<property name="adminDAO" ref="adminDAO"></property></bean>
@@ -84,7 +92,10 @@
 		<property name="userDAO" ref="usersDAO"></property></bean>
 	<bean id="permissionService" class="org.news.service.impl.PermissionServiceImpl">
 		<property name="permissionDao" ref="permissionDAO"></property></bean>
-		
+	<bean id="imageService" class="org.news.service.impl.ImageServiceImpl">
+		<property name="imageDAO" ref="imageDAO"></property></bean>
+	<bean id="stockDayInfoHibernateService" class="org.news.service.impl.StockDayInfoTableServiceImpl">
+		<property name="stockDayInfoHibernateDAO" ref="stockDayInfoHibernateDAO"></property></bean>
 	<bean id="adminAction" class="org.news.action.AdminAction">
 		<property name="adminService" ref="adminService"></property></bean>
 	<bean id="adminLogin" class="org.news.action.AdminLogin">
@@ -94,7 +105,8 @@
 	<bean id="newsInfoAction" class="org.news.action.NewsInfoAction">
 		<property name="service" ref="newsInfoService"></property>
 		<property name="typeService" ref="newsTypeService"></property>
-		<property name="attiService" ref="attachmentService"></property></bean>
+		<property name="attiService" ref="attachmentService"></property>
+		<property name="imageService" ref="imageService"></property></bean>
 	<bean id="newsTypeAction" class="org.news.action.NewsTypeAction">
 		<property name="newstypeService" ref="newsTypeService"></property></bean>
 	<bean id="softwareAction" class="org.news.action.SoftwareAction">
@@ -109,11 +121,14 @@
 		<property name="userService" ref="userService"></property>
 		<property name="adminService" ref="adminService"></property>
 		<property name="newstypeService" ref="newsTypeService"></property></bean>
+		
 	<bean id="newsInterfaceAction" class="org.news.action.NewsInterfaceAction">
 		<property name="service" ref="newsInfoService"></property>
-		<property name="typeService" ref="newsTypeService"></property>
-		<property name="attiService" ref="attachmentService"></property>
-	</bean>
+		<property name="imageService" ref="imageService"></property>
+		<property name="stockDayInfoHibernateService" ref="stockDayInfoHibernateService"></property></bean>
+		
 	<bean id="permissionAction" class="org.news.action.PermissionAction">
 		<property name="permissionService" ref="permissionService"></property></bean>
+	<bean id="newsImageAction" class="org.news.action.NewsImageAction">
+		<property name="imageService" ref="imageService"></property></bean>
 </beans>

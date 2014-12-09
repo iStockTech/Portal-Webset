@@ -21,8 +21,7 @@
 <link rel="icon" href="front/dist/img/icon_stockii_square.png">
 </head>
 <body>
-<jsp:include page="_header.jsp?index=signup" />
-<div id="wrapmain">	
+	<jsp:include page="_header.jsp?index=index" />
 	
 	<div class="container sign-up-section">
     	<div class="col-md-6">
@@ -106,12 +105,12 @@
 			</form>
 		</div>    
     </div>
-</div>
-<jsp:include page="_footer.jsp" />
 	
-<!-- <script language="javascript" charset="GBK" src="../js/signup_validate.js"></script>
-<script type="text/javascript" src="front/dist/js/jquery.min.js"></script>
-<script type="text/javascript" src="front/dist/js/bootstrap.min.js"></script> -->
+	<jsp:include page="_footer.jsp" />
+	
+    <script language="javascript" charset="GBK" src="../js/signup_validate.js"></script>
+    <script type="text/javascript" src="front/dist/js/jquery.min.js"></script>
+	<script type="text/javascript" src="front/dist/js/bootstrap.min.js"></script>
 	
 </body>
 </html>

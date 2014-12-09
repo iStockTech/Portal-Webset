@@ -141,7 +141,7 @@ public class NewsInfoHibernateDAO extends HibernateDaoSupport {
       * @param lineSize 每页大小
       * @return 新闻集合
       */
-     @SuppressWarnings("unchecked")
+     @SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<NewsInfo> getAllNewsInfo(final String keyword, final int currentPage, final int lineSize){
 		final String hql = "from newsinfo where newsInfoTitle like ?"
 					+ " or newsInfoDescribe like ? "
@@ -178,10 +178,11 @@ public class NewsInfoHibernateDAO extends HibernateDaoSupport {
        @SuppressWarnings("unchecked")
 	public List<NewsInfo> getAllNewsInfoByType(String newsType){
     	   try {
-     			String queryString = "from newsinfo where newsType=? order by newsInfoId desc";
-     			return (List<NewsInfo>)getHibernateTemplate().find(queryString, newsType);
+     			String queryString = "from newsinfo n where n.newsType= ? order by newsinfoId desc";
+     			return (List<NewsInfo>)getHibernateTemplate().find(queryString,newsType);
      		} catch (RuntimeException re) {
      			log.error("find all failed", re);
+     			re.printStackTrace();
      			throw re;
      		}
        }
@@ -201,6 +202,17 @@ public class NewsInfoHibernateDAO extends HibernateDaoSupport {
 	 		     " or newsAuthor like ? order by newsInfoId desc",'%' + keyword + '%', 
 	 		    '%' + keyword + '%', '%' + keyword + '%', Common.getSwitchDate(keyword), '%' + keyword + '%', '%' + keyword + '%').get(0);
        }
+       
+       /**
+	   	* 获取某类新闻的新闻数量
+	   	* @param newsType
+	   	* @return
+	   	*/
+	   public long getCountByType(String newsType) {
+		   String queryString = "select count(newsinfoId) from newsinfo where newsType = ?";
+		   return (Long)getHibernateTemplate().find(queryString,newsType).get(0);
+
+	   }
        
        
 }

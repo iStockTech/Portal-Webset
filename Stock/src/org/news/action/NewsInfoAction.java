@@ -13,11 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.news.model.Admin;
+import org.news.model.Image;
 import org.news.model.NewsAttachment;
 import org.news.model.NewsInfo;
 import org.news.model.NewsType;
 import org.news.model.NewsVO;
 import org.news.service.AttachmentService;
+import org.news.service.ImageService;
 import org.news.service.NewsInfoService;
 import org.news.service.NewsTypeService;
 import org.news.utils.Logger;
@@ -38,6 +40,7 @@ public class NewsInfoAction extends ActionSupport {
 	private NewsInfoService service;
 	private NewsTypeService typeService;
 	private AttachmentService attiService;
+	private ImageService imageService;
 
 	/**
 	 * @param attiService the attiService to set
@@ -90,6 +93,39 @@ public class NewsInfoAction extends ActionSupport {
    // 多个上传文件的文件名集合
     private List<String> attachmentFileName;
 	
+    //上传图片到服务器
+    private File imageFile;    
+    private String imageFileFileName;   
+    private String imageFileContentType;   
+	public File getImageFile() {
+		return imageFile;
+	}
+
+	public void setImageFile(File imageFile) {
+		this.imageFile = imageFile;
+	}
+
+	public String getImageFileFileName() {
+		return imageFileFileName;
+	}
+
+	public void setImageFileFileName(String imageFileFileName) {
+		this.imageFileFileName = imageFileFileName;
+	}
+
+	public String getImageFileContentType() {
+		return imageFileContentType;
+	}
+
+	public void setImageFileContentType(String imageFileContentType) {
+		this.imageFileContentType = imageFileContentType;
+	}
+
+	
+	public void setImageService(ImageService imageService) {
+		this.imageService = imageService;
+	}
+
 	/**
 	 * @return the attachment
 	 */
@@ -445,13 +481,15 @@ public class NewsInfoAction extends ActionSupport {
 		}else if (newsType != null){
 			NewsInfo news = null;
 			StringBuffer type = new StringBuffer();
-			for (int i = 0; i<newsType.length; i++){
+		/*	for (int i = 0; i<newsType.length; i++){
 				type.append(newsType[i]+",");
-			}
+			}*/
+			type.append(newsType[0]);
 			setMsg("新闻修改失败！");
 			newsInfoId = pid ;
 			news = new NewsInfo(newsInfoId,name,describe,content,
 					service.searchNewsInfo(newsInfoId).getNewsInfoTime(),author,admin.getAdminId(),type.toString(),1);//创建时间不变
+		
 			try {//更新数据库
 				if(service.updateNewsInformation(news,attachment,attachmentFileName)){
 					setMsg("新闻修改成功！");
@@ -487,27 +525,37 @@ public class NewsInfoAction extends ActionSupport {
 		}else if (newsType != null){
 			NewsInfo news = null;
 			StringBuffer type = new StringBuffer();
-			for (int i = 0; i<newsType.length; i++){
+			/*for (int i = 0; i<newsType.length; i++){
 				type.append(newsType[i]+",");
-			}
+			}*/
+			type.append(newsType[0]);
 			setMsg("新闻增加失败！");
 			List<NewsInfo> infoList = service.getAllNewsInfo();
 			newsInfoId = ((infoList.size() == 0)? 1: (service.getAllNewsInfo().get(0).getNewsInfoId()+1));//新的ID等于最大的ID加1
 			news = new NewsInfo(newsInfoId,name,describe,content,
 					new Date(new java.util.Date().getTime()),author,admin.getAdminId(),type.toString(),0);//创建时间为当前时间
-			try {//更新数据库
-				if(service.addNewsInfo(news,attachment,attachmentFileName)){
-					setMsg("新闻增加成功！");
-					if (attachment!= null){
-						attachment.clear();
-					}					
+			
+			if(imageService.imageExecute(imageFile, imageFileFileName)){
+				Image image = new Image();
+				List<Image> images = imageService.getAllImages();
+				int imageId = (images.size() == 0) ? 1 : (images.get(images.size()-1).getImageId() + 1);// 新的ID等于最大的ID加1
+				image = new Image(imageId, newsInfoId,imageFileFileName, "新闻"+newsInfoId+"的配图");// 创建时间为当前时间
+				try {// 更新数据库
+					if (imageService.addImage(image)&&service.addNewsInfo(news,attachment,attachmentFileName)) {
+						setMsg("新闻增加成功！");
+						if(imageFile!=null){
+							imageFile.delete();
+						}
+						if (attachment!= null){
+							attachment.clear();
+						}	
+					}
+					return SUCCESS;
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-				return SUCCESS;
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
-	
 		return ERROR;
 	}
 	
@@ -580,7 +628,7 @@ public class NewsInfoAction extends ActionSupport {
 		int[] newsId = new int[1];
 		newsId[0] = pid;
 		try {
-			if (service.deleteNewsInfo(newsId)) {
+			if (service.deleteNewsInfo(newsId)&&imageService.deleteImage(imageService.getImageName(pid), pid)){
 				setMsg(MessageUtil
 						.get("newsinfo.delete.true"));
 			} else {

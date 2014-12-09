@@ -10,7 +10,7 @@ import org.apache.struts2.ServletActionContext;
 
 /**
  * @author 张轮
- * 后台处理上传图片
+ * 后台处理上传图片：用于处理新闻内容中的图片
  *
  */
 public class UploadAction extends BaseAction{
@@ -48,5 +48,9 @@ public class UploadAction extends BaseAction{
 	public void setImgFile(File imgFile) {
 		this.imgFile = imgFile;
 	}
+	
+	
+	
+	
 	
 }

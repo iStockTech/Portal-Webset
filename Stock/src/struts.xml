@@ -8,29 +8,34 @@
 			<!-- 此处{1}表示前面第一个*代表的字符串 -->
 			<result>/WEB-INF/pages/{1}.jsp</result>
 		</action>
-		<action name="userRegister"
-			class="userRegisterAction">
+		
+		<action name="userRegister" class="org.news.action.UserRegisterAction">
 			<result name="success">
 				<param name="location">/WEB-INF/pages/regist_do.jsp</param>
 				<param name="refresh">2;URL=/WEB-INF/pages/account.jsp</param>
+				/WEB-INF/pages/forbid.jsp
 			</result>
 			<result name="error">
 				/WEB-INF/pages/regist_do.jsp
 			</result>
-			<result name="input">/WEB-INF/pages/signup.jsp</result>
 		</action>
+		
 		<action name="userLogin"
 			class="userLoginAction">
 			<result name="success">/WEB-INF/pages/welcome.jsp</result>
 			<result name="login">/WEB-INF/pages/account.jsp</result>
 		</action>
+		
 	    <action name="uploadAction"
 			class="org.news.action.UploadAction" method="upload">
 		</action>
+		
 		<action name="downloadAttachmentAction" method="download"
 			class="downloadAttachmentAction">
 		</action>
 	</package>
+	
+
 	
 	<!-- route settings -->
 	<package name="download" namespace="/download" extends="struts-default">
@@ -61,16 +66,11 @@
 			<result>/WEB-INF/pages/news_more.jsp?more=classify</result>
 		</action>
 		<action name="*">
-			<result>/WEB-INF/pages/news_itme.jsp?id={1}</result>
-		</action>
-	</package>
-	<!-- just for test -->
-	<package name="test_a" namespace="/test" extends="struts-default">
-		<action name="*">
-			<result>/WEB-INF/pages/{1}.jsp</result>
+			<result>/WEB-INF/pages/news_item.jsp?id={1}</result>
 		</action>
 	</package>
 	<!-- end route settings -->
+	
 	
 
 	<!-- 全局国际化 -->
@@ -80,10 +80,12 @@
 	<constant name="struts.devMode" value="true"></constant>
 	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
 	<include file="struts-manage.xml" />
+	
+	
 	<!-- 接口包 -->
 	<package name="interface" namespace="/interface"
 		extends="json-default">
-		<action name="acquireMenu" 
+		<!-- <action name="acquireMenu" 
 			class="newsInterfaceAction" method="acquireMenu">
 		<result type="json">
 				<param name="noCache">true</param>
@@ -118,7 +120,43 @@
 				<param name="noCache">true</param>
 				<param name="contentType">text/html</param>
 			</result>
+		</action> -->
+		
+		<!-- 新闻列表 -->
+		<action name="acquireHomepageAction" 
+			class="newsInterfaceAction" method="acquireHomepageAction">
+			<result type="json" name="success">
+            	<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+            </result>
 		</action>
-
+		
+		<action name="acquireNewsByTypeAction" 
+			class="newsInterfaceAction" method="acquireNewsByTypeAction">
+			<result type="json" name="success">
+            	<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+            </result>
+            <result type="json" name="error">
+                <param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+            </result>
+		</action>
+		
+		<action name="acquirenewAction" 
+			class="newsInterfaceAction" method="acquirenewAction">
+			<result type="json" name="success">
+            	<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+            </result>
+            <result type="json" name="error">
+                <param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+            </result>
+		</action>
+		
+		<!-- 股票信息表格 -->
+		
+		
 	</package>
 </struts>    

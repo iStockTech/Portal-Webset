@@ -160,6 +160,18 @@ H1 a {
 		  <li><a href="/Stock/manage/admin/newstype/NewsType_list.action" target="main">新闻类别列表</a></li>
         </ul>
       </div>
+      <h1 class="type"><a href="javascript:void(0)">新闻图片</a></h1>
+      <div class="content">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><img src="<%=request.getContextPath()%>/back/backImages/menu_topline.gif" width="182" height="5" /></td>
+          </tr>
+        </table>
+        <ul class="MM">
+		  <li><a href="<%=request.getContextPath()%>/manage/admin/photo/photoUpload.action" target="main">上传图片</a></li>
+		  <li><a href="<%=request.getContextPath()%>/manage/admin/photo/Image_list.action" target="main">图片列表</a></li>
+		</ul>
+	  </div>
       <h1 class="type"><a href="javascript:void(0)">权限管理</a></h1>
       <div class="content">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">

@@ -18,7 +18,7 @@
 		com.mysql.jdbc.Driver
 	</property>
 	<property name="myeclipse.connection.profile">MySQLdriver</property>
-	<property name="connection.password">root123</property>
+	<property name="connection.password">root</property>
 	<!-- 指定连接池里最大连接数 -->
 	<property name="hibernate.c3p0.max_size">20</property>
 	<!-- 指定连接池里最小连接数 -->
@@ -30,7 +30,7 @@
 	<property name="hibernate.c3p0.idle_test_period">3000</property>
 	<property name="hibernate.c3p0.acquire_increment">2</property>
 	<property name="hibernate.c3p0.validate">true</property>
-	<property name="hibernate.show_sql">true</property>
+	<property name="hibernate.show_sql">false</property>
 	<property name="hibernate.format_sql">true</property>
 
 
@@ -41,6 +41,8 @@
 	<mapping class="org.news.model.LeaveMessage" />
 	<mapping class="org.news.model.Users" />
 	<mapping class="org.news.model.Permission" />
+	<mapping class="org.news.model.Image" />
+	<mapping class="org.news.model.Stock_day_info" />
 
 </session-factory>
 
