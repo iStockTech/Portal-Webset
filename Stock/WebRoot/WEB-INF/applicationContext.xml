@@ -94,7 +94,7 @@
 		<property name="permissionDao" ref="permissionDAO"></property></bean>
 	<bean id="imageService" class="org.news.service.impl.ImageServiceImpl">
 		<property name="imageDAO" ref="imageDAO"></property></bean>
-	<bean id="stockDayInfoHibernateService" class="org.news.service.impl.StockDayInfoTableServiceImpl">
+	<bean id="stockDayInfoTableService" class="org.news.service.impl.StockDayInfoTableServiceImpl">
 		<property name="stockDayInfoHibernateDAO" ref="stockDayInfoHibernateDAO"></property></bean>
 	<bean id="adminAction" class="org.news.action.AdminAction">
 		<property name="adminService" ref="adminService"></property></bean>
@@ -125,7 +125,7 @@
 	<bean id="newsInterfaceAction" class="org.news.action.NewsInterfaceAction">
 		<property name="service" ref="newsInfoService"></property>
 		<property name="imageService" ref="imageService"></property>
-		<property name="stockDayInfoHibernateService" ref="stockDayInfoHibernateService"></property></bean>
+		<property name="stockDayInfoTableService" ref="stockDayInfoTableService"></property></bean>
 		
 	<bean id="permissionAction" class="org.news.action.PermissionAction">
 		<property name="permissionService" ref="permissionService"></property></bean>

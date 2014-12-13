@@ -14,8 +14,11 @@ import java.util.Map;
 
 import org.news.model.NewsIndex;
 import org.news.model.NewsInfo;
+import org.news.model.StockInfoTable;
+import org.news.model.Stock_day_info;
 import org.news.service.ImageService;
 import org.news.service.NewsInfoService;
+import org.news.service.StockDayInfoTableService;
 import org.news.utils.NewsUtil;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,7 +36,7 @@ public class NewsInterfaceAction extends ActionSupport {
 	private NewsInfoService service;
 	private ImageService imageService;
 	private NewsUtil newsUtil = new NewsUtil();
-	
+	private StockDayInfoTableService stockDayInfoTableService;
 	
 	/*private JSONObject allInfo;
 	private JSONObject numPerPage;
@@ -49,7 +52,22 @@ public class NewsInterfaceAction extends ActionSupport {
 	private String search;   //从前端获取用于判断新闻类型有哪些
 
 	
- 	public String getAllInfo() {
+	private String table;
+	
+ 	public String getTable() {
+		return table;
+	}
+
+	public void setTable(String table) {
+		this.table = table;
+	}
+
+	public void setStockDayInfoTableService(
+			StockDayInfoTableService stockDayInfoTableService) {
+		this.stockDayInfoTableService = stockDayInfoTableService;
+	}
+
+	public String getAllInfo() {
 		return allInfo;
 	}
 
@@ -366,23 +384,121 @@ public class NewsInterfaceAction extends ActionSupport {
 	}
 	
 
+	/**
+	 * 获取股票表格信息
+	 * @return
+	 */
 	public String stockDayInfoTable(){
+		List<Stock_day_info>lists = new ArrayList<>();
+		List<StockInfoTable>listTable = new ArrayList<>();
+		lists = stockDayInfoTableService.getStockByDay();
+		listTable = stockDayInfoTableService.toStockInfoTable(lists);
+		String str[] = new String[listTable.size()];
+		Map<String, String[]> mapAll = new HashMap<>();
+			/*
+			 private int id;
+			private String stock_id;
+			private String stock_name;
+			private Double growth_speed;  //涨幅
+			private Double daily_up_down;  //涨跌
+			private Double bought_price;  //买入价
+			private Double sold_price;   //卖出价
+			private Long total_money;   //金额
+			private Double amplitude_ratio;  //市盈动率
+			private Double max;  //最高
+			private Double min;  //最低
+			private Double today_begin_price;   //今日开盘价
+			private Double ytd_end_price;  //昨日收盘价
+			
+			private Long zongshou; //总手
+			private int huanshou;  //先手
+			private Double zuixin; //换手       
+			 */
 		
 		
-		
+		Map<String,String> map = new HashMap<>();
+		int i=0;
+	
+		for(StockInfoTable s:listTable){
+			map.put("id", String.valueOf(s.getId()));
+			map.put("stock_id", s.getStock_id());
+			map.put("growth_speed", s.getGrowth_speed().toString());
+			map.put("daily_up_down", s.getDaily_up_down().toString());
+			map.put("bought_price", s.getBought_price().toString());
+			map.put("sold_price", s.getSold_price().toString());
+			map.put("total_money", s.getTotal_money().toString());
+			map.put("amplitude_ratio", s.getAmplitude_ratio().toString());
+			map.put("max", s.getMax().toString());
+			map.put("min", s.getMin().toString());
+			map.put("today_begin_price", s.getToday_begin_price().toString());
+			map.put("ytd_end_price", s.getYtd_end_price().toString());
+			map.put("stock_name", s.getStock_name().toString());
+			map.put("zongshou", s.getZongshou().toString());
+			map.put("huanshou", String.valueOf(s.getHuanshou()));
+			map.put("zuixin", s.getZuixin().toString());
+			try {
+				str[i++] = newsUtil.getJson(map);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		mapAll.put("info", str);
+		try {
+			table = newsUtil.getJson(mapAll);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return SUCCESS;
 	}
 	
 	
+	/**
+	 * 分页获取股票表格信息
+	 * @return
+	 */
+	public String stockDayInfoTablePage(){
+		List<Stock_day_info>lists = new ArrayList<>();
+		List<StockInfoTable>listTable = new ArrayList<>();
+		lists = stockDayInfoTableService.getStockByDay(Integer.valueOf(currentPage).intValue(), 20);
+		listTable = stockDayInfoTableService.toStockInfoTable(lists);
+		String str[] = new String[listTable.size()];
+		Map<String, String[]> mapAll = new HashMap<>();
+		Map<String,String> map = new HashMap<>();
+		int i=0;
 	
-	
-	
-	
-	
-	
-	
-	
+		for(StockInfoTable s:listTable){
+			map.put("id", String.valueOf(s.getId()));
+			map.put("stock_id", s.getStock_id());
+			map.put("growth_speed", s.getGrowth_speed().toString());
+			map.put("daily_up_down", s.getDaily_up_down().toString());
+			map.put("bought_price", s.getBought_price().toString());
+			map.put("sold_price", s.getSold_price().toString());
+			map.put("total_money", s.getTotal_money().toString());
+			map.put("amplitude_ratio", s.getAmplitude_ratio().toString());
+			map.put("max", s.getMax().toString());
+			map.put("min", s.getMin().toString());
+			map.put("today_begin_price", s.getToday_begin_price().toString());
+			map.put("ytd_end_price", s.getYtd_end_price().toString());
+			map.put("stock_name", s.getStock_name().toString());
+			map.put("zongshou", s.getZongshou().toString());
+			map.put("huanshou", String.valueOf(s.getHuanshou()));
+			map.put("zuixin", s.getZuixin().toString());
+			try {
+				str[i++] = newsUtil.getJson(map);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		mapAll.put("info", str);
+		try {
+			table = newsUtil.getJson(mapAll);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return SUCCESS;
+	}
 	
 
 }
