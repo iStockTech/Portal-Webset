@@ -78,10 +78,10 @@
 	    	</div>
 	    	<div class="right f16">
 	    		<ul class="list-block3">
-	    			<li><a href="front/about.jsp" target="_self">关于我们</a></li>
+	    			<li><a href="forbid" target="_self">关于我们</a></li>
 	    			<li><a href="front/help/secondary.jsp?id=js-service&sid=js-privacy" target="_self">隐私条款</a></li>
 	    			<li><a href="front/help/secondary.jsp?id=js-service&sid=js-service" target="_self">协议声明</a></li>
-	    			<li><a href="front/" target="_self">更多信息</a></li>
+	    			<li><a href="#" target="_self">更多信息</a></li>
 	    		</ul>
 	    	</div>
 	    </div>    	
@@ -103,6 +103,8 @@
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.fs.boxer.js"></script>
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.webui-popover.min.js"></script> 
 <script type="text/javascript" language="javascript" src="front/dist/js/site.effect.js"></script>
+<script type="text/javascript" language="javascript" src="front/dist/js/jquery.dataTables.min.js"></script>
+
 <script type="text/javascript">
    	var PageVariables = {
    		settings: {

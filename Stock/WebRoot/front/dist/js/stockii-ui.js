@@ -25,37 +25,51 @@ function focusTo(selector) {
 
 
 /*
- * pagination - jquery
+ * pagination
  */
-;(function($,window,document,undefined){
-	var pagination=function(ele,opt){
-		this.$element=ele;
-		this.defaults={
-			"currentPage":1,
-			"NumPage":2,
-			"total":100,
-		};
-		this.options=$.extend({},this.defaults,opt);
-	};
-	pagination.prototype={
-			reshapePagination:function(){
-				var tit=this;
-				var tt=tit.options.total/tit.options.NumPage;
-				tit.$element.find("li").remove();
-				tit.$element.append('<li><a href="javascript:void(0);" data-dir="pre">&laquo;</a></li>');
-				for(var i=1;i<=tt;i++){
-					tit.$element.append('<li data-dir='+i+'><a href="javascript:void(0);">'+i+'</a></li>');
+function reshapePagination(total,numPerPage){
+	tt=Math.ceil(total/numPerPage);
+	$(".pagination li").remove();
+	$(".pagination").append('<li data-dir="pre"><a href="javascript:void(0);">&laquo;</a></li>');
+	for(var i=1;i<=tt;i++){
+		if(i==1){
+			$(".pagination").append('<li data-dir='+i+' class="active"><a href="javascript:void(0);">'+i+'</a></li>');
+		}else{
+			$(".pagination").append('<li data-dir='+i+'><a href="javascript:void(0);">'+i+'</a></li>');
+		}
+	}
+	$(".pagination").append('<li data-dir="next"><a href="javascript:void(0);">&raquo;</a></li>');
+}
+function displayPagination(currentPage,total,numPerPage){
+	$(".pagination li").on({
+		"click":function(){
+			var cancel = true;
+			if(isNaN($(this).text())){//not a number
+				if($(this).attr("data-dir").match("pre")){
+					if(currentPage!=1){
+						currentPage=currentPage-1;
+						$(this).siblings("li").removeClass("active");
+						$(this).siblings("li[data-dir="+currentPage+"]").addClass("active");
+					}else{
+						cancel = false;
+					}
+				}else{
+					if(currentPage!=Math.ceil(total/numPerPage)){
+						currentPage=currentPage+1;
+						$(this).siblings("li").removeClass("active");
+						$(this).siblings("li[data-dir="+currentPage+"]").addClass("active");
+					}else{
+						cancel = false;
+					}
 				}
-				tit.$element.append('<li><a href="javascript:void(0);" data-dir="next">&raquo;</a></li>');
-			},
-	};
-	
-	//插件 pagination
-	$.fn.Pagination=function(options){
-		var paginationSet=new pagination(this,options);
-		//重塑分页组件
-		paginationSet.reshapePagination();
-		//
-		return;
-	};
-})(jQuery,window,document);
+			}else{//is a number
+				currentPage=parseInt($(this).text());
+				$(this).siblings("li").removeClass("active");
+				$(this).addClass("active");
+			}
+			if(cancel){
+				opera(currentPage);
+			}
+		}
+	});
+}
