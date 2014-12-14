@@ -54,6 +54,7 @@
 		this.options = $.extend({}, this.defaults, options);
 	};
 	
+	
 	StockiiTable.prototype = {
 		init: function() {
 			// make the table head
@@ -72,33 +73,17 @@
 			}
 			this.element.append(tableHead);
 			
-//			// make the table content
-//			var result = this.options.contentData;
-//			// traverse content data which is a json string
-//			for(var i = 0; i < result.length; i++) {
-//				var row = $("<tr></tr>");
-//				// traverse columns, read all the properties of column object
-//				for(var j = 0; j < this.options.columns.length; j ++) {
-//					var each = this.options.columns[j];
-//					var id = each.id;
-//					row.append(
-//						$("<td><div></div></td>")
-//						.html(result[i][id]
-//								));
-//				}
-//				this.element.append(row);
-//			}
-			
-			startAjax(this.options);
-			
+			startAjax(this.element,this.options);
 		},
-		addRow: function() {
-			
-		}
 		
+		loadMore: function(){
+			reloadAjax(this.element,this.options);
+		}
 	};
 	
-	function startAjax(options) {
+	
+	
+	function startAjax(ele,options) {
 		var param = "";
 		if(options.scrollPagerUsed) {
 			param = options.ajax.data
@@ -109,22 +94,47 @@
 		}
 		
 		$.ajax({
-			url:"" + options.ajax.url,
-			type:"" +  + options.ajax.type,
-			data: "" + param,
-			dataType: "json",
+			url:options.ajax.url,
+			type:options.ajax.type,
+			datatype:"json",
 			success:function(data){
+				
 				contentData = options.ajax.func(data);
-				refreshTable(options, contentData);
+				refreshTable(ele,options, contentData);
 			},
-			error:function(){
-				console.log("get info error");
+			errot:function(){
+				console.log("error");
 			}
-		
 		});
 	}
+		
+		function reloadAjax(ele,options) {
+			var param = "";
+			if(options.scrollPagerUsed) {
+				param = options.ajax.data
+				+ "&pageNumber" + options.pageNumber
+				+ "&pageSize" + options.pageSize;
+			} else {
+				param = options.ajax.data;
+			}
+			
+			$.ajax({
+				url:options.ajax.url,
+				type:options.ajax.type,
+				datatype:"json",
+				success:function(data){
+					contentData = options.ajax.func(data);
+					refreshTable(ele,options, contentData);
+				},
+				errot:function(){
+					console.log("error");
+				}
+			});
+		}
+
 	
-	function refreshTable(options, displayData) {
+	
+	function refreshTable(ele,options, displayData) {
 		// traverse content data which is a json string
 		for(var i = 0; i < displayData.length; i++) {
 			var row = $("<tr></tr>");
@@ -137,7 +147,7 @@
 					.html(displayData[i][id]
 							));
 			}
-			this.element.append(row);
+			ele.append(row);
 		}
 	}
 	
@@ -145,6 +155,11 @@
     $.fn.stockiitable = function (options) {
     	var stockiiTable = new StockiiTable(this, options);
     	stockiiTable.init();
+    };
+    
+    $.fn.stockiitableAjaxRefrash = function(options){
+    	var stockiiTable = new StockiiTable(this, options);
+    	stockiiTable.loadMore();
     };
     
 })(jQuery);

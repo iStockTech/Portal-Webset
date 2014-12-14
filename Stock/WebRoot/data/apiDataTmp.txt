@@ -1,0 +1,19 @@
+{
+    "liststockclassficationresponse": {
+        "stockclassification": [
+            {
+                "stockid": "stockid00001",
+                "stockname": "ssname1",
+                "areaname": "ss_area1",
+                "industryname": "ss_industyr1"
+            },
+            {
+                "stockid": "stockid00002",
+                "stockname": "ss_name2",
+                "areaname": "ss_area2",
+                "industryname": "ss_industyr2"
+            },
+            
+        ]
+    }
+}

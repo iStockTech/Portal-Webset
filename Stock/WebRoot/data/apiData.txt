@@ -1,0 +1,126 @@
+{
+    "liststockclassficationresponse": {
+        "stockclassification": [
+            {
+                "stockid": "00001",
+                "stockname": "name1",
+                "areaname": "area1",
+                "industryname": "industyr1"
+            },
+            {
+                "stockid": "00002",
+                "stockname": "name2",
+                "areaname": "area2",
+                "industryname": "industyr2"
+            },
+            {
+                "stockid": "00003",
+                "stockname": "name3",
+                "areaname": "area3",
+                "industryname": "industyr3"
+            },
+            {
+                "stockid": "00004",
+                "stockname": "name4",
+                "areaname": "area4",
+                "industryname": "industyr4"
+            },
+            {
+                "stockid": "00005",
+                "stockname": "name5",
+                "areaname": "area5",
+                "industryname": "industyr5"
+            },
+            {
+                "stockid": "00001",
+                "stockname": "name1",
+                "areaname": "area1",
+                "industryname": "industyr1"
+            },
+            {
+                "stockid": "00002",
+                "stockname": "name2",
+                "areaname": "area2",
+                "industryname": "industyr2"
+            },
+            {
+                "stockid": "00003",
+                "stockname": "name3",
+                "areaname": "area3",
+                "industryname": "industyr3"
+            },
+            {
+                "stockid": "00004",
+                "stockname": "name4",
+                "areaname": "area4",
+                "industryname": "industyr4"
+            },
+            {
+                "stockid": "00005",
+                "stockname": "name5",
+                "areaname": "area5",
+                "industryname": "industyr5"
+            },
+            {
+                "stockid": "00001",
+                "stockname": "name1",
+                "areaname": "area1",
+                "industryname": "industyr1"
+            },
+            {
+                "stockid": "00002",
+                "stockname": "name2",
+                "areaname": "area2",
+                "industryname": "industyr2"
+            },
+            {
+                "stockid": "00003",
+                "stockname": "name3",
+                "areaname": "area3",
+                "industryname": "industyr3"
+            },
+            {
+                "stockid": "00004",
+                "stockname": "name4",
+                "areaname": "area4",
+                "industryname": "industyr4"
+            },
+            {
+                "stockid": "00005",
+                "stockname": "name5",
+                "areaname": "area5",
+                "industryname": "industyr5"
+            },
+            {
+                "stockid": "00001",
+                "stockname": "name1",
+                "areaname": "area1",
+                "industryname": "industyr1"
+            },
+            {
+                "stockid": "00002",
+                "stockname": "name2",
+                "areaname": "area2",
+                "industryname": "industyr2"
+            },
+            {
+                "stockid": "00003",
+                "stockname": "name3",
+                "areaname": "area3",
+                "industryname": "industyr3"
+            },
+            {
+                "stockid": "00004",
+                "stockname": "name4",
+                "areaname": "area4",
+                "industryname": "industyr4"
+            },
+            {
+                "stockid": "00005",
+                "stockname": "name5",
+                "areaname": "area5",
+                "industryname": "industyr5"
+            }
+        ]
+    }
+}

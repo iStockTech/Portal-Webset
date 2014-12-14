@@ -37,14 +37,6 @@ public class Test2Action extends ActionSupport {
 	public String execute() throws Exception {
 		getResponse = StockiiHTTPRequest.sendGet(
 				"http://192.168.1.220:8080/client/api", "command=liststockclassfication&response=json");
-		
-		System.out.println("success");
-
-		// send post request
-//		postResponse = StockiiHTTPRequest.sendPost(
-//				"http://192.168.1.220:8080/client/api", "command=liststockclassfication&response=json");
-//		System.out.println(postResponse);
-		
 		return SUCCESS;
 	}
 
