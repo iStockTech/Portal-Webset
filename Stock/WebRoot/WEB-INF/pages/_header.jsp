@@ -21,7 +21,7 @@
 				 <li class='${param.index=="corpration"?"active":"" }'>
 					<a href="corpration" onFocus="this.blur()">合作</a></li>
 				<li class='${param.index=="news"?"active":"" }'>
-					<a href="news" onFocus="this.blur()">资讯中心</a></li>
+					<a href="news/index" onFocus="this.blur()">资讯中心</a></li>
 				 <li class='${param.index=="about"?"active":"" }'>
 					<a href="about" onFocus="this.blur()">关于我们</a></li>
             </ul>

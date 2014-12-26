@@ -58,7 +58,15 @@
 			<result>/WEB-INF/pages/about.jsp?id=js-{1}</result>
 		</action>
 	</package>
-	<package name="news_model" namespace="/news/2014" extends="struts-default">
+	<package name="news_model" namespace="/news" extends="struts-default">
+		<action name="index">
+			<result>/WEB-INF/pages/newsCenter/news.jsp</result>
+		</action>
+		<action name="more">
+			<result>/WEB-INF/pages/newsCenter/news_more.jsp</result>
+		</action>
+	</package>
+	<!-- <package name="news_model" namespace="/news/2014" extends="struts-default">
 		<action name="finance">
 			<result>/WEB-INF/pages/news_more.jsp?more=overview</result>
 		</action>
@@ -68,7 +76,7 @@
 		<action name="*">
 			<result>/WEB-INF/pages/news_item.jsp?id={1}</result>
 		</action>
-	</package>
+	</package> -->
 	<!-- end route settings -->
 	
 	
