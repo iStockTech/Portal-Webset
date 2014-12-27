@@ -196,6 +196,7 @@ input,button,select,textarea{outline:none;border: 0;}
 .bgc-red3{background-color: #ba2635;}/*main*/
 .bgc-red4{background-color: #dd5965;}
 .bgc-red5{background-color: #dd7c85;}
+.bgc-f8{background-color: #f8f8f8;}
 /*边框圆角*/
 .bdradius2{border-radius:2px;}
 .bdradius4{border-radius:4px;}
@@ -227,5 +228,10 @@ input,button,select,textarea{outline:none;border: 0;}
 .bdradius8-br{border-bottom-right-radius:8px;}
 .bdradius10-br{border-bottom-right-radius:10px;}
 .bdradius12-br{border-bottom-right-radius:12px;}
+/*边框样式*/
+.border-news{
+	border: 2px solid #ddd;
+	border-radius: 4px;
+}
 /**/
 .layer{width: 100%;}

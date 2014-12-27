@@ -29,10 +29,13 @@ div{
   
 <body>
 <jsp:include page="../_header.jsp?index=news"></jsp:include>
-<div id="wrapmain" class="news">
+<div id="wrapmain" class="newscenter">
 	<div class="container text-center">
 		<!-- hot news -->
-		<div class="row text-left hotnews" data-type="type1">
+		<div class="row text-left" >
+			<div class=" newsblock hotnews" data-type="type1">
+				
+			</div>
 <!-- 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><img alt="HotNews" src="upload/a.jpg"><p class="profile"><a href="javascript:viod(0);"></a></p></div> -->
 <!-- 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><img alt="HotNews" src="upload/a.jpg"><p class="profile"><a href="javascript:viod(0);"></a></p></div> -->
 <!-- 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><img alt="HotNews" src="upload/a.jpg"><p class="profile"><a href="javascript:viod(0);"></a></p></div> -->
@@ -42,71 +45,61 @@ div{
 			<!-- index main (left) -->
 			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 js-index-main">
 				<!-- part one (沪深) -->
-				<div class="row classify">
-					<div class="col-lg-12 sector left" data-type="type5">
-						<div class="caption text-left"><span class="title">沪<span style="font-weight: bold;">·</span>深</span><span class="more"><a href="javascript:viod(0);" data-more="classify">更多&#10174;</a></span></div>
-						<div class="row img-new text-left">
-							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-								<img alt="news" src="upload/a.jpg" >
-							</div>
-							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5">
+						<div class="newsblock sectorname">
+							<span class="title">沪<span class="dot">·</span>深</span>
+						</div>
+						<div class="newsblock illustrate single">
+							<img alt="illustrated photo" class="image" src="upload/a.jpg">
+							<div class="content">
 								<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p>
-								<p class="content">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p>
+								<p class="summary">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 succinct-new">
-								<a href="javascript:void(0);" data-id="3"><img alt="" src="upload/a.jpg"></a>
-								<p class="title text-left"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
-								<p class="content text-left">
-									近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。
-								</p>
+						
+						<div class="newsblock illustrate set">
+							<div class="slice">
+								<img alt="slice news" src="upload/a.jpg">
+								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
+								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
 							</div>
-							
-<!-- 								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> -->
-<!-- 										<a href="javascript:void(0);" data-id="3"><img alt="" src="upload/a.jpg"></a> -->
-<!-- 									<p class="title text-left"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
-<!-- 									<p class="content text-left"> -->
-<!-- 										近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。 -->
-<!-- 									</p> -->
-<!-- 								</div> -->
-							
-<!-- 								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> -->
-<!-- 										<a href="javascript:void(0);" data-id="3"><img alt="" src="upload/a.jpg"></a> -->
-<!-- 									<p class="title text-left"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
-<!-- 									<p class="content text-left"> -->
-<!-- 										近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。 -->
-<!-- 									</p> -->
-<!-- 								</div> -->
+							<div class="slice">
+								<img alt="slice news" src="upload/a.jpg">
+								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
+								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
+							</div>
+							<div class="slice">
+								<img alt="slice news" src="upload/a.jpg">
+								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
+								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
+							</div>
 						</div>
-							
-						<!-- 推荐阅读 -->
-<!-- 						<div class=""> -->
-							<div class="row recommend-reading">
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<img alt="recommend reading" src="upload/a.jpg">
-									<div class="layer">推荐阅读</div>
-								</div>
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
-									<ul class="lsit-unstyle list">
-										<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-									</ul>
-								</div> 
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
-									<ul class="lsit-unstyle list">
-										<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-									</ul>
-								</div>
+						
+						<div class="newsblock succicent">
+							<div class="card slice">
+								<img alt="card recommend" src="upload/a.jpg">
+								<p class="text">推荐阅读</p>
 							</div>
-<!-- 						</div> -->
-						<!-- end 推荐阅读 -->
-						<button><span class="more"><a href="javascript:viod(0);" data-more="classify">更多股票市场资讯</a></span></button>
+							
+							<ul class="lsit-unstyle list slice">
+								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+							</ul>
+							
+							<ul class="lsit-unstyle list slice"> 
+								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+							</ul>
+						</div>
+						
+						<div class="newsblock button">更多沪·深市场资讯</div>
 					</div>
 				</div>
 				<!-- end part one (沪深) -->
@@ -116,212 +109,150 @@ div{
 <!-- 				</div>  -->
 				
 				<!-- part two 美股·港股) -->
-				<div class="row classify">
-					<div class="col-lg-12 sector left" data-type="type5">
-						<div class="caption text-left"><span class="title">美股<span style="font-weight: bold;">·</span>港股</span><span class="more"><a href="javascript:viod(0);" data-more="classify">更多&#10174;</a></span></div>
-						<div class="img-new text-left">
-							<div class="row">
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<img alt="news" src="upload/a.jpg" >
-								</div>
-								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-									<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p>
-									<p class="content">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p>
-								</div>
-							</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5">
+						<div class="newsblock sectorname">
+							<span class="title">美股<span class="dot">·</span>港股</span>
 						</div>
-						<div class="succinct-new">
-							<div class="row">
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<div class="layer" >
-										<a href="javascript:void(0);" data-id="3"><img alt="" src="upload/a.jpg"></a>
-									</div>
-									<div class="title text-left">郭靖：后继乏力，降龙十八掌该何去何从？</div>
-									<div class="content text-left">
-										近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<div class="layer" >
-										<a href="javascript:void(0);" data-id="4"><img alt="" src="upload/a.jpg"></a>
-									</div>
-									<div class="title text-left">郭靖：后继乏力，降龙十八掌该何去何从？</div>
-									<div class="content text-left">
-										近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<div class="layer" >
-										<a href="javascript:void(0);" data-id="5"><img alt="" src="upload/a.jpg"></a>
-									</div>
-									<div class="title text-left">郭靖：后继乏力，降龙十八掌该何去何从？</div>
-									<div class="content text-left">
-										近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。
-									</div>
-								</div>
+						<div class="newsblock illustrate single">
+							<img alt="illustrated photo" class="image" src="upload/a.jpg">
+							<div class="content">
+								<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p>
+								<p class="summary">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p>
 							</div>
 						</div>
 						
-						
-						<!-- 推荐阅读 -->
-						<div class="recommend-reading">
-							<div class="row">
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<img alt="recommend reading" src="upload/a.jpg">
-									<div class="layer">推荐阅读</div>
-								</div>
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
-									<ul class="lsit-unstyle list">
-										<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-									</ul>
-								</div> 
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
-									<ul class="lsit-unstyle list">
-										<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-									</ul>
-								</div>
+						<div class="newsblock illustrate set">
+							<div class="slice">
+								<img alt="slice news" src="upload/a.jpg">
+								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
+								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
+							</div>
+							<div class="slice">
+								<img alt="slice news" src="upload/a.jpg">
+								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
+								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
+							</div>
+							<div class="slice">
+								<img alt="slice news" src="upload/a.jpg">
+								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
+								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
 							</div>
 						</div>
-						<!-- end 推荐阅读 -->
 						
-						<button><span class="more"><a href="javascript:viod(0);" data-more="classify">更多股票市场资讯</a></span></button>
+						<div class="newsblock succicent">
+							<div class="card slice">
+								<img alt="card recommend" src="upload/a.jpg">
+								<p class="text">推荐阅读</p>
+							</div>
+							
+							<ul class="lsit-unstyle list slice">
+								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+							</ul>
+							
+							<ul class="lsit-unstyle list slice"> 
+								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+							</ul>
+						</div>
+						
+						<div class="newsblock button">更多美股·港股市场资讯</div>
 					</div>
-				</div>
-				<!-- end part two 美股·港股) -->
+				</div><!-- end part two 美股·港股) -->
 				
 				<!-- part three (基金) -->
-				<div class="row classify">
-					<div class="col-lg-12 sector left" data-type="type5">
-						<div class="caption text-left"><span class="title">基金</span><span class="more"><a href="javascript:viod(0);" data-more="classify">更多&#10174;</a></span></div>
-						<div class="img-new text-left">
-							<div class="row">
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<img alt="news" src="upload/a.jpg" >
-								</div>
-								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-									<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p>
-									<p class="content">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p>
-								</div>
-							</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5">
+						<div class="newsblock sectorname">
+							<span class="title">基金</span>
 						</div>
-						<div class="succinct-new">
-							<div class="row">
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<div class="layer" >
-										<a href="javascript:void(0);" data-id="3"><img alt="" src="upload/a.jpg"></a>
-									</div>
-									<div class="title text-left">郭靖：后继乏力，降龙十八掌该何去何从？</div>
-									<div class="content text-left">
-										近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<div class="layer" >
-										<a href="javascript:void(0);" data-id="4"><img alt="" src="upload/a.jpg"></a>
-									</div>
-									<div class="title text-left">郭靖：后继乏力，降龙十八掌该何去何从？</div>
-									<div class="content text-left">
-										近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。
-									</div>
-								</div>
-								
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<div class="layer" >
-										<a href="javascript:void(0);" data-id="5"><img alt="" src="upload/a.jpg"></a>
-									</div>
-									<div class="title text-left">郭靖：后继乏力，降龙十八掌该何去何从？</div>
-									<div class="content text-left">
-										近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。
-									</div>
-								</div>
+						<div class="newsblock illustrate single">
+							<img alt="illustrated photo" class="image" src="upload/a.jpg">
+							<div class="content">
+								<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p>
+								<p class="summary">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p>
 							</div>
 						</div>
 						
-						
-						<!-- 推荐阅读 -->
-						<div class="recommend-reading">
-							<div class="row">
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-									<img alt="recommend reading" src="upload/a.jpg">
-									<div class="layer">推荐阅读</div>
-								</div>
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
-									<ul class="lsit-unstyle list">
-										<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-									</ul>
-								</div> 
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
-									<ul class="lsit-unstyle list">
-										<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-										<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-									</ul>
-								</div>
+						<div class="newsblock illustrate set">
+							<div class="slice">
+								<img alt="slice news" src="upload/a.jpg">
+								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
+								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
+							</div>
+							<div class="slice">
+								<img alt="slice news" src="upload/a.jpg">
+								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
+								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
+							</div>
+							<div class="slice">
+								<img alt="slice news" src="upload/a.jpg">
+								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
+								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
 							</div>
 						</div>
-						<!-- end 推荐阅读 -->
 						
-						<button><span class="more"><a href="javascript:viod(0);" data-more="classify">更多股票市场资讯</a></span></button>
+						<div class="newsblock succicent">
+							<div class="card slice">
+								<img alt="card recommend" src="upload/a.jpg">
+								<p class="text">推荐阅读</p>
+							</div>
+							
+							<ul class="lsit-unstyle list slice">
+								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+							</ul>
+							
+							<ul class="lsit-unstyle list slice"> 
+								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
+							</ul>
+						</div>
+						
+						<div class="newsblock button">更多基金市场资讯</div>
 					</div>
 				</div><!-- end part three (基金) -->
 			</div><!-- end index main(left) -->
 			
 			<!-- append info (right) -->
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 js-index-append">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 js-index-append" >
 				<!-- 上证指数 -->
-				<div class="row stock-index right">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
-						<span class="index-item">上证指数</span><span class="line"></span>
-						<ul class="list-unstyle mgb10">
-							<li><p><span class="index-name" title="道琼斯指数">上证指数</span><span class="index-number">3108.596  51.075  1.67%</span></p></li>
-							<!-- <li><span class="index-name" title="纳斯达克指数">深证指数</span><span class="index-number"></span></li>
-							 <li><span class="index-name" title="标准普尔500">沪深300</span><span class="index-number">2070.65 -9.42 -0.46%</span></li>
-							-->
-						</ul>
-						<!-- <p class="line"></p> -->
-						<span class="index-item">深证指数</span><span class="line"></span>
-						<ul class="list-unstyle mgb10">
-							<li><span class="index-name" title="恒生指数">深证指数</span><span class="index-number">3108.596  51.075  1.67%</span></li>
-							<li><span class="index-name" title="国企指数">沪深300</span><span class="index-number">3108.596  51.075  1.67%</span></li>
-							<li><span class="index-name" title="标普创业指数">创业板指数</span><span class="index-number">3108.596  51.075  1.67%</span></li>
-						</ul>
-						<span class="hot-stock">涨跌排行</span><span class="line"></span>
-						<ul id="myTab" class="nav nav-tabs">
-						   <li class="active">
-						      <a href="#up" data-toggle="tab">涨幅前十</a>
-						   </li>
-						   <li><a href="#down" data-toggle="tab">跌幅前十</a></li>							
-						</ul>
-						<div class="rank">
-							<ul class="list-unstyle mgb10 up" style="display: none;">
-								<li><span class="serial first">1</span><span class="stock-name">阿里巴巴</span><span class="stock-number">115.70 -3.80 3.40%</span></li>
-								<li><span class="serial second">2</span><span class="stock-name">奇虎360</span><span class="stock-number"></span></li>
-								<li><span class="serial third">3</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">4</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">5</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">6</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">7</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">8</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">9</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">10</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
+				<div class="row mgt20" style="margin-left: 0;">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 border-news">
+						<div class="indexblock">				
+							<span class="blockname">沪<span class="dot">·</span>深指数</span>
+							<span class="line"></span>
+							<ul class="list-unstyle list slice">
+								<li><span class="indexname" title="上证指数">上证指数</span><span class="indexnumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="indexname" title="上证指数">深证指数</span><span class="indexnumber"><span class="number-1">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="indexname" title="沪深300">沪深300</span><span class="indexnumber"><span class="number-1">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="indexname" title="创业板指数">创业板指数</span><span class="indexnumber"><span class="number-1 down">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
 							</ul>
-							<ul class="list-unstyle mgb10 down" >
-								<li><span class="serial first">1</span><span class="stock-name">阿里巴巴</span><span class="stock-number">115.70 -3.80 3.40%</span></li>
-								<li><span class="serial second">2</span><span class="stock-name">奇虎360</span><span class="stock-number"></span></li>
-								<li><span class="serial third">3</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
+						</div>
+						<div class="rankblock">
+							<span class="blockname">涨跌排行</span>
+							<span class="line"></span>
+							<ul class="list-inline list rankname">
+								<li class="active">涨幅前十</li>
+								<li>跌幅前十</li>
+							</ul>
+							<ul class="list-unstyle list rankdata">
+								<li><span class="serial first up">1</span><span class="stockname">阿里巴巴阿里巴巴阿里巴巴阿里巴巴</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="serial second up">2</span><span class="stockname">奇虎360</span><span class="stocknumber"></span></li>
+								<li><span class="serial third up">3</span><span class="stockname">苹果</span><span class="stock-number"></span></li>
 								<li><span class="serial">4</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
 								<li><span class="serial">5</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
 								<li><span class="serial">6</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
@@ -331,101 +262,34 @@ div{
 								<li><span class="serial">10</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
 							</ul>
 						</div>
-						
 					</div>
 				</div><!-- end 上证指数 -->
 				
-				<!-- 美股·港股 指数 -->
-				<div class="row stock-index right">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
-						<span class="index-item">美股指数</span><span class="line"></span>
-						<ul class="list-unstyle mgb10">
-							<li><p><span class="index-name" title="道琼斯指数">道琼斯指数</span><span class="index-number">3108.596  51.075  1.67%</span></p></li>
-							<li><span class="index-name" title="纳斯达克指数">纳斯达克指数</span><span class="index-number"></span></li>
-							<li><span class="index-name" title="标准普尔500">标准普尔500</span><span class="index-number">2070.65 -9.42 -0.46%</span></li>
-						</ul>
-						<!-- <p class="line"></p> -->
-						<span class="index-item">港股指数</span><span class="line"></span>
-						<ul class="list-unstyle mgb10">
-							<li><span class="index-name" title="恒生指数">恒生指数</span><span class="index-number">墨镜安排</span></li>
-<!-- 							<li><span class="index-name" title="国企指数">国企指数</span><span class="index-number"></span></li> -->
-<!-- 							<li><span class="index-name" title="标普创业指数">标普创业指数</span><span class="index-number"></span></li> -->
-						</ul>
-						<span class="hot-stock">涨跌排行</span><span class="line"></span>
-						<ul id="myTab" class="nav nav-tabs">
-						   <li class="active">
-						      <a href="#up" data-toggle="tab">涨幅前十</a>
-						   </li>
-						   <li><a href="#down" data-toggle="tab">跌幅前十</a></li>							
-						</ul>
-						<div class="rank">
-							<ul class="list-unstyle mgb10 up" style="display: none;">
-								<li><span class="serial first">1</span><span class="stock-name">阿里巴巴</span><span class="stock-number">115.70 -3.80 3.40%</span></li>
-								<li><span class="serial second">2</span><span class="stock-name">奇虎360</span><span class="stock-number"></span></li>
-								<li><span class="serial third">3</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">4</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">5</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">6</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">7</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">8</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">9</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">10</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-							</ul>
-							<ul class="list-unstyle mgb10 down" >
-								<li><span class="serial first">1</span><span class="stock-name">阿里巴巴</span><span class="stock-number">115.70 -3.80 3.40%</span></li>
-								<li><span class="serial second">2</span><span class="stock-name">奇虎360</span><span class="stock-number"></span></li>
-								<li><span class="serial third">3</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">4</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">5</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">6</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">7</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">8</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">9</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">10</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-							</ul>
-						</div>
-					</div>
-				</div><!-- end 美股·港股 指数 -->
 				
-				<!-- 基金 指数 -->
-				<div class="row stock-index right">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
-						<span class="index-item">基金指数</span><span class="line"></span>
-						<ul class="list-unstyle mgb10">
-							<li><p><span class="index-name" title="道琼斯指数">深市基金指数</span><span class="index-number">3108.596  51.075  1.67%</span></p></li>
-							<li><span class="index-name" title="纳斯达克指数">上证基金指数</span><span class="index-number"></span></li>
-						</ul>
-						<!-- <p class="line"></p> -->
-						<!-- <span class="index-item">港股指数</span><span class="line"></span>
-						<ul class="list-unstyle mgb10">
-							<li><span class="index-name" title="恒生指数">恒生指数</span><span class="index-number">墨镜安排</span></li>
-							<li><span class="index-name" title="国企指数">国企指数</span><span class="index-number"></span></li>
-							<li><span class="index-name" title="标普创业指数">标普创业指数</span><span class="index-number"></span></li>
-						</ul> -->
-						<span class="hot-stock mgt20">涨跌排行</span><span class="line"></span>
-						<ul id="myTab" class="nav nav-tabs">
-						   <li class="active">
-						      <a href="#up" data-toggle="tab">涨幅前十</a>
-						   </li>
-						   <li><a href="#down" data-toggle="tab">跌幅前十</a></li>							
-						</ul>
-						<div class="rank">
-							<ul class="list-unstyle mgb10 up" style="display: none;">
-								<li><span class="serial first">1</span><span class="stock-name">阿里巴巴</span><span class="stock-number">115.70 -3.80 3.40%</span></li>
-								<li><span class="serial second">2</span><span class="stock-name">奇虎360</span><span class="stock-number"></span></li>
-								<li><span class="serial third">3</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">4</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">5</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">6</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">7</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">8</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">9</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">10</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
+				<!-- 美股·港股 指数  -->
+				<div class="row mgt20" style="margin-left: 0;">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 border-news">
+						<div class="indexblock">				
+							<span class="blockname">美<span class="dot">·</span>港指数</span>
+							<span class="line"></span>
+							<ul class="list-unstyle list slice">
+								<li><span class="indexname" title="道琼斯指数">道琼斯指数</span><span class="indexnumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="indexname" title="纳斯达克指数">纳斯达克指数</span><span class="indexnumber"><span class="number-1">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="indexname" title="标准普尔500">标准普尔500</span><span class="indexnumber"><span class="number-1">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="indexname" title="恒生指数">恒生指数</span><span class="indexnumber"><span class="number-1 down">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
 							</ul>
-							<ul class="list-unstyle mgb10 down" >
-								<li><span class="serial first">1</span><span class="stock-name">阿里巴巴</span><span class="stock-number">115.70 -3.80 3.40%</span></li>
-								<li><span class="serial second">2</span><span class="stock-name">奇虎360</span><span class="stock-number"></span></li>
-								<li><span class="serial third">3</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
+						</div>
+						<div class="rankblock">
+							<span class="blockname">涨跌排行</span>
+							<span class="line"></span>
+							<ul class="list-inline list rankname">
+								<li >涨幅前十</li>
+								<li class="active">跌幅前十</li>
+							</ul>
+							<ul class="list-unstyle list rankdata">
+								<li><span class="serial first down">1</span><span class="stockname">阿里巴巴阿里巴巴阿里巴巴阿里巴巴</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="serial second down">2</span><span class="stockname">奇虎360</span><span class="stocknumber"></span></li>
+								<li><span class="serial third down">3</span><span class="stockname">苹果</span><span class="stock-number"></span></li>
 								<li><span class="serial">4</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
 								<li><span class="serial">5</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
 								<li><span class="serial">6</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
@@ -436,7 +300,10 @@ div{
 							</ul>
 						</div>
 					</div>
-				</div><!-- end 基金 指数 -->
+				</div>
+				<!-- end 美股·港股 指数  -->
+				
+				
 			</div><!-- end append info (right) -->
 			
 		</div>

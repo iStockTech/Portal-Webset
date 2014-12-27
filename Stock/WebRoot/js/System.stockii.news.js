@@ -82,7 +82,8 @@ var newsHandler = {
 				maxPageButton:buttons,
 				onPageClicked : function(obj,pageIndex) {
 //					alert("page = "+(pageIndex+1));
-					newsHandler.getNewsList("data/rebuild.txt",com.stockii.portal.news.type, pageIndex+1);
+//					newsHandler.getNewsList("data/rebuild.txt",com.stockii.portal.news.type, pageIndex+1);
+					newsHandler.getNewsList.getForSec("data/rebuild.txt",com.stockii.portal.news.type, pageIndex+1)
 				}
 			});
 		},
@@ -204,8 +205,8 @@ var newsHandler = {
 											"<img alt='news' src='upload/a.jpg= >" +
 										"</div>" +
 										"<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8'>" +
-											"<p class='title'><a href='javascript:void(0);' data-id='1'>ÈËÃñ±ÒÖÜÎåÊÕµø£¬´´6¸öÔÂĞÂµÍ</a></p>" +
-											"<p class='content'>ÖĞ¹úÈËÃñ±Ò¶ÒÃÀÔªÖÜÎåÊÕµÍÓÚ6.22Ôª¸½½ü£¬´´½ü°ëÄêµÍµã£¬ÓëÖĞ¼ä¼Û±áÖµ·½ÏòÒ»ÖÂ¡£ÅÌ¼äÒ»¶È´¥¼°6.2316ÔªµÍµã¡£ÊĞ³¡ÈËÊ¿ÈÏÎª£¬µ±Ç°ÒÑ½Ó½ü½ñÄêµÍµã£¬ÄêÄÚĞø±á¿Õ¼ä²»¶à¡£</p>" +
+											"<p class='title'><a href='javascript:void(0);' data-id='1'>äººæ°‘å¸å‘¨äº”æ”¶è·Œï¼Œåˆ›6ä¸ªæœˆæ–°ä½</a></p>" +
+											"<p class='content'>ä¸­å›½äººæ°‘å¸å…‘ç¾å…ƒå‘¨äº”æ”¶ä½äº6.22å…ƒé™„è¿‘ï¼Œåˆ›è¿‘åŠå¹´ä½ç‚¹ï¼Œä¸ä¸­é—´ä»·è´¬å€¼æ–¹å‘ä¸€è‡´ã€‚ç›˜é—´ä¸€åº¦è§¦åŠ6.2316å…ƒä½ç‚¹ã€‚å¸‚åœºäººå£«è®¤ä¸ºï¼Œå½“å‰å·²æ¥è¿‘ä»Šå¹´ä½ç‚¹ï¼Œå¹´å†…ç»­è´¬ç©ºé—´ä¸å¤šã€‚</p>" +
 										"</div>" +
 									"</div>");
 						return $_block;
@@ -215,7 +216,7 @@ var newsHandler = {
 						var $_blok = $(
 								"<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>" +
 									"<a href='javascript:void(0);' data-id='3'><img alt='' src='upload/a.jpg'></a>" +
-									"<p class='title text-left'><a href='javascript:void(0);'>¹ù¾¸£ººó¼Ì·¦Á¦£¬½µÁúÊ®°ËÕÆ¸ÃºÎÈ¥ºÎ´Ó£¿</a></p>" +
+									"<p class='title text-left'><a href='javascript:void(0);'>éƒ­é–ï¼šåç»§ä¹åŠ›ï¼Œé™é¾™åå…«æŒè¯¥ä½•å»ä½•ä»ï¼Ÿ</a></p>" +
 									"<p class='content text-left'></p>" +
 								"</div>");
 					}
