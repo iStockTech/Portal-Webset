@@ -258,8 +258,9 @@
 .newsblock.illustrate.set > div.slice:first-of-type{padding-left: 0;}
 .newsblock.illustrate.set > div.slice:last-of-type{padding-right: 0;}
 .newsblock.illustrate.set > div.slice>img{width: 100%;height: 150px;}
-.newsblock.illustrate.set > div.slice>p.title{background: #333;opacity:0.8;height: 50px;margin-top: -50px;margin-left: 2px;}
-.newsblock.illustrate.set > div.slice>p.title>a{font-size: 14px;}
+.newsblock.illustrate.set > div.slice>img:hover{cursor: pointer;}
+.newsblock.illustrate.set > div.slice>p.title{background: #333;opacity:0.8;height: 50px;margin-top: -50px;margin-left: 2px;color:#ddd;font-size: 14px;padding-left: 8px;padding-right: 8px;}
+.newsblock.illustrate.set > div.slice>p.title:hover{cursor: pointer;}
 .newsblock.illustrate.set > div.slice>p.summary{background-color: #f2f2f2;color: #333;font-size: 14px;}
 
 .newsblock.succicent{width: 100%;text-align: left;margin-bottom: 20px;}

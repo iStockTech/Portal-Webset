@@ -43,63 +43,63 @@ div{
 		
 		<div class="row">
 			<!-- index main (left) -->
-			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 js-index-main">
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 js-news-main">
 				<!-- part one (沪深) -->
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5">
-						<div class="newsblock sectorname">
-							<span class="title">沪<span class="dot">·</span>深</span>
-						</div>
-						<div class="newsblock illustrate single">
-							<img alt="illustrated photo" class="image" src="upload/a.jpg">
-							<div class="content">
-								<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p>
-								<p class="summary">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p>
-							</div>
-						</div>
+<!-- 						<div class="newsblock sectorname"> -->
+<!-- 							<span class="title">沪<span class="dot">·</span>深</span> -->
+<!-- 						</div> -->
+<!-- 						<div class="newsblock illustrate single"> -->
+<!-- 							<img alt="illustrated photo" class="image" src="upload/a.jpg"> -->
+<!-- 							<div class="content"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p> -->
+<!-- 								<p class="summary">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 						
-						<div class="newsblock illustrate set">
-							<div class="slice">
-								<img alt="slice news" src="upload/a.jpg">
-								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
-								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
-							</div>
-							<div class="slice">
-								<img alt="slice news" src="upload/a.jpg">
-								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
-								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
-							</div>
-							<div class="slice">
-								<img alt="slice news" src="upload/a.jpg">
-								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
-								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
-							</div>
-						</div>
+<!-- 						<div class="newsblock illustrate set"> -->
+<!-- 							<div class="slice"> -->
+<!-- 								<img alt="slice news" src="upload/a.jpg"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
+<!-- 								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p> -->
+<!-- 							</div> -->
+<!-- 							<div class="slice"> -->
+<!-- 								<img alt="slice news" src="upload/a.jpg"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
+<!-- 								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p> -->
+<!-- 							</div> -->
+<!-- 							<div class="slice"> -->
+<!-- 								<img alt="slice news" src="upload/a.jpg"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
+<!-- 								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 						
-						<div class="newsblock succicent">
-							<div class="card slice">
-								<img alt="card recommend" src="upload/a.jpg">
-								<p class="text">推荐阅读</p>
-							</div>
+<!-- 						<div class="newsblock succicent"> -->
+<!-- 							<div class="card slice"> -->
+<!-- 								<img alt="card recommend" src="upload/a.jpg"> -->
+<!-- 								<p class="text">推荐阅读</p> -->
+<!-- 							</div> -->
 							
-							<ul class="lsit-unstyle list slice">
-								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-							</ul>
+<!-- 							<ul class="lsit-unstyle list slice"> -->
+<!-- 								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 							</ul> -->
 							
-							<ul class="lsit-unstyle list slice"> 
-								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-							</ul>
-						</div>
+<!-- 							<ul class="lsit-unstyle list slice">  -->
+<!-- 								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 							</ul> -->
+<!-- 						</div> -->
 						
-						<div class="newsblock button">更多沪·深市场资讯</div>
+<!-- 						<div class="newsblock button">更多沪·深市场资讯</div> -->
 					</div>
 				</div>
 				<!-- end part one (沪深) -->
@@ -111,59 +111,59 @@ div{
 				<!-- part two 美股·港股) -->
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5">
-						<div class="newsblock sectorname">
-							<span class="title">美股<span class="dot">·</span>港股</span>
-						</div>
-						<div class="newsblock illustrate single">
-							<img alt="illustrated photo" class="image" src="upload/a.jpg">
-							<div class="content">
-								<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p>
-								<p class="summary">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p>
-							</div>
-						</div>
+<!-- 						<div class="newsblock sectorname"> -->
+<!-- 							<span class="title">美股<span class="dot">·</span>港股</span> -->
+<!-- 						</div> -->
+<!-- 						<div class="newsblock illustrate single"> -->
+<!-- 							<img alt="illustrated photo" class="image" src="upload/a.jpg"> -->
+<!-- 							<div class="content"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p> -->
+<!-- 								<p class="summary">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 						
-						<div class="newsblock illustrate set">
-							<div class="slice">
-								<img alt="slice news" src="upload/a.jpg">
-								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
-								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
-							</div>
-							<div class="slice">
-								<img alt="slice news" src="upload/a.jpg">
-								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
-								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
-							</div>
-							<div class="slice">
-								<img alt="slice news" src="upload/a.jpg">
-								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
-								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
-							</div>
-						</div>
+<!-- 						<div class="newsblock illustrate set"> -->
+<!-- 							<div class="slice"> -->
+<!-- 								<img alt="slice news" src="upload/a.jpg"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
+<!-- 								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p> -->
+<!-- 							</div> -->
+<!-- 							<div class="slice"> -->
+<!-- 								<img alt="slice news" src="upload/a.jpg"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
+<!-- 								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p> -->
+<!-- 							</div> -->
+<!-- 							<div class="slice"> -->
+<!-- 								<img alt="slice news" src="upload/a.jpg"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
+<!-- 								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 						
-						<div class="newsblock succicent">
-							<div class="card slice">
-								<img alt="card recommend" src="upload/a.jpg">
-								<p class="text">推荐阅读</p>
-							</div>
+<!-- 						<div class="newsblock succicent"> -->
+<!-- 							<div class="card slice"> -->
+<!-- 								<img alt="card recommend" src="upload/a.jpg"> -->
+<!-- 								<p class="text">推荐阅读</p> -->
+<!-- 							</div> -->
 							
-							<ul class="lsit-unstyle list slice">
-								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-							</ul>
+<!-- 							<ul class="lsit-unstyle list slice"> -->
+<!-- 								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 							</ul> -->
 							
-							<ul class="lsit-unstyle list slice"> 
-								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-							</ul>
-						</div>
+<!-- 							<ul class="lsit-unstyle list slice">  -->
+<!-- 								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 							</ul> -->
+<!-- 						</div> -->
 						
-						<div class="newsblock button">更多美股·港股市场资讯</div>
+<!-- 						<div class="newsblock button">更多美股·港股市场资讯</div> -->
 					</div>
 				</div><!-- end part two 美股·港股) -->
 				
@@ -317,6 +317,36 @@ div{
 <script type="text/javascript">
 newsHandler.getNewsList.getForHot("data/hotnews.txt", "hotnews");
 newsHandler.getNewsList.getForIndexMain("data/indexMain.txt", "indexMain");
+$(function(){
+// var $_clone = $(".js-news-basic").clone();
+// $_clone.appendTo(".js-news-main");
+var content = {
+	"title" : "title test text",
+	"summary" : "summary test text"
+};
+
+// var $_block = atomicOperation.createHtmlDOM.createIllustrateSingle();
+// atomicOperation.fillHtmlDOM.fillIllustrateSingle($_block,content,$($_clone).find("div"));
+
+var $_basicCotainer = atomicOperation.createFrameDOM.basicCotainer();
+atomicOperation.pasteFrameDOM.basicCotainer($_basicCotainer,$(".js-news-main"));
+
+var sectorname = atomicOperation.createFrameDOM.sectorName("沪<span class='dot'>·</span>深");
+atomicOperation.pasteFrameDOM.sectorName(sectorname,$_basicCotainer.find("div.js-nail"));
+
+
+var $_block_IllustrateSingle = atomicOperation.createHtmlDOM.createIllustrateSingle();
+atomicOperation.fillHtmlDOM.fillIllustrateSingle($_block_IllustrateSingle,content,$_basicCotainer.find("div.js-nail"));
+
+
+var $_block_IllustrateSet = atomicOperation.createHtmlDOM.createIllustrateSet();
+// console.log($_block_IllustrateSet.html());
+atomicOperation.fillHtmlDOM.fillIllustrateSet($_block_IllustrateSet,content,$_basicCotainer.find("div.js-nail"));
+
+
+var $_block_succinct = atomicOperation.createHtmlDOM.createSuccicent();
+atomicOperation.fillHtmlDOM.fillSuccicent($_block_succinct,content,$_basicCotainer.find("div.js-nail"));
+});
 </script>
 </body>
 </html>

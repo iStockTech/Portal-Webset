@@ -133,20 +133,22 @@ var newsHandler = {
 			//for second page
 			setForSec : function(result) {
 				$(".main").find("div").remove();
+				var $_parent = $(".main");
 				$.each(result,function(key,val){
 //					var li = newsHandler.createNewsItem();
 					var li = newsHandler.createNewsObj.createListItem();
 //					newsHandler.fillNewsItem(li, $(this)[0]);
-					newsHandler.fillNewsObj.fillListItem(li, $(this)[0]);
+					newsHandler.fillNewsObj.fillListItem(li, $(this)[0],$_parent);
 				});
 			},
 			
 			//TODO for hotnews
 			setForHotnews : function(result) {
+				var $_parent = $("div.hotnews");
 				$(".hotnews").find("div").remove();
 				$.each(result,function(key,val){
 					var li = newsHandler.createNewsObj.createHotnews();
-					newsHandler.fillNewsObj.fillHotnews(li, $(this)[0]);
+					newsHandler.fillNewsObj.fillHotnews(li, $(this)[0],$_parent);
 				});
 			},
 			
@@ -171,28 +173,12 @@ var newsHandler = {
 			
 			//for second page (List)
 			createListItem : function() {
-//				var $_item = $("<div class='row'>"+
-//									"<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>"+
-//										"<img alt='picture' src='upload/a.jpg'>"+
-//									"</div>"+
-//									"<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8'>"+
-//										"<p class='title'><a href='javascript:void(0);'>"+"</a></p>"+
-//										"<p class='summary'>"+"</p>"+
-//										"<p class='append'><span class='glyphicon glyphicon-user'></span><span class='author'></span><span class='glyphicon glyphicon-time'></span><span class='time'>2014-12-22</span></p>"+
-//									"</div>"+
-//							   "</div>");
-//				return $_item;
-				return atomicOperation.createListItem();
+				return atomicOperation.createHtmlDOM.createListItem();
 			},
 			
 			//TODO for hotnews
 			createHotnews : function() {
-//				var $_item = $("<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>"+
-//									"<img alt='HotNews' src='upload/a.jpg'>"+
-//									"<p class='profile'><a href='javascript:void(0);'></a></p>"+
-//								"</div>");
-//				return $_item;
-				return atomicOperation.createHotnews();
+				return atomicOperation.createHtmlDOM.createHotnews();
 			},
 			
 			//TODO for index main content
@@ -251,34 +237,14 @@ var newsHandler = {
 			//TODO for index page
 			
 			//for second page
-			fillListItem : function(itemObj,content) {
-//				$(itemObj).find("img").attr("src","");
-				$(itemObj).find("p.title>a").html(content.title);
-//	  			$(itemObj).find("p.title>a").attr(content.id);
-				$(itemObj).find("p.summary").html(content.summary);
-				$(itemObj).find("p.append>span.author").html(content.author);
-				$(itemObj).find("p.append>span.time").html(content.time);
-				$(itemObj).appendTo($(".main"));
+			fillListItem : function(itemObj,content,parent) {
+				atomicOperation.fillHtmlDOM.fillListItem(itemObj, content,parent);
 			},
 			
 			//TODO for hotnews 
-			fillHotnews : function(itemObj,content) {
-//				$(itemObj).find("img").attr("src",content.img);
-				$(itemObj).find("p.profile>a").html(content.title);
-//				$(itemObj).find("p.profile>a").attr("data-id",content.id);
-				$(itemObj).appendTo($("div.hotnews"));
+			fillHotnews : function(itemObj,content,parent) {
+				atomicOperation.fillHtmlDOM.fillHotnews(itemObj, content,parent);
 			},
-			
-			//TODO for indexMain 
-			fillIndexMain : {
-				fillImgNews : function() {
-					
-				},
-				
-				fillSuccinctNews : function() {
-					
-				}
-			}
 			
 		},
 		
@@ -297,30 +263,166 @@ var newsHandler = {
 
 
 var atomicOperation = {
-		createListItem : function() {
-			var $_item = $("<div class='row'>"+
-								"<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>"+
-									"<img alt='picture' src='upload/a.jpg'>"+
-								"</div>"+
-								"<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8'>"+
-									"<p class='title'><a href='javascript:void(0);'>"+"</a></p>"+
-									"<p class='summary'>"+"</p>"+
-									"<p class='append'><span class='glyphicon glyphicon-user'></span><span class='author'></span><span class='glyphicon glyphicon-time'></span><span class='time'>2014-12-22</span></p>"+
-								"</div>"+
-						   "</div>");
-			return $_item;
-		},	
 		
-		createHotnews : function() {
-			var $_item = $("<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>"+
-								"<img alt='HotNews' src='upload/a.jpg'>"+
-								"<p class='profile'><a href='javascript:void(0);'></a></p>"+
-							"</div>");
-			return $_item;
+		createHtmlDOM : {
+			
+			createListItem : function() {
+				var $_item = $("<div class='row'>"+
+									"<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>"+
+										"<img alt='picture' src='upload/a.jpg'>"+
+									"</div>"+
+									"<div class='col-lg-8 col-md-8 col-sm-8 col-xs-8'>"+
+										"<p class='title'><a href='javascript:void(0);'>"+"</a></p>"+
+										"<p class='summary'>"+"</p>"+
+										"<p class='append'><span class='glyphicon glyphicon-user'></span><span class='author'></span><span class='glyphicon glyphicon-time'></span><span class='time'>2014-12-22</span></p>"+
+									"</div>"+
+							   "</div>");
+				return $_item;
+			},	
+			
+			createHotnews : function() {
+				var $_item = $("<div class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>"+
+									"<img alt='HotNews' src='upload/a.jpg'>"+
+									"<p class='profile'><a href='javascript:void(0);'></a></p>"+
+								"</div>");
+				return $_item;
+			},
+			
+			//TODO for news -- index
+			createIllustrateSingle : function() {
+				var $_newsblock = $(
+						"<div class='newsblock illustrate single'>" +
+							"<img alt='illustrated photo' class='image' src='upload/a.jpg'>" +
+							"<div class='content'>" +
+								"<p class='title'><a href='javascript:void(0);'></a></p>" +
+								"<p class='summary'></p>" +
+							"</div>" +
+						"</div>");
+				return $_newsblock;
+			},
+			
+			createIllustrateSet : function() {
+				var $_newsblock = $(
+						"<div class='newsblock illustrate set'>" +
+							"<div class='slice'>" +
+								"<img alt='slice news' src='upload/a.jpg'>" +
+								"<p class='title'><a href='javascript:void(0);'></a></p>" +
+								"<p class='summary'></p>" +
+							"</div>" +
+							"<div class='slice'>" +
+								"<img alt='slice news' src='upload/a.jpg'>" +
+								"<p class='title'><a href='javascript:void(0);'></a></p>" +
+								"<p class='summary'></p>" +
+							"</div>" +
+							"<div class='slice'>" +
+								"<img alt='slice news' src='upload/a.jpg'>" +
+								"<p class='title'><a href='javascript:void(0);'></a></p>" +
+								"<p class='summary'></p>" +
+							"</div>" +
+						"</div>");
+				return $_newsblock;
+			},
+			
+			createSuccicent : function() {
+				var $_newsblock = $(
+						"<div class='newsblock succicent'>" +
+							"<div class='card slice'>" +
+								"<img alt='card recommend' src='upload/a.jpg'>" +
+								"<p class='text'>推荐阅读</p>" +
+							"</div>" +
+							"<ul class='lsit-unstyle list slice'>" +
+								"<li><a href='javascript:void(0);'></a></li>" +
+								"<li><a href='javascript:void(0);'></a></li>" +
+								"<li><a href='javascript:void(0);'></a></li>" +
+								"<li><a href='javascript:void(0);'></a></li>" +
+								"<li><a href='javascript:void(0);'></a></li>" +
+							"</ul>" +
+							"<ul class='lsit-unstyle list slice'>" +
+								"<li><a href='javascript:void(0);'></a></li>" +
+								"<li><a href='javascript:void(0);'></a></li>" +
+								"<li><a href='javascript:void(0);'></a></li>" +
+								"<li><a href='javascript:void(0);'></a></li>" +
+								"<li><a href='javascript:void(0);'></a></li>" +
+							"</ul>" +
+						"</div>");
+				return $_newsblock;
+			}
+			   
 		},
 		
-		// used to create recommond reading leading card
-		createImgCard : function() {
+		fillHtmlDOM : {
 			
-		}
+			fillListItem : function(itemObj,content,parent) {
+//				$(itemObj).find("img").attr("src","");
+				$(itemObj).find("p.title>a").html(content.title);
+//	  			$(itemObj).find("p.title>a").attr(content.id);
+				$(itemObj).find("p.summary").html(content.summary);
+				$(itemObj).find("p.append>span.author").html(content.author);
+				$(itemObj).find("p.append>span.time").html(content.time);
+				//selector is based on Html DOM
+//				$(itemObj).appendTo($(".main"));
+				$(itemObj).appendTo($(parent));
+			},
+			
+			fillHotnews : function(itemObj,content,parent) {
+//				$(itemObj).find("img").attr("src",content.img);
+				itemObj.find("p.profile>a").html(content.title);
+//				$(itemObj).find("p.profile>a").attr("data-id",content.id);
+//				$(itemObj).appendTo($("div.hotnews"));
+				itemObj.appendTo(parent);
+			},
+			
+			//TODO for news -- index
+			fillIllustrateSingle : function(block,content,parent) {
+//				$(block).find("img").attr("src",content.img);
+				block.find(".title").html(content.title);
+				block.find(".summary").html(content.summary);
+				block.appendTo(parent);
+			},
+			
+			fillIllustrateSet :  function(block,content,parent) {
+//				$(block).find("img").attr("src",content.img);
+				block.find(".title").html(content.title);
+				block.find(".summary").html(content.summary);
+				block.appendTo(parent);				
+			},
+			
+			fillSuccicent : function(block,content,parent) {
+//				block.find("img").attr("src",content.img);s
+				var $_li = block.find("li>a");
+				$_li.html("li test liiii");
+				block.appendTo(parent);
+			},
+		},
+		
+		createFrameDOM : {
+			basicCotainer : function() {
+				var $_container = $(
+					"<div class='row'>" +
+						"<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news js-nail'></div>" +
+					"</div>");
+				return $_container;
+			},
+			
+			sectorName : function(name) {
+				var $_sname = $(
+					"<div class='newsblock sectorname'> " + "<span class='title'></span>" + "</div>"
+					);
+				$_sname.find("span.title").html(name);
+				return $_sname;
+			}
+		},
+		
+		pasteFrameDOM : {
+			
+			basicCotainer : function(block,parent) {
+				block.appendTo(parent);
+			},
+			
+			sectorName : function(name,parent) {
+				name.appendTo(parent);
+			}
+			
+		},
+		
 };
