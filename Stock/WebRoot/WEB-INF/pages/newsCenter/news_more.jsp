@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li data-target="stock_mhk"><a href="javascript:void(0);">美股<span style="font-weight: bold;">·</span>港股</a></li>
 				<li data-target="stock_found"><a href="javascript:void(0);">基金</a></li>
 			</ul>
-			<div class="main">
+			<div class="main js-main">
 				<%-- <div class="js-newsList" style="display: block;">
 					
 				</div>

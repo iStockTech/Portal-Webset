@@ -263,16 +263,16 @@
 .newsblock.illustrate.set > div.slice>p.title:hover{cursor: pointer;}
 .newsblock.illustrate.set > div.slice>p.summary{background-color: #f2f2f2;color: #333;font-size: 14px;}
 
-.newsblock.succicent{width: 100%;text-align: left;margin-bottom: 20px;}
-.newsblock.succicent:after,.newsblock.succicent:before{display: table;content: " ";}
-.newsblock.succicent:after{clear: both;}
-.newsblock.succicent .slice{width: 32%;padding-right: 2%;padding-left: 2%;float: left;}
-.newsblock.succicent > div.card.slice{padding-left: 0;}
-.newsblock.succicent > div.card img{width: 100%;height: 120px;}
-.newsblock.succicent > div.card p.text{background-color: #333;opacity:0.8;color: #ddd;display: block;float: right;width: 25px;height: 120px;margin-top: -120px;padding-top: 15px;;font-size: 16px;text-align: center;}
-.newsblock.succicent .slice.list > li{padding: 0 0 2px 0;}
-.newsblock.succicent .slice.list > li > a{font-size: 14px;color: #333;}
-.newsblock.succicent .slice.list > li > a:hover{text-decoration: none;}
+.newsblock.succinct{width: 100%;text-align: left;margin-bottom: 20px;}
+.newsblock.succinct:after,.newsblock.succinct:before{display: table;content: " ";}
+.newsblock.succinct:after{clear: both;}
+.newsblock.succinct .slice{width: 32%;padding-right: 2%;padding-left: 2%;float: left;}
+.newsblock.succinct > div.card.slice{padding-left: 0;}
+.newsblock.succinct > div.card img{width: 100%;height: 120px;}
+.newsblock.succinct > div.card p.text{background-color: #333;opacity:0.8;color: #ddd;display: block;float: right;width: 25px;height: 120px;margin-top: -120px;padding-top: 15px;;font-size: 16px;text-align: center;}
+.newsblock.succinct .slice.list > li{padding: 0 0 2px 0;}
+.newsblock.succinct .slice.list > li > a{font-size: 14px;color: #333;}
+.newsblock.succinct .slice.list > li > a:hover{text-decoration: none;}
 
 .newsblock.button{margin: 0 auto;margin-bottom: 20px;padding: 5px 20px 5px 20px;background-color: #ddd;color: #333;}
 .newsblock.button:hover{cursor: pointer;}
@@ -282,8 +282,8 @@
 .indexblock > span.blockname > span.dot{font-weight: bold;display: inline-block;padding: 0 2px 0 2px;}
 .indexblock > span.line{display: inline-block;width: 200px;border: 1px solid #ddd;margin-left: 10px;}
 .indexblock > ul.list > li{padding-top: 2px;padding-bottom: 2px;}
-.indexblock > ul.list > li > span.indexname{display: inline-block;font-size: 16px;width: 80px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;position: absolute;}
-.indexblock > ul.list > li > span.indexnumber{display: inline-block;margin-left: 90px;}
+.indexblock > ul.list > li > span.indexname{display: inline-block;font-size: 16px;width: 110px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;position: absolute;}
+.indexblock > ul.list > li > span.indexnumber{display: inline-block;margin-left: 120px;text-align: right;}
 .indexblock > ul.list > li > span.indexnumber > span{display: inline-block;font-size: 16px;width: 55px;margin-right: 5px;}
 .indexblock > ul.list > li > span.indexnumber > span.up{color: #049A04;}
 .indexblock > ul.list > li > span.indexnumber > span.down{color: #ba2635;}
@@ -299,16 +299,16 @@
 .rankblock > ul.rankname > li.active:hover{background-color: #f8f8f8;}
 .rankblock > ul.rankdata{border: 1px solid #ddd;border-top: 0;padding: 10px;font-size: 0;}
 .rankblock > ul.rankdata > li{font-size: 16px;margin-top: 5px;margin-bottom: 5px;}
-.rankblock > ul.rankdata > li >span.serial{display: inline-block;width: 20px;text-align: center;background-color: #ddd;margin-right: 10px;color: #fff;}
-.rankblock > ul.rankdata > li >span.serial.up.first{background-color: #ba2635;}
-.rankblock > ul.rankdata > li >span.serial.up.second{background-color: #E37983;}
-.rankblock > ul.rankdata > li >span.serial.up.third{background-color: #E5AFB4;}
-.rankblock > ul.rankdata > li >span.serial.down.first{background-color: #049A04;}
-.rankblock > ul.rankdata > li >span.serial.down.second{background-color: #5DBC5D;}
-.rankblock > ul.rankdata > li >span.serial.down.third{background-color:  #ADDBAD;}
-.rankblock > ul.rankdata > li >span.stockname{display: inline-block;color: #333;width: 80px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;position: absolute;}
-.rankblock > ul.rankdata > li >span.stocknumber{margin-left: 90px;}
-.rankblock > ul.rankdata > li >span.stocknumber > span{display: inline-block;width: 55px;margin-right: 5px;}
+.rankblock > ul.rankdata > li > span.stockname > span.serial{display: inline-block;width: 20px;text-align: center;background-color: #ddd;margin-right: 10px;color: #fff;}
+.rankblock > ul.rankdata > li > span.stockname > span.serial.up.first{background-color: #ba2635;}
+.rankblock > ul.rankdata > li > span.stockname > span.serial.up.second{background-color: #E37983;}
+.rankblock > ul.rankdata > li > span.stockname > span.serial.up.third{background-color: #E5AFB4;}
+.rankblock > ul.rankdata > li > span.stockname > span.serial.down.first{background-color: #049A04;}
+.rankblock > ul.rankdata > li > span.stockname > span.serial.down.second{background-color: #5DBC5D;}
+.rankblock > ul.rankdata > li > span.stockname > span.serial.down.third{background-color:  #ADDBAD;}
+.rankblock > ul.rankdata > li >span.stockname{display: inline-block;color: #333;width: 110px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;position: absolute;}
+.rankblock > ul.rankdata > li >span.stocknumber{margin-left: 110px;}
+.rankblock > ul.rankdata > li >span.stocknumber > span{display: inline-block;width: 55px;margin-right: 5px;text-align: right;}
 
 
 

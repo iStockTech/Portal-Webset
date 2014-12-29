@@ -45,8 +45,8 @@ div{
 			<!-- index main (left) -->
 			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 js-news-main">
 				<!-- part one (沪深) -->
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5">
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5"> -->
 <!-- 						<div class="newsblock sectorname"> -->
 <!-- 							<span class="title">沪<span class="dot">·</span>深</span> -->
 <!-- 						</div> -->
@@ -100,8 +100,8 @@ div{
 <!-- 						</div> -->
 						
 <!-- 						<div class="newsblock button">更多沪·深市场资讯</div> -->
-					</div>
-				</div>
+<!-- 					</div> -->
+<!-- 				</div> -->
 				<!-- end part one (沪深) -->
 				
 <!-- 				<div class="row advertise"> -->
@@ -109,8 +109,8 @@ div{
 <!-- 				</div>  -->
 				
 				<!-- part two 美股·港股) -->
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5">
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5"> -->
 <!-- 						<div class="newsblock sectorname"> -->
 <!-- 							<span class="title">美股<span class="dot">·</span>港股</span> -->
 <!-- 						</div> -->
@@ -164,71 +164,73 @@ div{
 <!-- 						</div> -->
 						
 <!-- 						<div class="newsblock button">更多美股·港股市场资讯</div> -->
-					</div>
-				</div><!-- end part two 美股·港股) -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!--  end part two 美股·港股) -->
 				
 				<!-- part three (基金) -->
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5">
-						<div class="newsblock sectorname">
-							<span class="title">基金</span>
-						</div>
-						<div class="newsblock illustrate single">
-							<img alt="illustrated photo" class="image" src="upload/a.jpg">
-							<div class="content">
-								<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p>
-								<p class="summary">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p>
-							</div>
-						</div>
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 mgt20 border-news" data-type="type5"> -->
+<!-- 						<div class="newsblock sectorname"> -->
+<!-- 							<span class="title">基金</span> -->
+<!-- 						</div> -->
+<!-- 						<div class="newsblock illustrate single"> -->
+<!-- 							<img alt="illustrated photo" class="image" src="upload/a.jpg"> -->
+<!-- 							<div class="content"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);" data-id="1">人民币周五收跌，创6个月新低</a></p> -->
+<!-- 								<p class="summary">中国人民币兑美元周五收低于6.22元附近，创近半年低点，与中间价贬值方向一致。盘间一度触及6.2316元低点。市场人士认为，当前已接近今年低点，年内续贬空间不多。</p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 						
-						<div class="newsblock illustrate set">
-							<div class="slice">
-								<img alt="slice news" src="upload/a.jpg">
-								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
-								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
-							</div>
-							<div class="slice">
-								<img alt="slice news" src="upload/a.jpg">
-								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
-								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
-							</div>
-							<div class="slice">
-								<img alt="slice news" src="upload/a.jpg">
-								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p>
-								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p>
-							</div>
-						</div>
+<!-- 						<div class="newsblock illustrate set"> -->
+<!-- 							<div class="slice"> -->
+<!-- 								<img alt="slice news" src="upload/a.jpg"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
+<!-- 								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p> -->
+<!-- 							</div> -->
+<!-- 							<div class="slice"> -->
+<!-- 								<img alt="slice news" src="upload/a.jpg"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
+<!-- 								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p> -->
+<!-- 							</div> -->
+<!-- 							<div class="slice"> -->
+<!-- 								<img alt="slice news" src="upload/a.jpg"> -->
+<!-- 								<p class="title"><a href="javascript:void(0);">郭靖：后继乏力，降龙十八掌该何去何从？</a></p> -->
+<!-- 								<p class="summary">近几个月的中原武林“风雨飘摇”大概是最好的词汇了，转瞬之间就被腰斩。</p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 						
-						<div class="newsblock succicent">
-							<div class="card slice">
-								<img alt="card recommend" src="upload/a.jpg">
-								<p class="text">推荐阅读</p>
-							</div>
+<!-- 						<div class="newsblock succicent"> -->
+<!-- 							<div class="card slice"> -->
+<!-- 								<img alt="card recommend" src="upload/a.jpg"> -->
+<!-- 								<p class="text">推荐阅读</p> -->
+<!-- 							</div> -->
 							
-							<ul class="lsit-unstyle list slice">
-								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-							</ul>
+<!-- 							<ul class="lsit-unstyle list slice"> -->
+<!-- 								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 							</ul> -->
 							
-							<ul class="lsit-unstyle list slice"> 
-								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li>
-							</ul>
-						</div>
+<!-- 							<ul class="lsit-unstyle list slice">  -->
+<!-- 								<li><a href="javascript:void(0);">降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 								<li><a href="javascript:void(0);">武林大会降龙十八掌该何去何从</a></li> -->
+<!-- 							</ul> -->
+<!-- 						</div> -->
 						
-						<div class="newsblock button">更多基金市场资讯</div>
-					</div>
-				</div><!-- end part three (基金) -->
+<!-- 						<div class="newsblock button">更多基金市场资讯</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+				<!-- end part three (基金) -->
 			</div><!-- end index main(left) -->
 			
 			<!-- append info (right) -->
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 js-index-append" >
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 js-news-appendix" >
 				<!-- 上证指数 -->
 				<div class="row mgt20" style="margin-left: 0;">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bgc-f8 border-news">
@@ -246,20 +248,32 @@ div{
 							<span class="blockname">涨跌排行</span>
 							<span class="line"></span>
 							<ul class="list-inline list rankname">
-								<li class="active">涨幅前十</li>
-								<li>跌幅前十</li>
+								<li class="active" data-target="up">涨幅前十</li>
+								<li data-target="down">跌幅前十</li>
 							</ul>
-							<ul class="list-unstyle list rankdata">
-								<li><span class="serial first up">1</span><span class="stockname">阿里巴巴阿里巴巴阿里巴巴阿里巴巴</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
-								<li><span class="serial second up">2</span><span class="stockname">奇虎360</span><span class="stocknumber"></span></li>
-								<li><span class="serial third up">3</span><span class="stockname">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">4</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">5</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">6</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">7</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">8</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">9</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
-								<li><span class="serial">10</span><span class="stock-name">苹果</span><span class="stock-number"></span></li>
+							<ul class="list-unstyle list rankdata js-up" data-target="up">
+								<li><span class="stockname"><span class="serial first up">1</span>ssss阿里巴巴阿里巴巴阿里巴巴阿里巴巴</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial second up">2</span>奇虎360</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial third up">3</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">4</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">5</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">6</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">7</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">8</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">9</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">10</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+							</ul>
+							<ul class="list-unstyle list rankdata js-down" style="display: none;" data-target="down">
+								<li><span class="stockname"><span class="serial first down">1</span>111阿里巴巴阿里巴巴阿里巴巴阿里巴巴</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial second down">2</span>奇虎360</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial third down">3</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">4</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">5</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">6</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">7</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">8</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">9</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
+								<li><span class="stockname"><span class="serial">10</span>苹果</span><span class="stocknumber"><span class="number-1 up">115.70</span><span class="number-2">-3.80</span><span class="number-3">3.40%</span></span></li>
 							</ul>
 						</div>
 					</div>
@@ -315,37 +329,102 @@ div{
 <script type="text/javascript" language="javascript" src="js/System.stockii.news.js"></script>
 
 <script type="text/javascript">
+
 newsHandler.getNewsList.getForHot("data/hotnews.txt", "hotnews");
-newsHandler.getNewsList.getForIndexMain("data/indexMain.txt", "indexMain");
+newsHandler.getNewsList.getForIndex("data/indexMain.txt", "indexMain");
+
 $(function(){
-// var $_clone = $(".js-news-basic").clone();
-// $_clone.appendTo(".js-news-main");
 var content = {
 	"title" : "title test text",
 	"summary" : "summary test text"
 };
 
-// var $_block = atomicOperation.createHtmlDOM.createIllustrateSingle();
-// atomicOperation.fillHtmlDOM.fillIllustrateSingle($_block,content,$($_clone).find("div"));
 
-var $_basicCotainer = atomicOperation.createFrameDOM.basicCotainer();
-atomicOperation.pasteFrameDOM.basicCotainer($_basicCotainer,$(".js-news-main"));
+//basic test
+// var $_basicCotainer = atomicOperation.createFrameDOM.basicCotainer();
+// atomicOperation.pasteFrameDOM.basicCotainer($_basicCotainer,$(".js-news-main"));
 
-var sectorname = atomicOperation.createFrameDOM.sectorName("沪<span class='dot'>·</span>深");
-atomicOperation.pasteFrameDOM.sectorName(sectorname,$_basicCotainer.find("div.js-nail"));
-
-
-var $_block_IllustrateSingle = atomicOperation.createHtmlDOM.createIllustrateSingle();
-atomicOperation.fillHtmlDOM.fillIllustrateSingle($_block_IllustrateSingle,content,$_basicCotainer.find("div.js-nail"));
+// var sectorname = atomicOperation.createFrameDOM.sectorName("沪<span class='dot'>·</span>深");
+// atomicOperation.pasteFrameDOM.sectorName(sectorname,$_basicCotainer.find("div.js-nail"));
 
 
-var $_block_IllustrateSet = atomicOperation.createHtmlDOM.createIllustrateSet();
-// console.log($_block_IllustrateSet.html());
-atomicOperation.fillHtmlDOM.fillIllustrateSet($_block_IllustrateSet,content,$_basicCotainer.find("div.js-nail"));
+// var $_block_IllustrateSingle = atomicOperation.createHtmlDOM.createIllustrateSingle();
+// atomicOperation.fillHtmlDOM.fillIllustrateSingle($_block_IllustrateSingle,content);
+// atomicOperation.pasteHtmlDOM.pasteIllustrateSingle($_block_IllustrateSingle,$_basicCotainer.find("div.js-nail.basic"));
+
+// var $_block_IllustrateSet = atomicOperation.createHtmlDOM.createIllustrateSet();
+// atomicOperation.fillHtmlDOM.fillIllustrateSet($_block_IllustrateSet,content);
+// atomicOperation.pasteHtmlDOM.pasteIllustrateSet($_block_IllustrateSet,$_basicCotainer.find("div.js-nail.basic"));
 
 
-var $_block_succinct = atomicOperation.createHtmlDOM.createSuccicent();
-atomicOperation.fillHtmlDOM.fillSuccicent($_block_succinct,content,$_basicCotainer.find("div.js-nail"));
+// var $_block_succinct = atomicOperation.createHtmlDOM.createSuccicent();
+// atomicOperation.fillHtmlDOM.fillSuccicent($_block_succinct,content);
+// atomicOperation.pasteHtmlDOM.pasteSuccicent($_block_succinct,$_basicCotainer.find("div.js-nail.basic"));
+
+
+//appendix test
+var indexList = [["上证指数","115.70","3.8","4.2%"],["深证指数","133.67","7.90","3.47%"],["沪深300","216.36","5.6","6.74%"],["创业板指数","156.47","10.65","2.78%"]];
+var rankList= 
+{
+	"up":[
+		["1强生up","12","14","155"],
+		["2强生up","12","14","155"],
+		["3强生up","12","14","155"],
+		["4强生up","12","14","155"],
+		["5强生up","12","14","155"],
+		["6强生up","12","14","155"],
+		["7强生up","12","14","155"],
+		["8强生up","12","14","155"],
+		["9强生up","12","14","155"],
+		["0强生up","12","14","155"]
+	],
+	"down":[
+		["1强生down","12","14","155"],
+		["2强生down","12","14","155"],
+		["3强生down","12","14","155"],
+		["4强生down","12","14","155"],
+		["5强生down","12","14","155"],
+		["6强生down","12","14","155"],
+		["7强生down","12","14","155"],
+		["8强生down","12","14","155"],
+		["9强生down","12","14","155"],
+		["0强生down","12","14","155"]
+	]
+};
+
+var $_appendixContainer = atomicOperation.createFrameDOM.appendixContainer();
+atomicOperation.pasteFrameDOM.appendixContainer($_appendixContainer,$(".js-news-appendix"));
+
+var $_stockindex = atomicOperation.createHtmlDOM.createStockIndex(4);
+atomicOperation.fillHtmlDOM.fillStockIndex($_stockindex,content,indexList);
+// atomicOperation.fillHtmlDOM.fillStockIndex();
+atomicOperation.pasteHtmlDOM.pasetStockIndex($_stockindex,$("div.js-nail.appendix"));
+
+var $_stockrank = atomicOperation.createHtmlDOM.createStockRank();
+atomicOperation.fillHtmlDOM.fillStockRank($_stockrank,rankList);
+atomicOperation.pasteHtmlDOM.pasteStockRank($_stockrank,$("div.js-nail.appendix"));
+
+
+
+
+
+//rank switch
+$("ul.rankname > li").click(function(){
+// 	alert($(this).text());
+	if(!$(this).hasClass("active")){
+		$(this).addClass("active");
+		$(this).siblings("li").removeClass("active");
+// 		$("ul.rankdata").attr("style","none");
+// 		$("ul.rankdata[style]").attr("style","block");
+		$(this).parent("ul").siblings("[data-target]").css("display","none");
+		console.log($(this).attr("data-target"));
+		$(this).parent("ul").siblings("[data-target="+$(this).attr("data-target")+"]").css("display","block");
+	}
+// 	$(this).siblings().removeClass("active");
+// 	$(this).addClass("active");
+// 	$(this).parent("ul").siblings("ul.rankdata") 
+});
+
 });
 </script>
 </body>

@@ -34,5 +34,12 @@ var System = {
 	            }
 			});
 		}
+	},
+	getObjectLength : function(object) {
+		var length = 0;
+		$.each(object,function(key,val){
+			length = length + 1;
+		});
+		return length;
 	}
 };
