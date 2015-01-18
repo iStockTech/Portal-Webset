@@ -209,3 +209,27 @@
 .signup li > input.register[type='submit']{color: #ba2635;}
 .signup li > input.reset[type='button']{color: #adadad;}
 /*====end signup page====*/
+
+/*====hq ~ _hqindex.jsp====*/
+ol#hq_footprint{display: block;width: 100%;background-attachment: scroll;background-clip: border-box;background-color: #dadada;background-image: url(../../jquery-ui-1.11.2/images/ui-bg_glass_75_e6e6e6_1x400.png);background-origin: padding-box;background-size: auto;border: 1px solid #D3D3D3;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;}
+ol#hq_footprint >li.active{color: #ba2635;}
+
+.ui-accordion .ui-accordion-header.ui-accordion-header-active{background-color: #9d9d9d;background-image: none;}
+.ui-accordion .ui-accordion-content{padding: 0;height: auto !important;min-height: 0;overflow: visible;}
+.ui-accordion .ui-accordion-content.ui-accordion-content-active{background-color: #eee;background-image: none;}
+.ui-accordion .ui-accordion-content ul{background-color: #eee;background-image: none;}
+.ui-accordion .ui-accordion-content ul>li{width: 150px;background-color: #eee;}
+.ui-accordion .ui-accordion-content ul>li.ui-state-focus{border: 0;background-image: none;background-color: #adadad;margin: 0;}
+.ui-accordion .ui-accordion-content ul>li.ui-state-active{border: 0;background-image: none;background-color: #ddd;margin: 0;}
+/*====end hq ~ _hqindex.jsp====*/
+
+/*====hq ~ _hqstock.jsp====*/
+.companyinfo > ul.infolist > li > span.title{display: inline-block;width: 80px;;font-size: 16px;font-weight: bold;padding-bottom: 3px;;border-bottom: 1px solid #ddd;margin-bottom: 5px;margin-top: 10px;}
+.companyinfo > ul.infolist > li > ul > li{margin: 2px 0 2px 0;}
+.companyinfo > ul.infolist > li > ul > li a{color: #333;font-size: 14px;}
+
+.stockinfo{margin-top: 10px;}
+.stockinfo > span.stockname{display: table-cell;color: #3E7198;font-weight: bold;font-size: 20px;}
+.stockinfo > span.stockprice{display: inline-block;color: #ba2635;font-size: 30px;}
+.stockinfo > div.total li > span{color: #333;font-size: 14px;display: inline-block;padding: 2px 0 2px 0;}
+/*====end hq ~ _hqstock.jsp====*/

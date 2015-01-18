@@ -55,3 +55,15 @@ function focusTo(selector) {
         $(this).animate({width: 40}, 400);
     });
 })();
+
+/**
+ * 统计网站访问人数
+ * 
+ */
+//function visitedCount(){
+//	var storage = window.localStorage;
+//	if (!storage.getItem("pageLoadCount")) storage.setItem("pageLoadCount",0);
+//	storage.pageLoadCount = parseInt(storage.getItem("pageLoadCount")) + 1;//必须格式转换
+//	console.log("view times:"+storage.pageLoadCount); 
+//	return storage.pageLoadCount;
+//}

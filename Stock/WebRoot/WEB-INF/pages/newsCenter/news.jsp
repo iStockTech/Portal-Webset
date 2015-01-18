@@ -333,6 +333,8 @@ div{
 newsHandler.getNewsList.getForHot("data/hotnews.txt", "hotnews");
 newsHandler.getNewsList.getForIndex("data/indexMain.txt", "indexMain");
 
+
+
 $(function(){
 var content = {
 	"title" : "title test text",
@@ -397,7 +399,6 @@ atomicOperation.pasteFrameDOM.appendixContainer($_appendixContainer,$(".js-news-
 
 var $_stockindex = atomicOperation.createHtmlDOM.createStockIndex(4);
 atomicOperation.fillHtmlDOM.fillStockIndex($_stockindex,content,indexList);
-// atomicOperation.fillHtmlDOM.fillStockIndex();
 atomicOperation.pasteHtmlDOM.pasetStockIndex($_stockindex,$("div.js-nail.appendix"));
 
 var $_stockrank = atomicOperation.createHtmlDOM.createStockRank();

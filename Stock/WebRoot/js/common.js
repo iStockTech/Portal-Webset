@@ -41,5 +41,31 @@ var System = {
 			length = length + 1;
 		});
 		return length;
-	}
+	},
+	
+	urlUtil : {
+		getUrlHash : function() {
+			//获取url "#" 字符后的参数
+			return window.location.hash;
+		},
+		getUrlRequest : function() {
+			var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                if (str.indexOf("&") != -1) {
+                    strs = str.split("&");
+                    for (var i = 0; i < strs.length; i++) {
+                        theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                    }
+                } else {
+                    var key = str.substring(0,str.indexOf("="));
+                    var value = str.substr(str.indexOf("=")+1);
+                    theRequest[key] = decodeURI(value);
+                }
+            }
+            return theRequest;
+		},
+	},
+	
 };

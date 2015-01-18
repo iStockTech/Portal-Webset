@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container">
 		<h1 style="font-size: 30px; padding: 20px;">A股所有公司</h1>
 		
-		<table id="table_test" class="tablesorter">
+		<table id="table_test" class="tablesorter" >
 		</table>
 		
 <!-- 		<div class="row"> -->
@@ -43,16 +43,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 				<img src="front/dist/img/loading.gif"><span>正在加载...</span> -->
 <!-- 			</div> -->
 <!-- 		</div> -->
-		<div id="navigation" align="center">
-			<!-- 页面导航-->
-			<a href="front/pages/2.htm?page=1"></a>
-			<!-- 此处可以是url，可以是action，要注意不是每种html都可以加，是跟当前网页有相同布局的才可以。另外一个重要的地方是page参数，这个一定要加在这里，它的作用是指出当前页面页码，没加载一次数据，page自动+1,我们可以从服务器用request拿到他然后进行后面的分页处理。-->
-		</div>
+		
 	</div>
 </div>
 
 
-<%-- <jsp:include page="_footer.jsp" />  --%>
+<jsp:include page="_footer.jsp" />
+
+<script type="text/javascript" language="javascript" src="front/dist/js/jquery.stockii.table.js"></script>
+<script type="text/javascript" language="javascript" src="front/dist/js/jquery.tablesorter.js"></script>
 
 <script type="text/javascript">
 	$(function() {
@@ -115,7 +114,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		};
 		$("#table_test").stockiitable(options);
-		$("#table_test").tablesorter({theme: 'default'});
+		/* $("#table_test").tablesorter({theme: 'default'}); */
+		$("#table_test").tablesorter();
 	}
 	
 	function loadAjax(){
@@ -148,8 +148,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 </script>
 
-<script type="text/javascript">
-
-</script>
 </body>
 </html>

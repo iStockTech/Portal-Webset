@@ -1,5 +1,14 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
-
+<script type="text/javascript">
+function visitedCount(){
+	var storage = window.localStorage;
+	if (!storage.getItem("pageLoadCount")) storage.setItem("pageLoadCount",0);
+	storage.pageLoadCount = parseInt(storage.getItem("pageLoadCount")) + 1;//必须格式转换
+	//console.log("view times:"+storage.pageLoadCount); 
+	return storage.pageLoadCount;
+	//return 11;
+}
+</script>
 <!-- <div class="container-fluid"> -->
 	<nav class="nav navbar-default" role="navigation">
         <div class="container">
