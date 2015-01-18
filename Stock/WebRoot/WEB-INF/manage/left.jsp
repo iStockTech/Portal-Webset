@@ -154,10 +154,10 @@ H1 a {
           </tr>
         </table>
         <ul class="MM">
-		  <li><a href="/Stock/manage/admin/newsinfo/NewsInfo_insertpre.action" target="main">增加新闻</a></li>
-		  <li><a href="/Stock/manage/admin/newsinfo/NewsInfo_list.action" target="main">新闻列表</a></li>
-		  <li><a href="/Stock/manage/admin/newstype/newstype_insert.action" target="main">增加新闻类别</a></li>
-		  <li><a href="/Stock/manage/admin/newstype/NewsType_list.action" target="main">新闻类别列表</a></li>
+		  <li><a href="<%=request.getContextPath()%>/manage/admin/newsinfo/NewsInfo_insertpre.action" target="main">增加新闻</a></li>
+		  <li><a href="<%=request.getContextPath()%>/manage/admin/newsinfo/NewsInfo_list.action" target="main">新闻列表</a></li>
+		  <li><a href="<%=request.getContextPath()%>/manage/admin/newstype/newstype_insert.action" target="main">增加新闻类别</a></li>
+		  <li><a href="<%=request.getContextPath()%>/manage/admin/newstype/NewsType_list.action" target="main">新闻类别列表</a></li>
         </ul>
       </div>
       <h1 class="type"><a href="javascript:void(0)">新闻图片</a></h1>
@@ -180,8 +180,8 @@ H1 a {
           </tr>
         </table>
         <ul class="MM">
-		  <li><a href="/Stock/manage/admin/admin/Admin_list.action" target="main">管理员列表</a></li>
-		  <li><a href="/Stock/manage/admin/admin/admin_insert.action" target="main">增加管理员</a></li>
+		  <li><a href="<%=request.getContextPath()%>/manage/admin/admin/Admin_list.action" target="main">管理员列表</a></li>
+		  <li><a href="<%=request.getContextPath()%>/manage/admin/admin/admin_insert.action" target="main">增加管理员</a></li>
         </ul>
       </div>
       <h1 class="type"><a href="javascript:void(0)">注册用户管理</a></h1>
@@ -192,9 +192,9 @@ H1 a {
           </tr>
         </table>
         <ul class="MM">
-          <li><a href="/Stock/manage/admin/users/Users_list.action" target="main">会员管理</a></li>
-          <li><a href="/Stock/manage/admin/permission/Permission_list.action" target="main">权限列表</a></li>
-          <li><a href="/Stock/manage/admin/permission/permission_insert.action" target="main">增加权限</a></li>
+          <li><a href="<%=request.getContextPath()%>/manage/admin/users/Users_list.action" target="main">会员管理</a></li>
+          <li><a href="<%=request.getContextPath()%>/manage/admin/permission/Permission_list.action" target="main">权限列表</a></li>
+          <li><a href="<%=request.getContextPath()%>/manage/admin/permission/permission_insert.action" target="main">增加权限</a></li>
         </ul>
       </div>
       <h1 class="type"><a href="javascript:void(0)">软件管理</a></h1>
@@ -205,8 +205,8 @@ H1 a {
           </tr>
         </table>
         <ul class="MM">
-		  <li><a href="/Stock/manage/Software_list.action" target="main">软件列表</a></li>
-		  <li><a href="/Stock/manage/SoftwareUpload.action" target="main">增加软件</a></li>
+		  <li><a href="<%=request.getContextPath()%>/manage/Software_list.action" target="main">软件列表</a></li>
+		  <li><a href="<%=request.getContextPath()%>/manage/SoftwareUpload.action" target="main">增加软件</a></li>
         </ul>
       </div>
         <script type="text/javascript">
