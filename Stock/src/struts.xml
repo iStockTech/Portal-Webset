@@ -66,6 +66,14 @@
 			<result>/WEB-INF/pages/newsCenter/news_more.jsp</result>
 		</action>
 	</package>
+	<package name="hq" namespace="/hq" extends="struts-default">
+		<action name="index">
+			<result>/WEB-INF/pages/hqCenter/_hqindex.jsp</result>
+		</action>
+		<action name="S">
+			<result>/WEB-INF/pages/hqCenter/_hqstock.jsp</result>
+		</action>
+	</package>
 	<!-- <package name="news_model" namespace="/news/2014" extends="struts-default">
 		<action name="finance">
 			<result>/WEB-INF/pages/news_more.jsp?more=overview</result>
