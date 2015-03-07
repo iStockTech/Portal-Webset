@@ -34,7 +34,7 @@ public class HotStockAction extends ActionSupport {
 
 	public String top10(){
 		
-		List<HotStock> top10Stock = new ArrayList<>();
+		List<HotStock> top10Stock = new ArrayList<HotStock>();
 		top10Stock = hotStockService.getTop10StockInfoByDay();
 		
 		StringBuffer strbuf = new StringBuffer();

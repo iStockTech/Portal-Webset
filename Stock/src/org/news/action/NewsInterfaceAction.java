@@ -389,12 +389,12 @@ public class NewsInterfaceAction extends ActionSupport {
 	 * @return
 	 */
 	public String stockDayInfoTable(){
-		List<Stock_day_info>lists = new ArrayList<>();
-		List<StockInfoTable>listTable = new ArrayList<>();
+		List<Stock_day_info>lists = new ArrayList<Stock_day_info>();
+		List<StockInfoTable>listTable = new ArrayList<StockInfoTable>();
 		lists = stockDayInfoTableService.getStockByDay();
 		listTable = stockDayInfoTableService.toStockInfoTable(lists);
 		String str[] = new String[listTable.size()];
-		Map<String, String[]> mapAll = new HashMap<>();
+		Map<String, String[]> mapAll = new HashMap<String, String[]>();
 			/*
 			 private int id;
 			private String stock_id;
@@ -416,7 +416,7 @@ public class NewsInterfaceAction extends ActionSupport {
 			 */
 		
 		
-		Map<String,String> map = new HashMap<>();
+		Map<String,String> map = new HashMap<String,String>();
 		int i=0;
 	
 		for(StockInfoTable s:listTable){
@@ -458,13 +458,13 @@ public class NewsInterfaceAction extends ActionSupport {
 	 * @return
 	 */
 	public String stockDayInfoTablePage(){
-		List<Stock_day_info>lists = new ArrayList<>();
-		List<StockInfoTable>listTable = new ArrayList<>();
+		List<Stock_day_info>lists = new ArrayList<Stock_day_info>();
+		List<StockInfoTable>listTable = new ArrayList<StockInfoTable>();
 		lists = stockDayInfoTableService.getStockByDay(Integer.valueOf(currentPage).intValue(), 20);
 		listTable = stockDayInfoTableService.toStockInfoTable(lists);
 		String str[] = new String[listTable.size()];
-		Map<String, String[]> mapAll = new HashMap<>();
-		Map<String,String> map = new HashMap<>();
+		Map<String, String[]> mapAll = new HashMap<String, String[]>();
+		Map<String,String> map = new HashMap<String,String>();
 		int i=0;
 	
 		for(StockInfoTable s:listTable){

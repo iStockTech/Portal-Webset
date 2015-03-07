@@ -61,7 +61,6 @@
 	<mapping class="org.news.model.Image" />
 	<mapping class="org.news.model.Stock_day_info" />
 	<mapping class="org.news.model.HotStock" />
-	<mapping class="org.news.model.Stock_basic_info" />
 
 </session-factory>
 

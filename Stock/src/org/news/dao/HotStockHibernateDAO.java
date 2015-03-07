@@ -30,7 +30,7 @@ private static final Logger log = LoggerFactory.getLogger(StockDayInfoHibernateD
 	public List<HotStock> getTop10StockByDay(){
 		return (List<HotStock>) this.getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(Session session)throws HibernateException, SQLException {
-				List<HotStock> list = new ArrayList<>();
+				List<HotStock> list = new ArrayList<HotStock>();
 				Query query = session.createQuery("select stock_id,growth_ratio,daily_up_down,current_price from stock_day_info where created = (select max(created) from stock_day_info) ORDER BY growth_ratio desc");
 				
 				// 设置每页显示多少个，设置多大结果。

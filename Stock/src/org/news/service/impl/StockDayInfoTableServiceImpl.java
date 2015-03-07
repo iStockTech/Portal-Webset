@@ -41,7 +41,7 @@ public class StockDayInfoTableServiceImpl implements StockDayInfoTableService{
 	 */
 	public List<StockInfoTable> toStockInfoTable(List<Stock_day_info>lists){
 		
-		List<StockInfoTable>listTable = new ArrayList<>();
+		List<StockInfoTable>listTable = new ArrayList<StockInfoTable>();
 		for(int i=0;i<lists.size();i++){
 			StockInfoTable s = new StockInfoTable();
 			s.setId(i+1);
