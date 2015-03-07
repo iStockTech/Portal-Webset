@@ -230,11 +230,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </div>
 <jsp:include page="_footer.jsp" />
-<!-- 
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery-ui.min.js"></script>
 <script type="text/javascript" language="javascript" src="front/dist/js/bootstrap.min.js"></script>
- -->
 <!-- 交互效果 -->
 <script type="text/javascript">
 $(function(){

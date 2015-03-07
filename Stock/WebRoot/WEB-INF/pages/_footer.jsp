@@ -1,5 +1,4 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
-<link href="front/dist/css/jquery.webui-popover.min.css" rel="stylesheet" type="text/css">
 <footer>
     <div class="container pdt30 footer-panel">  
     <div class="row"> 	
@@ -25,7 +24,9 @@
    			<p class="title">联系我们</p>
    			<div class="row">
    				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-   					<span class="col-lg-5 icon icon-wechat mgr20" data-placement="top"></span>
+   					<span class="col-lg-5 icon icon-wechat mgr20" data-placement="top" title="斯多克微信公众账号" 
+      					data-container="body" data-toggle="popover" data-placement="left" data-trigger="click| hover"
+      data-content="<div><img class='tdcode' alt='QRcode' src='front/dist/img/footer-tdcode.png' style='width: 150px; height: 150px;'></div>" data-html="true"></span>
    					<a href="http://weibo.com/u/5318055999" target="_blank" onFocus="this.blur()"><span class="col-lg-5 icon icon-sina"></span></a>  			
    				</div>  				
    			</div>
@@ -74,7 +75,7 @@
     <div class="bottom">
 	    <div class="container">
 	    	<div class="left f16 spac1">
-	    		Copyright&nbsp;2013-2014 @andreyen, All right reserved.<span class="small">京网ICP 100000</span>
+	    		Copyright&nbsp;2013-2014 @Stockii, All right reserved. 京网ICP 100000
 	    	</div>
 	    	<div class="right f16">
 	    		<ul class="list-block3">
@@ -97,42 +98,13 @@
         
 </footer>
 
-<script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>
-<script type="text/javascript" language="javascript" src="front/dist/js/jquery-ui.min.js"></script>
-<script type="text/javascript" language="javascript" src="front/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" language="javascript" src="front/dist/js/jquery.fs.boxer.js"></script>
-<script type="text/javascript" language="javascript" src="front/dist/js/jquery.webui-popover.min.js"></script> 
-<script type="text/javascript" language="javascript" src="front/dist/js/site.effect.js"></script>
-<script type="text/javascript" language="javascript" src="front/dist/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="front/dist/js/jquery.min.js" ></script>
+<script type="text/javascript" src="front/dist/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-   	var PageVariables = {
-   		settings: {
-			trigger:'click',
-			title:'',
-			content:'<p>This is webui popover demo.</p><p>just enjoy it and have fun !</p>',
-			width:180,						
-			multi:true,						
-			closeable:false,
-			style:'',
-			padding:true,
-			style: "inverse"
-		},
-   	};
-   
    	$(function() {
-   		var qrcode = $('#qrcode').html(),
-		qrcodeSettings = {content: qrcode,
-							title: '',
-							padding: false
-						};
-		$('.icon.icon-wechat').webuiPopover($.extend({}, PageVariables.settings, qrcodeSettings));
-		
+   		$("[data-toggle='popover']").popover();
    	});
-   	
-   	// TODO abandoned
-   	function showWechatQRCode() {
-	}
    	
    	function checkBeforeSubmit() {
    		if($("#inputEmail").val() == "") {

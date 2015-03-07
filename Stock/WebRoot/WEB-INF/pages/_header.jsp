@@ -9,7 +9,6 @@ function visitedCount(){
 	//return 11;
 }
 </script>
-<!-- <div class="container-fluid"> -->
 	<nav class="nav navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
