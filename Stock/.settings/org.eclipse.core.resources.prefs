@@ -1,3 +1,4 @@
+#Sat Mar 07 15:45:40 CST 2015
 eclipse.preferences.version=1
 encoding//WebRoot/WEB-INF/log4j.properties=UTF-8
 encoding//WebRoot/WEB-INF/manage/left.jsp=UTF-8
@@ -58,3 +59,4 @@ encoding//src/org/news/utils/MD5Code.java=UTF-8
 encoding//src/org/news/utils/MessageUtil.java=UTF-8
 encoding//src/org/news/utils/XssFilter.java=UTF-8
 encoding//src/org/news/utils/XssHttpServletRequestWrapper.java=UTF-8
+encoding/<project>=UTF-8

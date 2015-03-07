@@ -22,7 +22,9 @@
 	<property name="myeclipse.connection.profile">MySQLdriver</property>
 	<property name="connection.password">root</property>
 	<!--C3P0配置 -->
-    <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+	<property name="hibernate.connection.provider_class">
+		org.hibernate.connection.C3P0ConnectionProvider
+	</property>
 	<!-- 指定连接池里最大连接数 -->
 	<property name="hibernate.c3p0.max_size">20</property>
 	<!-- 指定连接池里最小连接数 -->
@@ -38,15 +40,15 @@
 	<!-- 每次都验证连接是否可用 -->
 	<property name="hibernate.c3p0.validate">true</property>
 	<!-- 解决MySQL连接8hour自动关闭问题 -->
-	<property name="hibernate.c3p0.maxIdleTime">1800</property> 
+	<property name="hibernate.c3p0.maxIdleTime">1800</property>
 	<!-- 
-	<property name="hibernate.c3p0.checkoutTimeout">30000</property>
-	<property name="c3p0.testConnectionOnCheckout">true</property>
-    <property name="hibernate.c3p0.idleConnectionTestPeriod">18000</property>
-    <property name="c3p0.maxIdleTime">25000</property>
-    <property name="c3p0.idle_test_period">120</property>
-	 -->
-	
+		<property name="hibernate.c3p0.checkoutTimeout">30000</property>
+		<property name="c3p0.testConnectionOnCheckout">true</property>
+		<property name="hibernate.c3p0.idleConnectionTestPeriod">18000</property>
+		<property name="c3p0.maxIdleTime">25000</property>
+		<property name="c3p0.idle_test_period">120</property>
+	-->
+
 	<property name="hibernate.show_sql">false</property>
 	<property name="hibernate.format_sql">true</property>
 
@@ -61,6 +63,8 @@
 	<mapping class="org.news.model.Image" />
 	<mapping class="org.news.model.Stock_day_info" />
 	<mapping class="org.news.model.HotStock" />
+	<mapping class="org.news.model.Orders" />
+	<mapping class="org.news.model.Software" />
 
 </session-factory>
 
