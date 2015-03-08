@@ -32,7 +32,7 @@ if(request.getParameter("id")=="" || request.getParameter("id")==null){
 %>
 <div id="wrapmain">
 <div class="container mgb40 mgt40">
- <div class="row tab">
+ <div class="row tab tab-pages">
  	<div class="col-md-2">
 			<div class="bar">
 		  		<ul class="sidebar">
@@ -211,10 +211,8 @@ if(request.getParameter("id")=="" || request.getParameter("id")==null){
 </div>
 </div>
 <jsp:include page="_footer.jsp"></jsp:include>
-<!-- 
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>
 <script type="text/javascript" language="javascript" src="front/dist/js/bootstrap.min.js"></script>
- -->
 <script type="text/javascript">
 $(function(){
 	var js_id="<%=id%>";

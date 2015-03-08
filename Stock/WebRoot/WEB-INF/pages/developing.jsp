@@ -4,10 +4,10 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
   <head>
-    <base href="<%=basePath%>">
+<!--     <base href="<%=basePath%>developing"> -->
     
     <title>斯多克为您带来更多惊喜</title>
     
@@ -19,8 +19,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<link href="front/dist/css/bootstrap.css" rel="stylesheet">
 	<link href="front/dist/css/common.css" rel="stylesheet">
-	<link href="front/dist/css/base.css" rel="stylesheet">
 	<link href="front/dist/css/developing.css" rel="stylesheet">
+	<link href="front/dist/css/jquery.fs.boxer.css" rel="stylesheet">
   </head>
   
   <body>
@@ -28,47 +28,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div id="wrapmain">
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<div class="maxbg">
-				<div class="container">
-					<div class="col-lg-10 declaration">
-						<a class="icon" href="index"><span class="home-icon"></span></a>
-						<div class="title text-right">研发中...</div>
-						
-						<h3 class="body text-right">输入您的<i class="link-email">邮件地址</i>
-							并点击“提醒我产品更新”，您将可以了解到最新的产品信息
-						</h3>
-						<h3 class="body text-right">如果你希望直接和我们进行深度合作，请点击<a
-								class="hyperlink" href="corpration">合作伙伴</a>并与我们取得联系</h3>
-					</div>
-					<div class="subscribe-form col-sm-6 col-sm-offset-4">
-						<form>
-							<div class="input-group">
-								<input id="input-email" type="text" class="form-control"
-									placeholder="helloworld@stockii.com"> <span
-									class="input-group-btn">
-									<button class="btn btn-primary" type="button">提醒我产品更新</button>
-								</span>
-							</div>
-						</form>
-					</div>
+			<div class="container">
+				<div class="col-lg-12 declaration text-center">
+					<a class="icon" href="index"><span class="home-icon"></span></a>
+					<div class="title">研发中...</div>
+					
+					<h3 class="body">输入您的<a class="link-email">邮件地址</a>
+						并点击“提醒我产品更新”，您将可以了解到最新的产品信息<br/>
+						如果你希望直接和我们进行深度合作，请点击<a
+							class="hyperlink" href="corpration">合作伙伴</a>并与我们取得联系</h3>
+				</div>
+				<div class="subscribe-form col-sm-8 col-sm-offset-2">
+					<form>
+						<div class="input-group">
+							<input id="input-email" type="text" class="form-control"
+								placeholder="helloworld@stockii.com"> <span
+								class="input-group-btn">
+								<button class="btn btn-primary" type="button">提醒我产品更新</button>
+							</span>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
+  </div>
 	<jsp:include page="_footer.jsp" /> 
-    
-    <!-- <script type="text/javascript" src="front/dist/js/jquery.min.js"></script>
-	<script type="text/javascript" src="front/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="front/dist/js/stockii-ui.js"></script> -->
+	<script src="front/dist/js/jquery.min.js"></script>
+	<script src="front/dist/js/bootstrap.min.js"></script>
+	<script src="front/dist/js/jquery.backstretch.js"></script>
+<!-- 	<script type="text/javascript" src="front/dist/js/stockii-ui.js"></script> -->
 	
 	<script type="text/javascript">
-		$(window).resize(function() {
-// 			TODO 
-		});
-		
 		$(function () {
-// 			fullscreenHeight(".maxbg");
+// 			$(".main-bg").backstretch("front/img/fullscreen-developing-computer.jpg");
+			$("#wrapmain").backstretch("front/dist/img/fullscreen-developing-computer.jpg");
 			
 // 			give focus to the email input
 			$(".link-email").bind("click", function() {

@@ -248,9 +248,19 @@ ol#hq_footprint >li.active{color: #ba2635;}
 	background-image: none\9;
 	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/account_bg.jpg', sizingMethod='scale')\9;  
 }
-
 .maxbg > div {
 	padding-top: 120px;
 }
 /* End of Styles for Account pages */
 
+/* Styles for About pages */
+.tab.tab-pages {
+	cursor: auto;
+}
+/* End of Styles for Account pages */
+
+/*边框样式*/
+.border-news{
+	border: 2px solid #ddd;
+	border-radius: 4px;
+}
