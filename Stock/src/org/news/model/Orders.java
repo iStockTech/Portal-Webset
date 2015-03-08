@@ -20,9 +20,14 @@ public class Orders implements Serializable {
 	@Id
 	@GeneratedValue(generator = "generator")
 	@GenericGenerator(name = "generator", strategy = "increment")
-	private int orderId;		//Èí¼þId
-		
+	private int orderId;		//ï¿½ï¿½ï¿½Id
+	
+	@OneToOne(fetch = FetchType.LAZY)//ï¿½ï¿½Ê¾Ò»ï¿½ï¿½Ò»ï¿½Ä¹ï¿½Ïµ
+	@JoinColumn(name="usersId")//Îªï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private Users user;
+	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)//ï¿½ï¿½Ê¾Ò»ï¿½ï¿½Ò»ï¿½Ä¹ï¿½Ïµ
+	@JoinColumn(name="softwareId")//Îªï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private Software software;
 	
 	public Orders(){}
@@ -49,8 +54,6 @@ public class Orders implements Serializable {
 	/**
 	 * @param user the user to set
 	 */
-	@OneToOne(fetch = FetchType.LAZY)//±íÊ¾Ò»¶ÔÒ»µÄ¹ØÏµ
-	@JoinColumn(name="usersId")//ÎªÊý¾ÝÖÐµÄÍâ¼üÖ¸¶¨¸öÃû³Æ
 	public void setUser(Users user) {
 		this.user = user;
 	}
@@ -58,8 +61,6 @@ public class Orders implements Serializable {
 	/**
 	 * @return the software
 	 */
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)//±íÊ¾Ò»¶ÔÒ»µÄ¹ØÏµ
-	@JoinColumn(name="softwareId")//ÎªÊý¾ÝÖÐµÄÍâ¼üÖ¸¶¨¸öÃû³Æ
 	public Software getSoftware() {
 		return software;
 	}
