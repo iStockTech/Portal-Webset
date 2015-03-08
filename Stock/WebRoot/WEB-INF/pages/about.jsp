@@ -244,9 +244,9 @@ $(function(){
 			//window.location.href="<%=basePath%>"+"front/about.jsp?id="+target;
 			/* window.location.href="about?id="+target; */
 			window.location.href="<%=request.getContextPath()%>/about/"+target;
-			if(target.match("manage")){
-				window.location.href="forbid";
-			}
+// 			if(target.match("manage")){
+// 				window.location.href="forbid";
+// 			}
 		}
 	});
 	
