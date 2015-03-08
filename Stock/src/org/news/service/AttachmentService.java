@@ -62,10 +62,4 @@ public interface AttachmentService {
       */
      public long getCount(String keyword);
      
-     /**
-      * 删除单个文件
-      * @param   sPath    被删除文件的文件名
-      * @return 单个文件删除成功返回true，否则返回false
-      */
-     public boolean deleteFile(String sPath);
 }

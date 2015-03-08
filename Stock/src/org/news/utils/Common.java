@@ -7,6 +7,7 @@
  */
 package org.news.utils;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -24,7 +25,7 @@ public class Common {
 	public static Date getSwitchDate(String startDate){
 		Date dt=null;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-		if (startDate.endsWith("")){
+		if (startDate.equals("")){
 			return new Date();
 		}
 		try{
@@ -35,4 +36,20 @@ public class Common {
 		}
 		return dt;
 	}
+	
+	/**
+     * 删除单个文件
+     * @param   sPath    被删除文件的文件名
+     * @return 单个文件删除成功返回true，否则返回false
+     */
+    public static boolean deleteFile(String sPath) {
+        boolean flag = false;
+        File file = new File(sPath);
+        // 路径为文件且不为空则进行删除
+        if (file.isFile() && file.exists()) {
+            file.delete();
+            flag = true;
+        }
+        return flag;
+    }
 }

@@ -1,9 +1,9 @@
-1.获取新闻目录
-功能：获取某一类型的新闻目录，ajax 异步请求
-URL：<%=request.getContextPath()%>/interface/acquireMenu.action或http://localhost:8080/Stock/interface/acquireMenu.action
-参数：type，值为新闻类别编号
-输出：JSON格式的新闻目录
-例子：http://localhost:8080/Stock/interface/acquireMenu.action?type=1
+1.新闻列表
+功能：获取新闻列表所有的信息，ajax 异步请求
+URL：<%=request.getContextPath()%>/interface/acquireHomepageAction.action或http://localhost:8080/Stock/interface/acquireHomepageAction.action
+参数：search，从前端获取用于判断新闻类型有哪些；page，用于判断当前页面，index:首页  more：其他二级页面
+输出：newsInfo，某个页面所显示的全部新闻信息；pagination，分页信息；numPerPage，每一页的数目
+例子：http://localhost:8080/Stock/interface/acquireHomepageAction.action?search=1&page=index
 
 2.获取新闻列表
 功能：获取某一类型的新闻列表，不包含新闻内容，可以指定结果集的页号和每页大小，用于翻页显示
@@ -26,4 +26,17 @@ http://localhost:8080/Stock/interface/acquireSoftwarelist.action
 参数：无
 输出：JSON格式的软件列表
 例子：http://localhost:8080/Stock/interface/acquireSoftwarelist.action
-	
+
+5.登录授权
+功能：客户端登录取得授权级别
+URL：<%=request.getContextPath()%>/interface/authentication或http://localhost:8080/Stock/interface/authentication
+参数：mid，会员账号；password，密码进行MD5加密后的值；type,软件类型 
+输出：permissionLevel,权限级别，0为登录失败;token，令牌
+例子：http://localhost:8080/Stock/interface/authentication?mid=sd12306&password=23DA39B4DF4D8B2CBDD976EDD4DF4301&type=stockiiPanel	
+
+6.认证
+功能：应用服务收到令牌后，向认证服务请求令牌解析服务
+URL：<%=request.getContextPath()%>/interface/identification或http://localhost:8080/Stock/interface/identification
+参数：token，令牌
+输出：permissionLevel,权限级别，0为令牌不合法；mid，会员账号；token，生成的新令牌
+例子：http://localhost:8080/Stock/interface/identification?token=5a37081bb009358c34899486e57884805605689030ba08e26b4ca30a6386a0db42ef5e427f10b61758a29b573fc0ddf05958c3deae0778258f78959c9a900d4455f79e47ec3707074cf80752e5266eb4a339a230050e31838fc8b0421356c8d0131832ef085fc2000f8574e7be53e25b

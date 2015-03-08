@@ -43,7 +43,7 @@ public class OrderServiceImpl implements OrderService{
 	 * @param softwareId
 	 * @return
 	 */
-	public boolean addOrder(int userId,long softwareId){
+	public boolean addOrder(int userId,int softwareId){
 		Orders order = new Orders();
 		order.setOrderId(0);
 		order.setUser(userDAO.findUsersById(userId));
@@ -58,14 +58,16 @@ public class OrderServiceImpl implements OrderService{
 	 */
 	public int findLogin(Users user,String type){
 		if (userDAO.findLogin(user)){
-			List<Orders> orders = orderDAO.getAllSoftwares(user.getUsersId(),type);
+			int userId = userDAO.findUsersByName(user.getUsersName()).getUsersId();
+			List<Orders> orders = orderDAO.getAllSoftwares(userId);
+
 			if (orders == null || orders.size() == 0){
 				return 0;
 			}
 			int level = 0;
 			//找到该软件最大的级别
 			for (Orders order:orders){
-				if (order.getSoftware().getPermissionLevel()>level){
+				if (order.getSoftware().getSoftwareType().equals(type)&&order.getSoftware().getPermissionLevel()>level){
 					level = order.getSoftware().getPermissionLevel();
 				}
 			}

@@ -16,13 +16,16 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
-import org.news.model.NewsAttachment;
-import org.news.service.AttachmentService;
+import org.news.model.Software;
+import org.news.model.SoftwareVO;
+import org.news.service.SoftwareService;
+import org.news.utils.Common;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,12 +41,12 @@ import com.opensymphony.xwork2.ActionSupport;
 public class SoftwareAction extends ActionSupport{
 
 	private static final long serialVersionUID = 4362240508650937317L;
-	private AttachmentService service;
+	private SoftwareService service;
 	
 	/**
 	 * @param service the service to set
 	 */
-	public void setService(AttachmentService service) {
+	public void setService(SoftwareService service) {
 		this.service = service;
 	}
 
@@ -52,7 +55,7 @@ public class SoftwareAction extends ActionSupport{
 	String cp; //当前页
 	String ls; //页的大小
 	String pg = "Software_list.action"; //URL
-	List<NewsAttachment> softwares;//软件列表
+	List<SoftwareVO> softwares;//软件列表
 	long recorders; //软件数
 	int softwareid;//软件ID
 	Long sid; //下载软件ID
@@ -203,14 +206,14 @@ public class SoftwareAction extends ActionSupport{
 	/**
 	 * @return the softwares
 	 */
-	public List<NewsAttachment> getSoftwares() {
+	public List<SoftwareVO> getSoftwares() {
 		return softwares;
 	}
 
 	/**
 	 * @param softwares the softwares to set
 	 */
-	public void setSoftwares(List<NewsAttachment> softwares) {
+	public void setSoftwares(List<SoftwareVO> softwares) {
 		this.softwares = softwares;
 	}
 
@@ -259,6 +262,12 @@ public class SoftwareAction extends ActionSupport{
 			ServletActionContext.getRequest().setCharacterEncoding("UTF-8");
 			is = new FileInputStream(file);
 			String root = ServletActionContext.getServletContext().getRealPath("/WEB-INF/softwares");//保存软件的目录
+			
+			File file =new File(root);    
+			//如果文件夹不存在则创建    
+			if(!file.exists()&&!file.isDirectory()){
+				file.mkdir();    
+			} 
 			File deskFile = new File(root,this.getFileFileName());
 
 			//输出到外存中
@@ -272,12 +281,9 @@ public class SoftwareAction extends ActionSupport{
 			os.close();
 			is.close();
 			
-			//软件在附件中newsid为0,且只保存名称
-			NewsAttachment newsAttachment=new NewsAttachment();
-			newsAttachment.setNewsId((long)0);
-			newsAttachment.setAttachmentName(filename);
-			if (!service.addNewsAttachment(newsAttachment)){
-				service.deleteFile(root+File.separator+filename);//插入失败，删除文件
+			Software soft = new Software(0,this.fileFileName,"",1000,1,"stockiiPanel");
+			if (!service.addSoftware(soft)){
+				Common.deleteFile(root+File.separator+filename);//插入失败，删除文件
 				msg = "failed"+pageErrorInfo;
 			}
 			
@@ -318,9 +324,19 @@ public class SoftwareAction extends ActionSupport{
 			keyWord = "" ;	// 如果模糊查询没有关键字，则表示查询全部
 		}
 		
-		List<NewsAttachment> attachments = service.getAllSoftwares(keyWord, currentPage, lineSize);
+		List<Software> softs = service.getAllSoftwares(keyWord, currentPage, lineSize);
 		allRecorders = service.getCount(keyWord);
-		setSoftwares(attachments);
+		
+		if (this.softwares == null){
+			this.softwares = new ArrayList<SoftwareVO>();
+		}else{
+			this.softwares.clear();
+		}
+		
+		for (Software item:softs){
+			softwares.add(service.toSoftwareVO(item));
+		}
+
 		setRecorders(allRecorders);
 		
 		setCp(""+currentPage);
@@ -336,8 +352,8 @@ public class SoftwareAction extends ActionSupport{
 	@Transactional(propagation=Propagation.REQUIRED)
 	public String delete(){		
 		String filepath = ServletActionContext.getServletContext().getRealPath("/WEB-INF/softwares") + java.io.File.separator; //文件保存路径
-		String name = service.findNewsAttachmentById(softwareid).getAttachmentName();
-		if (service.deleteAttachment(softwareid)&&service.deleteFile(filepath+name)){//同时删除数据库和文件夹里的数据					
+		String name = service.findSoftwareById(softwareid).getSoftwareName();
+		if (service.deleteSoftware(softwareid)&&Common.deleteFile(filepath+name)){//同时删除数据库和文件夹里的数据					
 			msg = "删除成功";
 		}else{
 			msg = "删除失败";
@@ -351,9 +367,9 @@ public class SoftwareAction extends ActionSupport{
 	 * @return
 	 */
 	public InputStream getTargetFile(){
-		NewsAttachment attachment = service.findNewsAttachmentById(sid);
+
 		//String filepath = ServletActionContext.getServletContext().getRealPath("/")+"softwares"+File.separator; //文件保存路径
-	    filename = attachment.getAttachmentName();
+	    filename = service.findSoftwareById(sid.intValue()).getSoftwareName();
 
 		return ServletActionContext.getServletContext().getResourceAsStream("WEB-INF/softwares/"+filename);
 	}

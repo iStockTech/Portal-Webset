@@ -5,7 +5,7 @@ USE news_all;
 CREATE TABLE admin
 (
 adminId int NOT NULL,
-adminName varchar(20) NOT NULL,
+adminName varchar(40) NOT NULL,
 adminPass varchar(32),
 adminInfo text,
 primary key(adminId)
@@ -88,5 +88,41 @@ permissionLevel int NOT NULL,
 cmt text,
 primary key(permissionId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for advice
+-- ----------------------------
+DROP TABLE IF EXISTS `advice`;
+CREATE TABLE `advice` (
+  `adviceId` int(11) NOT NULL,
+  `userEmail` varchar(20) NOT NULL,
+  `userName` varchar(32) DEFAULT NULL,
+  `adviceInfo` text,
+  PRIMARY KEY (`adviceId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for image
+-- ----------------------------
+DROP TABLE IF EXISTS `image`;
+CREATE TABLE `image` (
+  `imageId` int(11) NOT NULL,
+  `newsInfoId` int(11) NOT NULL,
+  `imageName` varchar(32) DEFAULT NULL,
+  `imageDescript` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`imageId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE software
+(
+softwareId int NOT NULL,
+softwareName varchar(200),
+softwareDescripe text,
+price int,
+permissionLevel int,
+softwareType varchar(200),
+primary key(softwareId)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 insert into admin(adminId,adminName,adminPass,adminInfo) values(1,"admin","21232F297A57A5A743894A0E4A801FC3","init");

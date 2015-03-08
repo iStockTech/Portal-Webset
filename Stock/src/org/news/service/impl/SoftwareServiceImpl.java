@@ -3,7 +3,10 @@ package org.news.service.impl;
 import java.util.List;
 
 import org.news.dao.SoftwareHibernateDAO;
+import org.news.model.NewsInfo;
+import org.news.model.NewsVO;
 import org.news.model.Software;
+import org.news.model.SoftwareVO;
 import org.news.service.SoftwareService;
 
 public class SoftwareServiceImpl implements SoftwareService{
@@ -18,16 +21,16 @@ public class SoftwareServiceImpl implements SoftwareService{
 	}
 	
 	/**
-	 * Ìí¼ÓÈí¼ş
-	 * @param software ´«ÈëVO¶ÔÏó
-	 * @return ²Ù×÷ÊÇ·ñ³É¹¦
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param software ï¿½ï¿½ï¿½ï¿½VOï¿½ï¿½ï¿½ï¿½
+	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 	 */
 	public boolean addSoftware(Software software){
 		return softwareDAO.addSoftware(software);
 	}
 	
 	/**
-     * É¾³ıÈí¼ş
+     * É¾ï¿½ï¿½ï¿½ï¿½ï¿½
      * @param newsid
      * @return
      */
@@ -38,40 +41,57 @@ public class SoftwareServiceImpl implements SoftwareService{
     }
     
     /**
-	 * ĞŞ¸ÄÈí¼şĞÅÏ¢
+	 * ï¿½Ş¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * @param software
-	 * @return Èí¼ş
+	 * @return ï¿½ï¿½ï¿½
 	 */
 	public Software updateSoftware(Software software) {
 		return softwareDAO.updateSoftware(software);
 	}
 	
 	/**
- 	  * Ä£ºı²éÑ¯Èí¼ş
- 	  * @param keyword ¹Ø¼ü×Ö
-    * @param currentPage µ±Ç°Ò³
-    * @param lineSize Ã¿Ò³´óĞ¡
-    * @return Èí¼ş¼¯ºÏ
+ 	  * Ä£ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½
+ 	  * @param keyword ï¿½Ø¼ï¿½ï¿½ï¿½
+    * @param currentPage ï¿½ï¿½Ç°Ò³
+    * @param lineSize Ã¿Ò³ï¿½ï¿½Ğ¡
+    * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     */
 	public List<Software> getAllSoftwares(final String keyword, final int currentPage, final int lineSize){
 		return softwareDAO.getAllSoftwares(keyword, currentPage, lineSize);
 	}
 	
 	/**
-	    * ²éÑ¯º¬ÓĞ¹Ø¼ü×ÖµÄÈí¼şÊıÁ¿
+	    * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ğ¹Ø¼ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	    * @param keyword
-	    * @return Èí¼şÊıÁ¿
+	    * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	    */
 	   public long getCount(String keyword){
 		   return softwareDAO.getCount(keyword);
 	   }
 	   
 	   /**
-	    * ¿ÉÍ¨¹ıIdÀ´²éÕÒÈí¼şµÄĞÅÏ¢
+	    * ï¿½ï¿½Í¨ï¿½ï¿½Idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	    * @param attachmentId
 	    * @return
 	    */
-	   public Software findSoftwareById(long softwareId){
+	   public Software findSoftwareById(int softwareId){
 		   return softwareDAO.findSoftwareById(softwareId);
 	   }
+	   
+	   /**
+		 * å°†è½¯ä»¶çš„POè½¬åŒ–æˆVOä¾›æ˜¾ç¤º
+		 * 
+		 * @param software
+		 * @return
+		 */
+		public SoftwareVO toSoftwareVO(Software software) {
+			SoftwareVO vo = new SoftwareVO();
+			if (software != null) {
+				vo.setSoftwareId(software.getSoftwareId());
+				vo.setSoftwareName(software.getSoftwareName());
+				vo.setSoftwareDescripe(software.getSoftwareDescripe());
+				vo.setPrice(software.getPrice());
+			}
+			return vo;
+		}
 }

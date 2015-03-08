@@ -196,6 +196,24 @@
             </result>
 		</action>
 		
+		<!-- 登录授权接口 -->
+		<action name="authentication" 
+			class="authenAction" method="authentication">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+				<param name="includeProperties">permissionLevel,token</param>
+			</result>
+		</action>
 		
+		<!-- 认证接口 -->
+		<action name="identification" 
+			class="authenAction" method="identification">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+				<param name="includeProperties">permissionLevel,token,mid</param>
+			</result>
+		</action>
 	</package>
 </struts>    

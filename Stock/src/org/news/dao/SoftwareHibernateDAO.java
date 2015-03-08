@@ -16,9 +16,9 @@ public class SoftwareHibernateDAO extends HibernateDaoSupport {
 	private static final Logger log = LoggerFactory.getLogger(SoftwareHibernateDAO.class);
 	
 	/**
-	 * Ìí¼ÓÈí¼þ
-	 * @param software ´«ÈëVO¶ÔÏó
-	 * @return ²Ù×÷ÊÇ·ñ³É¹¦
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param software ï¿½ï¿½ï¿½ï¿½VOï¿½ï¿½ï¿½ï¿½
+	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 	 */
 	@SuppressWarnings("finally")
 	public boolean addSoftware(Software software){
@@ -36,9 +36,9 @@ public class SoftwareHibernateDAO extends HibernateDaoSupport {
 	}
 	
 	/**
-	 * É¾³ýÈí¼þ
+	 * É¾ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param software
-	 * @return ÊÇ·ñ³É¹¦
+	 * @return ï¿½Ç·ï¿½É¹ï¿½
 	 */
 	@SuppressWarnings("finally")
 	public boolean deleteSoftware(Software software) {
@@ -57,9 +57,9 @@ public class SoftwareHibernateDAO extends HibernateDaoSupport {
 	}
 	
 	/**
-	 * ÐÞ¸ÄÈí¼þÐÅÏ¢
+	 * ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * @param software
-	 * @return Èí¼þ
+	 * @return ï¿½ï¿½ï¿½
 	 */
 	@SuppressWarnings("finally")
 	public Software updateSoftware(Software software) {
@@ -76,26 +76,26 @@ public class SoftwareHibernateDAO extends HibernateDaoSupport {
 	}
 	
 	/**
-  	  * Ä£ºý²éÑ¯Èí¼þ
-  	  * @param keyword ¹Ø¼ü×Ö
-     * @param currentPage µ±Ç°Ò³
-     * @param lineSize Ã¿Ò³´óÐ¡
-     * @return Èí¼þ¼¯ºÏ
+  	  * Ä£ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½
+  	  * @param keyword ï¿½Ø¼ï¿½ï¿½ï¿½
+     * @param currentPage ï¿½ï¿½Ç°Ò³
+     * @param lineSize Ã¿Ò³ï¿½ï¿½Ð¡
+     * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
    @SuppressWarnings("unchecked")
 	public List<Software> getAllSoftwares(final String keyword, final int currentPage, final int lineSize){
-   	//Í¨¹ýÒ»¸öHibernateCallback¶ÔÏóÀ´Ö´ÐÐ²éÑ¯
+   	//Í¨ï¿½ï¿½Ò»ï¿½ï¿½HibernateCallbackï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð²ï¿½Ñ¯
    	final String hql = "from software where softwareName like ? order by softwareId";
    	  List<Software> list = getHibernateTemplate()
  			.executeFind(new HibernateCallback()
  		{
- 			//ÊµÏÖHibernateCallback½Ó¿Ú±ØÐëÊµÏÖµÄ·½·¨
+ 			//Êµï¿½ï¿½HibernateCallbackï¿½Ó¿Ú±ï¿½ï¿½ï¿½Êµï¿½ÖµÄ·ï¿½ï¿½ï¿½
  			public Object doInHibernate(Session session)
  				throws HibernateException, SQLException
  			{
- 				//Ö´ÐÐHibernate·ÖÒ³²éÑ¯
+ 				//Ö´ï¿½ï¿½Hibernateï¿½ï¿½Ò³ï¿½ï¿½Ñ¯
  				List<Software> result = session.createQuery(hql)
- 					//ÎªhqlÓï¾ä´«Èë²ÎÊý
+ 					//Îªhqlï¿½ï¿½ä´«ï¿½ï¿½ï¿½ï¿½ï¿½
  					.setParameter(0, '%' + keyword + '%') 
  					.setFirstResult((currentPage - 1) * lineSize)
  					.setMaxResults(lineSize)
@@ -107,9 +107,9 @@ public class SoftwareHibernateDAO extends HibernateDaoSupport {
      }
    
    /**
-    * ²éÑ¯º¬ÓÐ¹Ø¼ü×ÖµÄÈí¼þÊýÁ¿
+    * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ð¹Ø¼ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     * @param keyword
-    * @return Èí¼þÊýÁ¿
+    * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     */
    public long getCount(String keyword){
    	return (Long)getHibernateTemplate().find("select count(softwareId) " +
@@ -117,11 +117,11 @@ public class SoftwareHibernateDAO extends HibernateDaoSupport {
    }
    
    /**
-    * ¿ÉÍ¨¹ýIdÀ´²éÕÒÈí¼þµÄÐÅÏ¢
+    * ï¿½ï¿½Í¨ï¿½ï¿½Idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
     * @param attachmentId
     * @return
     */
-   public Software findSoftwareById(long softwareId){
+   public Software findSoftwareById(int softwareId){
    	return (Software)getHibernateTemplate().get(Software.class, softwareId); 
    }
 }

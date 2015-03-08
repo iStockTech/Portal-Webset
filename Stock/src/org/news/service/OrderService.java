@@ -10,7 +10,7 @@ public interface OrderService {
 	 * @param softwareId
 	 * @return
 	 */
-	public boolean addOrder(int userId,long softwareId);
+	public boolean addOrder(int userId,int softwareId);
 	
 	/**
 	 * 用户登录验证

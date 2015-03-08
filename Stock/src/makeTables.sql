@@ -124,5 +124,20 @@ softwareType varchar(200),
 primary key(softwareId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Table structure for `orders`
+-- ----------------------------
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `orderId` int(11) NOT NULL,
+  `softwareId` int(11) DEFAULT NULL,
+  `usersId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`orderId`),
+  KEY `FKC3DF62E552EAF335` (`usersId`),
+  KEY `FKC3DF62E53850E25F` (`softwareId`),
+  CONSTRAINT `FKC3DF62E53850E25F` FOREIGN KEY (`softwareId`) REFERENCES `software` (`softwareId`),
+  CONSTRAINT `FKC3DF62E552EAF335` FOREIGN KEY (`usersId`) REFERENCES `users` (`usersId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 insert into admin(adminId,adminName,adminPass,adminInfo) values(1,"admin","21232F297A57A5A743894A0E4A801FC3","init");

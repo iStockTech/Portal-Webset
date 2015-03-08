@@ -37,10 +37,10 @@ public class OrderHibernateDAO extends HibernateDaoSupport {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Orders> getAllSoftwares(long userId, String type){
+	public List<Orders> getAllSoftwares(int userId){
 		try {
-  			String queryString = "from orders where usersId = ? and softwareType = ?";
-  			return (List<Orders>)getHibernateTemplate().find(queryString, userId , type);
+  			String queryString = "from orders where usersId = ?";
+  			return (List<Orders>)getHibernateTemplate().find(queryString, userId);
   		} catch (RuntimeException re) {
   			log.error("find all failed", re);
   			throw re;
