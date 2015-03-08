@@ -85,24 +85,24 @@ if(request.getParameter("id")=="" || request.getParameter("id")==null){
 						<img class="personImg" alt="王宇飞" src="front/dist/img/manager_photo_wangyufei.jpg">
 						<div class="perInfo"><span class="name">王宇飞</span><span class="identity text-right">创始合伙人</span></div>
 						<div class="line"></div>
-						<p class="sub-content">毕业于北京邮电大学计算机学院，曾先后创立ChubbyWhale、Stockii等公司，在量化投资、人工智能等领域均有深入研究和实践。中关村青年创业者联盟发起人，海淀区优秀青年人才计划人选。
-												<br>2014年，主导创建斯多克科技公司。
+						<p class="sub-content">CEO, 曾先后创立ChubbyWhale、Stockii等公司，在量化投资、人工智能等领域均有深入研究和实践。2015年中关村新锐青年创业者候选人。
+												<br>2014年，作为发起人创建Stockii。
 					</div>
 					<!-- manager 2 -->
 					<div class="personBlock">
-						<img class="personImg" alt="张峻岷" src="front/dist/img/manager_photo_zhangjunmin.jpg">
+						<img class="personImg" alt="张峻铭" src="front/dist/img/manager_photo_zhangjunmin.jpg">
 						<div class="perInfo"><span class="name">张峻岷</span><span class="identity text-right">创始合伙人</span></div>
 						<div class="line"></div>
-						<p class="sub-content">张峻岷博士毕业于美国伊利诺伊州立大学计算机系，曾拜读于世界顶级大数据专家李克·伯纳门下，对Hadoop MapReduce及NoSQL Database有深入研究，是将大数据应用到证券投资领域的最早期实践者之一。
-												<br>2014年，主导创建斯多克科技公司。</p>
+						<p class="sub-content">首席大数据专家，张峻铭博士毕业于美国伊利诺伊州立大学计算机系，师从世界顶级计算机科学家李克·伯纳。张峻铭对Hadoop MapReduce及NoSQL Database有深入研究，是将大数据应用到证券投资领域的最早期实践者之一。
+												<br>2014年，创建Stockii。</p>
 					</div>
 					<!-- manager 3 -->
 					<div class="personBlock">
 						<img class="personImg" alt="徐乃煊" src="front/dist/img/manager_photo_xunaixuan.jpg">
 						<div class="perInfo"><span class="name">徐乃煊</span><span class="identity text-right">创始合伙人</span></div>
 						<div class="line"></div>
-						<p class="sub-content">曾就职于SAP大中华区大数据业务部，工商银行证券投资基金中心。原Dobytes Studio创始人，Intimatest的开发者，在互联网开发及营销领域有深刻理解和广泛实践。
-												<br>2014年，主导创建斯多克科技公司。</p>
+						<p class="sub-content">副总裁，徐乃煊是原Dobytes Studio的创始人，Intimatest的开发者，对互联网产品开发有着丰富的经验和深刻的理解，同时，他在互联网营销领域亦有广泛实践。曾就职于SAP，中国工商银行。
+												<br>2014年，创建Stockii。</p>
 					</div>
 					<!-- manager 4 -->
 					<div class="personBlock">
@@ -117,7 +117,7 @@ if(request.getParameter("id")=="" || request.getParameter("id")==null){
 						<img class="personImg" alt="刘敏" src="front/dist/img/manager_photo_liumin.jpg">
 						<div class="perInfo"><span class="name">刘敏</span><span class="identity text-right">首席安全官</span></div>
 						<div class="line"></div>
-						<p class="sub-content">知名青年安全专家，曾拜读于世界顶级安全学者，美国北卡罗莱纳州立大学的Donald Jiang门下，深入研究网络安全，移动安全等课题，并发现了Maven13-106等数个安全漏洞。同时在CS架构、系统设计等领域具有丰富的经验。
+						<p class="sub-content">首席安全官，刘敏曾师从世界顶级安全学者，美国北卡罗莱纳州立大学的Donald Jiang，深入研究网络安全，移动安全等课题，并发现了Maven13-106等数个安全漏洞，现为西海岸实验室安全委员会(候补)中最年轻的安全专家。除安全领域外，他在快速开发、系统设计等领域亦有一定造诣。
 							<br>目前全面负责斯多克科技的数据安全等工作。</p>
 					</div>
 					
@@ -135,7 +135,7 @@ if(request.getParameter("id")=="" || request.getParameter("id")==null){
 						<img class="personImg" alt="tuchengjun" src="front/dist/img/manager_photo_tuchengjun.jpg">
 						<div class="perInfo"><span class="name">涂骋俊</span><span class="identity text-right">首席安全官</span></div>
 						<div class="line"></div>
-						<p class="sub-content">知名青年安全专家，曾拜读于世界顶级安全学者，美国北卡罗莱纳州立大学的Donald Jiang门下，深入研究网络安全，移动安全等课题，并发现了Maven13-106等数个安全漏洞。同时在CS架构、系统设计等领域具有丰富的经验。
+						<p class="sub-content">CTO，知名青年安全专家，曾拜读于世界顶级安全学者，美国北卡罗莱纳州立大学的Donald Jiang门下，深入研究网络安全，移动安全等课题，并发现了Maven13-106等数个安全漏洞。同时在CS架构、系统设计等领域具有丰富的经验。
 							<br>目前全面负责斯多克科技的数据安全等工作。</p>
 					</div>
 			

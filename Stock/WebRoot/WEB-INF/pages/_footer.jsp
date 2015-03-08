@@ -61,7 +61,7 @@
 				
  		 		<div class="form-group mg0">
 					<div class="col-xs-5  col-sm-5 col-md-5 col-lg-5">
-		   				<input type="submit" value="提交意见" class="fbtn btn-submit bdradius6 bgc-red3" >
+		   				<input type="submit" value="提交意见" class="fbtn btn-submit bdradius6 bgc-red3">
 		   			</div>
 					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-md-offset-1">
 		   				<input type="button" value="重写" class="fbtn btn-refresh bdradius6">
@@ -107,11 +107,17 @@
    	});
    	
    	function checkBeforeSubmit() {
-   		if($("#inputEmail").val() == "") {
-   			$("#submit-tips").text("输入邮箱不能为空").show();
-   		} else {
-   			$("#submit-tips").hide();
-   		}
+//    	if($("#inputEmail").val() == "") {
+//    			$("#submit-tips").text("输入邮箱不能为空").show();
+//    		} else {
+//    			$("#submit-tips").hide();
+//    		}
+//    		var pattern = new RegExp("/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/");
+//    		if(pattern.test($("#inputEmail").val())) {
+//    			alert("success");
+//    		} else {
+//    			aler("failed");
+//    		}
    	}
    	
 </script>
