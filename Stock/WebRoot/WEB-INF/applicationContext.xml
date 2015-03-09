@@ -125,7 +125,7 @@
 	<bean id="newsTypeAction" class="org.news.action.NewsTypeAction">
 		<property name="newstypeService" ref="newsTypeService"></property></bean>
 	<bean id="softwareAction" class="org.news.action.SoftwareAction">
-		<property name="service" ref="attachmentService"></property></bean>
+		<property name="service" ref="softwareService"></property></bean>
 	<bean id="userLoginAction" class="org.news.action.UserLoginAction">
 		<property name="userService" ref="userService"></property></bean>
 	<bean id="userRegisterAction" class="org.news.action.UserRegisterAction">
@@ -146,4 +146,7 @@
 		<property name="permissionService" ref="permissionService"></property></bean>
 	<bean id="newsImageAction" class="org.news.action.NewsImageAction">
 		<property name="imageService" ref="imageService"></property></bean>
+		
+	<bean id="authenAction" class="org.news.action.AuthenticationAction">
+		<property name="orderService" ref="orderService"></property></bean>
 </beans>

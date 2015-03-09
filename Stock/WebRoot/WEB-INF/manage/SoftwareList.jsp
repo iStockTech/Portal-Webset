@@ -35,13 +35,15 @@
 	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
 		<td align="center" valign="middle"><span class="STYLE10">ID</span></td>
 		<td align="center" valign="middle"><span class="STYLE10">软件</span></td>
+		<td align="center" valign="middle"><span class="STYLE10">价格</span></td>
 		<td align="center" valign="middle" colspan="2"><span class="STYLE10">操作</span></td>
 	</TR>
 	<c:forEach items="${softwares}" var="software">
 	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td align="center" valign="middle"><span class="STYLE6">${software.attachmentId}</span></td>
-		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_download.action?sid=${software.attachmentId}">${software.attachmentName}</a></span></td>
-		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_delete.action?softwareid=${software.attachmentId}&cp=${cp}&ls=${ls}&pg=${pg}" onclick="return doDelete()">删除</a></span></td>
+		<td align="center" valign="middle"><span class="STYLE6">${software.softwareId}</span></td>
+		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
+		<td align="center" valign="middle"><span class="STYLE6">${software.price}</span></td>
+		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_delete.action?softwareid=${software.softwareId}&cp=${cp}&ls=${ls}&pg=${pg}" onclick="return doDelete()">删除</a></span></td>
 	</TR>
 	</c:forEach>
 </table>
