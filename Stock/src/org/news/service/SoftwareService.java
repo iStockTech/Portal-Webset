@@ -58,4 +58,14 @@ public interface SoftwareService {
 		 * @return
 		 */
 		public SoftwareVO toSoftwareVO(Software software);
+		
+		/**
+		 * 用户软件列表
+		 * @param keyword 关键字
+		 * @param currentPage 当前页
+		 * @param lineSize 页大小
+		 * @param userName 用户名
+		 * @return
+		 */
+		public List<SoftwareVO> getAllSoftwaresForUser(final String keyword, final int currentPage, final int lineSize,String userName);
 }

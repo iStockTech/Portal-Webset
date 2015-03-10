@@ -103,7 +103,9 @@
 	<bean id="imageService" class="org.news.service.impl.ImageServiceImpl">
 		<property name="imageDAO" ref="imageDAO"></property></bean>
 	<bean id="softwareService" class="org.news.service.impl.SoftwareServiceImpl">
-		<property name="softwareDAO" ref="softwareDAO"></property></bean>
+		<property name="orderDAO" ref="orderDAO"></property>
+		<property name="userDAO" ref="usersDAO"></property>
+		<property name="softwareDAO" ref="softwareDAO"></property></bean>	
 	<bean id="orderService" class="org.news.service.impl.OrderServiceImpl">
 		<property name="orderDAO" ref="orderDAO"></property>
 		<property name="userDAO" ref="usersDAO"></property>

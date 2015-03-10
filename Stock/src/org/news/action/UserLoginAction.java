@@ -101,8 +101,13 @@ public class UserLoginAction extends ActionSupport {
 		
 		String rand = (String) ctx.getSession().get("rand") ;	// 从session中取出验证码
 		
-		if(!rand.equalsIgnoreCase(code)){//验证码不正确
+		if(null==code||!rand.equalsIgnoreCase(code)){//验证码不正确
 			setInfo("请输入正确的验证码！") ;
+			return LOGIN;
+		}
+		
+		if(null==mid||null==password){
+			setInfo("请输入用户名或密码！") ;
 			return LOGIN;
 		}
 		

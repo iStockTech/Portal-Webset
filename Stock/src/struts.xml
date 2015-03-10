@@ -22,8 +22,14 @@
 		
 		<action name="userLogin"
 			class="userLoginAction">
-			<result name="success">/WEB-INF/pages/welcome.jsp</result>
+			<result name="success" type="redirect">/userSoftwarelist.action</result>
 			<result name="login">/WEB-INF/pages/account.jsp</result>
+		</action>
+		
+	   <action name="userSoftwarelist"
+			class="softwareAction" method="listForUser">
+			<result name="success">/WEB-INF/pages/welcome.jsp</result>
+
 		</action>
 		
 	    <action name="uploadAction"
@@ -213,6 +219,16 @@
 				<param name="noCache">true</param>
 				<param name="contentType">text/html</param>
 				<param name="includeProperties">permissionLevel,token,mid</param>
+			</result>
+		</action>
+		
+		<!-- 用户软件列表接口 -->
+		<action name="userSoftwarelist" 
+			class="softwareAction" method="listForUser">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+				<param name="includeProperties">softwares,recorders,cp,ls</param>
 			</result>
 		</action>
 	</package>

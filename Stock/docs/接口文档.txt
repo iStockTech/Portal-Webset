@@ -40,3 +40,11 @@ URL：<%=request.getContextPath()%>/interface/identification或http://localhost:80
 参数：token，令牌
 输出：permissionLevel,权限级别，0为令牌不合法；mid，会员账号；token，生成的新令牌
 例子：http://localhost:8080/Stock/interface/identification?token=5a37081bb009358c34899486e57884805605689030ba08e26b4ca30a6386a0db42ef5e427f10b61758a29b573fc0ddf05958c3deae0778258f78959c9a900d4455f79e47ec3707074cf80752e5266eb4a339a230050e31838fc8b0421356c8d0131832ef085fc2000f8574e7be53e25b
+
+7.获取用户软件列表
+功能：获取所有软件列表，包含用户状态，ajax 异步请求
+URL：<%=request.getContextPat()%>/interface/userSoftwarelist.action或
+http://localhost:8080/Stock/interface/userSoftwarelist.action
+参数：cp，值为为当前所在的页，默认在第1页;ls，值为每次显示的记录数，默认为20;kw，关键字
+输出：softwares,软件列表；recorders列表长度；cp，值为为当前所在的页，默认在第1页;ls，值为每次显示的记录数，默认为20
+例子：http://localhost:8080/Stock/interface/userSoftwarelist.action

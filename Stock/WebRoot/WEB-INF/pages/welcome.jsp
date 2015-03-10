@@ -33,6 +33,25 @@
 		%>
 				<h2>欢迎<font color="RED"><%=session.getAttribute("id")%></font>光临！</h2>
 				<a class="btn btn-lg btn-success" href="logout">登录注销</a>
+<center>
+	<h1>软件列表</h1>
+<TABLE BORDER="1" cellpadding="5" cellspacing="0" bgcolor="F2F2F2" width="100%">
+	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
+		<td align="center" valign="middle"><span class="STYLE10">ID</span></td>
+		<td align="center" valign="middle"><span class="STYLE10">软件</span></td>
+		<td align="center" valign="middle"><span class="STYLE10">价格</span></td>
+		<td align="center" valign="middle" colspan="2"><span class="STYLE10">状态</span></td>
+	</TR>
+	<c:forEach items="${softwares}" var="software">
+	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
+		<td align="center" valign="middle"><span class="STYLE6">${software.softwareId}</span></td>
+		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
+		<td align="center" valign="middle"><span class="STYLE6">${software.price}</span></td>
+		<td align="center" valign="middle"><span class="STYLE6">${software.state}</span></td>
+	</TR>
+	</c:forEach>
+</table>
+</center>
 		<%			
 			} else {
 				request.setAttribute("info","请先登陆！") ;

@@ -2,23 +2,23 @@ package org.news.model;
 
 public class SoftwareVO {
 	
-	private int softwareId;		//Èí¼þId
-	private String softwareName;	//Èí¼þÃû³Æ
-	private String softwareDescripe;	//Èí¼þÃèÊö
-	private int price;		//Èí¼þ¼Û¸ñ	
-	private boolean isBuy;		//ÊÇ·ñÒÑ¹ºÂò
+	private int softwareId;		//ï¿½ï¿½ï¿½Id
+	private String softwareName;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String softwareDescripe;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int price;		//ï¿½ï¿½ï¿½ï¿½Û¸ï¿½	
+	private String state;		//ï¿½Ç·ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½
 	
 	public SoftwareVO(){}
 	
 	
 	public SoftwareVO(int softwareId, String softwareName,
-			String softwareDescripe, int price, boolean isBuy) {
+			String softwareDescripe, int price, String isBuy) {
 		super();
 		this.softwareId = softwareId;
 		this.softwareName = softwareName;
 		this.softwareDescripe = softwareDescripe;
 		this.price = price;
-		this.isBuy = isBuy;
+		this.state = isBuy;
 	}
 
 
@@ -70,17 +70,21 @@ public class SoftwareVO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+
 	/**
-	 * @return the isBuy
+	 * @return the state
 	 */
-	public boolean isBuy() {
-		return isBuy;
+	public String getState() {
+		return state;
 	}
+
+
 	/**
-	 * @param isBuy the isBuy to set
+	 * @param state the state to set
 	 */
-	public void setBuy(boolean isBuy) {
-		this.isBuy = isBuy;
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 	
