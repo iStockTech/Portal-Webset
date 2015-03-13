@@ -279,6 +279,18 @@
 				/WEB-INF/manage/SoftwareList.jsp
 			</result>
 		</action>
+		<action name="Software_updatepre" method="updatepre"
+			class="softwareAction">
+			<result name="success">
+				/WEB-INF/manage/software_update.jsp
+			</result>
+		</action>
+		<action name="Software_update" method="update"
+			class="softwareAction">
+			<result name="success">
+				/WEB-INF/manage/softwares_operate_do.jsp
+			</result>
+		</action>
 		<action name="Software_delete" method="delete"
 			class="softwareAction">
 			<result name="success">

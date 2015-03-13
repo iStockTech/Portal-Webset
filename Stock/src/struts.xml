@@ -29,7 +29,21 @@
 	   <action name="userSoftwarelist"
 			class="softwareAction" method="listForUser">
 			<result name="success">/WEB-INF/pages/welcome.jsp</result>
-
+		</action>
+		
+		<action name="Software_detail"
+			class="softwareAction" method="show">
+			<result name="success">/WEB-INF/pages/softwareDetail.jsp</result>
+		</action>
+		
+		<action name="Software_download"
+			class="softwareAction">
+			<result name="success" type="stream">
+				<param name="contentType">text/plain;charset=utf-8</param>
+				<param name="inputName">targetFile</param>
+				<param name="contentDisposition">attachment;filename="${filename}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
 		</action>
 		
 	    <action name="uploadAction"
@@ -99,7 +113,7 @@
 	<constant name="struts.multipart.maxSize" value="1073741824"/>
 	<constant name="struts.custom.i18n.resources" value="mess"></constant>
 	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
-	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.devMode" value="false"></constant>
 	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
 	<include file="struts-manage.xml" />
 	

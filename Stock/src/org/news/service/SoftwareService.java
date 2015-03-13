@@ -26,7 +26,7 @@ public interface SoftwareService {
 	 * @param software
 	 * @return ���
 	 */
-	public Software updateSoftware(Software software);
+	public boolean updateSoftware(Software software);
 	
 	/**
 	  * ģ���ѯ���

@@ -43,6 +43,7 @@
 		<td align="center" valign="middle"><span class="STYLE6">${software.softwareId}</span></td>
 		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
 		<td align="center" valign="middle"><span class="STYLE6">${software.price}</span></td>
+		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_updatepre.action?softwareid=${software.softwareId}&cp=${cp}&ls=${ls}&pg=${pg}">修改</a></span></td>
 		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_delete.action?softwareid=${software.softwareId}&cp=${cp}&ls=${ls}&pg=${pg}" onclick="return doDelete()">删除</a></span></td>
 	</TR>
 	</c:forEach>

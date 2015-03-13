@@ -40,7 +40,8 @@
 		<td align="center" valign="middle"><span class="STYLE10">ID</span></td>
 		<td align="center" valign="middle"><span class="STYLE10">软件</span></td>
 		<td align="center" valign="middle"><span class="STYLE10">价格</span></td>
-		<td align="center" valign="middle" colspan="2"><span class="STYLE10">状态</span></td>
+		<td align="center" valign="middle"><span class="STYLE10">状态</span></td>
+		<td align="center" valign="middle"><span class="STYLE10">详情</span></td>
 	</TR>
 	<c:forEach items="${softwares}" var="software">
 	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
@@ -48,6 +49,7 @@
 		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
 		<td align="center" valign="middle"><span class="STYLE6">${software.price}</span></td>
 		<td align="center" valign="middle"><span class="STYLE6">${software.state}</span></td>
+		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_detail.action?softwareid=${software.softwareId}&state=${software.state}">点击进入</a></span></td>
 	</TR>
 	</c:forEach>
 </table>

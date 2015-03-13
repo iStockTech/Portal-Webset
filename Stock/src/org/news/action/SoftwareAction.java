@@ -26,6 +26,7 @@ import org.news.model.Software;
 import org.news.model.SoftwareVO;
 import org.news.service.SoftwareService;
 import org.news.utils.Common;
+import org.news.utils.MessageUtil;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -64,7 +65,52 @@ public class SoftwareAction extends ActionSupport{
     private File file;    
     private String fileFileName;   
     private String fileContentType;   
+    
+    Software software;
+    String state;
+    
     	
+	/**
+	 * @return the state
+	 */
+	public String getState() {
+		return state;
+	}
+
+
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(String state) {
+
+		try {
+			this.state = new String(state.getBytes("iso8859-1"),"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+
+	/**
+	 * @return the software
+	 */
+	public Software getSoftware() {
+		return software;
+	}
+
+
+
+	/**
+	 * @param software the software to set
+	 */
+	public void setSoftware(Software software) {
+		this.software = software;
+	}
+
+
+
 	public File getFile() {
 		return file;
 	}
@@ -410,4 +456,53 @@ public class SoftwareAction extends ActionSupport{
 		return SUCCESS;
 	}
 
+	/**
+	 * 更新软件
+	 * @return
+	 */
+	public String update(){
+
+		try {//更新数据库
+			if (service.updateSoftware(software)) {
+				setMsg(MessageUtil
+						.get("software.update.true"));
+			} else {
+				setMsg(MessageUtil
+						.get("software.update.false"));
+			}
+
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ERROR;
+	}
+	
+	/**
+	 * 更新前的操作
+	 * @return
+	 */
+	public String updatepre(){
+		try {
+			software = service.findSoftwareById(softwareid);
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ERROR;
+	}
+	
+	/**
+	 * 查看软件信息
+	 * @return
+	 */
+	public String show(){
+		try {
+			software = service.findSoftwareById(softwareid);
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ERROR;
+	}
 }

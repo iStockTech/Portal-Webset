@@ -66,8 +66,12 @@ public class SoftwareServiceImpl implements SoftwareService{
 	 * @param software
 	 * @return ���
 	 */
-	public Software updateSoftware(Software software) {
-		return softwareDAO.updateSoftware(software);
+	public boolean updateSoftware(Software software) {
+		if (softwareDAO.updateSoftware(software) == null){
+			return false;
+		}else{
+			return true;
+		}
 	}
 	
 	/**
