@@ -18,6 +18,7 @@
 			<result name="error">
 				/WEB-INF/pages/regist_do.jsp
 			</result>
+			<result name="input">/WEB-INF/pages/signup.jsp</result>
 		</action>
 		
 		<action name="userLogin"

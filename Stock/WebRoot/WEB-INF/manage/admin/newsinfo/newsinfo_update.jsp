@@ -102,7 +102,7 @@
 			<table border="0" >				
 			<c:forEach items="${types}" var="newstype">
 					<tr>
-					<td><span class="STYLE6"><input type="checkbox" name="typeid" 
+					<td><span class="STYLE6"><input type="radio" name="typeid" 
 				<c:forEach items="${typeNames}" var="typename">
 					<c:if test="${newstype.newsTypeName==typename}" >
 							checked="checked" name="typeid"

@@ -104,7 +104,7 @@
 			<table border="0" >				
 			<c:forEach items="${types}" var="newstype">
 					<tr>
-					<td><span class="STYLE6"><input type="checkbox" name="typeid" value="${newstype.newsTypeName}">${newstype.newsTypeName}</span></td>
+					<td><span class="STYLE6"><input type="radio" name="typeid" value="${newstype.newsTypeName}">${newstype.newsTypeName}</span></td>
 					</tr>
 			</c:forEach>
 			</table>
@@ -118,6 +118,7 @@
 	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
 		<td><font size="2">新闻图片：</font></td>
 		<td><input type="file" name="imageFile"></td>
+		<td><span id="img_msg"><font color="RED">*</font></span></td>
 	</tr>
 	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
 		<td colspan="2"><font size="2">内容：</font></td>

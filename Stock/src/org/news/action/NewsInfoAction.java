@@ -535,6 +535,11 @@ public class NewsInfoAction extends ActionSupport {
 			news = new NewsInfo(newsInfoId,name,describe,content,
 					new Date(new java.util.Date().getTime()),author,admin.getAdminId(),type.toString(),0);//创建时间为当前时间
 			
+			if (null == imageFileFileName || null == imageFile){
+				setMsg("新闻增加失败！请上传图片");
+				return ERROR;
+			}
+			
 			if(imageService.imageExecute(imageFile, imageFileFileName)){
 				Image image = new Image();
 				List<Image> images = imageService.getAllImages();

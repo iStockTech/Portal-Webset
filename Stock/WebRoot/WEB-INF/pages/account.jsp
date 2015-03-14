@@ -36,7 +36,7 @@
       					<input name="authenticity_token" type="hidden" value="3EliZ07kHTqkHCEcNDJegiCF6qNH3xDxQLU+K8H6+rk="></div>
         				<div class="form-group">
           					<label>登录 <small>(用户名)</small></label>
-          					<span style="display: none;color: red;font-size: 10px;">#用户名应以字母开头，长度在6-18之间！</span>
+          					<span style="display: none;color: red;font-size: 10px;">#用户名不能为空！</span>
           					<input autofocus="autofocus" class="form-control" id="user_login" name="mid" type="text">
         				</div>
         				<div class="form-group">
@@ -69,8 +69,8 @@
     
 <script type="text/javascript">
 function validate(f){
-	if (!(/^[a-zA-Z]\w{5,17}$/.test(f.mid.value))){
-		alert("以字母开头，长度在6-18之间！");
+	if (f.mid.value == ''){
+		alert("用户名不能为空！");
 		f.mid.focus();
 		return false;
 	}
@@ -85,7 +85,7 @@ function validate(f){
 //validate
 $(".form-control").blur(function(){
 	if(this.name=="mid"){
-		if (!(/^[a-zA-Z]\w{5,17}$/.test($(this).val()))){
+		if ($(this).val()=='')){
 			$(this).siblings("span").css("display","inline");
 			this.focus();
 		}else{

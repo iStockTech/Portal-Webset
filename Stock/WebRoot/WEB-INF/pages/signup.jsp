@@ -107,11 +107,11 @@ $().ready(function() {
  		},
  		password : {
  			required : true,
- 			minlength : 6
+ 			rangelength:[5,15] 
  		},
  		conf : {
  			required: true,
-    		minlength: 6,
+    		rangelength:[5,15],
     		equalTo: "#password"
  		},
  		realName : {
@@ -135,11 +135,11 @@ $().ready(function() {
  		},
  		password : {
  			required : "请输入密码",
- 			minlength: jQuery.format("密码不能小于{0}个字符")
+ 			minlength: jQuery.format("密码必须是5~15位")
  		},
  		conf : {
  			required: "请输入确认密码",
-    		minlength: jQuery.format("密码不能小于{0}个字符"),
+    		minlength: jQuery.format("密码必须是5~15位"),
     		equalTo: "两次输入密码不一致不一致"
  		},
  		realName : {

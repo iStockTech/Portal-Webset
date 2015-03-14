@@ -1,6 +1,6 @@
 function validateMid(mid){
-	if(!(/^[a-zA-Z]\w{5,17}$/.test(mid))){
-		document.getElementById("mid_msg").innerHTML = "<img src=\""+url+"/images/wrong.gif\">" + "<font color=\"red\">以字母开头，长度在6-18之间！</font>" ;
+	if(mid == null){
+		document.getElementById("mid_msg").innerHTML = "<img src=\""+url+"/images/wrong.gif\">" + "<font color=\"red\">用户名不允许为空！</font>" ;
 		return false ;
 	} else {
 		document.getElementById("mid_msg").innerHTML = "<img src=\""+url+"/images/right.gif\">" + "<font color=\"green\">登录名称输入正确！</font>" ;
