@@ -253,6 +253,12 @@ ol#hq_footprint >li.active{color: #ba2635;}
 }
 /* End of Styles for Account pages */
 
+/* Styles for Login pages */
+.login-content {
+	padding-top: 160px;
+}
+/* End of Styles for Login pages */
+
 /* Styles for About pages */
 .tab.tab-pages {
 	cursor: auto;

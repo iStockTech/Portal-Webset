@@ -33,10 +33,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a class="icon" href="index"><span class="home-icon"></span></a>
 					<div class="title">研发中...</div>
 					
-					<h3 class="body">输入您的<a class="link-email">邮件地址</a>
-						并点击“提醒我产品更新”，您将可以了解到最新的产品信息<br/>
+					<p class="body">输入您的<a class="link-email">邮件地址</a>并点击“提醒我产品更新”，您将可以了解到最新的产品信息。
 						如果你希望直接和我们进行深度合作，请点击<a
-							class="hyperlink" href="corpration">合作伙伴</a>并与我们取得联系</h3>
+							class="hyperlink" href="corpration">合作伙伴</a>并与我们取得联系</p>
 				</div>
 				<div class="subscribe-form col-sm-8 col-sm-offset-2">
 					<form>

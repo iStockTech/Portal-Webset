@@ -1,108 +1,146 @@
-<%@ page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<base href="<%= request.getScheme() + "://" + request.getServerName() + ":" + 
-	request.getServerPort() + request.getContextPath() %>/" />
-<link rel="icon" href="./dist/img/icon_stockii_square.png">
-<link href="front/dist/css/bootstrap.css" rel="stylesheet">
-<link href="front/dist/css/common.css" rel="stylesheet">
-<link href="front/dist/css/page.css" rel="stylesheet">
-<title>登录斯多克</title>
-</head>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 
-<body>
-    <jsp:include page="_header.jsp?index=account" />
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>登录斯多克</title>
+	<link href="front/dist/css/bootstrap.css" rel="stylesheet">
+	<link href="front/dist/css/common.css" rel="stylesheet">
+	<link href="front/dist/css/page.css" rel="stylesheet">
+  </head>
+  
+  <body>
+  	<jsp:include page="_header.jsp" />
 	<div id="wrapmain">
-	<div class=" maxbg container">
-		<div class="row">
-			<div class="col-md-2">
-			</div>
-			<div id="img-tips" class="col-md-5">
-				<img alt="img-tips" src="front/dist/img/account_tips.png">
-			</div>
-			<div class="col-md-3">
-				<div class="panel panel-default">
-    			<div class="panel-body">
-    				<%=request.getAttribute("info")!=null?request.getAttribute("info"):""%>
-    				<form action="userLogin" method="post">
-      				<!-- <form action="UserLoginAction" method="post" onSubmit="return validate(this);"> -->
-      					<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓">
-      					<input name="authenticity_token" type="hidden" value="3EliZ07kHTqkHCEcNDJegiCF6qNH3xDxQLU+K8H6+rk="></div>
-        				<div class="form-group">
-          					<label>登录 <small>(用户名)</small></label>
-          					<span style="display: none;color: red;font-size: 10px;">#用户名不能为空！</span>
-          					<input autofocus="autofocus" class="form-control" id="user_login" name="mid" type="text">
-        				</div>
-        				<div class="form-group">
-          					<label for="user_password">密码</label>
-          					<span style="display: none;color: red;font-size: 10px;" onBlur="validateTmp(this);">#密码必须是5~15位！</span>
-          					<input class="form-control" id="user_password" name="password" type="password">
-        				</div>
-          				<div class="form-group">
-          					<label for="user_code">验证码</label>
-          					<input class="" id="user_password" name="code" type="text" maxlength="4" size="4"><img src="image.jsp">
-        				</div>
-        				<div>
-        					<ul class="list-inline" style="width: 100%;">
-        						<li style="width: 45%;"><input class="btn btn-lg btn-block btn-success" name="commit" type="submit" value="登录"/></li>
-        						<li style="width: 45%;"><a class="btn btn-lg btn-block btn-success" href="signup">立即注册</a></li>
-        					</ul>        					        					
-        				</div>
-					</form>    
+		<div class="container login-content">
+			<div class="row">
+				<div class="col-md-5 mgt30" id="img-tips">
+					<img alt="img-tips" src="front/dist/img/account_tips.png">
+				</div>
+				<div class="col-md-5 col-md-offset-2">
+					<div class="panel panel-default">
+	    				<div class="panel-body">
+		    				<%=request.getAttribute("info")!=null?request.getAttribute("info"):""%>
+		    				<form action="userLogin" method="post" class="form-horizontal" onsubmit="return validate()">
+		      					<h2>登录</h2>
+		      					<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓">
+		      					<input name="authenticity_token" type="hidden" value="3EliZ07kHTqkHCEcNDJegiCF6qNH3xDxQLU+K8H6+rk="></div>
+		        				<div class="form-group">
+		          					<div class="col-sm-12">
+		          						<input class="form-control" id="user_login" name="mid" type="text" placeholder="邮箱/用户名" autofocus="autofocus">
+		        						<p class="alert-tips"></p>
+		        					</div>
+		        				</div>
+		        				<div class="form-group">
+		        					<div class="col-sm-12">
+		          						<input class="form-control" id="user_password" name="password" type="password" placeholder="密码">
+		        						<p class="alert-tips"></p>
+		        					</div>
+		        				</div>
+		          				<div class="form-group">
+		          					<div class="col-sm-8">
+		          						<input class="form-control" id="user_checkcode" name="checkcode" type="text" maxlength="4" size="4" placeholder="验证码">
+		        						<p class="alert-tips"></p>
+		        					</div>
+		        					<img class="col-sm-4" alt="" src="image.jsp">
+		        				</div>
+		        				<div>
+		        					<ul class="list-inline btn-banner">
+		        						<li class="btn-banner-2"><input class="btn btn-stockii btn-block" name="commit" type="submit" value="登录"/></li>
+		        						<li class="btn-banner-2"><a class="btn btn-stockii btn-block" href="signup">立即注册</a></li>
+		        					</ul>        					        					
+		        				</div>
+							</form> 
+						</div>
+					</div>
 				</div>
 			</div>
-			</div>
-			<div class="col-md-2">
-			</div>
-		</div>	
+		</div>
 	</div>
+	<jsp:include page="_footer.jsp" /> 
 	
-	</div>
-    
-    <jsp:include page="_footer.jsp" />
-    
-<script type="text/javascript">
-function validate(f){
-	if (f.mid.value == ''){
-		alert("用户名不能为空！");
-		f.mid.focus();
-		return false;
-	}
-	if (!(/^\w{5,15}$/.test(f.password.value))){
-		alert("密码必须是5~15位！");
-		f.password.focus();
-		return false;
-	}
-	return true;
-} 
-
-//validate
-$(".form-control").blur(function(){
-	if(this.name=="mid"){
-		if ($(this).val()=='')){
-			$(this).siblings("span").css("display","inline");
-			this.focus();
-		}else{
-			$(this).siblings("span").css("display","none");
-		}
-	}
+	<script src="front/dist/js/jquery.min.js"></script>
+	<script src="front/dist/js/bootstrap.min.js"></script>
+	<script src="front/dist/js/jquery.backstretch.js"></script>
 	
-	if(this.name=="password"){
-		if (!(/^\w{5,15}$/.test($(this).val()))){
-			$(this).siblings("span").css("display","inline");
-			this.focus();
-		}else{
-			$(this).siblings("span").css("display","none");
+	<script type="text/javascript">
+		$(function () {
+			$("#wrapmain").backstretch("front/dist/img/account_bg.jpg");
+			
+			initElementEvents();
+		});
+		
+		function initElementEvents() {
+			/* 在失去焦点的时候进行校验 */
+			$('input.form-control').blur(function(){
+// 				$('p.alert-tips').hide();
+				if(this.name === 'mid') {
+					if(validateUserName()) {
+						$(this).siblings("p").hide();
+					}
+				}
+				else if(this.name=='password'){
+					if(validatePassword()) {
+						$(this).siblings("p").hide();
+					}
+				}
+				else if(this.name=='checkcode'){
+					if(validateCheckCode()) {
+						$(this).siblings("p").hide();
+					}
+				}
+			});
 		}
-	}
-});
-
-</script>
+		
+		/* 校验表单合法性的函数 */
+		function validate() {
+			if(validateUserName() && validatePassword() && validateCheckCode()) {
+				return true;
+			}
+			return false;
+		}
+		
+		/* 校验用户名是否合法的函数 */
+		function validateUserName() {
+			var $input = $('#user_login');
+			if($input.val() == '') {
+				$input.siblings("p").text("用户名不能为空").show();
+				return false;
+			} else if(!(/^\w+$/.test($input.val()))) {
+				$input.siblings("p").text("用户名只能由数字、26个英文字母或者下划线组成").show();
+				return false;
+			}
+			return true;
+		}
+		
+		/* 校验密码是否合法的函数 */
+		function validatePassword() {
+			var $input = $('#user_password');
+			if($input.val() == '') {
+				$input.siblings("p").text("密码不能为空").show();
+				return false;
+			} else if(!(/^\w{6,15}$/.test($input.val()))) {
+				$input.siblings("p").text("密码只能是6-15位").show();
+				return false;
+			}
+			return true;
+		}
+		
+		/* 校验验证码是否合法的函数 */
+		function validateCheckCode() {
+			var $input = $('#user_checkcode');
+			if($input.val() == '') {
+				$input.siblings("p").text("校验码不能为空").show();
+				return false;
+			}
+			return true;
+		}
+		
+	</script>
+	
   </body>
 </html>

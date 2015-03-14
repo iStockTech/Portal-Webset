@@ -2,8 +2,7 @@
 /*
 	TODO better to describe here about how a style can be called 'common' and put here
 */
-	
-/* Base Style */
+
 html, body {height: 100%;}
 body{
 	 font-family:'Glyphicons Halflings', "微软雅黑";
@@ -17,41 +16,8 @@ body{
 }
 h1, h2, h3, h4 {
 	font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑",STXihei, "华文细黑", serif;
-	font-size: 18px;
 }
-body, div, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote，th,td{margin:0;padding:0;} 
-table {
-	border-collapse:collapse;
-	border-spacing:0;
-} 
-fieldset,img {border:0;} 
-/* address,caption, cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}  */
-address,caption, cite,code,dfn,em,var {
-	font-style:normal;
-	font-weight:normal;
-} 
-ol,ul {
-	list-style:none;
-} 
-capation,th {text-align:left;} 
-h1,h2,h3,h4,h5,h6{
-	font-size:100%;
-	font-weight:normal;
-} 
-q:before, q:after {content:‘’} 
-abbr,acronym {border:0;} 
-input,button,select,textarea {
-	outline:none;
-	border: 0;
-}
-::selection {
-	background-color:#3494C3;
-	color:#fff;
-}
-::-moz-selection {
-	background-color:#3494C3;
-	color:#fff;
-}
+	
 /* Styles for the nav bar */
 
 nav {
@@ -965,7 +931,7 @@ p.input-tips {
 
 /*====compent button (eg:many pages)====*/
 /*rewrite btn class in bootstrap*/
-.btn{
+/* .btn{
 	padding: 10px 0 10px 0;
 	background-color: #ba2635;
 	border: 2px solid #ba2635;
@@ -973,8 +939,20 @@ p.input-tips {
 	border-radius: 6px;
 	font-size: 26px;
 	letter-spacing: 2px;
+} */
+.btn-stockii {
+	padding: 10px 0 10px 0;
+	background-color: #ba2635;
+	border: 1px solid #ba2635;
+	color: #fff;
+	border-radius: 3px;
+	letter-spacing: 2px;
 }
-.btn:hover{color: #fff}
+.btn-stockii:hover {
+	color: #fff;
+	background-color: #47a447;
+	border-color: #398439;
+}
 .btn-s{
 	min-width: 100px;
 }
@@ -1312,3 +1290,25 @@ span.solidline{
 	border-color: #ba2635;
 }
 /*====end compenent pagination====*/
+
+/* Styles for button banner */
+.btn-banner {
+	width: 100%
+}
+
+.btn-banner .btn-banner-2 {
+	width: 48%;
+}
+/* End of Styles for button banner */
+
+/* Styles for button banner */
+.alert-tips {
+	display: none;
+	color: red;
+	font-size: 10px;
+	padding-left: 10px;
+}
+/* End of Styles for button banner */
+
+
+
