@@ -130,6 +130,12 @@ public class SoftwareServiceImpl implements SoftwareService{
 		 */
 		public List<SoftwareVO> getAllSoftwaresForUser(final String keyword, final int currentPage, final int lineSize,String userName){
 			List<Software> softs = softwareDAO.getAllSoftwares(keyword, currentPage, lineSize);
+			
+			if (null == userDAO.findUsersByName(userName))
+			{
+				return new ArrayList<SoftwareVO>();
+			}
+			
 			List<Orders> orders = orderDAO.getAllSoftwares(userDAO.findUsersByName(userName).getUsersId());
 			
 			List<SoftwareVO> vos = new ArrayList<SoftwareVO>();

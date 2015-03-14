@@ -42,12 +42,13 @@ public class UsersHibernateDAO extends HibernateDaoSupport {
 		if (result > 0){
 			return true;
 		}else{
-			result = (Long)getHibernateTemplate().find("select count(usersId) from users where usersEmail = ? and usersPass = ?", userName,userPass).get(0);
-			if (result > 0){
-				return true;
-			}else{
-				return false;
-			}
+//			result = (Long)getHibernateTemplate().find("select count(usersId) from users where usersEmail = ? and usersPass = ?", userName,userPass).get(0);
+//			if (result > 0){
+//				return true;
+//			}else{
+//				return false;
+//			}
+			return false;
 		}
 	}
 	
