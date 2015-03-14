@@ -24,7 +24,7 @@
 				<div class="col-md-5 col-md-offset-2">
 					<div class="panel panel-default">
 	    				<div class="panel-body">
-		    				<%=request.getAttribute("info")!=null?request.getAttribute("info"):""%>
+	    					<p class="alert-important"><%=request.getAttribute("info")!=null?request.getAttribute("info"):""%></p>
 		    				<form action="userLogin" method="post" class="form-horizontal" onsubmit="return validate()">
 		      					<h2>登录</h2>
 		      					<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓">

@@ -17,6 +17,34 @@ body{
 h1, h2, h3, h4 {
 	font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑",STXihei, "华文细黑", serif;
 }
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+} 
+fieldset,img {border:0;} 
+/* address,caption, cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}  */
+address,caption, cite,code,dfn,em,var {
+	font-style:normal;
+	font-weight:normal;
+} 
+ol,ul {
+	list-style:none;
+} 
+capation,th {text-align:left;} 
+q:before, q:after {content:‘’} 
+abbr,acronym {border:0;} 
+input,button,select,textarea {
+	outline:none;
+	border: 0;
+}
+::selection {
+	background-color:#3494C3;
+	color:#fff;
+}
+::-moz-selection {
+	background-color:#3494C3;
+	color:#fff;
+}
 	
 /* Styles for the nav bar */
 
@@ -1307,6 +1335,9 @@ span.solidline{
 	color: red;
 	font-size: 10px;
 	padding-left: 10px;
+}
+.alert-important {
+	color: red;
 }
 /* End of Styles for button banner */
 
