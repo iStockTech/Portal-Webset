@@ -123,8 +123,8 @@
 			if($input.val() == '') {
 				$input.siblings("p").text("密码不能为空").show();
 				return false;
-			} else if(!(/^\w{6,15}$/.test($input.val()))) {
-				$input.siblings("p").text("密码只能是6-15位").show();
+			} else if(!(/^\w{5,15}$/.test($input.val()))) {
+				$input.siblings("p").text("密码只能是5-15位").show();
 				return false;
 			}
 			return true;
