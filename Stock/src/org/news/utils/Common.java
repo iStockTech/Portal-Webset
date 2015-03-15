@@ -17,6 +17,8 @@ import java.util.Date;
  * @version 14.8.18
  */
 public class Common {
+	public static final String PREFIX = "DD";
+	private static long code = 0;
   	/**
 	 * 将字符串转换成一个日期
 	 * @param startDate
@@ -51,5 +53,13 @@ public class Common {
             flag = true;
         }
         return flag;
+    }
+    
+    public static synchronized String nextCode() {
+        code++;
+        String str = new SimpleDateFormat("yyyyMM").format(new Date());
+        long m = Long.parseLong((str)) * 10000;
+        m += code;
+        return PREFIX + m;
     }
 }

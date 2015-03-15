@@ -3,10 +3,9 @@
  */
 package org.news.action;
 
-import java.util.Date;
-
 import org.news.service.OrderService;
 import org.news.service.SoftwareService;
+import org.news.utils.Common;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -127,8 +126,7 @@ public class AlipayAction extends ActionSupport {
 		//必填
 
 		//商户订单号
-		Date Now_Date=new Date();
-		WIDout_trade_no = Now_Date.toString();
+		WIDout_trade_no = Common.nextCode();
 		//商户网站订单系统中唯一订单号，必填
 
 		//订单名称

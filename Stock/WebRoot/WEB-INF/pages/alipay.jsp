@@ -174,14 +174,14 @@ ul,ol{
 					<dt>卖家支付宝帐户：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDseller_email" value="${WIDseller_email}"/>
+						<input size="30" name="WIDseller_email" readonly="true" value="${WIDseller_email}"/>
 						<span>必填
 </span>
 					</dd>
 					<dt>商户订单号：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDout_trade_no" value="${WIDout_trade_no}"/>
+						<input size="30" name="WIDout_trade_no" readonly="true" value="${WIDout_trade_no}"/>
 						<span>商户网站订单系统中唯一订单号，必填
 </span>
 					</dd>
@@ -195,7 +195,7 @@ ul,ol{
 					<dt>付款金额：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDtotal_fee" value="${WIDtotal_fee}"/>
+						<input size="30" name="WIDtotal_fee" readonly="true" value="${WIDtotal_fee}"/>
 						<span>必填
 </span>
 					</dd>
