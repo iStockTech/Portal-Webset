@@ -7,6 +7,7 @@
 			<!-- 定义权限检查拦截器 -->
 			<interceptor name="authority" class="org.news.utils.AuthorityInterceptor">
 				<param name="allowAction">adminLogin,login</param>
+				<param name="type">admin</param>
 			</interceptor>
 			<interceptor-stack name="mydefault">
 				<interceptor-ref name="defaultStack" />

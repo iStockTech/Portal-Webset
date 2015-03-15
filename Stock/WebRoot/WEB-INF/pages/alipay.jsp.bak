@@ -174,28 +174,28 @@ ul,ol{
 					<dt>卖家支付宝帐户：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDseller_email" value="${WIDseller_email}"/>
+						<input size="30" name="WIDseller_email" />
 						<span>必填
 </span>
 					</dd>
 					<dt>商户订单号：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDout_trade_no" value="${WIDout_trade_no}"/>
+						<input size="30" name="WIDout_trade_no" />
 						<span>商户网站订单系统中唯一订单号，必填
 </span>
 					</dd>
 					<dt>订单名称：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDsubject" value="${WIDsubject}"/>
+						<input size="30" name="WIDsubject" />
 						<span>必填
 </span>
 					</dd>
 					<dt>付款金额：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDtotal_fee" value="${WIDtotal_fee}"/>
+						<input size="30" name="WIDtotal_fee" />
 						<span>必填
 </span>
 					</dd>
@@ -203,13 +203,13 @@ ul,ol{
 ：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDbody" value="${WIDbody}"/>
+						<input size="30" name="WIDbody" />
 						<span></span>
 					</dd>
 					<dt>商品展示地址：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDshow_url" value="${WIDshow_url}"/>
+						<input size="30" name="WIDshow_url" />
 						<span>需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
 </span>
 					</dd>

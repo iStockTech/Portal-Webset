@@ -32,23 +32,17 @@ public class UserLoginAction extends ActionSupport {
 		this.userService = userService;
 	}
 
-	String code;//验证码
+	String checkcode;//验证码
 	String info;//提示信息
 	String mid;//会员账号
 	String password;//密码
 
-	/**
-	 * @return the code
-	 */
-	public String getCode() {
-		return code;
+	public String getCheckcode() {
+		return checkcode;
 	}
 
-	/**
-	 * @param code the code to set
-	 */
-	public void setCode(String code) {
-		this.code = code;
+	public void setCheckcode(String checkcode) {
+		this.checkcode = checkcode;
 	}
 
 	/**
@@ -101,7 +95,7 @@ public class UserLoginAction extends ActionSupport {
 		
 		String rand = (String) ctx.getSession().get("rand") ;	// 从session中取出验证码
 		
-		if(null==code||!rand.equalsIgnoreCase(code)){//验证码不正确
+		if(null==checkcode||!rand.equalsIgnoreCase(checkcode)){//验证码不正确
 			setInfo("请输入正确的验证码！") ;
 			return LOGIN;
 		}

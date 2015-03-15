@@ -25,6 +25,17 @@ import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 public class AuthorityInterceptor extends AbstractInterceptor {
 
 	private String allowAction;//允许通过的Actions字符串
+	private String type;//类型
+	
+	
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	/**
 	 * @return the allowAction
@@ -48,8 +59,7 @@ public class AuthorityInterceptor extends AbstractInterceptor {
 		//取得请求相关的ActionContext实例
 		ActionContext ctx = invocation.getInvocationContext();
 		Map session = ctx.getSession();
-		//取出名为admin的Session属性
-		Admin admin = (Admin)session.get("admin");
+		
 		
 		//获取当前被调用的Action
 		String currentActionName = ctx.getName();
@@ -61,10 +71,26 @@ public class AuthorityInterceptor extends AbstractInterceptor {
 			}
 		}
 		
-		//如果没有登录，则返回重新登录
-		if (admin != null){
-			return invocation.invoke();
+		if (type.equals("user")){
+			
+			//取出名为id的Session属性
+			String userName = (String)session.get("id");
+			
+			//如果没有登录，则返回重新登录
+			if (userName != null){
+				return invocation.invoke();
+			}
+		}else{
+			
+			//取出名为admin的Session属性
+			Admin admin = (Admin)session.get("admin");
+			
+			//如果没有登录，则返回重新登录
+			if (admin != null){
+				return invocation.invoke();
+			}
 		}
+	
 		ctx.put("tip", "您还没有登录，请先登录系统");
 		
 		

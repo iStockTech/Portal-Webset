@@ -46,7 +46,7 @@
 <tr>
 <td>
 <c:if test="${state eq '未购买'}">
-<form action="alipay.action" method="post" name="alipay">
+<form action="<%=request.getContextPath()%>/alipay/instantPay" method="post" name="alipay">
 <input type="hidden" name="softwareid" value="${software.softwareId}">
 </form>
 <input type="button" onClick="alipay.submit()" value="购买"/> 

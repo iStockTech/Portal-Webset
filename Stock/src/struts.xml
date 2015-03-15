@@ -117,7 +117,7 @@
 	<constant name="struts.devMode" value="false"></constant>
 	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
 	<include file="struts-manage.xml" />
-	
+	<include file="struts-user.xml" />
 	
 	<!-- 接口包 -->
 	<package name="interface" namespace="/interface"
