@@ -123,10 +123,19 @@
 			if($input.val() == '') {
 				$input.siblings("p").text("密码不能为空").show();
 				return false;
-			} else if(!(/^\w{5,15}$/.test($input.val()))) {
-				$input.siblings("p").text("密码只能是5-15位").show();
+			} 
+			else if(!(/^.{5,15}$/.test($input.val()))) {
+				$input.siblings("p").text("密码长度必须在5-15之间").show();
 				return false;
 			}
+			else if(!(/(?!^\\d+$)/.test($input.val()))) {
+				$input.siblings("p").text("密码不能全是数字").show();
+				return false;
+			}
+// 			else if(!(/(?!^[a-zA-Z]+$)/.test($input.val()))) {
+// 				$input.siblings("p").text("不能全是字母").show();
+// 				return false;
+// 			}
 			return true;
 		}
 		
