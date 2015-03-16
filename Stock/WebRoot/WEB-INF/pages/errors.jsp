@@ -18,7 +18,7 @@
     <!-- text area -->
     <!-- home page --> 
     <div class="homepage rotate">
-    <a href="index">返回首页</a> 
+    <a href="<%=request.getContextPath()%>/index">返回首页</a> 
     </div> <!-- home page --> 
     </div> <!-- social-icons --> 
     <!-- social-icons --> 

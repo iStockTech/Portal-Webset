@@ -17,6 +17,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -422,7 +423,7 @@ public class SoftwareAction extends ActionSupport{
 	}
 	
 	/**
-	 * 用户软件列表
+	 * 用户已买软件列表
 	 * @return
 	 */
 	@Transactional(readOnly=true)
@@ -445,7 +446,21 @@ public class SoftwareAction extends ActionSupport{
 		ActionContext ctx = ActionContext.getContext();
 		String userName = (String) ctx.getSession().get("id") ;	// 从session中取出用户名
 		
+		if (userName==null){
+			return LOGIN;
+		}
+		
 		softwares = service.getAllSoftwaresForUser(keyWord, currentPage, lineSize,userName);
+		
+		Iterator<SoftwareVO> itr = softwares.iterator();
+		
+		while (itr.hasNext()) {
+			SoftwareVO item = itr.next();
+            if (item.getState().equals("未购买")) {
+                itr.remove();
+            }
+        }
+		
 		allRecorders = service.getCount(keyWord);
 
 		setRecorders(allRecorders);
@@ -504,5 +519,53 @@ public class SoftwareAction extends ActionSupport{
 			e.printStackTrace();
 		}
 		return ERROR;
+	}
+	
+	/**
+	 * 用户未买软件列表
+	 * @return
+	 */
+	@Transactional(readOnly=true)
+	public String listNoBuy(){
+		int currentPage = 1 ;	// 为当前所在的页，默认在第1页
+		int lineSize = 20;		// 每次显示的记录数
+		long allRecorders = 0 ;	// 表示全部的记录数
+		String keyWord = kw ;	// 接收查询关键字
+		
+		try{
+			currentPage = Integer.parseInt(cp) ;
+		} catch(Exception e) {}
+		try{
+			lineSize = Integer.parseInt(ls) ;
+		} catch(Exception e) {}
+		if(keyWord == null){
+			keyWord = "" ;	// 如果模糊查询没有关键字，则表示查询全部
+		}
+		
+		ActionContext ctx = ActionContext.getContext();
+		String userName = (String) ctx.getSession().get("id") ;	// 从session中取出用户名
+		if (userName==null){
+			return LOGIN;
+		}
+		
+		softwares = service.getAllSoftwaresForUser(keyWord, currentPage, lineSize,userName);
+		
+		Iterator<SoftwareVO> itr = softwares.iterator();
+		
+		while (itr.hasNext()) {
+			SoftwareVO item = itr.next();
+            if (item.getState().equals("已购买")) {
+                itr.remove();
+            }
+        }
+		
+		allRecorders = service.getCount(keyWord);
+
+		setRecorders(allRecorders);
+		
+		setCp(""+currentPage);
+		setLs(""+lineSize);
+
+		return SUCCESS;
 	}
 }

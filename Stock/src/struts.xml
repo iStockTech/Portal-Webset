@@ -23,14 +23,11 @@
 		
 		<action name="userLogin"
 			class="userLoginAction">
-			<result name="success" type="redirect">/userSoftwarelist.action</result>
+			<result name="success" type="redirect">/user/userSoftwarelist.action</result>
 			<result name="login">/WEB-INF/pages/account.jsp</result>
 		</action>
 		
-	   <action name="userSoftwarelist"
-			class="softwareAction" method="listForUser">
-			<result name="success">/WEB-INF/pages/welcome.jsp</result>
-		</action>
+	  
 		
 		<action name="Software_detail"
 			class="softwareAction" method="show">

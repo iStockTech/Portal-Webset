@@ -30,6 +30,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<p>统计局网站10日消息，10月CPI环比持平，同比上涨1.6%；PPI环比下降0.4%，同比下降2.2%。对此，国家统计局城市司高级统计师余秋梅表示，CPI整体较为平稳，PPI环比继续下降是受国际油价连续下跌及国内部分行业产能过剩的影响。</p>
 				<button class="btn-quick-view" onclick="javascript:window.location.href='product'"></button>
 			</div>
+			<table border="1" width="100%" cellpadding="5" cellspacing="0" bgcolor="F2F2F2">
+	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
+		<td colspan="3">
+			<h1>软件详情</h1>		</td>
+	</tr>
+	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
+		<td><font size="2">名称：</font></td>
+		<td><span class="STYLE6">${software.softwareName}</span></td>
+	</tr>
+	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
+		<td><font size="2">描述：</font></td>
+		<td><span class="STYLE6">${software.softwareDescripe}</span></td>
+	</tr>
+	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
+		<td><font size="2">价格：</font></td>
+		<td><span class="STYLE6">${software.price}</span></td>
+	</tr></table>
+<form action="<%=request.getContextPath()%>/payChannel.action" method="post" name="alipay">
+<input type="hidden" name="softwareid" value="${software.softwareId}">
+</form>
+<input type="button" onClick="alipay.submit()" value="购买"/> 
 		</div>
 	</div>
 	<!-- product introduction -->

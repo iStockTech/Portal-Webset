@@ -24,11 +24,11 @@ public class AlipayAction extends ActionSupport {
 	private String WIDbody;
 	private String WIDshow_url;
 	
-	private int softwareid;
+	private String softwareid;
 	
 	
 	
-	public void setSoftwareid(int softwareid) {
+	public void setSoftwareid(String softwareid) {
 		this.softwareid = softwareid;
 	}
 
@@ -134,11 +134,17 @@ public class AlipayAction extends ActionSupport {
 		//必填
 
 		//付款金额
-		if (softwareService.findSoftwareById(softwareid)==null){
+		int sid = 0;
+		try{
+			sid = Integer.parseInt(softwareid);
+			if (softwareService.findSoftwareById(sid)==null){
+				return ERROR;
+			}
+		}catch(Exception e){
 			return ERROR;
 		}
 		
-		WIDtotal_fee = softwareService.findSoftwareById(softwareid).getPrice()+"";
+		WIDtotal_fee = softwareService.findSoftwareById(sid).getPrice()+"";
 		//必填
 
 		//订单描述

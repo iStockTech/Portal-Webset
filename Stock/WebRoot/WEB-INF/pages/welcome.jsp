@@ -1,16 +1,21 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<base href="<%= request.getScheme() + "://" + request.getServerName() + ":" + 
-	request.getServerPort() + request.getContextPath() %>/" />
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" href="dist/img/icon.png">
-
+<base href="<%= basePath %>" />
+<link rel="icon" href="../../favicon.ico">
+<link href="front/dist/css/bootstrap.css" rel="stylesheet">
+<link href="front/dist/css/common.css" rel="stylesheet">
+<link href="front/dist/css/page.css" rel="stylesheet">
 <title>登录斯多克</title>
 </head>
 
@@ -34,13 +39,12 @@
 				<h2>欢迎<font color="RED"><%=session.getAttribute("id")%></font>光临！</h2>
 				<a class="btn btn-lg btn-success" href="logout">登录注销</a>
 <center>
-	<h1>软件列表</h1>
+	<h1>我的软件列表</h1>
 <TABLE BORDER="1" cellpadding="5" cellspacing="0" bgcolor="F2F2F2" width="100%">
 	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
 		<td align="center" valign="middle"><span class="STYLE10">ID</span></td>
 		<td align="center" valign="middle"><span class="STYLE10">软件</span></td>
 		<td align="center" valign="middle"><span class="STYLE10">价格</span></td>
-		<td align="center" valign="middle"><span class="STYLE10">状态</span></td>
 		<td align="center" valign="middle"><span class="STYLE10">详情</span></td>
 	</TR>
 	<c:forEach items="${softwares}" var="software">
@@ -48,11 +52,11 @@
 		<td align="center" valign="middle"><span class="STYLE6">${software.softwareId}</span></td>
 		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
 		<td align="center" valign="middle"><span class="STYLE6">${software.price}</span></td>
-		<td align="center" valign="middle"><span class="STYLE6">${software.state}</span></td>
-		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_detail.action?softwareid=${software.softwareId}&state=${software.state}">点击进入</a></span></td>
+		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_detail.action?softwareid=${software.softwareId}">点击进入</a></span></td>
 	</TR>
 	</c:forEach>
 </table>
+<a href="<%= basePath %>user/moreSoftwarelist.action">更多</a>
 </center>
 		<%			
 			} else {

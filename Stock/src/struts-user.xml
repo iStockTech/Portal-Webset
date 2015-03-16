@@ -30,6 +30,19 @@
 			<result>/WEB-INF/pages/{1}.jsp</result>
 		</action>
 	</package>	
-
+    <package name="member" namespace="/user" extends="user">
+    	 <action name="userSoftwarelist"
+			class="softwareAction" method="listForUser">
+			<result name="success">/WEB-INF/pages/welcome.jsp</result>
+		</action>
+		<action name="moreSoftwarelist"
+			class="softwareAction" method="listNoBuy">
+			<result name="success">/WEB-INF/pages/product.jsp</result>
+		</action>
+		<action name="Product_detail"
+			class="softwareAction" method="show">
+			<result name="success">/WEB-INF/pages/productDetail.jsp</result>
+		</action>
+    </package>
 
 </struts>

@@ -34,12 +34,25 @@ function visitedCount(){
 					<a href="about" onFocus="this.blur()">关于我们</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right hidden-sm">
+            	<%
+					if(session.getAttribute("id") != null){
+				%>
+				<li class='${param.index=="account"?"active":"" }'>
+					欢迎${session.id}</li>
+				<li class='${param.index=="signup"?"active":"" }'>
+					<a href="<%=request.getContextPath()%>/logout" onFocus="this.blur()">注销</a></li>
+				<%			
+					} else {
+				%>
 		 		<li class='${param.index=="account"?"active":"" }'>
 					<a href="account" onFocus="this.blur()">登录</a></li>
 				<li class='${param.index=="signup"?"active":"" }'>
 					<a href="signup" onFocus="this.blur()">注册</a></li>
 <!-- 				<li class='${param.index=="forum"?"active":"" }'> -->
 <!-- 					<a href="forum" onFocus="this.blur()">论坛</a></li> -->
+				<%
+					}
+				%>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
