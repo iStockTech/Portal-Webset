@@ -2,6 +2,8 @@ package com.alipay.config;
 
 import org.news.utils.Common;
 
+import com.alipay.util.UtilDate;
+
 /* *
  *类名：AlipayConfig
  *功能：基础配置类
@@ -40,16 +42,16 @@ public class AlipayConfig {
     public static String payment_type = "1";
     //必填，不能修改
     //服务器异步通知页面路径
-    public static String notify_url = "notify_url.jsp";
+    public static String notify_url = "http://www.stockii.com/alipay/notifyURL.action";
     //需http://格式的完整路径，不能加?id=123这类自定义参数
     //页面跳转同步通知页面路径
-    public static String return_url = "return_url.jsp";
+    public static String return_url = "http://www.stockii.com/alipay/returnURL.action";
     //需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
     //卖家支付宝帐户
     public static  String seller_email = "istocktech@163.com";
     //必填
     //商户订单号
-    public static String out_trade_no = Common.nextCode();
+    public static String out_trade_no = Common.nextCode()+UtilDate.getOrderNum();
     //商户网站订单系统中唯一订单号，必填
     //订单名称
     public static String subject = "AAA:"+out_trade_no;

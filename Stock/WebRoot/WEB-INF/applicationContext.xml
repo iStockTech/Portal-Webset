@@ -153,6 +153,7 @@
 		<property name="orderService" ref="orderService"></property></bean>
 		
 	<bean id="alipayAction" class="org.news.action.AlipayAction">
+		<property name="userService" ref="userService"></property>
 		<property name="softwareService" ref="softwareService"></property>
 		<property name="orderService" ref="orderService"></property></bean>
 </beans>

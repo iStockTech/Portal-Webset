@@ -132,6 +132,9 @@ CREATE TABLE `orders` (
   `orderId` int(11) NOT NULL,
   `softwareId` int(11) DEFAULT NULL,
   `usersId` int(11) DEFAULT NULL,
+  `tradeNo`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' ,
+  `serialNo`  varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
+  `tradeState`  varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
   PRIMARY KEY (`orderId`),
   KEY `FKC3DF62E552EAF335` (`usersId`),
   KEY `FKC3DF62E53850E25F` (`softwareId`),
@@ -139,5 +142,7 @@ CREATE TABLE `orders` (
   CONSTRAINT `FKC3DF62E552EAF335` FOREIGN KEY (`usersId`) REFERENCES `users` (`usersId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+alter table orders
+add constraint UQ_tradeNo unique(tradeNo);
 
 insert into admin(adminId,adminName,adminPass,adminInfo) values(1,"admin","21232F297A57A5A743894A0E4A801FC3","init");

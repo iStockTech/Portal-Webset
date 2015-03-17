@@ -168,15 +168,12 @@ ul,ol{
 				<li class="last">3、确认完成</li>
             </ol>
         </div>
-        <form name="alipayment" action="alipayapi" method="post" target="_blank">
+        <form name="alipayment" action="<%=request.getContextPath()%>/alipay/alipayTo.action" method="post" target="_blank">
             <div id="body" style="clear:left">
                 <dl class="content">
-					<dt>卖家支付宝帐户：</dt>
 					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="WIDseller_email" readonly="true" value="${WIDseller_email}"/>
-						<span>必填
-</span>
+						<input type="hidden" size="30" name="WIDseller_email" value="${WIDseller_email}"/>
+						<input type="hidden" size="30" name="softwareid" value="${softwareid}"/>
 					</dd>
 					<dt>商户订单号：</dt>
 					<dd>
@@ -188,7 +185,7 @@ ul,ol{
 					<dt>订单名称：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDsubject" value="${WIDsubject}"/>
+						<input size="30" name="WIDsubject" readonly="true" value="${WIDsubject}"/>
 						<span>必填
 </span>
 					</dd>
@@ -199,19 +196,22 @@ ul,ol{
 						<span>必填
 </span>
 					</dd>
-					<dt>订单描述
-：</dt>
+					<dt>订单描述：</dt>
 					<dd>
 						<span class="null-star">*</span>
 						<input size="30" name="WIDbody" value="${WIDbody}"/>
 						<span></span>
 					</dd>
+					<dt>支付渠道：</dt>
+					<dd>
+						<span class="null-star">*</span>
+						<input size="30" name="enable_paymethod" readonly="true" value="${enable_paymethod}"/>
+						<span></span>
+					</dd>
 					<dt>商品展示地址：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDshow_url" value="${WIDshow_url}"/>
-						<span>需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
-</span>
+						<input size="30" name="WIDshow_url" readonly="true" value="${WIDshow_url}"/>
 					</dd>
                     <dt></dt>
                     <dd>

@@ -3,10 +3,30 @@
  */
 package org.news.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+import org.news.dao.AdminHibernateDAO;
+import org.news.model.Software;
+import org.news.model.Users;
 import org.news.service.OrderService;
 import org.news.service.SoftwareService;
+import org.news.service.UserService;
 import org.news.utils.Common;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.alipay.config.AlipayConfig;
+import com.alipay.util.AlipayNotify;
+import com.alipay.util.AlipaySubmit;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -25,18 +45,70 @@ public class AlipayAction extends ActionSupport {
 	private String WIDshow_url;
 	
 	private String softwareid;
+	private String enable_paymethod;
+	private String responseTxt;
+	
+	private static final Logger log = LoggerFactory.getLogger(AlipayAction.class);
 	
 	
-	
+
+	/**
+	 * @return the responseTxt
+	 */
+	public String getResponseTxt() {
+		return responseTxt;
+	}
+
+
+	/**
+	 * @param responseTxt the responseTxt to set
+	 */
+	public void setResponseTxt(String responseTxt) {
+		this.responseTxt = responseTxt;
+	}
+
+
+	/**
+	 * @return the enable_paymethod
+	 */
+	public String getEnable_paymethod() {
+		return enable_paymethod;
+	}
+
+
+	/**
+	 * @param enablePaymethod the enable_paymethod to set
+	 */
+	public void setEnable_paymethod(String enablePaymethod) {
+		enable_paymethod = enablePaymethod;
+	}
+
+
 	public void setSoftwareid(String softwareid) {
 		this.softwareid = softwareid;
 	}
 
 
+	/**
+	 * @return the softwareid
+	 */
+	public String getSoftwareid() {
+		return softwareid;
+	}
+
+
 	private SoftwareService softwareService;
 	private OrderService orderService;
-
+	private UserService userService;
 	
+	/**
+	 * @param userService the userService to set
+	 */
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+
 	public void setSoftwareService(SoftwareService softwareService) {
 		this.softwareService = softwareService;
 	}
@@ -122,38 +194,215 @@ public class AlipayAction extends ActionSupport {
 	public String instantPay(){
 
 		//卖家支付宝帐户
-		WIDseller_email = "istocktech@163.com";
+		WIDseller_email = AlipayConfig.seller_email;
 		//必填
 
 		//商户订单号
-		WIDout_trade_no = Common.nextCode();
+		WIDout_trade_no = AlipayConfig.out_trade_no;
 		//商户网站订单系统中唯一订单号，必填
-
-		//订单名称
-		WIDsubject = "AAA:"+ WIDout_trade_no;
-		//必填
 
 		//付款金额
 		int sid = 0;
+		Software software = null;
 		try{
 			sid = Integer.parseInt(softwareid);
-			if (softwareService.findSoftwareById(sid)==null){
+			software = softwareService.findSoftwareById(sid);
+			if (software == null){
 				return ERROR;
 			}
+			
+			
 		}catch(Exception e){
 			return ERROR;
 		}
 		
-		WIDtotal_fee = softwareService.findSoftwareById(sid).getPrice()+"";
+		//订单名称
+		WIDsubject = software.getSoftwareName();
+		//必填
+
+		
+		WIDtotal_fee = software.getPrice()+"";
 		//必填
 
 		//订单描述
 
-		WIDbody = "斯多克股票智能分析系统";
+		WIDbody = software.getSoftwareDescripe();
 		//商品展示地址
-		WIDshow_url = "http://www.stockii.com/Software_detail";
+		WIDshow_url = AlipayConfig.show_url;
 		//需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
 		
 		return SUCCESS;
+	}
+	
+	public String alipayTo(){
+
+		ActionContext ctx = ActionContext.getContext();
+		String userName = (String) ctx.getSession().get("id") ;	// 从session中取出用户名
+		if (userName==null){
+			//System.out.println("no userName");
+			return LOGIN;
+		}
+		
+		Users user = userService.findUsersById(userName);
+		
+		if (user==null){
+			//System.out.println("no user");
+			return LOGIN;
+		}
+		
+		int sid = 0;
+		try{
+			sid = Integer.parseInt(softwareid);
+
+		}catch(Exception e){
+			//System.out.println("no sid");
+			return ERROR;
+		}
+		
+		//插入交易纪录
+		orderService.addOrder(user.getUsersId(), sid, WIDout_trade_no, "", "submit");
+		
+		return SUCCESS;
+	}
+	
+	/**
+	 * 功能：付完款后跳转的页面（页面跳转同步通知页面）
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	public String returnURL() throws UnsupportedEncodingException {
+		String key = AlipayConfig.key;
+		//获取支付宝GET过来反馈信息
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Map<String,String> params = new HashMap<String,String>();
+		Map requestParams = request.getParameterMap();
+		for (Iterator iter = requestParams.keySet().iterator(); iter.hasNext();) {
+			String name = (String) iter.next();
+			String[] values = (String[]) requestParams.get(name);
+			String valueStr = "";
+			for (int i = 0; i < values.length; i++) {
+				valueStr = (i == values.length - 1) ? valueStr + values[i]
+						: valueStr + values[i] + ",";
+			}
+			//乱码解决，这段代码在出现乱码时使用。如果mysign和sign不相等也可以使用这段代码转化
+			valueStr = new String(valueStr.getBytes("ISO-8859-1"), "utf-8");
+			params.put(name, valueStr);
+		}
+		
+		//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以下仅供参考)//
+		//商户订单号
+
+		String out_trade_no = new String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
+
+		//支付宝交易号
+
+		String trade_no = new String(request.getParameter("trade_no").getBytes("ISO-8859-1"),"UTF-8");
+
+		//交易状态
+		String trade_status = new String(request.getParameter("trade_status").getBytes("ISO-8859-1"),"UTF-8");
+
+		//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以上仅供参考)//
+		
+		//计算得出通知验证结果
+		boolean verify_result = AlipayNotify.verify(params);
+		
+		if(verify_result){//验证成功
+			//////////////////////////////////////////////////////////////////////////////////////////
+			//请在这里加上商户的业务逻辑程序代码
+
+			//——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
+			if(trade_status.equals("TRADE_FINISHED") || trade_status.equals("TRADE_SUCCESS")){
+				//判断该笔订单是否在商户网站中已经做过处理
+					//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+					//如果有做过处理，不执行商户的业务程序
+			}
+			
+			//该页面可做页面美工编辑
+			return SUCCESS;
+			//——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
+
+			//////////////////////////////////////////////////////////////////////////////////////////
+		}else{
+			//该页面可做页面美工编辑
+			return ERROR;
+		}
+	}
+	
+	/**
+	 * 功能：支付宝主动通知调用的页面（服务器异步通知页面）
+	 * @throws UnsupportedEncodingException 
+	 */
+	public void notifyURL() throws UnsupportedEncodingException {
+		PrintWriter out = null;
+		try {
+			out = ServletActionContext.getResponse().getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String key = AlipayConfig.key;
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Map<String,String> params = new HashMap<String,String>();
+		Map requestParams = request.getParameterMap();
+		for (Iterator iter = requestParams.keySet().iterator(); iter.hasNext();) {
+			String name = (String) iter.next();
+			String[] values = (String[]) requestParams.get(name);
+			String valueStr = "";
+			for (int i = 0; i < values.length; i++) {
+				valueStr = (i == values.length - 1) ? valueStr + values[i]
+						: valueStr + values[i] + ",";
+			}
+			//乱码解决，这段代码在出现乱码时使用。如果mysign和sign不相等也可以使用这段代码转化
+			//valueStr = new String(valueStr.getBytes("ISO-8859-1"), "gbk");
+			params.put(name, valueStr);
+		}
+		
+		//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以下仅供参考)//
+		//商户订单号
+
+		String out_trade_no = new String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
+
+		//支付宝交易号
+
+		String trade_no = new String(request.getParameter("trade_no").getBytes("ISO-8859-1"),"UTF-8");
+
+		//交易状态
+		String trade_status = new String(request.getParameter("trade_status").getBytes("ISO-8859-1"),"UTF-8");
+
+		//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以上仅供参考)//
+
+		if(AlipayNotify.verify(params)){//验证成功
+			//////////////////////////////////////////////////////////////////////////////////////////
+			//请在这里加上商户的业务逻辑程序代码
+
+			//——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
+			
+			if(trade_status.equals("TRADE_FINISHED")){
+				//判断该笔订单是否在商户网站中已经做过处理
+					//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+					//如果有做过处理，不执行商户的业务程序
+					
+				//注意：
+				//该种交易状态只在两种情况下出现
+				//1、开通了普通即时到账，买家付款成功后。
+				//2、开通了高级即时到账，从该笔交易成功时间算起，过了签约时的可退款时限（如：三个月以内可退款、一年以内可退款等）后。
+			} else if (trade_status.equals("TRADE_SUCCESS")){
+				//判断该笔订单是否在商户网站中已经做过处理
+					//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+					//如果有做过处理，不执行商户的业务程序
+					
+				//注意：
+				//该种交易状态只在一种情况下出现——开通了高级即时到账，买家付款成功后。
+			}
+
+			//——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
+				
+			out.println("success");	//请不要修改或删除
+
+			//////////////////////////////////////////////////////////////////////////////////////////
+		}else{//验证失败
+			out.println("fail");
+		}
 	}
 }

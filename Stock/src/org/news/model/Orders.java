@@ -20,7 +20,12 @@ public class Orders implements Serializable {
 	@Id
 	@GeneratedValue(generator = "generator")
 	@GenericGenerator(name = "generator", strategy = "increment")
-	private int orderId;		//���Id
+	private int orderId;		//���Id	
+	
+	private String tradeNo;
+	private String serialNo;
+	private String tradeState;
+	
 	
 	@OneToOne(fetch = FetchType.LAZY)//��ʾһ��һ�Ĺ�ϵ
 	@JoinColumn(name="usersId")//Ϊ����е����ָ�������
@@ -28,6 +33,8 @@ public class Orders implements Serializable {
 	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)//��ʾһ��һ�Ĺ�ϵ
 	@JoinColumn(name="softwareId")//Ϊ����е����ָ�������
+
+	
 	private Software software;
 	
 	public Orders(){}
@@ -69,5 +76,47 @@ public class Orders implements Serializable {
 	 */
 	public void setSoftware(Software software) {
 		this.software = software;
+	}
+
+	/**
+	 * @return the tradeNo
+	 */
+	public String getTradeNo() {
+		return tradeNo;
+	}
+
+	/**
+	 * @param tradeNo the tradeNo to set
+	 */
+	public void setTradeNo(String tradeNo) {
+		this.tradeNo = tradeNo;
+	}
+
+	/**
+	 * @return the serialNo
+	 */
+	public String getSerialNo() {
+		return serialNo;
+	}
+
+	/**
+	 * @param serialNo the serialNo to set
+	 */
+	public void setSerialNo(String serialNo) {
+		this.serialNo = serialNo;
+	}
+
+	/**
+	 * @return the tradeState
+	 */
+	public String getTradeState() {
+		return tradeState;
+	}
+
+	/**
+	 * @param tradeState the tradeState to set
+	 */
+	public void setTradeState(String tradeState) {
+		this.tradeState = tradeState;
 	}
 }

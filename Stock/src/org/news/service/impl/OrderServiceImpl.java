@@ -43,11 +43,14 @@ public class OrderServiceImpl implements OrderService{
 	 * @param softwareId
 	 * @return
 	 */
-	public boolean addOrder(int userId,int softwareId){
+	public boolean addOrder(int userId,int softwareId, String tradeNo,String serialNo,String tradeState){
 		Orders order = new Orders();
 		order.setOrderId(0);
 		order.setUser(userDAO.findUsersById(userId));
 		order.setSoftware(softwareDAO.findSoftwareById(softwareId));
+		order.setSerialNo(serialNo);
+		order.setTradeNo(tradeNo);
+		order.setTradeState(tradeState);
 		return orderDAO.addOrder(order);
 	}
 	
