@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 import org.news.dao.AdminHibernateDAO;
+import org.news.model.Orders;
 import org.news.model.Software;
 import org.news.model.Users;
 import org.news.service.OrderService;
@@ -24,6 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alipay.config.AlipayConfig;
+import com.alipay.sign.Payment;
 import com.alipay.util.AlipayNotify;
 import com.alipay.util.AlipaySubmit;
 import com.opensymphony.xwork2.ActionContext;
@@ -310,12 +312,41 @@ public class AlipayAction extends ActionSupport {
 		if(verify_result){//验证成功
 			//////////////////////////////////////////////////////////////////////////////////////////
 			//请在这里加上商户的业务逻辑程序代码
+			
+			Orders order = orderService.findOrderByTradeNo(out_trade_no);
+			if (order == null){
+				log.error("验证成功，找不到订单");
+				responseTxt = "verify_success_no_trade";
+				return ERROR;
+			}
 
 			//——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
 			if(trade_status.equals("TRADE_FINISHED") || trade_status.equals("TRADE_SUCCESS")){
 				//判断该笔订单是否在商户网站中已经做过处理
 					//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+				if (!order.getTradeState().equals("finished")){
+					order.setTradeState("finished");
+					order.setSerialNo(trade_no);
+					if (!orderService.updateOrders(order)){
+						log.error("交易成功，更新订单失败");
+						responseTxt = "verify_success_update_fail";
+						return ERROR;
+					}
+				}
 					//如果有做过处理，不执行商户的业务程序
+				responseTxt = "支付成功";
+			}else{
+				if (!order.getTradeState().equals("finished")){
+					order.setTradeState("wait");
+					order.setSerialNo(trade_no);
+					if (!orderService.updateOrders(order)){
+						log.error("交易成功，更新订单失败");
+						responseTxt = "verify_success_update_fail";
+						return ERROR;
+					}
+				}
+				
+				responseTxt = "支付未完成";
 			}
 			
 			//该页面可做页面美工编辑
@@ -325,7 +356,8 @@ public class AlipayAction extends ActionSupport {
 			//////////////////////////////////////////////////////////////////////////////////////////
 		}else{
 			//该页面可做页面美工编辑
-			return ERROR;
+			responseTxt = "支付失败";
+			return SUCCESS;
 		}
 	}
 	
@@ -375,12 +407,25 @@ public class AlipayAction extends ActionSupport {
 		if(AlipayNotify.verify(params)){//验证成功
 			//////////////////////////////////////////////////////////////////////////////////////////
 			//请在这里加上商户的业务逻辑程序代码
-
+			Orders order = orderService.findOrderByTradeNo(out_trade_no);
+			if (order == null){
+				log.error("Notify:验证成功，找不到订单");
+				out.println("success");	//请不要修改或删除
+				return;
+			}	
 			//——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
 			
 			if(trade_status.equals("TRADE_FINISHED")){
 				//判断该笔订单是否在商户网站中已经做过处理
 					//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+					//如果有做过处理，不执行商户的业务程序
+				if (!order.getTradeState().equals("finished")){
+					order.setTradeState("finished");
+					order.setSerialNo(trade_no);
+					if (!orderService.updateOrders(order)){
+						log.error("Notify:交易成功，更新订单失败");
+					}
+				}
 					//如果有做过处理，不执行商户的业务程序
 					
 				//注意：
@@ -390,10 +435,26 @@ public class AlipayAction extends ActionSupport {
 			} else if (trade_status.equals("TRADE_SUCCESS")){
 				//判断该笔订单是否在商户网站中已经做过处理
 					//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+				if (!order.getTradeState().equals("finished")){
+					order.setTradeState("finished");
+					order.setSerialNo(trade_no);
+					if (!orderService.updateOrders(order)){
+						log.error("Notify:交易成功，更新订单失败");
+					}
+				}
 					//如果有做过处理，不执行商户的业务程序
-					
+
 				//注意：
 				//该种交易状态只在一种情况下出现——开通了高级即时到账，买家付款成功后。
+			}else{
+				if (!order.getTradeState().equals("finished")){
+					order.setTradeState("wait");
+					order.setSerialNo(trade_no);
+					if (!orderService.updateOrders(order)){
+						log.error("Notify:交易成功，更新订单失败");
+					}
+				}
+
 			}
 
 			//——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
@@ -404,5 +465,24 @@ public class AlipayAction extends ActionSupport {
 		}else{//验证失败
 			out.println("fail");
 		}
+	}
+	
+	/**
+	 * 支付完成，获取支付结果
+	 * @return
+	 */
+	public String finish(){
+		try {
+			Map<String,String> result = Payment.singleTradeQuery(WIDout_trade_no);
+
+			responseTxt = result.get("trade_status");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error("查找订单请求失败");
+			responseTxt = "支付失败";
+		}
+		
+		return SUCCESS;
 	}
 }

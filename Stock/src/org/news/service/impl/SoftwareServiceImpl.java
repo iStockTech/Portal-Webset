@@ -145,7 +145,7 @@ public class SoftwareServiceImpl implements SoftwareService{
 				SoftwareVO vo = toSoftwareVO(soft);
 				vo.setState("未购买");
 				for (Orders order:orders){
-					if (order.getSoftware().getSoftwareId()==soft.getSoftwareId()){
+					if (order.getTradeState().equals("finished")&&order.getSoftware().getSoftwareId()==soft.getSoftwareId()){
 						vo.setState("已购买");
 						break;
 					}
