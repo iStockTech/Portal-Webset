@@ -22,22 +22,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="_header.jsp?index=account" />
 <div id="wrapmain">
-    <header class="jumbotron subhead-freshgreen" id="overview">
-		<div class="container">
-			<h1>我的帐户</h1>
-			<p class="lead">登入斯多克，立刻开启你的智能投资时代！</p>
+<!--     <header id="overview"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<h3 class="lead">欢迎您！尊敬的<span><%=session.getAttribute("id")%></span></h3> -->
+<!-- 		</div> -->
+<!-- 	</header> -->
+	
+	<div class="container mgt40">
+		<div class="row">
+		<div class="col-md-2">
+	  		<ul class="sidebar-hierarchy">
+	  			<h3 class="bar-title"></h3>
+	  			<li class="sidebar-molecule">
+					<p class="molecule-title"><a href="usercenter/userinfo?userid=12312312">会员中心首页</a></p>
+				</li>
+				<hr>
+				<li class="sidebar-molecule">
+					<p class="molecule-title">产品管理<span class="icon-up3"></span></p>
+					<ul class="sidebar-molecule-content">
+						<li class="sidebar-atom active"><a href="welcome/usercenter?id=17398123">我的软件</a></li>
+						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">最新软件</a></li>
+						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">重新授权</a></li>
+					</ul>
+				</li>
+				<hr>
+				<li class="sidebar-molecule">
+					<p class="molecule-title">策略管理<span class="icon-up3"></span></p>
+					<ul class="sidebar-molecule-content">
+						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">我的策略</a></li>
+						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">最新策略</a></li>
+						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">定制策略</a></li>
+					</ul>
+				</li>
+				<hr>
+				<li class="sidebar-molecule">
+					<p class="molecule-title">订单管理<span class="icon-up3"></span></p>
+					<ul class="sidebar-molecule-content">
+						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">已付款订单</a></li>
+	  					<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">未付款订单</a></li>
+	  					<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">自动购买</a></li>
+					</ul>
+				</li>
+	  		</ul>
 		</div>
-		<script type="text/javascript"
-			src="http://apitrolatuntco-a.akamaihd.net/gsrs?is=smdvcn&bp=PB&g=010ab13f-f32d-4640-9044-31e65c2aeaa3">
+		<div class="col-md-10">
 			
-		</script>
-	</header>
-	<div class="container">
-		<%
-			if(session.getAttribute("id") != null){
-		%>
-				<h2>欢迎<font color="RED"><%=session.getAttribute("id")%></font>光临！</h2>
-				<a class="btn btn-lg btn-success" href="logout">登录注销</a>
 <center>
 	<h1>我的软件列表</h1>
 <TABLE BORDER="1" cellpadding="5" cellspacing="0" bgcolor="F2F2F2" width="100%">
@@ -58,14 +87,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </table>
 <a href="<%= basePath %>user/moreSoftwarelist.action">更多</a>
 </center>
-		<%			
-			} else {
-				request.setAttribute("info","请先登陆！") ;
-		%>
-				<jsp:forward page="account.jsp"/>
-		<%
-			}
-		%>
+		
+		
+		</div>
+	</div>
 	</div>
 
 </div>

@@ -1214,7 +1214,61 @@ span.solidline{
 	font-size: 16px;
 	text-align: center;
 }
+
 /*====end compenent tab-vertical====*/
+
+/* Styles for the side bar navigator */
+.sidebar-hierarchy {
+	background: #fff;
+	padding: 0;
+	margin: 0;
+}
+.sidebar-hierarchy p {
+	line-height: 2.5em;
+	padding: 0 0 0 20px;
+	margin: 0;
+}
+.sidebar-hierarchy hr {
+	margin: 10px 0;
+}
+.sidebar-hierarchy li a {
+	color: #515151;
+	background: transparent;
+	cursor: pointer;
+	text-decoration: none;
+}
+.sidebar-hierarchy li a:hover {
+	color: #ba2635;
+}
+.sidebar-hierarchy .sidebar-molecule {
+	padding: 0px;
+	/* border-top: 1px solid #E3E3E3; */
+}
+.sidebar-hierarchy .sidebar-molecule:hover {
+	background-color: white;
+}
+.sidebar-hierarchy .sidebar-molecule .molecule-title {
+	font-weight: bold;
+}
+.sidebar-molecule .sidebar-molecule-content {
+	padding: 0px;
+}
+.sidebar-molecule .sidebar-atom a {
+	display: block;
+}
+.sidebar-molecule .sidebar-atom {
+	line-height: 2.5em;
+	padding-left: 40px;
+}
+.sidebar-molecule .sidebar-atom.active {
+	border-left: 2px solid #ba2635;
+	cursor: default;
+	background-color: #ba2635;
+}
+.sidebar-molecule .sidebar-atom.active a {
+	color: white;
+}
+/* End of Styles for the side bar navigator */
 
 /*====compenent tab-horizontal(usage:news.jsp 要闻概览板块)====*/
 .tab-horizontal .topbar:after{
