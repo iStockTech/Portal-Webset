@@ -27,7 +27,14 @@
 			<result name="login">/WEB-INF/pages/account.jsp</result>
 		</action>
 		
-	  
+	  <action name="alipayTo" class="alipayAction" method="alipayTo">
+			<interceptor-ref name="token"></interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="invalid.token">/WEB-INF/pages/errors.jsp</result>
+            <result name="success">/WEB-INF/pages/alipayapi.jsp</result>
+            <result name="login">/WEB-INF/pages/account.jsp</result>
+            <result name="error">/WEB-INF/pages/errors.jsp</result>
+   		</action>
 		
 		<action name="Software_detail"
 			class="softwareAction" method="show">

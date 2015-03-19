@@ -473,10 +473,13 @@ public class AlipayAction extends ActionSupport {
 	 */
 	public String finish(){
 		try {
-			Map<String,String> result = Payment.singleTradeQuery(WIDout_trade_no);
+			Orders order = orderService.findOrderByTradeNo(WIDout_trade_no);
+			if (order == null){
+				responseTxt = "未查到交易记录";
+			}else{
+				responseTxt = order.getTradeState();
+			}
 
-			responseTxt = result.get("trade_status");
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("查找订单请求失败");

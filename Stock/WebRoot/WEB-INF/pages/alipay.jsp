@@ -8,9 +8,12 @@
 	 */
 %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@taglib prefix="s" uri="/struts-tags"%>
 <html>
 	<head>
+	<link href="<%=request.getContextPath()%>/front/dist/css/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <script src="<%=request.getContextPath()%>/js/jquery-latest.js"></script>
+    <script src="<%=request.getContextPath()%>/js/MessageBox.js"></script>
 	<title>支付宝即时到账交易接口</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
@@ -150,9 +153,32 @@ ul,ol{
     color:#8D8D8D;
 }
 </style>
-
 </head>
 <body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>
+<script type="text/javascript">
+    function payFinish(){
+    	CloseMessageBox();
+    	var tradeNo = $("#trade_no").val();
+    	window.location.href="<%=request.getContextPath()%>/alipay/orderFinish.action?WIDout_trade_no="+tradeNo; 
+    }
+	
+</script>
+<div id="waitpay_online" style="display:none">
+        <table style="width: 400px">
+            <tr>        	
+                <td >
+                <span class="icon"><img src="<%=request.getContextPath()%>/images/working.gif" /></span></td>
+                 <td>支付完成前，请不要关闭此支付验证窗口。支付完成后，请根据您支付的情况点击下面按钮。</td>
+            </tr>
+            <tr>
+                <td align="center" >
+                    <input id="online_have_question" onclick="payFinish()" type="button" value="支付遇到问题" /></td>
+                 <td align="center" >
+                 	<input id="finish_pay_order" onclick="payFinish()" type="button" value="支付完成" /></td>
+            </tr>
+        </table>
+    </div>
+
 	<div id="main">
 		<div id="head">
             <dl class="alipay_link">
@@ -169,7 +195,8 @@ ul,ol{
 				<li class="last">3、确认完成</li>
             </ol>
         </div>
-        <form name="alipayment" action="<%=request.getContextPath()%>/alipay/alipayTo.action" method="post" target="_blank">
+        <s:form name="alipayment" action="alipayTo.action" method="post" namespace="/" target="_blank">
+        	<s:token></s:token>
             <div id="body" style="clear:left">
                 <dl class="content">
 					<dd>
@@ -179,7 +206,7 @@ ul,ol{
 					<dt>商户订单号：</dt>
 					<dd>
 						<span class="null-star">*</span>
-						<input size="30" name="WIDout_trade_no" readonly="true" value="${WIDout_trade_no}"/>
+						<input id="trade_no" size="30" name="WIDout_trade_no" readonly="true" value="${WIDout_trade_no}"/>
 						<span>商户网站订单系统中唯一订单号，必填
 </span>
 					</dd>
@@ -217,12 +244,12 @@ ul,ol{
                     <dt></dt>
                     <dd>
                         <span class="new-btn-login-sp">
-                            <button class="new-btn-login" type="submit" style="text-align:center;">确 认</button>
+                            <button class="new-btn-login" type="submit" style="text-align:center;" showoption="control:waitpay_online;width:400;height:320;title:网上支付提示">确 认</button>
                         </span>
                     </dd>
                 </dl>
             </div>
-		</form>
+		</s:form>
         <div id="foot">
 			<ul class="foot-ul">
 				<li><font class="note-help">如果您点击“确认”按钮，即表示您同意该次的执行操作。 </font></li>
