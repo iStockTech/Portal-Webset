@@ -51,7 +51,7 @@ public class AlipayConfig {
     public static  String seller_email = "istocktech@163.com";
     //必填
     //商户订单号
-    public static String out_trade_no = Common.nextCode()+UtilDate.getOrderNum();
+    public static String out_trade_no = Common.nextCode();
     //商户网站订单系统中唯一订单号，必填
     //订单名称
     public static String subject = "AAA:"+out_trade_no;

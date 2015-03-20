@@ -74,8 +74,8 @@ public class XXTEA {
 	
 	
 	private final static int[] KEY = new int[]{//加密解密所用的KEY
-        0x789f5645, 0xf68bd5a4,
-        0x81963ffa, 0x458fac58
+        0x789f5644, 0xf68bd5a3,
+        0x81963ffb, 0x458fac57
     };
 	
     public static String Encrypt(String data, String key) {
@@ -231,6 +231,6 @@ public class XXTEA {
     }
  
     private static long DELTA = 2654435769L;
-    private static int MIN_LENGTH = 32;
+    public static int MIN_LENGTH = 32;
     private static char SPECIAL_CHAR = '\0';
 }

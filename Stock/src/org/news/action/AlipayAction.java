@@ -16,9 +16,11 @@ import org.apache.struts2.ServletActionContext;
 import org.news.dao.AdminHibernateDAO;
 import org.news.model.Orders;
 import org.news.model.Software;
+import org.news.model.TradeLog;
 import org.news.model.Users;
 import org.news.service.OrderService;
 import org.news.service.SoftwareService;
+import org.news.service.TradeLogService;
 import org.news.service.UserService;
 import org.news.utils.Common;
 import org.slf4j.Logger;
@@ -28,6 +30,7 @@ import com.alipay.config.AlipayConfig;
 import com.alipay.sign.Payment;
 import com.alipay.util.AlipayNotify;
 import com.alipay.util.AlipaySubmit;
+import com.alipay.util.UtilDate;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -102,7 +105,18 @@ public class AlipayAction extends ActionSupport {
 	private SoftwareService softwareService;
 	private OrderService orderService;
 	private UserService userService;
+	private TradeLogService logService;
 	
+	
+	
+	/**
+	 * @param logService the logService to set
+	 */
+	public void setLogService(TradeLogService logService) {
+		this.logService = logService;
+	}
+
+
 	/**
 	 * @param userService the userService to set
 	 */
@@ -200,7 +214,7 @@ public class AlipayAction extends ActionSupport {
 		//必填
 
 		//商户订单号
-		WIDout_trade_no = AlipayConfig.out_trade_no;
+		WIDout_trade_no = AlipayConfig.out_trade_no + UtilDate.getOrderNum();
 		//商户网站订单系统中唯一订单号，必填
 
 		//付款金额
@@ -210,11 +224,13 @@ public class AlipayAction extends ActionSupport {
 			sid = Integer.parseInt(softwareid);
 			software = softwareService.findSoftwareById(sid);
 			if (software == null){
+				log.error("no software");
 				return ERROR;
 			}
 			
 			
 		}catch(Exception e){
+			log.error("softwareid is wrong");
 			return ERROR;
 		}
 		
@@ -232,7 +248,7 @@ public class AlipayAction extends ActionSupport {
 		//商品展示地址
 		WIDshow_url = AlipayConfig.show_url;
 		//需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
-		
+
 		return SUCCESS;
 	}
 	
@@ -261,8 +277,29 @@ public class AlipayAction extends ActionSupport {
 			return ERROR;
 		}
 		
+		int price = 0;
+		try{
+			price = Integer.parseInt(WIDtotal_fee);
+
+		}catch(Exception e){
+			//System.out.println("no sid");
+			return ERROR;
+		}
+		
 		//插入交易纪录
 		orderService.addOrder(user.getUsersId(), sid, WIDout_trade_no, "", "submit");
+		
+		//记入日志
+		TradeLog logger = new TradeLog();
+		logger.setId(0);
+		logger.setUserName(userName);
+		logger.setOutTradeNo(WIDout_trade_no);
+		logger.setSubject(WIDsubject);
+		logger.setPrice(price);
+		logger.setTradeNo("");
+		logger.setTradeStatus("submit");
+		logger.setResponse("success");
+		logService.addLog(logger);
 		
 		return SUCCESS;
 	}
@@ -272,7 +309,14 @@ public class AlipayAction extends ActionSupport {
 	 * @return
 	 * @throws UnsupportedEncodingException 
 	 */
-	public String returnURL() throws UnsupportedEncodingException {
+	public String returnURL() throws UnsupportedEncodingException {	
+		ActionContext ctx = ActionContext.getContext();
+		String userName = (String) ctx.getSession().get("id") ;	// 从session中取出用户名
+		if (userName==null){
+			//System.out.println("no userName");
+			return LOGIN;
+		}
+		
 		String key = AlipayConfig.key;
 		//获取支付宝GET过来反馈信息
 		
@@ -296,6 +340,19 @@ public class AlipayAction extends ActionSupport {
 		//商户订单号
 
 		String out_trade_no = new String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
+		
+		String subject = new String(request.getParameter("subject").getBytes("ISO-8859-1"),"UTF-8");
+		
+		String total_fee = new String(request.getParameter("total_fee").getBytes("ISO-8859-1"),"UTF-8");
+		
+		int price = 0;
+		try{
+			price = Integer.parseInt(total_fee);
+
+		}catch(Exception e){
+			log.error("返回价格错误");
+			return ERROR;
+		}
 
 		//支付宝交易号
 
@@ -309,44 +366,75 @@ public class AlipayAction extends ActionSupport {
 		//计算得出通知验证结果
 		boolean verify_result = AlipayNotify.verify(params);
 		
+		TradeLog logger = new TradeLog();
+		logger.setId(0);
+		logger.setUserName(userName);
+		logger.setOutTradeNo(out_trade_no);
+		logger.setSubject(subject);
+		logger.setPrice(price);
+		logger.setTradeNo(trade_no);
+		
+		Orders order = orderService.findOrderByTradeNo(out_trade_no);
+		if (order == null){
+			log.error("找不到订单");
+			responseTxt = "database_no_trade";
+			
+			//记入日志			
+			logger.setTradeStatus("submit");
+			logger.setResponse("database_no_trade");
+			logService.addLog(logger);
+			return ERROR;
+		}
+		
 		if(verify_result){//验证成功
 			//////////////////////////////////////////////////////////////////////////////////////////
 			//请在这里加上商户的业务逻辑程序代码
 			
-			Orders order = orderService.findOrderByTradeNo(out_trade_no);
-			if (order == null){
-				log.error("验证成功，找不到订单");
-				responseTxt = "verify_success_no_trade";
-				return ERROR;
-			}
 
 			//——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
 			if(trade_status.equals("TRADE_FINISHED") || trade_status.equals("TRADE_SUCCESS")){
 				//判断该笔订单是否在商户网站中已经做过处理
 					//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
-				if (!order.getTradeState().equals("finished")){
+				if (!order.getTradeState().equals("finished")){					
 					order.setTradeState("finished");
 					order.setSerialNo(trade_no);
+					
+					logger.setTradeStatus("finished");
 					if (!orderService.updateOrders(order)){
-						log.error("交易成功，更新订单失败");
+						log.error("验证成功，更新订单失败");
 						responseTxt = "verify_success_update_fail";
+												
+						logger.setResponse("verify_success_update_fail");
+						logService.addLog(logger);
 						return ERROR;
 					}
+
+					logger.setResponse("支付成功");
+					logService.addLog(logger);
 				}
 					//如果有做过处理，不执行商户的业务程序
-				responseTxt = "支付成功";
+				responseTxt = "支付成功";				
 			}else{
 				if (!order.getTradeState().equals("finished")){
 					order.setTradeState("wait");
 					order.setSerialNo(trade_no);
+					
+					logger.setTradeStatus("wait");
 					if (!orderService.updateOrders(order)){
-						log.error("交易成功，更新订单失败");
+						log.error("验证成功，更新订单失败");
 						responseTxt = "verify_success_update_fail";
+													
+						logger.setResponse("verify_success_update_fail");
+						logService.addLog(logger);
 						return ERROR;
 					}
-				}
+					logger.setResponse("支付未完成");
+					logService.addLog(logger);
+					responseTxt = "支付未完成";
+				}else{
+					responseTxt = "支付成功";
+				}			
 				
-				responseTxt = "支付未完成";
 			}
 			
 			//该页面可做页面美工编辑
@@ -356,7 +444,11 @@ public class AlipayAction extends ActionSupport {
 			//////////////////////////////////////////////////////////////////////////////////////////
 		}else{
 			//该页面可做页面美工编辑
-			responseTxt = "支付失败";
+			responseTxt = "验证失败";
+			
+			logger.setTradeStatus(order.getTradeState());
+			logger.setResponse("验证失败");
+			logService.addLog(logger);
 			return SUCCESS;
 		}
 	}
@@ -366,6 +458,9 @@ public class AlipayAction extends ActionSupport {
 	 * @throws UnsupportedEncodingException 
 	 */
 	public void notifyURL() throws UnsupportedEncodingException {
+		ActionContext ctx = ActionContext.getContext();
+		String userName = (String) ctx.getSession().get("id") ;	// 从session中取出用户名
+
 		PrintWriter out = null;
 		try {
 			out = ServletActionContext.getResponse().getWriter();
@@ -394,6 +489,19 @@ public class AlipayAction extends ActionSupport {
 		//商户订单号
 
 		String out_trade_no = new String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
+		
+		String subject = new String(request.getParameter("subject").getBytes("ISO-8859-1"),"UTF-8");
+		
+		String total_fee = new String(request.getParameter("total_fee").getBytes("ISO-8859-1"),"UTF-8");
+		
+		int price = 0;
+		try{
+			price = Integer.parseInt(total_fee);
+
+		}catch(Exception e){
+			log.error("返回价格错误");
+		}
+
 
 		//支付宝交易号
 
@@ -403,16 +511,31 @@ public class AlipayAction extends ActionSupport {
 		String trade_status = new String(request.getParameter("trade_status").getBytes("ISO-8859-1"),"UTF-8");
 
 		//获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以上仅供参考)//
+		
+		TradeLog logger = new TradeLog();
+		logger.setId(0);
+		logger.setUserName(userName);
+		logger.setOutTradeNo(out_trade_no);
+		logger.setSubject(subject);
+		logger.setPrice(price);
+		logger.setTradeNo(trade_no);		
 
 		if(AlipayNotify.verify(params)){//验证成功
 			//////////////////////////////////////////////////////////////////////////////////////////
 			//请在这里加上商户的业务逻辑程序代码
 			Orders order = orderService.findOrderByTradeNo(out_trade_no);
 			if (order == null){
-				log.error("Notify:验证成功，找不到订单");
+				log.error("Notify:找不到订单");
+				
+				//记入日志			
+				logger.setTradeStatus("submit");
+				logger.setResponse("Notify:database_no_trade");
+				logService.addLog(logger);
 				out.println("success");	//请不要修改或删除
 				return;
-			}	
+			}
+			
+
 			//——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
 			
 			if(trade_status.equals("TRADE_FINISHED")){
@@ -422,8 +545,16 @@ public class AlipayAction extends ActionSupport {
 				if (!order.getTradeState().equals("finished")){
 					order.setTradeState("finished");
 					order.setSerialNo(trade_no);
+					
+					logger.setTradeStatus("finished");
 					if (!orderService.updateOrders(order)){
-						log.error("Notify:交易成功，更新订单失败");
+						log.error("Notify:验证成功，更新订单失败");
+						
+						logger.setResponse("Notify:verify_success_update_fail");
+						logService.addLog(logger);
+					}else{
+						logger.setResponse("Notify:支付成功");
+						logService.addLog(logger);
 					}
 				}
 					//如果有做过处理，不执行商户的业务程序
@@ -438,8 +569,16 @@ public class AlipayAction extends ActionSupport {
 				if (!order.getTradeState().equals("finished")){
 					order.setTradeState("finished");
 					order.setSerialNo(trade_no);
+					
+					logger.setTradeStatus("finished");
 					if (!orderService.updateOrders(order)){
-						log.error("Notify:交易成功，更新订单失败");
+						log.error("Notify:验证成功，更新订单失败");
+						
+						logger.setResponse("Notify:verify_success_update_fail");
+						logService.addLog(logger);
+					}else{
+						logger.setResponse("Notify:支付成功");
+						logService.addLog(logger);
 					}
 				}
 					//如果有做过处理，不执行商户的业务程序
@@ -450,8 +589,16 @@ public class AlipayAction extends ActionSupport {
 				if (!order.getTradeState().equals("finished")){
 					order.setTradeState("wait");
 					order.setSerialNo(trade_no);
+					
+					logger.setTradeStatus("wait");
 					if (!orderService.updateOrders(order)){
-						log.error("Notify:交易成功，更新订单失败");
+						log.error("Notify:验证成功，更新订单失败");
+						
+						logger.setResponse("Notify:verify_success_update_fail");
+						logService.addLog(logger);
+					}else{
+						logger.setResponse("Notify:支付未完成");
+						logService.addLog(logger);
 					}
 				}
 

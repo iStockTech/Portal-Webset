@@ -29,7 +29,9 @@
 			<!-- 此处{1}表示前面第一个*代表的字符串 -->
 			<result>/WEB-INF/pages/{1}.jsp</result>
 		</action>
-		
+		<action name="alipayTo" class="alipayAction" method="alipayTo">
+            <result name="success">/WEB-INF/pages/alipayapi.jsp</result>
+   		</action>
    		<action name="returnURL" class="alipayAction" method="returnURL">
             <result name="success">/WEB-INF/pages/orderSuccess.jsp</result>
    		</action>

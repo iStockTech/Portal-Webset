@@ -128,7 +128,7 @@ public class AuthenticationAction extends ActionSupport {
 	 * @return
 	 */
 	public String identification(){
-		if (token == null){
+		if (token == null || token.length() < XXTEA.MIN_LENGTH){
 			permissionLevel = "0";
 			mid = null;
 			return SUCCESS;

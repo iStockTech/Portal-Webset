@@ -84,6 +84,10 @@
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
+	<bean id="logDAO" class="org.news.dao.TradeLogHibernateDAO">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
 	
 	<bean id="adminService" class="org.news.service.impl.AdminServiceImpl">
 		<property name="adminDAO" ref="adminDAO"></property></bean>
@@ -112,6 +116,8 @@
 		<property name="softwareDAO" ref="softwareDAO"></property></bean>			
 	<bean id="stockDayInfoTableService" class="org.news.service.impl.StockDayInfoTableServiceImpl">
 		<property name="stockDayInfoHibernateDAO" ref="stockDayInfoHibernateDAO"></property></bean>
+	<bean id="logService" class="org.news.service.impl.TradeLogServiceImpl">
+		<property name="logDAO" ref="logDAO"></property></bean>	
 		
 	<bean id="adminAction" class="org.news.action.AdminAction">
 		<property name="adminService" ref="adminService"></property></bean>
@@ -155,5 +161,6 @@
 	<bean id="alipayAction" class="org.news.action.AlipayAction">
 		<property name="userService" ref="userService"></property>
 		<property name="softwareService" ref="softwareService"></property>
+		<property name="logService" ref="logService"></property>
 		<property name="orderService" ref="orderService"></property></bean>
 </beans>

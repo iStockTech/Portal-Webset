@@ -195,8 +195,8 @@ ul,ol{
 				<li class="last">3、确认完成</li>
             </ol>
         </div>
-        <s:form name="alipayment" action="alipayTo.action" method="post" namespace="/" target="_blank">
-        	<s:token></s:token>
+        <s:form name="alipayment" action="alipayTo.action" method="post" namespace="/alipay" target="_blank">
+
             <div id="body" style="clear:left">
                 <dl class="content">
 					<dd>

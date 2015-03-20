@@ -23,9 +23,7 @@ function ShowMessageBox(option)
     {
        CreateContainer(option);
        MessageOninit = true;
-       $('#messagebox_close').click(function(){
-             CloseMessageBox();
-       });
+
        $(window).resize(function(){
             SetStyle(option);
             SetEnabledStyle();
@@ -73,7 +71,7 @@ function ShowMessageBox(option)
     function CreateContainer(option)
     {
         var html;
-        html='<div id="messagebox_win" style="position:absolute;z-index:99999;"><table  cellpadding="0" cellspacing="0" id="messagebox_table"><tr><td id="messagebox_title_td"><table id="messagebox_title_table" ><tr><td style="width:99%;" ><div id="messagebox_title" style="width:100%;cursor: default;"></div></td><td><button id="messagebox_close"></button></td></tr></table></td></tr><tr id="messagebox_body_td"><td valign="top" ><div id="messagebox_from" style="text-align: center;"></div></td></tr></table></div>';
+        html='<div id="messagebox_win" style="position:absolute;z-index:99999;"><table  cellpadding="0" cellspacing="0" id="messagebox_table"><tr><td id="messagebox_title_td"><table id="messagebox_title_table" ><tr><td style="width:99%;" ><div id="messagebox_title" style="width:100%;cursor: default;"></div></td></tr></table></td></tr><tr id="messagebox_body_td"><td valign="top" ><div id="messagebox_from" style="text-align: center;"></div></td></tr></table></div>';
         if(option.parent)
         {
             $('#' + option.parent).append(html);
