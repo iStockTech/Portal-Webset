@@ -144,6 +144,13 @@ public class AuthenticationAction extends ActionSupport {
 		}
 		
 		String[] infos = info.split(",");
+		
+		if (infos.length != 5){
+			permissionLevel = "0";
+			mid = null;
+			return SUCCESS;
+		}
+		
 		mid = infos[1].substring(7);
 		
 		//生成新令牌
