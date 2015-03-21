@@ -49,10 +49,6 @@
 			class="softwareAction" method="listNoBuy">
 			<result name="success">/WEB-INF/pages/product.jsp</result>
 		</action>
-		<action name="Product_detail"
-			class="softwareAction" method="show">
-			<result name="success">/WEB-INF/pages/productDetail.jsp</result>
-		</action>
     </package>
 
 </struts>

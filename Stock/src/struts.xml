@@ -27,11 +27,19 @@
 			<result name="login">/WEB-INF/pages/account.jsp</result>
 		</action>
 		
-	  
+	  <action name="Software_list"
+			class="softwareAction" method="list">
+			<result name="success">/WEB-INF/pages/product.jsp</result>
+		</action>
 		
 		<action name="Software_detail"
 			class="softwareAction" method="show">
 			<result name="success">/WEB-INF/pages/softwareDetail.jsp</result>
+		</action>
+		
+		<action name="Product_detail"
+			class="softwareAction" method="show">
+			<result name="success">/WEB-INF/pages/productDetail.jsp</result>
 		</action>
 		
 		<action name="Software_download"
