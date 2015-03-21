@@ -47,22 +47,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<p class="title">产品介绍</p>
 		<p class="additional">产品介绍，包含产品下载链接等接口</p>
 			<h1>软件列表</h1>
-<TABLE BORDER="1" cellpadding="5" cellspacing="0" bgcolor="F2F2F2" width="100%">
-	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td align="center" valign="middle"><span class="STYLE10">ID</span></td>
-		<td align="center" valign="middle"><span class="STYLE10">软件</span></td>
-		<td align="center" valign="middle"><span class="STYLE10">价格</span></td>
-		<td align="center" valign="middle"><span class="STYLE10">详情</span></td>
-	</TR>
-	<c:forEach items="${softwares}" var="software">
-	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td align="center" valign="middle"><span class="STYLE6">${software.softwareId}</span></td>
-		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
-		<td align="center" valign="middle"><span class="STYLE6">${software.price}</span></td>
-		<td align="center" valign="middle"><span class="STYLE6"><a href="<%= basePath %>Product_detail.action?softwareid=${software.softwareId}">点击进入</a></span></td>
-	</TR>
-	</c:forEach>
-</table>
+			<table class="table table-bordered text-center table-hover">
+						<tr class="info">
+							<th class="text-center">ID</th>
+							<th class="text-center">名称</th>
+							<th class="text-center">产品价格（人民币）</th>
+		<!-- 					<th class="text-center">有效期</th> -->
+							<th class="text-center">产品详情</th>
+							<th class="text-center">下载</th>
+						</tr>
+						<tr>
+							<td>S001</td>
+							<td>斯多克证券分析系统</td>
+							<td>28000</td>
+		<!-- 					<td>永久</td> -->
+							<td><a href="productDetail">点击进入</a></td>
+							<td><a href="">下载</a></td>
+						</tr>
+						<tr>
+							<td>S002</td>
+							<td>斯多克智能交易系统</td>
+							<td>198000</td>
+		<!-- 					<td>1年</td> -->
+							<td><a href="productDetail">点击进入</a></td>
+							<td><a href="">下载</a></td>
+						</tr>
+						<c:forEach items="${softwares}" var="software">
+							<tr>
+								<td>${software.softwareId}</td>
+								<td>${software.softwareDescripe}</td>
+								<td>${software.price}</td>
+								<td><a href="<%=request.getContextPath()%>/Product_detail.action?softwareid=${software.softwareId}">点击进入</a></td>
+								<td><a href="<%=request.getContextPath()%>/Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></td>
+							</tr>
+						</c:forEach>
+					</table>
 		<!-- 产品一 -->
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  square-y active" data-target="js-product1">
 			<div class="content">
@@ -85,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="content">
 				<p class="bar">
 					<span>②</span><br/>
-					<span>新型智能决策方式</span>
+					<span>斯多克</span>
 				</p>	
 				<div class="mainBd">
 					<p class="phrase">新型智能决策方式</p>

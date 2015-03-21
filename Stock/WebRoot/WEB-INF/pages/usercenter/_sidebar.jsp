@@ -10,7 +10,7 @@
 	<li class="sidebar-molecule">
 		<p class="molecule-title">产品管理<span class="icon-up3"></span></p>
 		<ul class="sidebar-molecule-content">
-			<li class="sidebar-atom ${param.index == 'mysoftware' ? 'active' : ''}"><a href="welcome">我的软件</a></li>
+			<li class="sidebar-atom ${param.index == 'mysoftware' ? 'active' : ''}"><a href="<%=request.getContextPath()%>/user/userSoftwarelist.action">我的软件</a></li>
 			<li class="sidebar-atom ${param.index == 'newestsoftware' ? 'active' : ''}"><a href="usercenter/userinfo">最新软件</a></li>
 			<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">重新授权</a></li>
 		</ul>

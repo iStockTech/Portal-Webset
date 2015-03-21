@@ -20,8 +20,8 @@ function visitedCount(){
             </button>
             <a class="navbar-brand nav-logo" href="index">Stockii</a>
           </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav menu-main">
              	<li class='${param.index=="index"?"active":"" }'>
 					<a href="index" onFocus="this.blur()">首页</a></li>
 				 <li class='${param.index=="product"?"active":"" }'>
@@ -43,14 +43,25 @@ function visitedCount(){
 				 <li class='${param.index=="about"?"active":"" }'>
 					<a href="about" onFocus="this.blur()">关于我们</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right hidden-sm">
+            <ul class="nav navbar-nav navbar-right hidden-sm menu-user">
             	<%
 					if(session.getAttribute("id") != null){
 				%>
-				<li class='${param.index=="account"?"active":"" }'>
-					<a href="usercenter/userinfo">${session.id}</a></li>
-				<li class='${param.index=="signup"?"active":"" }'>
-					<a href="<%=request.getContextPath()%>/logout" onFocus="this.blur()">注销</a></li>
+<!-- 				<li class='${param.index=="account"?"active":"" }'> -->
+<!-- 					<a href="<%=request.getContextPath()%>/user/userSoftwarelist.action">${session.id}</a></li> -->
+<!-- 				<li class='${param.index=="signup"?"active":"" }'> -->
+<!-- 					<a href="<%=request.getContextPath()%>/logout" onFocus="this.blur()">注销</a></li> -->
+				<li class="dropdown ${param.index=='account'?'active':''}">
+             	  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">${session.id} <span class="caret"></span></a>
+              	  <ul class="dropdown-menu dropdown-menu-user" role="menu">
+                  	<li><a href="<%=request.getContextPath()%>/user/userSoftwarelist.action"">个人中心</a></li>
+                  	<li><a href="#">Another action</a></li>
+                  	<li><a href="#">Something else here</a></li>
+                  	<li class="divider"></li>
+                  	<li><a href="<%=request.getContextPath()%>/logout" onFocus="this.blur()">注销</a></li>
+              	  </ul>
+            	</li>
+					
 				<%			
 					} else {
 				%>
@@ -63,6 +74,7 @@ function visitedCount(){
 				<%
 					}
 				%>
+				
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

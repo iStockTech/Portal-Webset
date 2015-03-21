@@ -107,6 +107,10 @@ nav ul.nav.navbar-nav li.active > a{
 	min-height: 100%;
 	/* padding-bottom: 368px; equal to footer height */
 }
+.content-main {
+	height: auto; 
+	padding-bottom: 80px;
+}
 
 
 /* Styles for footer elements */
@@ -1431,7 +1435,10 @@ span.solidline{
 	padding: 10px;
 }
 
-
+.dropdown-menu-user li a {
+	font-size: 16px;
+	
+}
 
 
 
