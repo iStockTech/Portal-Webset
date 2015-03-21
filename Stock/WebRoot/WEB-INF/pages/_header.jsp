@@ -48,7 +48,7 @@ function visitedCount(){
 					if(session.getAttribute("id") != null){
 				%>
 				<li class='${param.index=="account"?"active":"" }'>
-					欢迎${session.id}</li>
+					<a href="usercenter/userinfo">${session.id}</a></li>
 				<li class='${param.index=="signup"?"active":"" }'>
 					<a href="<%=request.getContextPath()%>/logout" onFocus="this.blur()">注销</a></li>
 				<%			

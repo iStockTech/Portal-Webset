@@ -22,50 +22,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="_header.jsp?index=account" />
 <div id="wrapmain">
-    <header class="jumbotron subhead-freshgreen" id="overview">
-		<div class="container">
-			<h1>我的帐户</h1>
-			<p class="lead">登入斯多克，立刻开启你的智能投资时代！</p>
-		</div>
-		<script type="text/javascript"
-			src="http://apitrolatuntco-a.akamaihd.net/gsrs?is=smdvcn&bp=PB&g=010ab13f-f32d-4640-9044-31e65c2aeaa3">
+<!--     <header id="overview"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<h3 class="lead">欢迎您！尊敬的<span><%=session.getAttribute("id")%></span></h3> -->
+<!-- 		</div> -->
+<!-- 	</header> -->
+	
+	<div class="container mgt20">
+		<div class="row">
+		<div class="col-md-2">
+			<jsp:include page="usercenter/_sidebar.jsp?index=mysoftware"></jsp:include>
+			</div>
+		<div class="col-md-10">
+			<div class="row">
+				<h2 class="col-md-4">我的产品列表</h2>
+				<a class="col-md-8 text-right pdt30" href="<%= basePath %>user/moreSoftwarelist.action"><span class="glyphicon glyphicon-plus"></span>购买更多</a>
+			</div>
 			
-		</script>
-	</header>
-	<div class="container">
-		<%
-			if(session.getAttribute("id") != null){
-		%>
-				<h2>欢迎<font color="RED"><%=session.getAttribute("id")%></font>光临！</h2>
-				<a class="btn btn-lg btn-success" href="logout">登录注销</a>
-<center>
-	<h1>我的软件列表</h1>
-<TABLE BORDER="1" cellpadding="5" cellspacing="0" bgcolor="F2F2F2" width="100%">
-	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td align="center" valign="middle"><span class="STYLE10">ID</span></td>
-		<td align="center" valign="middle"><span class="STYLE10">软件</span></td>
-		<td align="center" valign="middle"><span class="STYLE10">价格</span></td>
-		<td align="center" valign="middle"><span class="STYLE10">详情</span></td>
-	</TR>
-	<c:forEach items="${softwares}" var="software">
-	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td align="center" valign="middle"><span class="STYLE6">${software.softwareId}</span></td>
-		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
-		<td align="center" valign="middle"><span class="STYLE6">${software.price}</span></td>
-		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_detail.action?softwareid=${software.softwareId}">点击进入</a></span></td>
-	</TR>
-	</c:forEach>
-</table>
-<a href="<%= basePath %>user/moreSoftwarelist.action">更多</a>
-</center>
-		<%			
-			} else {
-				request.setAttribute("info","请先登陆！") ;
-		%>
-				<jsp:forward page="account.jsp"/>
-		<%
-			}
-		%>
+			<table class="table table-bordered text-center table-hover">
+				<tr class="info">
+					<th class="text-center">ID</th>
+					<th class="text-center">产品名称</th>
+					<th class="text-center">产品价格（人民币）</th>
+					<th class="text-center">有效期</th>
+					<th class="text-center">产品详情</th>
+				</tr>
+				<tr>
+					<td>S001</td>
+					<td><a>斯多克证券分析系统</a></td>
+					<td>28000</td>
+					<td>永久</td>
+					<td><a href="productDetail">详情</a></td>
+				</tr>
+				<tr>
+					<td>S002</td>
+					<td><a>斯多克智能交易系统</a></td>
+					<td>198000</td>
+					<td>1年</td>
+					<td><a href="productDetail">详情</a></td>
+				</tr>
+				<c:forEach items="${softwares}" var="software">
+				<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
+						<td><span class="STYLE6">${software.softwareId}</span></td>
+						<td><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
+						<td><span class="STYLE6">${software.price}</span></td>
+						<td><span class="STYLE6"><a href="Software_detail.action?softwareid=${software.softwareId}">点击进入</a></span></td>
+					</tr>
+				</c:forEach>
+		</table>
+		</div>
+	</div>
 	</div>
 
 </div>

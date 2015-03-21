@@ -15,7 +15,8 @@ body{
 	}
 }
 h1, h2, h3, h4 {
-	font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑",STXihei, "华文细黑", serif;
+	font-family: "Microsoft YaHei", "微软雅黑",STXihei, "华文细黑", serif;
+	/* font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑",STXihei, "华文细黑", serif; */
 }
 table {
 	border-collapse:collapse;
@@ -1214,7 +1215,68 @@ span.solidline{
 	font-size: 16px;
 	text-align: center;
 }
+
 /*====end compenent tab-vertical====*/
+
+/* Styles for the side bar navigator */
+.sidebar-hierarchy {
+	background: #fff;
+	padding: 0;
+	margin: 0;
+}
+.sidebar-hierarchy p {
+	line-height: 2.5em;
+	padding: 0 0 0 20px;
+	margin: 0;
+}
+.sidebar-hierarchy hr {
+	margin: 10px 0;
+}
+.sidebar-hierarchy li.active {
+	border-left: 2px solid #ba2635;
+	cursor: default;
+	background-color: #ba2635;
+}
+.sidebar-hierarchy li.active a {
+	color: white;
+}
+.sidebar-hierarchy li a:hover {
+	color: #ba2635;
+}
+.sidebar-hierarchy li a {
+	color: #515151;
+	background: transparent;
+	cursor: pointer;
+	text-decoration: none;
+}
+.sidebar-hierarchy .sidebar-molecule {
+	padding: 0px;
+}
+.sidebar-hierarchy .sidebar-molecule .molecule-title {
+	font-weight: bold;
+}
+.sidebar-molecule li a:hover {
+	color: #ba2635;
+}
+.sidebar-molecule .sidebar-molecule-content {
+	padding: 0px;
+}
+.sidebar-molecule .sidebar-atom a {
+	display: block;
+}
+.sidebar-molecule .sidebar-atom {
+	line-height: 2.5em;
+	padding-left: 40px;
+}
+.sidebar-molecule .sidebar-atom.active {
+	border-left: 2px solid #ba2635;
+	cursor: default;
+	background-color: #ba2635;
+}
+.sidebar-molecule .sidebar-atom.active a {
+	color: white;
+}
+/* End of Styles for the side bar navigator */
 
 /*====compenent tab-horizontal(usage:news.jsp 要闻概览板块)====*/
 .tab-horizontal .topbar:after{
@@ -1340,6 +1402,38 @@ span.solidline{
 	color: red;
 }
 /* End of Styles for button banner */
+
+.section-set {
+	/* position: relative;
+	padding: 45px 15px 15px;
+	margin: 0 -15px 15px;
+	border-color: #e5e5e5 #eee #eee;
+	border-style: solid;
+	border-width: 1px 0;
+	-webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+	box-shadow: inset 0 3px 6px rgba(0,0,0,.05); */
+}
+
+.section-bordered {
+	margin-right: 0;
+	margin-left: 0;
+	background-color: #fff;
+	border-color: #ddd;
+	border-width: 1px;
+	border-radius: 4px 4px 0 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.user-intro-potrait {
+	width: 120px;
+	height: 120px;
+	padding: 10px;
+}
+
+
+
+
 
 
 
