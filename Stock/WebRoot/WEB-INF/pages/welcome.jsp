@@ -28,67 +28,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 		</div> -->
 <!-- 	</header> -->
 	
-	<div class="container mgt40">
+	<div class="container mgt20">
 		<div class="row">
 		<div class="col-md-2">
-	  		<ul class="sidebar-hierarchy">
-	  			<h3 class="bar-title"></h3>
-	  			<li class="sidebar-molecule">
-					<p class="molecule-title"><a href="usercenter/userinfo?userid=12312312">会员中心首页</a></p>
-				</li>
-				<hr>
-				<li class="sidebar-molecule">
-					<p class="molecule-title">产品管理<span class="icon-up3"></span></p>
-					<ul class="sidebar-molecule-content">
-						<li class="sidebar-atom active"><a href="welcome/usercenter?id=17398123">我的软件</a></li>
-						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">最新软件</a></li>
-						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">重新授权</a></li>
-					</ul>
-				</li>
-				<hr>
-				<li class="sidebar-molecule">
-					<p class="molecule-title">策略管理<span class="icon-up3"></span></p>
-					<ul class="sidebar-molecule-content">
-						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">我的策略</a></li>
-						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">最新策略</a></li>
-						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">定制策略</a></li>
-					</ul>
-				</li>
-				<hr>
-				<li class="sidebar-molecule">
-					<p class="molecule-title">订单管理<span class="icon-up3"></span></p>
-					<ul class="sidebar-molecule-content">
-						<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">已付款订单</a></li>
-	  					<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">未付款订单</a></li>
-	  					<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">自动购买</a></li>
-					</ul>
-				</li>
-	  		</ul>
-		</div>
+			<jsp:include page="usercenter/_sidebar.jsp?index=mysoftware"></jsp:include>
+			</div>
 		<div class="col-md-10">
+			<div class="row">
+				<h2 class="col-md-4">我的产品列表</h2>
+				<a class="col-md-8 text-right pdt30" href="<%= basePath %>user/moreSoftwarelist.action"><span class="glyphicon glyphicon-plus"></span>购买更多</a>
+			</div>
 			
-<center>
-	<h1>我的软件列表</h1>
-<TABLE BORDER="1" cellpadding="5" cellspacing="0" bgcolor="F2F2F2" width="100%">
-	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td align="center" valign="middle"><span class="STYLE10">ID</span></td>
-		<td align="center" valign="middle"><span class="STYLE10">软件</span></td>
-		<td align="center" valign="middle"><span class="STYLE10">价格</span></td>
-		<td align="center" valign="middle"><span class="STYLE10">详情</span></td>
-	</TR>
-	<c:forEach items="${softwares}" var="software">
-	<TR onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td align="center" valign="middle"><span class="STYLE6">${software.softwareId}</span></td>
-		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
-		<td align="center" valign="middle"><span class="STYLE6">${software.price}</span></td>
-		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_detail.action?softwareid=${software.softwareId}">点击进入</a></span></td>
-	</TR>
-	</c:forEach>
-</table>
-<a href="<%= basePath %>user/moreSoftwarelist.action">更多</a>
-</center>
-		
-		
+			<table class="table table-bordered text-center table-hover">
+				<tr class="info">
+					<th class="text-center">ID</th>
+					<th class="text-center">产品名称</th>
+					<th class="text-center">产品价格（人民币）</th>
+					<th class="text-center">有效期</th>
+					<th class="text-center">产品详情</th>
+				</tr>
+				<tr>
+					<td>S001</td>
+					<td><a>斯多克证券分析系统</a></td>
+					<td>28000</td>
+					<td>永久</td>
+					<td><a href="productDetail">详情</a></td>
+				</tr>
+				<tr>
+					<td>S002</td>
+					<td><a>斯多克智能交易系统</a></td>
+					<td>198000</td>
+					<td>1年</td>
+					<td><a href="productDetail">详情</a></td>
+				</tr>
+				<c:forEach items="${softwares}" var="software">
+				<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
+						<td><span class="STYLE6">${software.softwareId}</span></td>
+						<td><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
+						<td><span class="STYLE6">${software.price}</span></td>
+						<td><span class="STYLE6"><a href="Software_detail.action?softwareid=${software.softwareId}">点击进入</a></span></td>
+					</tr>
+				</c:forEach>
+		</table>
 		</div>
 	</div>
 	</div>

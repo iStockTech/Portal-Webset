@@ -65,7 +65,8 @@
 	<mapping class="org.news.model.HotStock" />
 	<mapping class="org.news.model.Software" />
 	<mapping class="org.news.model.Orders" />
-	
+	<mapping class="org.news.model.TradeLog" />
+
 
 </session-factory>
 

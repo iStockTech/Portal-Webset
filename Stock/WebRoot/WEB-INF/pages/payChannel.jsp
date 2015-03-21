@@ -22,15 +22,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <jsp:include page="_header.jsp?index=product" />
     请选择支付方式. <br>
 <form name="alipay" action="<%=request.getContextPath()%>/alipay/instantPay" method="post">
-<input type="radio" name="channel" value="alipay" checked="checked"/> 支付宝
+<input type="radio" name="enable_paymethod" value="directPay" checked="checked"/> 支付宝账户余额
 <br />
-<input type="radio" name="channel" value="ICBC" /> 中国工商银行
+<input type="radio" name="enable_paymethod" value="cartoon" /> 卡通
 <br />
-<input type="radio" name="channel" value="ABC" /> 中国农业银行
+<input type="radio" name="enable_paymethod" value="bankPay" /> 网银
 <br />
-<input type="radio" name="channel" value="BC" /> 中国银行
+<input type="radio" name="enable_paymethod" value="creditCardExpress" /> 信用卡快捷
 <br />
-<input type="radio" name="channel" value="CBC" /> 中国建设银行
+<input type="radio" name="enable_paymethod" value="debitCardExpress" /> 借记卡快捷
 <br />
 <input type="hidden" name="softwareid" value="<%=request.getParameter("softwareid")%>">
 <input type="submit" value="支付" />

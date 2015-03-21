@@ -29,6 +29,16 @@
 			<!-- 此处{1}表示前面第一个*代表的字符串 -->
 			<result>/WEB-INF/pages/{1}.jsp</result>
 		</action>
+		<action name="alipayTo" class="alipayAction" method="alipayTo">
+            <result name="success">/WEB-INF/pages/alipayapi.jsp</result>
+   		</action>
+   		<action name="returnURL" class="alipayAction" method="returnURL">
+            <result name="success">/WEB-INF/pages/orderSuccess.jsp</result>
+   		</action>
+   		<action name="notifyURL" class="alipayAction" method="notifyURL" />
+   		<action name="orderFinish" class="alipayAction" method="finish">
+            <result name="success">/WEB-INF/pages/orderSuccess.jsp</result>
+   		</action>
 	</package>	
     <package name="member" namespace="/user" extends="user">
     	 <action name="userSoftwarelist"
@@ -38,10 +48,6 @@
 		<action name="moreSoftwarelist"
 			class="softwareAction" method="listNoBuy">
 			<result name="success">/WEB-INF/pages/product.jsp</result>
-		</action>
-		<action name="Product_detail"
-			class="softwareAction" method="show">
-			<result name="success">/WEB-INF/pages/productDetail.jsp</result>
 		</action>
     </package>
 

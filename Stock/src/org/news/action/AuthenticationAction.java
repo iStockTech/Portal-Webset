@@ -128,7 +128,7 @@ public class AuthenticationAction extends ActionSupport {
 	 * @return
 	 */
 	public String identification(){
-		if (token == null){
+		if (token == null || token.length() < XXTEA.MIN_LENGTH){
 			permissionLevel = "0";
 			mid = null;
 			return SUCCESS;
@@ -144,6 +144,13 @@ public class AuthenticationAction extends ActionSupport {
 		}
 		
 		String[] infos = info.split(",");
+		
+		if (infos.length != 5){
+			permissionLevel = "0";
+			mid = null;
+			return SUCCESS;
+		}
+		
 		mid = infos[1].substring(7);
 		
 		//生成新令牌

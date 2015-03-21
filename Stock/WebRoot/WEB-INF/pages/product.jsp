@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<td align="center" valign="middle"><span class="STYLE6">${software.softwareId}</span></td>
 		<td align="center" valign="middle"><span class="STYLE6"><a href="Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></span></td>
 		<td align="center" valign="middle"><span class="STYLE6">${software.price}</span></td>
-		<td align="center" valign="middle"><span class="STYLE6"><a href="<%= basePath %>user/Product_detail.action?softwareid=${software.softwareId}">点击进入</a></span></td>
+		<td align="center" valign="middle"><span class="STYLE6"><a href="<%= basePath %>Product_detail.action?softwareid=${software.softwareId}">点击进入</a></span></td>
 	</TR>
 	</c:forEach>
 </table>

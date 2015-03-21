@@ -8,6 +8,7 @@
 <html>
   <head>
     <title>登录斯多克</title>
+    <base href="<%=basePath%>" />
 	<link href="front/dist/css/bootstrap.css" rel="stylesheet">
 	<link href="front/dist/css/common.css" rel="stylesheet">
 	<link href="front/dist/css/page.css" rel="stylesheet">

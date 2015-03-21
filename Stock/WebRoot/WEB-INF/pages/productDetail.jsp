@@ -47,10 +47,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<td><font size="2">价格：</font></td>
 		<td><span class="STYLE6">${software.price}</span></td>
 	</tr></table>
-<form action="<%=request.getContextPath()%>/payChannel.action" method="post" name="alipay">
+
+<form action="<%=request.getContextPath()%>/alipay/payChannel.action" method="post" name="alipay">
 <input type="hidden" name="softwareid" value="${software.softwareId}">
 </form>
 <input type="button" onClick="alipay.submit()" value="购买"/> 
+
 		</div>
 	</div>
 	<!-- product introduction -->

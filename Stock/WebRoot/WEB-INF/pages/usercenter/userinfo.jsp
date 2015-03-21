@@ -16,27 +16,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="front/dist/css/page.css" rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="../_header.jsp" />
+	<jsp:include page="../_header.jsp?index=account" />
 	
   	<div id="wrapmain">
-  	<div class="container">
-  		Hello World!
-  		<div>
-	<%
-			if(session.getAttribute("id") != null){
-		%>
-				<h2>欢迎<%=session.getAttribute("id")%>光临！</h2>
-				<a class="btn btn-lg btn-success" href="logout">登录注销</a>
-				
-				<%			
-			} else {
-				request.setAttribute("info","请先登陆！") ;
-		%>
-				<jsp:forward page="account.jsp"/>
-		<%
-			}
-		%>
+  	<div class="container mgt20">
+  		<div class="row">
+  			<div class="col-md-2">
+  				<jsp:include page="_sidebar.jsp?index=userinfo"></jsp:include>
+  			</div>
+  			<div class="col-md-10 mgt20">
+  				<div class="section-set">
+  					<div class="row section-bordered user-intro">
+  						<div class="col-md-2">
+  							<img alt="portrait" src="front/dist/img/index_investor_livermore.png" class="user-intro-potrait">
+  						</div>
+  						<div class="col-md-3">
+  							<h3 class="pdt10"><%=session.getAttribute("id")%></h3>
+  							<p>xunaixuan0421@163.com</p>
+  						</div>
+  					</div>
+  				</div>
+  				<div>
+					<%
+						if(session.getAttribute("id") != null){
+					%>
+					<h2>欢迎<%=session.getAttribute("id")%>光临！</h2>
+					<a class="btn btn-lg btn-success" href="logout">登录注销</a>
+					<%			
+						} else {
+						request.setAttribute("info","请先登陆！") ;
+					%>
+						<jsp:forward page="account.jsp"/>
+					<%
+						}
+					%>
 				</div>
+  			</div>
+  		</div>
   	</div>
 	</div>
 	

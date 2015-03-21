@@ -25,7 +25,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>支付宝即时到账交易接口</title>
+		<title>请稍等...</title>
 	</head>
 	<%
 		////////////////////////////////////请求参数//////////////////////////////////////
@@ -34,35 +34,37 @@
 		String payment_type = "1";
 		//必填，不能修改
 		//服务器异步通知页面路径
-		String notify_url = "http://www.stockii.com/create_direct_pay_by_user-JAVA-UTF-8/notify_url.jsp";
+		String notify_url = AlipayConfig.notify_url;
 		//需http://格式的完整路径，不能加?id=123这类自定义参数
 
 		//页面跳转同步通知页面路径
-		String return_url = "http://www.stockii.com/create_direct_pay_by_user-JAVA-UTF-8/return_url.jsp";
+		String return_url = AlipayConfig.return_url;
 		//需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
 
 		//卖家支付宝帐户
-		String seller_email = new String(request.getParameter("WIDseller_email").getBytes("ISO-8859-1"),"UTF-8");
+		String seller_email = new String(request.getParameter("WIDseller_email"));
 		//必填
 
 		//商户订单号
-		String out_trade_no = new String(request.getParameter("WIDout_trade_no").getBytes("ISO-8859-1"),"UTF-8");
+		String out_trade_no = new String(request.getParameter("WIDout_trade_no"));
 		//商户网站订单系统中唯一订单号，必填
 
 		//订单名称
-		String subject = new String(request.getParameter("WIDsubject").getBytes("ISO-8859-1"),"UTF-8");
+		String subject = new String(request.getParameter("WIDsubject"));
 		//必填
 
 		//付款金额
-		String total_fee = new String(request.getParameter("WIDtotal_fee").getBytes("ISO-8859-1"),"UTF-8");
+		String total_fee = new String(request.getParameter("WIDtotal_fee"));
 		//必填
 
 		//订单描述
 
-		String body = new String(request.getParameter("WIDbody").getBytes("ISO-8859-1"),"UTF-8");
+		String body = new String(request.getParameter("WIDbody"));
 		//商品展示地址
-		String show_url = new String(request.getParameter("WIDshow_url").getBytes("ISO-8859-1"),"UTF-8");
+		String show_url = new String(request.getParameter("WIDshow_url"));
 		//需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
+		
+		String enable_paymethod = new String(request.getParameter("enable_paymethod"));
 
 		//防钓鱼时间戳
 		String anti_phishing_key = "";
@@ -88,12 +90,15 @@
 		sParaTemp.put("subject", subject);
 		sParaTemp.put("total_fee", total_fee);
 		sParaTemp.put("body", body);
+		sParaTemp.put("enable_paymethod", enable_paymethod);
 		sParaTemp.put("show_url", show_url);
 		sParaTemp.put("anti_phishing_key", anti_phishing_key);
 		sParaTemp.put("exter_invoke_ip", exter_invoke_ip);
 		
 		//建立请求
-		String sHtmlText = AlipaySubmit.buildRequest(sParaTemp,"get","确认");
+		String sHtmlText = AlipaySubmit.buildRequest(sParaTemp,"post","确认");
+		
+		//System.out.println(sHtmlText);
 		out.println(sHtmlText);
 	%>
 	<body>

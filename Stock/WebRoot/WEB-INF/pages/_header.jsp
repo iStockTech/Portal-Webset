@@ -25,7 +25,17 @@ function visitedCount(){
              	<li class='${param.index=="index"?"active":"" }'>
 					<a href="index" onFocus="this.blur()">首页</a></li>
 				 <li class='${param.index=="product"?"active":"" }'>
-					<a href="product" onFocus="this.blur()">产品</a></li>
+				 	<%
+						if(session.getAttribute("id") != null){
+					%>
+					<a href="<%=request.getContextPath()%>/user/moreSoftwarelist.action" onFocus="this.blur()">产品</a></li>
+					<%			
+						} else {
+					%>
+					<a href="<%=request.getContextPath()%>/Software_list.action" onFocus="this.blur()">产品</a></li>
+						<%
+						}
+					%>
 				 <li class='${param.index=="corpration"?"active":"" }'>
 					<a href="corpration" onFocus="this.blur()">合作</a></li>
 				<li class='${param.index=="news"?"active":"" }'>
