@@ -40,7 +40,7 @@ public class Users {
 	@Column(name="idNumber")
 	private String userIdNum;	//身份证号
 	
-	
+	private String tokenId; //登录时的令牌ID
 	
 	protected Users() {
 	}
@@ -70,6 +70,7 @@ public class Users {
 		this.usersEmail = usersEmail;
 		this.userPhone = userPhone;
 		this.userIdNum = userIdNum;
+		this.tokenId = "";
 	}
 
 	/**
@@ -213,6 +214,14 @@ public class Users {
 	 */
 	public void setUsersInfo(String usersInfo) {
 		this.usersInfo = usersInfo;
+	}
+
+	public String getTokenId() {
+		return tokenId;
+	}
+
+	public void setTokenId(String tokenId) {
+		this.tokenId = tokenId;
 	}
 	
 	

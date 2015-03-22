@@ -156,6 +156,7 @@
 		<property name="imageService" ref="imageService"></property></bean>
 		
 	<bean id="authenAction" class="org.news.action.AuthenticationAction">
+		<property name="userService" ref="userService"></property>
 		<property name="orderService" ref="orderService"></property></bean>
 		
 	<bean id="alipayAction" class="org.news.action.AlipayAction">
