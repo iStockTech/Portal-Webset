@@ -34,8 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<form action="<%=request.getContextPath()%>/alipay/payChannel.action" method="post" name="alipay">
 					<input type="hidden" name="softwareid" value="${software.softwareId}">
 				</form>
-				<input type="button" onClick="alipay.submit()" value="购买"/> 
-				<p>购买：<a href="<%=request.getContextPath()%>/Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></p>
+				<p>购买：<input type="button" onClick="alipay.submit()" value="￥${software.price}"/> </p>
 			</div>
 <!-- 			<button class="btn-quick-view" onclick="javascript:window.location.href='product'"></button> -->
 			
@@ -161,9 +160,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					for(var i = 0; i < data.softwares.length; i ++) {
 						if(data.softwares[i].softwareId == getQueryString("softwareid")) {
 							// software bought
-							
+							$("#js_buy").hide();
 						} else {
-							
+							$("#js_download").hide();
 						}
 					}
 				},

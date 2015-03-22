@@ -162,6 +162,7 @@ $().ready(function() {
  
 });
 
+	/* 对表单进行SHA1加密 */
 	function encodePwd() {
 		$('#password1').val(hex_sha1($('[name="password"]').val()));
 		$("#password").attr("disabled", "true");
