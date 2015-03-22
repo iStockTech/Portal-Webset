@@ -287,7 +287,13 @@ public class AlipayAction extends ActionSupport {
 		}
 		
 		//插入交易纪录
-		orderService.addOrder(user.getUsersId(), sid, WIDout_trade_no, "", "submit");
+		try{
+			orderService.addOrder(user.getUsersId(), sid, WIDout_trade_no, "", "submit");
+
+		}catch(Exception e){
+			//System.out.println("no sid");
+			return ERROR;
+		}
 		
 		//记入日志
 		TradeLog logger = new TradeLog();
