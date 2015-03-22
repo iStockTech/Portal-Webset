@@ -271,8 +271,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				data: "",
 				dataType: "json",
 				success: function(data, status){
-					for(var i = 0; i < data.softwares.length; i ++) {
-						var each = data.softwares[i];
+					for(var i = 1; i < data.softwares.length; i ++) {
+						var each = data.softwares[i - 1];
 						$("#js_product_card" + i + " .product-name").text(each.softwareDescripe);
 						$("#js_product_card" + i + " .price").text(each.price);
 						$("#js_product_card" + i + " .btn-view").attr("onclick", "jumpToDetailsById('" + each.softwareId + "')");
