@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>Insert title here</title>
 <base href="<%=basePath%>" />
 <link rel="stylesheet" href="front/dist/css/bootstrap.css">
-<link rel="stylesheet" href="front/dist/css/base.css">
+<link rel="stylesheet" href="front/dist/css/">
 <link rel="stylesheet" href="front/dist/css/common.css">
 <link rel="stylesheet" href="front/dist/css/tablesorter.theme.default.css">
 

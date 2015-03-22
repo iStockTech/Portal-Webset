@@ -628,7 +628,7 @@ $.validator.addMethod("af",function(value,element,params){
 $.validator.addMethod("mobileZH",function(phone_number,element){
 	phone_number = phone_number.replace(/\s+/g, "");
 	return this.optional(element) || phone_number.length == 11 &&
-		phone_number.match(/^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/);
+		phone_number.match(/^0{0,1}(1[0-9][0-9])[0-9]{8}$/);
 },"手机格式输入错误");
 
 // 验证身份证号

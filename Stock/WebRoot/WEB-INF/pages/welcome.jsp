@@ -21,13 +21,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 <jsp:include page="_header.jsp?index=account" />
-<!-- <div id="wrapmain"> -->
-<!--     <header id="overview"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<h3 class="lead">欢迎您！尊敬的<span><%=session.getAttribute("id")%></span></h3> -->
-<!-- 		</div> -->
-<!-- 	</header> -->
-	
 	<div class="content-main container mgt20">
 		<div class="row">
 			<div class="col-md-2">
@@ -80,10 +73,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-<!-- 	</div> -->
-<!-- </div> -->
-<jsp:include page="_footer.jsp" />
-
+	<script src="front/dist/js/jquery.min.js"></script>
+	<script src="front/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			$.ajax({
@@ -100,5 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}) ;
 		});
 	</script>
-</body>
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
+  </body>
 </html>

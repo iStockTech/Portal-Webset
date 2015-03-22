@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	request.getServerPort() + request.getContextPath() %>/" />
 <link rel="icon" href="front/dist/img/icon_stockii_square.png">
 <link href="front/dist/css/bootstrap.css" rel="stylesheet">
-<link href="front/dist/css/base.css" rel="stylesheet">
+<link href="front/dist/css/" rel="stylesheet">
 <link href="front/dist/css/common.css" rel="stylesheet">
 <link href="front/dist/css/page.css" rel="stylesheet">
 <title>合作加盟--斯多克科技</title>
@@ -145,12 +145,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 </div>
 </div>
-<jsp:include page="_footer.jsp" />
 <script type="text/javascript">
 $(".btn-view").click(function(){
 	var feather = "width="+window.screen.availWidth/2+", height="+window.screen.availHeight/2+", fullscreen=0,toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=false, top="+window.screen.availHeight/4+",left="+window.screen.availWidth/4;
 	window.open("http://localhost:8080/MVCNews/develop.jsp", "_blank", feather);
 });
 </script>
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
 </body>
 </html>

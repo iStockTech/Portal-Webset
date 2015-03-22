@@ -52,11 +52,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
   </div>
-	<jsp:include page="_footer.jsp" /> 
+	
 	<script src="front/dist/js/jquery.min.js"></script>
 	<script src="front/dist/js/bootstrap.min.js"></script>
 	<script src="front/dist/js/jquery.backstretch.js"></script>
-<!-- 	<script type="text/javascript" src="front/dist/js/stockii-ui.js"></script> -->
 	
 	<script type="text/javascript">
 		$(function () {
@@ -71,5 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 	</script>
 	
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
   </body>
 </html>

@@ -13,7 +13,6 @@
 <link rel="icon" href="./dist/img/icon_stockii_square.png">
 <title>斯多克，改变您投资股票的方式</title>
 <link href="front/dist/css/bootstrap.css" rel="stylesheet">
-<link href="front/dist/css/base.css" rel="stylesheet">
 <link href="front/dist/css/common.css" rel="stylesheet">
 <link href="front/dist/css/index.css" rel="stylesheet" type="text/css">
 <!--[if lte IE 9]>
@@ -240,20 +239,17 @@
 		</div>
 	</div>
 </div>
-<jsp:include page="_footer.jsp" />
+
 
 <!-- dialog before jump -->
 
+<script type="text/javascript" src="front/dist/js/jquery.min.js"></script>
+<script type="text/javascript" src="front/dist/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="front/dist/js/jquery-ui.min.js"></script> -->
+<!-- <script type="text/javascript" src="front/dist/js/site.effect.js"></script> -->
 
-<!-- 
-<script src="front/dist/js/jquery.min.js" type="text/javascript"></script>
-<script src="front/dist/js/jquery-ui.min.js" type="text/javascript"></script>
-<script type="text/javascript" language="javascript" src="front/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" language="javascript" src="front/dist/js/site.effect.js"></script>
-<script type="text/javascript" src="front/dist/js/jquery.webui-popover.min.js"></script> 
--->
 <!-- marketing展示效果 -->
-<script type="text/javascript" language="javascript">   
+<script type="text/javascript">   
     $( ".ser-blind" ).hover(
             function() {
             	var options_down={direction:"down"};
@@ -277,5 +273,7 @@
     );
     
 </script>
-</body>
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
+  </body>
 </html>

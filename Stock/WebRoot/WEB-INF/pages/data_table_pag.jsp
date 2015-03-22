@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" type="text/css" href="front/dist/css/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css" href="front/dist/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="front/dist/css/base.css">
+<link rel="stylesheet" type="text/css" href="front/dist/css/">
 <link rel="stylesheet" type="text/css" href="front/dist/css/common.css">
 <link rel="stylesheet" type="text/css" href="front/dist/css/page.css">
 

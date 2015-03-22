@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="icon" href="./dist/img/icon_stockii_square.png">
 <title>斯多克，改变您投资股票的方式</title>
 <link href="front/dist/css/bootstrap.css" rel="stylesheet">
-<link href="front/dist/css/base.css" rel="stylesheet">
+<link href="front/dist/css/" rel="stylesheet">
 <link href="front/dist/css/common.css" rel="stylesheet">
 <link href="front/dist/css/index.css" rel="stylesheet" type="text/css">
 <!--[if lte IE 9]>

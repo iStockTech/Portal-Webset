@@ -96,9 +96,6 @@
         
 </footer>
 
-<script type="text/javascript" src="front/dist/js/jquery.min.js" ></script>
-<script type="text/javascript" src="front/dist/js/bootstrap.min.js"></script>
-
 <script type="text/javascript">
    	$(function() {
    		$("[data-toggle='popover']").popover();

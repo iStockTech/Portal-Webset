@@ -12,7 +12,7 @@
 					+ ":" + request.getServerPort() + request.getContextPath()%>/" />
 <link rel="icon" href="front/dist/img/icon_stockii_square.png">
 <link href="front/dist/css/bootstrap.css" rel="stylesheet">
-<link href="front/dist/css/base.css" rel="stylesheet">
+<link href="front/dist/css/" rel="stylesheet">
 <link href="front/dist/css/common.css" rel="stylesheet">
 <link href="front/dist/css/page.css" rel="stylesheet">
 <style type="text/css">
@@ -29,7 +29,7 @@
 <div class="container signup">
 	<div class="row">
     	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<form action="userRegister" method="post" id="signupForm">
+		<form action="userRegister" method="post" id="signupForm" onsubmit="return encodePwd()">
 <!-- 		<form  method="post" id="signupForm"> -->
 			<ul class="list-unstyle">
 				<li>
@@ -88,12 +88,12 @@
 </div>
 
 </div>
-<jsp:include page="_footer.jsp" />
 
 <script src="front/dist/js/jquery.validate.js" type="text/javascript"></script>
 <script src="front/dist/js/jquery.validate.additional-methods.js" type="text/javascript"></script>
 <script src="front/dist/js/jquery.metadata.js" type="text/javascript"></script>
 <script src="front/dist/js/_message_zh.js" type="text/javascript"></script>
+<script src="front/dist/js/SHA1.js"></script>
 
 <script type="text/javascript">
 $().ready(function() {
@@ -164,7 +164,12 @@ $().ready(function() {
  
  
 });
-</script>
 
+	function encodePwd() {
+		$('[name="password"]').val(hex_sha1($('[name="password"]').val()));
+	}
+</script>
+<!-- Footer should be put behind the jquery reference to make some effect works. -->
+<jsp:include page="_footer.jsp" />
 </body>
 </html>
