@@ -15,11 +15,6 @@
 <link href="front/dist/css/" rel="stylesheet">
 <link href="front/dist/css/common.css" rel="stylesheet">
 <link href="front/dist/css/page.css" rel="stylesheet">
-<style type="text/css">
-	
-	
-	
-</style>
 
 </head>
 <body>
@@ -43,6 +38,7 @@
 				<li>
 					<label class="name">密码</label>
 					<input id="password" type="password" name="password" class="form-control">
+					<input id="password1" type="hidden" name="password" class="form-control">
 				</li>
 				<li>
 					<label class="name">密码确认</label>
@@ -89,6 +85,7 @@
 
 </div>
 
+<script src="front/dist/js/jquery.min.js"></script>
 <script src="front/dist/js/jquery.validate.js" type="text/javascript"></script>
 <script src="front/dist/js/jquery.validate.additional-methods.js" type="text/javascript"></script>
 <script src="front/dist/js/jquery.metadata.js" type="text/javascript"></script>
@@ -166,10 +163,12 @@ $().ready(function() {
 });
 
 	function encodePwd() {
-		$('[name="password"]').val(hex_sha1($('[name="password"]').val()));
+		$('#password1').val(hex_sha1($('[name="password"]').val()));
+		$("#password").attr("disabled", "true");
+		return true
 	}
 </script>
-<!-- Footer should be put behind the jquery reference to make some effect works. -->
-<jsp:include page="_footer.jsp" />
-</body>
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
+  </body>
 </html>

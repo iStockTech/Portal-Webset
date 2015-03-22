@@ -100,7 +100,7 @@
 		/* 校验表单合法性的函数 */
 		function validate() {
 			if(validateUserName() && validatePassword() && validateCheckCode()) {
-// 				$('[name="password"]').val(hex_sha1($('[name="password"]').val()));
+				$('[name="password"]').val(hex_sha1($('[name="password"]').val()));
 				return true;
 			}
 			return false;

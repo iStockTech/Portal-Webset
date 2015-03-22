@@ -20,16 +20,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <jsp:include page="_header.jsp?index=product" />
-<div id="wrapmain">
-
-<div id="productDetail">
-	<div class="topBackground">
-		<div class="container">
-			<div class="container">
-				<p>新品郑重首发</p>
-				<p>统计局网站10日消息，10月CPI环比持平，同比上涨1.6%；PPI环比下降0.4%，同比下降2.2%。对此，国家统计局城市司高级统计师余秋梅表示，CPI整体较为平稳，PPI环比继续下降是受国际油价连续下跌及国内部分行业产能过剩的影响。</p>
-				<button class="btn-quick-view" onclick="javascript:window.location.href='product'"></button>
+	<div id="productDetail" class="content-main container-fluid pd0">
+		<div class="topBackground">
+			<div class="container pdt30">
+			<h1>${software.softwareDescripe}</h1>
+			<p>多奇证券分析师可以为您提供最专业的证券交易记录，供您查看、模拟交易，并帮助您完成最新投资策略的定制。</p>
+			<div id="js_download">
+				<p>下载：<a href="<%=request.getContextPath()%>/Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></p>
 			</div>
+			
+			
+			<div id="js_buy">
+				<form action="<%=request.getContextPath()%>/alipay/payChannel.action" method="post" name="alipay">
+					<input type="hidden" name="softwareid" value="${software.softwareId}">
+				</form>
+				<input type="button" onClick="alipay.submit()" value="购买"/> 
+				<p>购买：<a href="<%=request.getContextPath()%>/Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></p>
+			</div>
+<!-- 			<button class="btn-quick-view" onclick="javascript:window.location.href='product'"></button> -->
+			
 			<table border="1" width="100%" cellpadding="5" cellspacing="0" bgcolor="F2F2F2">
 	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
 		<td colspan="3">
@@ -53,13 +62,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</tr>
 	</table>
 	
-	
-
-<form action="<%=request.getContextPath()%>/alipay/payChannel.action" method="post" name="alipay">
-<input type="hidden" name="softwareid" value="${software.softwareId}">
-</form>
-<input type="button" onClick="alipay.submit()" value="购买"/> 
-
 		</div>
 	</div>
 	<!-- product introduction -->
@@ -134,13 +136,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-</div>
 
 </div>
  
-<script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>
-<!-- <script type="text/javascript" language="javascript" src="front/dist/js/jquery-ui.min.js"></script> -->
-<script type="text/javascript" language="javascript" src="front/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>
+	<!-- <script type="text/javascript" language="javascript" src="front/dist/js/jquery-ui.min.js"></script> -->
+	<script type="text/javascript" language="javascript" src="front/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="front/dist/js/common.js"></script>
+	
+	<script type="text/javascript">
+	
+		$(function () {
+			isSoftwareBought();
+		});
+	
+		/* 获取全部的产品信息 */
+		function isSoftwareBought() {
+			$.ajax({
+				type: "GET",
+				url: "<%=request.getContextPath()%>/interface/userSoftwarelist.action",
+				data: "",
+				dataType: "json",
+				success: function(data, status){
+					for(var i = 0; i < data.softwares.length; i ++) {
+						if(data.softwares[i].softwareId == getQueryString("softwareid")) {
+							// software bought
+							
+						} else {
+							
+						}
+					}
+				},
+				error: function(msg, status){
+// 					alert(msg);
+					
+				}
+			}) ;
+		}
+	
+	</script>
+	
+	
  	<!-- Footer should be put behind the jquery reference to make some effect works. -->
 	<jsp:include page="_footer.jsp" />
   </body>

@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <jsp:include page="_footer.jsp"></jsp:include>
-<script type="text/javascript" language="javascript" src="front/dist/js/stockii-ui.js"></script>
+<script type="text/javascript" language="javascript" src="front/dist/js/common.js"></script>
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.datatables.api.fnReloadAjax.js"></script>
 
 <script type="text/javascript"> 
