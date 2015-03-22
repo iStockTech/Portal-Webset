@@ -209,7 +209,6 @@ if(request.getParameter("id")=="" || request.getParameter("id")==null){
   </div>	
 </div>
 </div>
-<jsp:include page="_footer.jsp"></jsp:include>
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>
 <script type="text/javascript" language="javascript" src="front/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
@@ -254,5 +253,7 @@ $(function(){
 	}
 });
 </script>
-</body>
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
+  </body>
 </html>

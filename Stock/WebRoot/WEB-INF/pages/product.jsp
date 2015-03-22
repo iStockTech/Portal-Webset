@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <base href="<%=basePath%>" />
 <link rel="icon" href="../../favicon.ico">
 <link href="front/dist/css/bootstrap.css" rel="stylesheet">
-<link href="front/dist/css/base.css" rel="stylesheet">
+<link href="front/dist/css/" rel="stylesheet">
 <link href="front/dist/css/common.css" rel="stylesheet">
 <link href="front/dist/css/page.css" rel="stylesheet">
 </head>
@@ -46,87 +46,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="container profile text-center">
 		<p class="title">产品介绍</p>
 		<p class="additional">产品介绍，包含产品下载链接等接口</p>
-			<h1>软件列表</h1>
-			<table class="table table-bordered text-center table-hover">
-						<tr class="info">
-							<th class="text-center">ID</th>
-							<th class="text-center">名称</th>
-							<th class="text-center">产品价格（人民币）</th>
-		<!-- 					<th class="text-center">有效期</th> -->
-							<th class="text-center">产品详情</th>
-							<th class="text-center">下载</th>
-						</tr>
-						<tr>
-							<td>S001</td>
-							<td>斯多克证券分析系统</td>
-							<td>28000</td>
-		<!-- 					<td>永久</td> -->
-							<td><a href="productDetail">点击进入</a></td>
-							<td><a href="">下载</a></td>
-						</tr>
-						<tr>
-							<td>S002</td>
-							<td>斯多克智能交易系统</td>
-							<td>198000</td>
-		<!-- 					<td>1年</td> -->
-							<td><a href="productDetail">点击进入</a></td>
-							<td><a href="">下载</a></td>
-						</tr>
-						<c:forEach items="${softwares}" var="software">
-							<tr>
-								<td>${software.softwareId}</td>
-								<td>${software.softwareDescripe}</td>
-								<td>${software.price}</td>
-								<td><a href="<%=request.getContextPath()%>/Product_detail.action?softwareid=${software.softwareId}">点击进入</a></td>
-								<td><a href="<%=request.getContextPath()%>/Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></td>
-							</tr>
-						</c:forEach>
-					</table>
 		<!-- 产品一 -->
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  square-y active" data-target="js-product1">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  square-y active" data-target="js-product1" id="js_product_card1">
 			<div class="content">
 				<p class="bar">
 					<span>①</span><br/>
-					<span>新型智能决策方式</span>
+					<span class="product-name">新型智能决策方式</span>
 				</p>	
 				<div class="mainBd">
 					<p class="phrase">新型智能决策方式</p>
 					<p class="phrase">规避经验决策风险</p>
 					<p class="phrase">强化理性决策回报</p>
-					<p class="phrase">强化理性决策回报</p>
+					<p class="phrase">售价：<span class="price"></span></p>
 				</div>	
 				<button class="btn-view" onclick="jump('item3');">点击查看</button>	
 			</div>
 		</div>
 		
 		<!-- 产品二 -->
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  square-y" data-target="js-product2">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  square-y" data-target="js-product2" id="js_product_card2">
 			<div class="content">
 				<p class="bar">
 					<span>②</span><br/>
-					<span>斯多克</span>
+					<span class="product-name">斯多克</span>
 				</p>	
 				<div class="mainBd">
 					<p class="phrase">新型智能决策方式</p>
 					<p class="phrase">规避经验决策风险</p>
 					<p class="phrase">强化理性决策回报</p>
-					<p class="phrase">强化理性决策回报</p>
+					<p class="phrase">售价：<span class="price"></span></p>
 				</div>	
 				<button class="btn-view" onclick="jump('item3');">点击查看</button>		
 			</div>
 		</div>
 		<!-- 产品三 -->
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  square-y" data-target="js-product3">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  square-y" data-target="js-product3" id="js_product_card3">
 			<div class="content">
 				<p class="bar">
 					<span>③</span><br/>
-					<span>新型智能决策方式</span>
+					<span class="product-name">新型智能决策方式</span>
 				</p>	
 				<div class="mainBd">
 					<p class="phrase">新型智能决策方式</p>
 					<p class="phrase">规避经验决策风险</p>
 					<p class="phrase">强化理性决策回报</p>
-					<p class="phrase">强化理性决策回报</p>
+					<p class="phrase">售价：<span class="price"></span></p>
 				</div>	
 				<button class="btn-view" onclick="jump('item3');">点击查看</button>		
 			</div>
@@ -265,42 +229,61 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 </div>
-<jsp:include page="_footer.jsp" />
-<script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>
-<script type="text/javascript" language="javascript" src="front/dist/js/jquery-ui.min.js"></script>
-<script type="text/javascript" language="javascript" src="front/dist/js/bootstrap.min.js"></script>
-<!-- 交互效果 -->
-<script type="text/javascript">
-$(function(){
-	var lastIndex=2;
-
-	//设置默认显示为产品一的特点
-	$("div.tab[id!='js-product1']").addClass("hide");
-	$('div[data-target]').on({
-		"mouseenter":function(){
-			console.log("hover index = "+$(this).index());
-			if($(this).index()!=lastIndex){
-				var target=$(this).attr('data-target');
-				$("div.tab").removeClass("hide");
-				$("div.tab[id!='"+target+"']").addClass("hide");
-				$("div.tab[id='"+target+"']").effect("slide","slow");
-			}
+	<script src="front/dist/js/jquery.min.js" ></script>
+	<script src="front/dist/js/jquery-ui.min.js"></script>
+	<script src="front/dist/js/bootstrap.min.js"></script>
+	<!-- 交互效果 -->
+	<script type="text/javascript">
+		$(function(){
+			var lastIndex=2;
+		
+			//设置默认显示为产品一的特点
+			$("div.tab[id!='js-product1']").addClass("hide");
+			$('div[data-target]').on({
+				"mouseenter":function(){
+// 					console.log("hover index = "+$(this).index());
+					if($(this).index()!=lastIndex){
+						var target=$(this).attr('data-target');
+						$("div.tab").removeClass("hide");
+						$("div.tab[id!='"+target+"']").addClass("hide");
+						$("div.tab[id='"+target+"']").effect("slide","slow");
+					}
+				}
+			});
+		    
+		    //active样式
+		    $('div.square-y').hover(function(){
+		    	console.log("this index = "+$(this).index());
+		    	if($(this).index()!=lastIndex){
+		    		$(this).siblings().removeClass('active');
+		    		$(this).addClass('active');
+		    		lastIndex=$(this).index();
+		    	}
+		    });
+		    
+		    $.ajax({
+				type: "GET",
+				url: "<%=request.getContextPath()%>/interface/allSoftwarelist.action",
+				data: "",
+				dataType: "json",
+				success: function(data, status){
+					for(var i = 0; i < data.softwares.length; i ++) {
+						var each = data.softwares[i];
+						$("#js_product_card" + i + " .product-name").text(each.softwareDescripe);
+						$("#js_product_card" + i + " .price").text(each.price);
+					}
+				},
+				error: function(msg, status){
+					alert(msg);
+				}
+			}) ;
+		});
+		
+		function jump(str){
+			window.location.href="<%=request.getContextPath()%>/Product_detail.action?softwareid=${software.softwareId}";
 		}
-	});
-    
-    //active样式
-    $('div.square-y').hover(function(){
-    	console.log("this index = "+$(this).index());
-    	if($(this).index()!=lastIndex){
-    		$(this).siblings().removeClass('active');
-    		$(this).addClass('active');
-    		lastIndex=$(this).index();
-    	}
-    });
-});
-function jump(str){
-	window.location.href="productDetail";
-}
-</script>
-</body>
+	</script>
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
+  </body>
 </html>

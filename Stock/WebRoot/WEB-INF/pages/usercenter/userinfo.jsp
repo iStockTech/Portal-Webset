@@ -56,11 +56,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	</div>
 	</div>
 	
-	<jsp:include page="../_footer.jsp" /> 
 	<script src="front/dist/js/jquery.min.js"></script>
 	<script src="front/dist/js/bootstrap.min.js"></script>
 	
-	
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="../_footer.jsp" />
 	
 </body>
 </html>

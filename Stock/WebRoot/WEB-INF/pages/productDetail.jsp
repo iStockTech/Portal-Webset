@@ -46,7 +46,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
 		<td><font size="2">价格：</font></td>
 		<td><span class="STYLE6">${software.price}</span></td>
-	</tr></table>
+	</tr>
+	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
+		<td><font size="2">下载：</font></td>
+		<td><a href="<%=request.getContextPath()%>/Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></td>
+	</tr>
+	</table>
+	
+	
 
 <form action="<%=request.getContextPath()%>/alipay/payChannel.action" method="post" name="alipay">
 <input type="hidden" name="softwareid" value="${software.softwareId}">
@@ -130,11 +137,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 </div>
-<jsp:include page="_footer.jsp" />
-<!-- 
+ 
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>
-<script type="text/javascript" language="javascript" src="front/dist/js/jquery-ui.min.js"></script>
+<!-- <script type="text/javascript" language="javascript" src="front/dist/js/jquery-ui.min.js"></script> -->
 <script type="text/javascript" language="javascript" src="front/dist/js/bootstrap.min.js"></script>
- -->
-</body>
+ 	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
+  </body>
 </html>

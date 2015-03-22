@@ -153,7 +153,6 @@
 <br>
 
 </div>
-<jsp:include page="_footer.jsp" />
 <!-- 
 <script src="front/dist/js/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.min.js" ></script>
@@ -173,6 +172,7 @@ $(function() {
     });
 });
 </script>
-
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
 </body>
 </html>

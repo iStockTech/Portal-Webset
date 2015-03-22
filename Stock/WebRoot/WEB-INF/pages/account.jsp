@@ -62,11 +62,11 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="_footer.jsp" /> 
 	
 	<script src="front/dist/js/jquery.min.js"></script>
 	<script src="front/dist/js/bootstrap.min.js"></script>
 	<script src="front/dist/js/jquery.backstretch.js"></script>
+	<script src="front/dist/js/SHA1.js"></script>
 	
 	<script type="text/javascript">
 		$(function () {
@@ -100,6 +100,7 @@
 		/* 校验表单合法性的函数 */
 		function validate() {
 			if(validateUserName() && validatePassword() && validateCheckCode()) {
+// 				$('[name="password"]').val(hex_sha1($('[name="password"]').val()));
 				return true;
 			}
 			return false;
@@ -151,6 +152,7 @@
 		}
 		
 	</script>
-	
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
   </body>
 </html>
