@@ -15,6 +15,7 @@
      <filter-name>XssSqlFilter</filter-name>
      <url-pattern>/userRegister.action</url-pattern>
      <url-pattern>/userLogin.action</url-pattern>
+     <url-pattern>/alipay/*</url-pattern>
      <url-pattern>/manage/adminLogin.action</url-pattern>
      <url-pattern>/manage/admin/admin/*</url-pattern>
      <url-pattern>/manage/admin/newstype/*</url-pattern>

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -12,14 +13,9 @@
 					+ ":" + request.getServerPort() + request.getContextPath()%>/" />
 <link rel="icon" href="front/dist/img/icon_stockii_square.png">
 <link href="front/dist/css/bootstrap.css" rel="stylesheet">
-<link href="front/dist/css/base.css" rel="stylesheet">
+<link href="front/dist/css/" rel="stylesheet">
 <link href="front/dist/css/common.css" rel="stylesheet">
 <link href="front/dist/css/page.css" rel="stylesheet">
-<style type="text/css">
-	
-	
-	
-</style>
 
 </head>
 <body>
@@ -29,8 +25,9 @@
 <div class="container signup">
 	<div class="row">
     	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<form action="userRegister" method="post" id="signupForm">
+		<s:form action="userRegister" method="post" id="signupForm" namespace="/" onsubmit="return encodePwd()">
 <!-- 		<form  method="post" id="signupForm"> -->
+			<s:token></s:token>
 			<ul class="list-unstyle">
 				<li>
 					<label class="name">用户名</label>
@@ -43,6 +40,7 @@
 				<li>
 					<label class="name">密码</label>
 					<input id="password" type="password" name="password" class="form-control">
+					<input id="password1" type="hidden" name="password" class="form-control">
 				</li>
 				<li>
 					<label class="name">密码确认</label>
@@ -82,18 +80,19 @@
 					<input type="button" value="重置" class="reset" name="reset">
 				</li>
 			</ul>
-			</form>
+			</s:form>
 		</div>    
     </div>
 </div>
 
 </div>
-<jsp:include page="_footer.jsp" />
 
+<script src="front/dist/js/jquery.min.js"></script>
 <script src="front/dist/js/jquery.validate.js" type="text/javascript"></script>
 <script src="front/dist/js/jquery.validate.additional-methods.js" type="text/javascript"></script>
 <script src="front/dist/js/jquery.metadata.js" type="text/javascript"></script>
 <script src="front/dist/js/_message_zh.js" type="text/javascript"></script>
+<script src="front/dist/js/SHA1.js"></script>
 
 <script type="text/javascript">
 $().ready(function() {
@@ -164,7 +163,15 @@ $().ready(function() {
  
  
 });
-</script>
 
-</body>
+	/* 对表单进行SHA1加密 */
+	function encodePwd() {
+		$('#password1').val(hex_sha1($('[name="password"]').val()));
+		$("#password").attr("disabled", "true");
+		return true
+	}
+</script>
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
+  </body>
 </html>

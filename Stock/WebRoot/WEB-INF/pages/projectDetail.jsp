@@ -95,5 +95,7 @@ $(function() {
 		    });
 });
 </script>
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
 </body>
 </html>

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -28,8 +29,11 @@
 	    					<p class="alert-important"><%=request.getAttribute("info")!=null?request.getAttribute("info"):""%></p>
 		    				<form action="userLogin" method="post" class="form-horizontal" onsubmit="return validate()">
 		      					<h2>登录</h2>
+		      					<s:token name="authenticity_token"></s:token>
+		      					<!-- 
 		      					<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓">
 		      					<input name="authenticity_token" type="hidden" value="3EliZ07kHTqkHCEcNDJegiCF6qNH3xDxQLU+K8H6+rk="></div>
+		      					 -->
 		        				<div class="form-group">
 		          					<div class="col-sm-12">
 		          						<input class="form-control" id="user_login" name="mid" type="text" placeholder="邮箱/用户名" autofocus="autofocus">
@@ -62,11 +66,11 @@
 			</div>
 		</div>
 	</div>
-	<jsp:include page="_footer.jsp" /> 
 	
 	<script src="front/dist/js/jquery.min.js"></script>
 	<script src="front/dist/js/bootstrap.min.js"></script>
 	<script src="front/dist/js/jquery.backstretch.js"></script>
+	<script src="front/dist/js/SHA1.js"></script>
 	
 	<script type="text/javascript">
 		$(function () {
@@ -100,6 +104,7 @@
 		/* 校验表单合法性的函数 */
 		function validate() {
 			if(validateUserName() && validatePassword() && validateCheckCode()) {
+				$('[name="password"]').val(hex_sha1($('[name="password"]').val()));
 				return true;
 			}
 			return false;
@@ -151,6 +156,7 @@
 		}
 		
 	</script>
-	
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
   </body>
 </html>

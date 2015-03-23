@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" type="text/css" href="front/dist/css/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css" href="front/dist/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="front/dist/css/base.css">
+<link rel="stylesheet" type="text/css" href="front/dist/css/">
 <link rel="stylesheet" type="text/css" href="front/dist/css/common.css">
 <link rel="stylesheet" type="text/css" href="front/dist/css/page.css">
 
@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <jsp:include page="_footer.jsp"></jsp:include>
-<script type="text/javascript" language="javascript" src="front/dist/js/stockii-ui.js"></script>
+<script type="text/javascript" language="javascript" src="front/dist/js/common.js"></script>
 <script type="text/javascript" language="javascript" src="front/dist/js/jquery.datatables.api.fnReloadAjax.js"></script>
 
 <script type="text/javascript"> 

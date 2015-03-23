@@ -23,13 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <jsp:include page="_header.jsp?index=forum" />
 <div id="wrapmain">
 </div>
-<jsp:include page="_footer.jsp" />
     
 <script type="text/javascript" src="front/dist/js/jquery.min.js"></script>
 <script type="text/javascript" src="front/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	window.location.href = "developing";
 </script>
-	
-</body>
+	<!-- Footer should be put behind the jquery reference to make some effect works. -->
+	<jsp:include page="_footer.jsp" />
+  </body>
 </html>
