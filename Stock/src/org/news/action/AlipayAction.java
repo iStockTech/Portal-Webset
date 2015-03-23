@@ -52,10 +52,27 @@ public class AlipayAction extends ActionSupport {
 	private String softwareid;
 	private String enable_paymethod;
 	private String responseTxt;
+	private String order_token;
 	
 	private static final Logger log = LoggerFactory.getLogger(AlipayAction.class);
 	
 	
+
+	/**
+	 * @return the order_token
+	 */
+	public String getOrder_token() {
+		return order_token;
+	}
+
+
+	/**
+	 * @param orderToken the order_token to set
+	 */
+	public void setOrder_token(String orderToken) {
+		order_token = orderToken;
+	}
+
 
 	/**
 	 * @return the responseTxt
@@ -207,6 +224,7 @@ public class AlipayAction extends ActionSupport {
 
 
 
+	@SuppressWarnings("unchecked")
 	public String instantPay(){
 
 		//卖家支付宝帐户
@@ -248,6 +266,10 @@ public class AlipayAction extends ActionSupport {
 		//商品展示地址
 		WIDshow_url = AlipayConfig.show_url;
 		//需以http://开头的完整路径，例如：http://www.xxx.com/myorder.html
+		
+		ActionContext actionContext = ActionContext.getContext();
+        Map session = actionContext.getSession();
+        session.put("order_token", Math.random() + "");
 
 		return SUCCESS;
 	}
@@ -255,6 +277,14 @@ public class AlipayAction extends ActionSupport {
 	public String alipayTo(){
 
 		ActionContext ctx = ActionContext.getContext();
+		
+		 Map session = ctx.getSession();
+	     String obj = (String) session.get("order_token");
+	     if (order_token == null || !order_token.equals(obj)) {
+	    	 return ERROR;	
+	     }
+	     session.remove("order_token");
+		
 		String userName = (String) ctx.getSession().get("id") ;	// 从session中取出用户名
 		if (userName==null){
 			//System.out.println("no userName");
@@ -287,7 +317,13 @@ public class AlipayAction extends ActionSupport {
 		}
 		
 		//插入交易纪录
-		orderService.addOrder(user.getUsersId(), sid, WIDout_trade_no, "", "submit");
+		try{
+			orderService.addOrder(user.getUsersId(), sid, WIDout_trade_no, "", "submit");
+
+		}catch(Exception e){
+			//System.out.println("no sid");
+			return ERROR;
+		}
 		
 		//记入日志
 		TradeLog logger = new TradeLog();

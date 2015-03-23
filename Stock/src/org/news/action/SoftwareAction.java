@@ -34,6 +34,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.json.annotations.JSON;
 
 /**
  * 用于软件操作的Action
@@ -261,6 +262,7 @@ public class SoftwareAction extends ActionSupport{
 	/**
 	 * @param softwares the softwares to set
 	 */
+	@JSON(name="softwares")
 	public void setSoftwares(List<SoftwareVO> softwares) {
 		this.softwares = softwares;
 	}
@@ -384,11 +386,11 @@ public class SoftwareAction extends ActionSupport{
 		for (Software item:softs){
 			softwares.add(service.toSoftwareVO(item));
 		}
-
 		setRecorders(allRecorders);
 		
 		setCp(""+currentPage);
 		setLs(""+lineSize);
+		setSoftwares(softwares);
 		
 		return SUCCESS;
 	}

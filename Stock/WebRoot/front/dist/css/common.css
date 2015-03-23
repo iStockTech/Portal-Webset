@@ -62,30 +62,40 @@ nav .nav-logo {
 	height: 80px;
 }
 
-nav .nav.navbar-nav{
+nav .nav.navbar-nav {
 	margin-left: 20px;
 	margin-top: 15px;
 }
 
-nav ul.nav.navbar-nav a{
+nav .nav.navbar-nav > li  a {
 	color: #333333;
 	font-size: 20px;
 	height: 65px;
-}
-
-nav ul.nav.navbar-nav li a{
 	background-color: transparent !important;
 	text-align: left;
 	margin: 0 5px 0 5px; 
 }
-nav ul.nav.navbar-nav li a:hover{
+
+/* nav ul.nav.navbar-nav li a{
+	
+} */
+nav .nav.navbar-nav > li a:hover{
 	border-bottom: #E04050 5px solid;
 	color: #E04050;	
 }
-nav ul.nav.navbar-nav li.active > a{
+nav .nav.navbar-nav > li.active > a{
 	border-bottom: #ba2635 5px solid;
 	color: #ba2635;
 }
+nav .dropdown-menu.dropdown-menu-user li a {
+	color: #333333;
+	font-size: 16px;
+	height: 40px;
+	background-color: transparent !important;
+	text-align: left;
+	margin: 0 5px 0 5px; 
+}
+
 
 @media (max-width: 768px) {
 	nav ul.nav.navbar-nav a {
@@ -106,6 +116,10 @@ nav ul.nav.navbar-nav li.active > a{
 	height: auto; 
 	min-height: 100%;
 	/* padding-bottom: 368px; equal to footer height */
+}
+.content-main {
+	height: auto; 
+	padding-bottom: 80px;
 }
 
 
@@ -1431,7 +1445,10 @@ span.solidline{
 	padding: 10px;
 }
 
-
+.dropdown-menu-user li a {
+	font-size: 16px;
+	
+}
 
 
 
