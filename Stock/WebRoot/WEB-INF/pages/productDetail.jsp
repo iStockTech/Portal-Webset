@@ -60,7 +60,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<td><a href="<%=request.getContextPath()%>/Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></td>
 	</tr>
 	</table>
-	
 		</div>
 	</div>
 	<!-- product introduction -->

@@ -62,7 +62,6 @@ function visitedCount(){
                   	<li><a href="<%=request.getContextPath()%>/logout" onFocus="this.blur()">注销</a></li>
               	  </ul>
             	</li>
-					
 				<%			
 					} else {
 				%>

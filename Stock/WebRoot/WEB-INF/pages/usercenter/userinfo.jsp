@@ -37,7 +37,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   					</div>
   				</div>
   				<div>
+
 					<%-- <%
+
 						if(session.getAttribute("id") != null){
 					%>
 					<h2>欢迎<%=session.getAttribute("id")%>光临！</h2>
@@ -49,6 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<jsp:forward page="account.jsp"/>
 					<%
 						}
+
 					%> --%>
 				</div>
   			</div>
@@ -61,6 +64,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<!-- Footer should be put behind the jquery reference to make some effect works. -->
 	<jsp:include page="../_footer.jsp" />
-	
 </body>
 </html>
