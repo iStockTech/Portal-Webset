@@ -196,7 +196,7 @@ ul,ol{
             </ol>
         </div>
         <s:form name="alipayment" action="alipayTo.action" method="post" namespace="/alipay" target="_blank">
-
+			<input type="hidden" name="order_token" value="${session.order_token}"/>
             <div id="body" style="clear:left">
                 <dl class="content">
 					<dd>

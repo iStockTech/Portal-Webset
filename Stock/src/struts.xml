@@ -10,6 +10,8 @@
 		</action>
 		
 		<action name="userRegister" class="org.news.action.UserRegisterAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+            <interceptor-ref name="token" />
 			<result name="success">
 				<param name="location">/WEB-INF/pages/regist_do.jsp</param>
 				<param name="refresh">2;URL=/WEB-INF/pages/account.jsp</param>
@@ -19,12 +21,16 @@
 				/WEB-INF/pages/regist_do.jsp
 			</result>
 			<result name="input">/WEB-INF/pages/signup.jsp</result>
+			<result name="invalid.token">/WEB-INF/pages/errors.jsp</result>  
 		</action>
 		
 		<action name="userLogin"
 			class="userLoginAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+            <interceptor-ref name="token" />
 			<result name="success" type="redirect">/user/userSoftwarelist.action</result>
 			<result name="login">/WEB-INF/pages/account.jsp</result>
+			<result name="invalid.token">/WEB-INF/pages/errors.jsp</result>
 		</action>
 		
 	  <action name="Software_list"

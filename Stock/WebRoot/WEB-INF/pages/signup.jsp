@@ -1,4 +1,5 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -24,8 +25,9 @@
 <div class="container signup">
 	<div class="row">
     	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<form action="userRegister" method="post" id="signupForm" onsubmit="return encodePwd()">
+		<s:form action="userRegister" method="post" id="signupForm" namespace="/" onsubmit="return encodePwd()">
 <!-- 		<form  method="post" id="signupForm"> -->
+			<s:token></s:token>
 			<ul class="list-unstyle">
 				<li>
 					<label class="name">用户名</label>
@@ -78,7 +80,7 @@
 					<input type="button" value="重置" class="reset" name="reset">
 				</li>
 			</ul>
-			</form>
+			</s:form>
 		</div>    
     </div>
 </div>
