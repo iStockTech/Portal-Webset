@@ -1,9 +1,8 @@
 package org.news.action;
 
-import java.util.Random;
-
 import org.news.model.Users;
 import org.news.service.OrderService;
+import org.news.service.UserService;
 import org.news.utils.VeDate;
 import org.news.utils.XXTEA;
 
@@ -19,6 +18,12 @@ public class AuthenticationAction extends ActionSupport {
 		this.orderService = orderService;
 	}
 	
+	private UserService userService;	
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
 	String mid;//会员账号
 	String password;//密码
 	String type;//软件类型 
@@ -108,9 +113,8 @@ public class AuthenticationAction extends ActionSupport {
 		
 		if (permissionLevel.equals("0")){
 			token = null;
-		}else{//生成令牌
-			
-			String tokenId = System.currentTimeMillis()+new Random().nextInt()+""; //令牌ID
+		}else{//生成令牌			
+			String tokenId = VeDate.getNo(18); //令牌ID,32位
 			String loginTime = VeDate.getStringDate();//首次登录时间
 			String lastRequest = VeDate.getStringDate();//上次请求时间
 			String available = "2";//有效时间两天
@@ -118,6 +122,11 @@ public class AuthenticationAction extends ActionSupport {
 			String info = "tokenId:"+tokenId+",userId:"+mid+",loginTime:"+loginTime+",lastRequest:"+lastRequest+",available:"+available;
 			
 			token = XXTEA.Encrypt(info);//加密
+			
+			//保存令牌到数据库中
+			Users member = userService.findUsersById(mid);
+			member.setTokenId(tokenId);
+			userService.updateUsers(member);
 		}
 		
 		return SUCCESS;
@@ -151,10 +160,21 @@ public class AuthenticationAction extends ActionSupport {
 			return SUCCESS;
 		}
 		
+		String oldToken = infos[0].substring(8);
+	
 		mid = infos[1].substring(7);
+		Users member = userService.findUsersById(mid);
+		
+		//令牌ID不一致
+		if (!member.getTokenId().equals(oldToken)){
+			permissionLevel = "0";
+			mid = null;
+			return SUCCESS;
+		}
+		
 		
 		//生成新令牌
-		String tokenId = System.currentTimeMillis()+new Random().nextInt()+""; //令牌ID
+		String tokenId = VeDate.getNo(18); //令牌ID
 		String lastRequest = VeDate.getStringDate();//上次请求时间
 		String available = "2";//有效时间两天
 		

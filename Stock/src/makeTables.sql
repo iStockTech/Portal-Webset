@@ -22,6 +22,7 @@ realName varchar(20),
 sex varchar(10),
 phone varchar(20),
 idNumber varchar(30),
+tokenId  char(32),
 primary key(usersId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
