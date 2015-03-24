@@ -70,8 +70,28 @@ public class SoftwareAction extends ActionSupport{
     
     Software software;
     String state;
+    String contentLength;//下载文件长度
+    
     
     	
+	/**
+	 * @return the contentLength
+	 */
+	public String getContentLength() {
+		return contentLength;
+	}
+
+
+
+	/**
+	 * @param contentLength the contentLength to set
+	 */
+	public void setContentLength(String contentLength) {
+		this.contentLength = contentLength;
+	}
+
+
+
 	/**
 	 * @return the state
 	 */
@@ -418,8 +438,11 @@ public class SoftwareAction extends ActionSupport{
 	 */
 	public InputStream getTargetFile(){
 
-		//String filepath = ServletActionContext.getServletContext().getRealPath("/")+"softwares"+File.separator; //文件保存路径
+		String root = ServletActionContext.getServletContext().getRealPath("/WEB-INF/softwares");//文件保存路径
 	    filename = service.findSoftwareById(sid.intValue()).getSoftwareName();
+	    
+	    File deskFile = new File(root,filename);
+	    contentLength = deskFile.length()+"";
 
 		return ServletActionContext.getServletContext().getResourceAsStream("WEB-INF/softwares/"+filename);
 	}

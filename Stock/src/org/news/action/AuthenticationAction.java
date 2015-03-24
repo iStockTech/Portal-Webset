@@ -3,6 +3,7 @@ package org.news.action;
 import org.news.model.Users;
 import org.news.service.OrderService;
 import org.news.service.UserService;
+import org.news.utils.MD5Code;
 import org.news.utils.VeDate;
 import org.news.utils.XXTEA;
 
@@ -102,7 +103,7 @@ public class AuthenticationAction extends ActionSupport {
 			return SUCCESS;
 		}
 
-		Users user = new Users(0,mid,password,"","","","","","") ;
+		Users user = new Users(0,mid,new MD5Code().getMD5ofStr(password),"","","","","","") ;
 		permissionLevel = "0";
 
 		try {
