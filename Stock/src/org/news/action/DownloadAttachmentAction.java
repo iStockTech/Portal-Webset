@@ -38,28 +38,29 @@ public class DownloadAttachmentAction extends ActionSupport {
 	}
 
 
-	Long id;//附件ID
+	String id;//附件ID
 
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 	
 	public void download(){
-		
+		int aid = 0;
 		try {
+			aid = Integer.parseInt(id) ;
 			HttpServletResponse response = ServletActionContext.getResponse();
-			NewsAttachment attachment = service.findNewsAttachmentById(id);
+			NewsAttachment attachment = service.findNewsAttachmentById(aid);
 			String filename = attachment.getAttachmentName();
 			response.setHeader("Content-Disposition","attachment;filename="+new String(filename.getBytes("gb2312"), "ISO8859-1" ));
 			ServletOutputStream out = response.getOutputStream();

@@ -21,6 +21,10 @@ public class UploadAction extends BaseAction{
 	private File imgFile;
 	
 	public void upload(){
+		if (null == imgFile){
+			return;
+		}
+		
 		try {
 			
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd_HHmmss");

@@ -147,8 +147,12 @@ public class NewsInterfaceAction extends ActionSupport {
      */
     
 	@Transactional(readOnly=true)
-	@SuppressWarnings({ "unchecked", "rawtypes", "null"})
+	@SuppressWarnings({ "unchecked"})
 	public String acquireHomepageAction() throws Exception {
+		if (null==search||null==page){
+			return ERROR;
+		}
+		
 		//ArrayList<NewsIndex> news = new ArrayList<NewsIndex>();  
 		ArrayList<NewsInfo> newsinfoList = null;
 		Map<String, String[]> mapForJsonAllNewsInfo = new HashMap<String, String[]>();
@@ -285,8 +289,12 @@ public class NewsInterfaceAction extends ActionSupport {
      * @throws Exception 
      */
     
-	@SuppressWarnings({ "unchecked", "rawtypes", "null"})
+	@SuppressWarnings({ "unchecked"})
 	public String acquireNewsByTypeAction() throws Exception {
+		if (null==search||null==currentPage){
+			return ERROR;
+		}
+		
 		try {
 			 
 			List<NewsIndex> news = new ArrayList<NewsIndex>();
@@ -359,6 +367,9 @@ public class NewsInterfaceAction extends ActionSupport {
 	 * @return 属性articleInfo，表示文章详情
 	 */
 	public String acquirenewAction(){
+		if (null == id){
+			return ERROR;
+		}
 		try {
 			NewsInfo news = service.searchNewsInfo(Integer.valueOf(id).intValue());
 			if(news != null) {
@@ -391,8 +402,13 @@ public class NewsInterfaceAction extends ActionSupport {
 	public String stockDayInfoTable(){
 		List<Stock_day_info>lists = new ArrayList<Stock_day_info>();
 		List<StockInfoTable>listTable = new ArrayList<StockInfoTable>();
-		lists = stockDayInfoTableService.getStockByDay();
-		listTable = stockDayInfoTableService.toStockInfoTable(lists);
+		try {
+			lists = stockDayInfoTableService.getStockByDay();
+			listTable = stockDayInfoTableService.toStockInfoTable(lists);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+			return ERROR;
+		}
 		String str[] = new String[listTable.size()];
 		Map<String, String[]> mapAll = new HashMap<String, String[]>();
 			/*
@@ -458,10 +474,19 @@ public class NewsInterfaceAction extends ActionSupport {
 	 * @return
 	 */
 	public String stockDayInfoTablePage(){
+		if (null==currentPage){
+			return ERROR;
+		}
+		
 		List<Stock_day_info>lists = new ArrayList<Stock_day_info>();
 		List<StockInfoTable>listTable = new ArrayList<StockInfoTable>();
-		lists = stockDayInfoTableService.getStockByDay(Integer.valueOf(currentPage).intValue(), 20);
-		listTable = stockDayInfoTableService.toStockInfoTable(lists);
+		try {
+			lists = stockDayInfoTableService.getStockByDay(Integer.valueOf(currentPage).intValue(), 20);
+			listTable = stockDayInfoTableService.toStockInfoTable(lists);
+		} catch (NumberFormatException e1) {
+			e1.printStackTrace();
+			return ERROR;
+		}
 		String str[] = new String[listTable.size()];
 		Map<String, String[]> mapAll = new HashMap<String, String[]>();
 		Map<String,String> map = new HashMap<String,String>();

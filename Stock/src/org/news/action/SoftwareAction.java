@@ -61,8 +61,8 @@ public class SoftwareAction extends ActionSupport{
 	String pg = "Software_list.action"; //URL
 	List<SoftwareVO> softwares;//软件列表
 	long recorders; //软件数
-	int softwareid;//软件ID
-	Long sid; //下载软件ID
+	String softwareid;//软件ID
+	String sid; //下载软件ID
     String filename;//下载文件名
     private File file;    
     private String fileFileName;   
@@ -191,14 +191,14 @@ public class SoftwareAction extends ActionSupport{
 	/**
 	 * @return the sid
 	 */
-	public Long getSid() {
+	public String getSid() {
 		return sid;
 	}
 
 	/**
 	 * @param sid the sid to set
 	 */
-	public void setSid(Long sid) {
+	public void setSid(String sid) {
 		this.sid = sid;
 	}
 
@@ -304,14 +304,14 @@ public class SoftwareAction extends ActionSupport{
 	/**
 	 * @return the softwareid
 	 */
-	public int getSoftwareid() {
+	public String getSoftwareid() {
 		return softwareid;
 	}
 
 	/**
 	 * @param softwareid the softwareid to set
 	 */
-	public void setSoftwareid(int softwareid) {
+	public void setSoftwareid(String softwareid) {
 		this.softwareid = softwareid;
 	}
 	
@@ -420,13 +420,24 @@ public class SoftwareAction extends ActionSupport{
 	 * @return
 	 */
 	@Transactional(propagation=Propagation.REQUIRED)
-	public String delete(){		
+	public String delete(){	
+		int id = 0;
+		try{
+			id = Integer.parseInt(softwareid) ;
+		} catch(Exception e) {
+			return ERROR;
+		}
 		String filepath = ServletActionContext.getServletContext().getRealPath("/WEB-INF/softwares") + java.io.File.separator; //文件保存路径
-		String name = service.findSoftwareById(softwareid).getSoftwareName();
-		if (service.deleteSoftware(softwareid)&&Common.deleteFile(filepath+name)){//同时删除数据库和文件夹里的数据					
-			msg = "删除成功";
-		}else{
-			msg = "删除失败";
+		try {
+			String name = service.findSoftwareById(id).getSoftwareName();
+			if (service.deleteSoftware(id)&&Common.deleteFile(filepath+name)){//同时删除数据库和文件夹里的数据					
+				msg = "删除成功";
+			}else{
+				msg = "删除失败";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
 		}
 
 		return SUCCESS;
@@ -437,11 +448,27 @@ public class SoftwareAction extends ActionSupport{
 	 * @return
 	 */
 	public InputStream getTargetFile(){
+		int id = 0;
+		String root = null;
+		try{
+			id = Integer.parseInt(sid) ;
 
-		String root = ServletActionContext.getServletContext().getRealPath("/WEB-INF/softwares");//文件保存路径
-	    filename = service.findSoftwareById(sid.intValue()).getSoftwareName();
+			root = ServletActionContext.getServletContext().getRealPath("/WEB-INF/softwares");//文件保存路径
+		    filename = service.findSoftwareById(id).getSoftwareName();
+		    
+		} catch(Exception e) {
+			return null;
+		}
+		
+	    if (null == filename || null == root){
+	    	return null;
+	    }
 	    
 	    File deskFile = new File(root,filename);
+	    if (null == deskFile){
+	    	return null;
+	    }   
+	    
 	    contentLength = deskFile.length()+"";
 
 		return ServletActionContext.getServletContext().getResourceAsStream("WEB-INF/softwares/"+filename);
@@ -501,6 +528,9 @@ public class SoftwareAction extends ActionSupport{
 	 * @return
 	 */
 	public String update(){
+		if (null == software){
+			return ERROR;
+		}
 
 		try {//更新数据库
 			if (service.updateSoftware(software)) {
@@ -523,8 +553,10 @@ public class SoftwareAction extends ActionSupport{
 	 * @return
 	 */
 	public String updatepre(){
+		int id = 0;
 		try {
-			software = service.findSoftwareById(softwareid);
+			id = Integer.parseInt(softwareid) ;
+			software = service.findSoftwareById(id);
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -537,8 +569,10 @@ public class SoftwareAction extends ActionSupport{
 	 * @return
 	 */
 	public String show(){
+		int id = 0;
 		try {
-			software = service.findSoftwareById(softwareid);
+			id = Integer.parseInt(softwareid) ;
+			software = service.findSoftwareById(id);
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();

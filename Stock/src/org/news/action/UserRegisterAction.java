@@ -205,19 +205,29 @@ public class UserRegisterAction extends ActionSupport {
 	 * @return
 	 */
 	public String execute() {
+		if (mid == null || password == null || info == null || realName == null 
+				|| sex == null || email == null || phone == null || idNum == null){
+			return ERROR;
+		}
+		
 		List<Users> userList = userService.getAllUsers();
 	    int userID = ((userList.size() == 0)? 1 : (userList.get(userList.size()-1).getUsersId()+1));
 		
 		Users user = new Users(userID,mid,password,info,realName,sex,email,phone,idNum);
 		
-		if (userService.addUsers(user)){//注册成功
-			setResult(1);
-			setUser(mid);
-			return SUCCESS;
-		}else{
-			setResult(0);
-			return ERROR;
+		try {
+			if (userService.addUsers(user)){//注册成功
+				setResult(1);
+				setUser(mid);
+				return SUCCESS;
+			}else{
+				setResult(0);
+				return ERROR;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		return ERROR;
 		
 	}
 }

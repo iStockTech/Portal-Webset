@@ -95,7 +95,7 @@ public class UserLoginAction extends ActionSupport {
 		
 		String rand = (String) ctx.getSession().get("rand") ;	// 从session中取出验证码
 		
-		if(null==checkcode||!rand.equalsIgnoreCase(checkcode)){//验证码不正确
+		if(null==checkcode||null==rand||!rand.equalsIgnoreCase(checkcode)){//验证码不正确
 			setInfo("请输入正确的验证码！") ;
 			return LOGIN;
 		}

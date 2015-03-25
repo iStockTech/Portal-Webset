@@ -36,16 +36,19 @@
 	  <action name="Software_list"
 			class="softwareAction" method="list">
 			<result name="success">/WEB-INF/pages/product.jsp</result>
+			<result name="error">/WEB-INF/pages/errors.jsp</result>
 		</action>
 		
 		<action name="Software_detail"
 			class="softwareAction" method="show">
 			<result name="success">/WEB-INF/pages/softwareDetail.jsp</result>
+			<result name="error">/WEB-INF/pages/errors.jsp</result>
 		</action>
 		
 		<action name="Product_detail"
 			class="softwareAction" method="show">
 			<result name="success">/WEB-INF/pages/productDetail.jsp</result>
+			<result name="error">/WEB-INF/pages/errors.jsp</result>
 		</action>
 		
 		<action name="Software_download"
@@ -57,6 +60,7 @@
 				<param name="contentLength">${contentLength}</param>
 				<param name="bufferSize">4096</param>
 			</result>
+			<result name="error">/WEB-INF/pages/errors.jsp</result>
 		</action>
 		
 	    <action name="uploadAction"
@@ -181,6 +185,10 @@
 			class="newsInterfaceAction" method="acquireHomepageAction">
 			<result type="json" name="success">
             	<param name="noCache">true</param>
+				<param name="contentType">text/html</param>
+            </result>
+             <result type="json" name="error">
+                <param name="noCache">true</param>
 				<param name="contentType">text/html</param>
             </result>
 		</action>

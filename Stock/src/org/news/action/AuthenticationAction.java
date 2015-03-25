@@ -115,19 +115,26 @@ public class AuthenticationAction extends ActionSupport {
 		if (permissionLevel.equals("0")){
 			token = null;
 		}else{//生成令牌			
-			String tokenId = VeDate.getNo(18); //令牌ID,32位
-			String loginTime = VeDate.getStringDate();//首次登录时间
-			String lastRequest = VeDate.getStringDate();//上次请求时间
-			String available = "2";//有效时间两天
-			
-			String info = "tokenId:"+tokenId+",userId:"+mid+",loginTime:"+loginTime+",lastRequest:"+lastRequest+",available:"+available;
-			
-			token = XXTEA.Encrypt(info);//加密
-			
-			//保存令牌到数据库中
-			Users member = userService.findUsersById(mid);
-			member.setTokenId(tokenId);
-			userService.updateUsers(member);
+			try {
+				String tokenId = VeDate.getNo(18); //令牌ID,32位
+				String loginTime = VeDate.getStringDate();//首次登录时间
+				String lastRequest = VeDate.getStringDate();//上次请求时间
+				String available = "2";//有效时间两天
+				
+				String info = "tokenId:"+tokenId+",userId:"+mid+",loginTime:"+loginTime+",lastRequest:"+lastRequest+",available:"+available;
+				
+				token = XXTEA.Encrypt(info);//加密
+				
+				//保存令牌到数据库中
+				Users member = userService.findUsersById(mid);
+				member.setTokenId(tokenId);
+				userService.updateUsers(member);
+			} catch (Exception e) {
+				e.printStackTrace();
+				permissionLevel = "0";
+				token = null;
+				return SUCCESS;
+			}
 		}
 		
 		return SUCCESS;
@@ -163,26 +170,32 @@ public class AuthenticationAction extends ActionSupport {
 		
 		String oldToken = infos[0].substring(8);
 	
-		mid = infos[1].substring(7);
-		Users member = userService.findUsersById(mid);
-		
-		//令牌ID不一致
-		if (!member.getTokenId().equals(oldToken)){
+		try {
+			mid = infos[1].substring(7);
+			Users member = userService.findUsersById(mid);
+			
+			//令牌ID不一致
+			if (!member.getTokenId().equals(oldToken)){
+				permissionLevel = "0";
+				mid = null;
+				return SUCCESS;
+			}
+			
+			
+			//生成新令牌
+			String tokenId = VeDate.getNo(18); //令牌ID
+			String lastRequest = VeDate.getStringDate();//上次请求时间
+			String available = "2";//有效时间两天
+			
+			String newInfo = "tokenId:"+tokenId+",userId:"+mid+","+infos[2]+",lastRequest:"+lastRequest+",available:"+available;
+			
+			token = XXTEA.Encrypt(newInfo);//加密
+			permissionLevel = "1";
+		} catch (Exception e) {
+			e.printStackTrace();
 			permissionLevel = "0";
 			mid = null;
-			return SUCCESS;
 		}
-		
-		
-		//生成新令牌
-		String tokenId = VeDate.getNo(18); //令牌ID
-		String lastRequest = VeDate.getStringDate();//上次请求时间
-		String available = "2";//有效时间两天
-		
-		String newInfo = "tokenId:"+tokenId+",userId:"+mid+","+infos[2]+",lastRequest:"+lastRequest+",available:"+available;
-		
-		token = XXTEA.Encrypt(newInfo);//加密
-		permissionLevel = "1";
 		
 		return SUCCESS;
 	}
