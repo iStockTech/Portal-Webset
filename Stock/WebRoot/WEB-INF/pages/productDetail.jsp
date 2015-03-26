@@ -20,16 +20,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <jsp:include page="_header.jsp?index=product" />
-	<div id="productDetail" class="content-main container-fluid pd0">
-		<div class="topBackground">
-			<div class="container pdt30">
+<div id="productDetail" class="content-main container-fluid pd0">
+	<div class="pmbanner">
+		<div class="container pdt30">
 			<h1>${software.softwareDescripe}</h1>
 			<p>多奇证券分析师可以为您提供最专业的证券交易记录，供您查看、模拟交易，并帮助您完成最新投资策略的定制。</p>
 			<div id="js_download">
 				<p>下载：<a href="<%=request.getContextPath()%>/Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></p>
 			</div>
-			
-			
 			<div id="js_buy">
 				<form action="<%=request.getContextPath()%>/alipay/payChannel.action" method="post" name="alipay">
 					<input type="hidden" name="softwareid" value="${software.softwareId}">
@@ -37,30 +35,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<p>购买：<input type="button" onClick="alipay.submit()" value="￥${software.price}"/> </p>
 			</div>
 <!-- 			<button class="btn-quick-view" onclick="javascript:window.location.href='product'"></button> -->
-			
-			<table border="1" width="100%" cellpadding="5" cellspacing="0" bgcolor="F2F2F2">
-	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td colspan="3">
-			<h1>软件详情</h1>		</td>
-	</tr>
-	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td><font size="2">名称：</font></td>
-		<td><span class="STYLE6">${software.softwareName}</span></td>
-	</tr>
-	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td><font size="2">描述：</font></td>
-		<td><span class="STYLE6">${software.softwareDescripe}</span></td>
-	</tr>
-	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td><font size="2">价格：</font></td>
-		<td><span class="STYLE6">${software.price}</span></td>
-	</tr>
-	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
-		<td><font size="2">下载：</font></td>
-		<td><a href="<%=request.getContextPath()%>/Software_download.action?sid=${software.softwareId}">${software.softwareName}</a></td>
-	</tr>
-	</table>
-	
 		</div>
 	</div>
 	<!-- product introduction -->
@@ -161,8 +135,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						if(data.softwares[i].softwareId == getQueryString("softwareid")) {
 							// software bought
 							$("#js_buy").hide();
+							break;
 						} else {
 							$("#js_download").hide();
+							break;
 						}
 					}
 				},

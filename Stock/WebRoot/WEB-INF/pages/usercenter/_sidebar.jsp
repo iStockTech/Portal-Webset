@@ -3,8 +3,16 @@
 	<li class="bar-title">
 		<h3></h3>
 	</li>
-	<li class="sidebar-molecule ${param.index == 'userinfo' ? 'active' : ''}">
-		<p class="molecule-title "><a href="usercenter/userinfo?userid=12312312">会员中心首页</a></p>
+<!-- 	<li class="sidebar-molecule ${param.index == 'userinfo' ? 'active' : ''}"> -->
+<!-- 		<p class="molecule-title "><a href="usercenter/userinfo?userid=12312312">会员中心首页</a></p> -->
+<!-- 	</li> -->
+	<li class="sidebar-molecule">
+		<p class="molecule-title">会员中心首页<span class="icon-up3"></span></p>
+		<ul class="sidebar-molecule-content">
+			<li class="sidebar-atom ${param.index == 'userinfo' ? 'active' : ''}"><a href="usercenter/userinfo?userid=12312312">主要信息</a></li>
+			<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">安全设置</a></li>
+			<li class="sidebar-atom"><a href="usercenter/userinfo?userid=12312312">定制策略</a></li>
+		</ul>
 	</li>
 	<hr>
 	<li class="sidebar-molecule">

@@ -20,7 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <jsp:include page="_header.jsp?index=product" />
-    请选择支付方式. <br>
+<div class="container">
+	    请选择支付方式. <br>
 <form name="alipay" action="<%=request.getContextPath()%>/alipay/instantPay" method="post">
 <input type="radio" name="enable_paymethod" value="directPay" checked="checked"/> 支付宝账户余额
 <br />
@@ -35,6 +36,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input type="hidden" name="softwareid" value="<%=request.getParameter("softwareid")%>">
 <input type="submit" value="支付" />
 </form>
+</div>
+
+
+
 <jsp:include page="_footer.jsp" />
   </body>
 </html>

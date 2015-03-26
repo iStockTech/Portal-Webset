@@ -1,18 +1,18 @@
-<%
-	/* *
-	 *功能：支付宝即时到账交易接口调试入口页面
-	 *版本：3.3
-	 *日期：2012-08-17
-	 *说明：
-	 *以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
-	 */
-%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html>
 	<head>
+	<base href="<%=basePath%>" />
 	<link href="<%=request.getContextPath()%>/front/dist/css/StyleSheet.css" rel="stylesheet" type="text/css" />
-    <script src="<%=request.getContextPath()%>/js/jquery-latest.js"></script>
+    <link rel="stylesheet" href="front/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="front/dist/css/common.css">
+	<link rel="stylesheet" href="front/dist/css/page.css">
+	
+	<script src="<%=request.getContextPath()%>/js/jquery-latest.js"></script>
     <script src="<%=request.getContextPath()%>/js/MessageBox.js"></script>
 	<title>支付宝即时到账交易接口</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -154,15 +154,79 @@ ul,ol{
 }
 </style>
 </head>
-<body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>
+<body>
+
 <script type="text/javascript">
     function payFinish(){
     	CloseMessageBox();
     	var tradeNo = $("#trade_no").val();
     	window.location.href="<%=request.getContextPath()%>/alipay/orderFinish.action?WIDout_trade_no="+tradeNo; 
     }
-	
 </script>
+	<jsp:include page="_header.jsp?index=product" />
+	<div class="content-main container mgt20">
+	<form name="alipayment" action="<%=request.getContextPath()%>/alipay/alipayTo.action" method="post" 
+		namespace="/alipay" target="_blank" class="form-horizontal">
+		<input type="hidden" name="order_token" value="${session.order_token}"/>
+		<input type="hidden" size="30" name="WIDseller_email" value="${WIDseller_email}"/>
+		<input type="hidden" size="30" name="softwareid" value="${softwareid}"/>
+		
+		<div class="form-group row">
+   	 		<label for="trade_no" class="col-sm-2 control-label">商户订单号</label>
+   			<div class="col-sm-6">
+     			<input type="text" class="form-control" id="trade_no" size="30" name="WIDout_trade_no" 
+     				disabled="disabled" value="${WIDout_trade_no}" placeholder="商户网站订单系统中唯一订单号，必填"/>
+   			</div>
+  		</div>
+  		
+  		<div class="form-group row">
+   	 		<label for="trade_name" class="col-sm-2 control-label">商户订单名称</label>
+   			<div class="col-sm-6">
+     			<input type="text" class="form-control" id="trade_name" size="30" name="WIDsubject" 
+     				disabled="disabled" value="${WIDsubject}"/>
+   			</div>
+  		</div>
+  		
+  		<div class="form-group row">
+   	 		<label for="trade_amount" class="col-sm-2 control-label">付款金额：</label>
+   			<div class="col-sm-6">
+     			<input type="text" class="form-control" id="trade_amount" size="30" name="WIDtotal_fee" 
+     				disabled="disabled" value="${WIDtotal_fee}"/>
+   			</div>
+  		</div>
+  		
+  		<div class="form-group row">
+   	 		<label for="trade_desc" class="col-sm-2 control-label">订单描述：</label>
+   			<div class="col-sm-6">
+     			<input type="text" class="form-control" id="trade_desc" size="30" name="WIDbody" 
+     			value="${WIDbody}"/>
+   			</div>
+  		</div>
+  		
+  		<div class="form-group row">
+   	 		<label for="pay_channel" class="col-sm-2 control-label">支付渠道：</label>
+   			<div class="col-sm-6">
+     			<input type="text" class="form-control" id="pay_channel" size="30" name="enable_paymethod" 
+     			value="${enable_paymethod}"/>
+   			</div>
+  		</div>
+  		
+  		<div class="form-group row">
+   	 		<label for="display_address" class="col-sm-2 control-label">商品展示地址：</label>
+   			<div class="col-sm-6">
+     			<input type="text" class="form-control" id="display_address" size="30" name="WIDshow_url" 
+     			value="${WIDshow_url}"/>
+   			</div>
+  		</div>
+  		
+  		<div class="form-group row">
+  			<div class="col-sm-2 col-sm-offset-2">
+   				<button class="new-btn-login" type="submit" showoption="control:waitpay_online;width:400;height:320;title:网上支付提示">确 认</button>
+  			</div>
+  		</div>
+	</form>
+</div>
+
 <div id="waitpay_online" style="display:none">
         <table style="width: 400px">
             <tr>        	
@@ -195,61 +259,61 @@ ul,ol{
 				<li class="last">3、确认完成</li>
             </ol>
         </div>
-        <s:form name="alipayment" action="alipayTo.action" method="post" namespace="/alipay" target="_blank">
-			<input type="hidden" name="order_token" value="${session.order_token}"/>
-            <div id="body" style="clear:left">
-                <dl class="content">
-					<dd>
-						<input type="hidden" size="30" name="WIDseller_email" value="${WIDseller_email}"/>
-						<input type="hidden" size="30" name="softwareid" value="${softwareid}"/>
-					</dd>
-					<dt>商户订单号：</dt>
-					<dd>
-						<span class="null-star">*</span>
-						<input id="trade_no" size="30" name="WIDout_trade_no" readonly="true" value="${WIDout_trade_no}"/>
-						<span>商户网站订单系统中唯一订单号，必填
-</span>
-					</dd>
-					<dt>订单名称：</dt>
-					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="WIDsubject" readonly="true" value="${WIDsubject}"/>
-						<span>必填
-</span>
-					</dd>
-					<dt>付款金额：</dt>
-					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="WIDtotal_fee" readonly="true" value="${WIDtotal_fee}"/>
-						<span>必填
-</span>
-					</dd>
-					<dt>订单描述：</dt>
-					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="WIDbody" value="${WIDbody}"/>
-						<span></span>
-					</dd>
-					<dt>支付渠道：</dt>
-					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="enable_paymethod" readonly="true" value="${enable_paymethod}"/>
-						<span></span>
-					</dd>
-					<dt>商品展示地址：</dt>
-					<dd>
-						<span class="null-star">*</span>
-						<input size="30" name="WIDshow_url" readonly="true" value="${WIDshow_url}"/>
-					</dd>
-                    <dt></dt>
-                    <dd>
-                        <span class="new-btn-login-sp">
-                            <button class="new-btn-login" type="submit" style="text-align:center;" showoption="control:waitpay_online;width:400;height:320;title:网上支付提示">确 认</button>
-                        </span>
-                    </dd>
-                </dl>
-            </div>
-		</s:form>
+<!--         <s:form name="alipayment" action="alipayTo.action" method="post" namespace="/alipay" target="_blank"> -->
+<!-- 			<input type="hidden" name="order_token" value="${session.order_token}"/> -->
+<!--             <div id="body" style="clear:left"> -->
+<!--                 <dl class="content"> -->
+<!-- 					<dd> -->
+<!-- 						<input type="hidden" size="30" name="WIDseller_email" value="${WIDseller_email}"/> -->
+<!-- 						<input type="hidden" size="30" name="softwareid" value="${softwareid}"/> -->
+<!-- 					</dd> -->
+<!-- 					<dt>商户订单号：</dt> -->
+<!-- 					<dd> -->
+<!-- 						<span class="null-star">*</span> -->
+<!-- 						<input id="trade_no" size="30" name="WIDout_trade_no" readonly="true" value="${WIDout_trade_no}"/> -->
+<!-- 						<span>商户网站订单系统中唯一订单号，必填 -->
+<!-- </span> -->
+<!-- 					</dd> -->
+<!-- 					<dt>订单名称：</dt> -->
+<!-- 					<dd> -->
+<!-- 						<span class="null-star">*</span> -->
+<!-- 						<input size="30" name="WIDsubject" readonly="true" value="${WIDsubject}"/> -->
+<!-- 						<span>必填 -->
+<!-- </span> -->
+<!-- 					</dd> -->
+<!-- 					<dt>付款金额：</dt> -->
+<!-- 					<dd> -->
+<!-- 						<span class="null-star">*</span> -->
+<!-- 						<input size="30" name="WIDtotal_fee" readonly="true" value="${WIDtotal_fee}"/> -->
+<!-- 						<span>必填 -->
+<!-- </span> -->
+<!-- 					</dd> -->
+<!-- 					<dt>订单描述：</dt> -->
+<!-- 					<dd> -->
+<!-- 						<span class="null-star">*</span> -->
+<!-- 						<input size="30" name="WIDbody" value="${WIDbody}"/> -->
+<!-- 						<span></span> -->
+<!-- 					</dd> -->
+<!-- 					<dt>支付渠道：</dt> -->
+<!-- 					<dd> -->
+<!-- 						<span class="null-star">*</span> -->
+<!-- 						<input size="30" name="enable_paymethod" readonly="true" value="${enable_paymethod}"/> -->
+<!-- 						<span></span> -->
+<!-- 					</dd> -->
+<!-- 					<dt>商品展示地址：</dt> -->
+<!-- 					<dd> -->
+<!-- 						<span class="null-star">*</span> -->
+<!-- 						<input size="30" name="WIDshow_url" readonly="true" value="${WIDshow_url}"/> -->
+<!-- 					</dd> -->
+<!--                     <dt></dt> -->
+<!--                     <dd> -->
+<!--                         <span class="new-btn-login-sp"> -->
+<!--                             <button class="new-btn-login" type="submit" style="text-align:center;" showoption="control:waitpay_online;width:400;height:320;title:网上支付提示">确 认</button> -->
+<!--                         </span> -->
+<!--                     </dd> -->
+<!--                 </dl> -->
+<!--             </div> -->
+<!-- 		</s:form> -->
         <div id="foot">
 			<ul class="foot-ul">
 				<li><font class="note-help">如果您点击“确认”按钮，即表示您同意该次的执行操作。 </font></li>
@@ -259,5 +323,11 @@ ul,ol{
 			</ul>
 		</div>
 	</div>
+	
+	<script src="front/dist/js/jquery.min.js" ></script>
+	<script src="front/dist/js/jquery-ui.min.js"></script>
+	<script src="front/dist/js/bootstrap.min.js"></script>
+	
+	<jsp:include page="_footer.jsp" />
 </body>
 </html>
