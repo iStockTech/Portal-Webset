@@ -164,9 +164,24 @@ ul,ol{
     }
 </script>
 	<jsp:include page="_header.jsp?index=product" />
+	<div id="waitpay_online" style="display:none">
+        <table style="width: 400px">
+            <tr>        	
+                <td >
+                <span class="icon"><img src="<%=request.getContextPath()%>/images/working.gif" /></span></td>
+                 <td>支付完成前，请不要关闭此支付验证窗口。支付完成后，请根据您支付的情况点击下面按钮。</td>
+            </tr>
+            <tr>
+                <td align="center" >
+                    <input id="online_have_question" onclick="payFinish()" type="button" value="支付遇到问题" /></td>
+                 <td align="center" >
+                 	<input id="finish_pay_order" onclick="payFinish()" type="button" value="支付完成" /></td>
+            </tr>
+        </table>
+    </div>
 	<div class="content-main container mgt20">
 	<form name="alipayment" action="<%=request.getContextPath()%>/alipay/alipayTo.action" method="post" 
-		namespace="/alipay" target="_blank" class="form-horizontal">
+		target="_blank" class="form-horizontal">
 		<input type="hidden" name="order_token" value="${session.order_token}"/>
 		<input type="hidden" size="30" name="WIDseller_email" value="${WIDseller_email}"/>
 		<input type="hidden" size="30" name="softwareid" value="${softwareid}"/>
@@ -175,7 +190,7 @@ ul,ol{
    	 		<label for="trade_no" class="col-sm-2 control-label">商户订单号</label>
    			<div class="col-sm-6">
      			<input type="text" class="form-control" id="trade_no" size="30" name="WIDout_trade_no" 
-     				disabled="disabled" value="${WIDout_trade_no}" placeholder="商户网站订单系统中唯一订单号，必填"/>
+     				readonly="true" value="${WIDout_trade_no}" placeholder="商户网站订单系统中唯一订单号，必填"/>
    			</div>
   		</div>
   		
@@ -183,7 +198,7 @@ ul,ol{
    	 		<label for="trade_name" class="col-sm-2 control-label">商户订单名称</label>
    			<div class="col-sm-6">
      			<input type="text" class="form-control" id="trade_name" size="30" name="WIDsubject" 
-     				disabled="disabled" value="${WIDsubject}"/>
+     				readonly="true" value="${WIDsubject}"/>
    			</div>
   		</div>
   		
@@ -191,7 +206,7 @@ ul,ol{
    	 		<label for="trade_amount" class="col-sm-2 control-label">付款金额：</label>
    			<div class="col-sm-6">
      			<input type="text" class="form-control" id="trade_amount" size="30" name="WIDtotal_fee" 
-     				disabled="disabled" value="${WIDtotal_fee}"/>
+     				readonly="true" value="${WIDtotal_fee}"/>
    			</div>
   		</div>
   		
@@ -206,7 +221,7 @@ ul,ol{
   		<div class="form-group row">
    	 		<label for="pay_channel" class="col-sm-2 control-label">支付渠道：</label>
    			<div class="col-sm-6">
-     			<input type="text" class="form-control" id="pay_channel" size="30" name="enable_paymethod" 
+     			<input type="text" class="form-control" id="pay_channel" size="30" name="enable_paymethod" readonly="true"
      			value="${enable_paymethod}"/>
    			</div>
   		</div>
@@ -227,21 +242,7 @@ ul,ol{
 	</form>
 </div>
 
-<div id="waitpay_online" style="display:none">
-        <table style="width: 400px">
-            <tr>        	
-                <td >
-                <span class="icon"><img src="<%=request.getContextPath()%>/images/working.gif" /></span></td>
-                 <td>支付完成前，请不要关闭此支付验证窗口。支付完成后，请根据您支付的情况点击下面按钮。</td>
-            </tr>
-            <tr>
-                <td align="center" >
-                    <input id="online_have_question" onclick="payFinish()" type="button" value="支付遇到问题" /></td>
-                 <td align="center" >
-                 	<input id="finish_pay_order" onclick="payFinish()" type="button" value="支付完成" /></td>
-            </tr>
-        </table>
-    </div>
+
 
 	<div id="main">
 		<div id="head">
@@ -323,9 +324,7 @@ ul,ol{
 			</ul>
 		</div>
 	</div>
-	
-	<script src="front/dist/js/jquery.min.js" ></script>
-	<script src="front/dist/js/jquery-ui.min.js"></script>
+
 	<script src="front/dist/js/bootstrap.min.js"></script>
 	
 	<jsp:include page="_footer.jsp" />

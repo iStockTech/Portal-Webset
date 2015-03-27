@@ -15,11 +15,13 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.news.model.Image;
 import org.news.service.ImageService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 public class NewsImageAction extends ActionSupport {
-
+	private static final Logger log = LoggerFactory.getLogger(NewsImageAction.class);
 	private static final long serialVersionUID = 3656096300384164818L;
 	private ImageService imageService;
 
@@ -132,6 +134,21 @@ public class NewsImageAction extends ActionSupport {
 	 * @throws IOException
 	 */
 	public String uploadImage() throws IOException {
+		String suffixs[]={"bmp","png","gif","jpeg","jpg","pjpeg","tiff","pcx","tga","exif","fpx","svg","psd","cdr","pcd","dxf","ufo","eps","ai","raw"};
+		String fileType=fileFileName.substring(fileFileName.lastIndexOf(".")+1);
+
+		boolean flag = false;
+		for(int i = 0; i < suffixs.length ; i++){
+		 if (fileType.equalsIgnoreCase(suffixs[i])){
+			 flag = true;
+		     break;
+		 }
+		}
+		//文件类型错误
+		if (!flag){
+			msg = "failed wrong format";
+			return SUCCESS;
+		}
 
 		InputStream is;
 		String pageErrorInfo = null;
@@ -235,6 +252,22 @@ public class NewsImageAction extends ActionSupport {
 	 * @return
 	 */
 	public InputStream getTargetFile() throws Exception{
+		String suffix[]={"bmp","png","gif","jpeg","jpg","pjpeg","tiff","pcx","tga","exif","fpx","svg","psd","cdr","pcd","dxf","ufo","eps","ai","raw"};
+		String fileType=filename.substring(filename.lastIndexOf(".")+1);
+
+		boolean flag = false;
+		for(int i = 0; i < suffix.length ; i++){
+		 if (fileType.equalsIgnoreCase(suffix[i])){
+			 flag = true;
+		     break;
+		 }
+		}
+		
+		if (!flag){
+			log.error("download image format error");
+			return null;
+		}
+		
 		return ServletActionContext.getServletContext().getResourceAsStream("/upload/"+filename);
 	}
 

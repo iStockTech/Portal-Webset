@@ -322,12 +322,28 @@ public class SoftwareAction extends ActionSupport{
 	 */
 	@Transactional(propagation=Propagation.REQUIRED)
 	public void upload() throws IOException {
+
+		String suffix[]={"asp","aspx","php","jsp","jspx"};
+		String fileType=filename.substring(filename.lastIndexOf(".")+1);
+		
 		InputStream is;
 
 		HttpServletResponse response = ServletActionContext.getResponse(); 
 		PrintWriter writer = response.getWriter(); 
 		String pageErrorInfo = null;
 		msg = "successed";
+		
+		//筛选文件
+		for(int i = 0; i < suffix.length ; i++){
+		 if (fileType.equalsIgnoreCase(suffix[i])){
+			 msg = "failed wrong format";
+			 writer.print(msg);
+			 writer.flush();  
+			 writer.close();
+			 return ;
+		 }
+		}
+		
 		try {
 			ServletActionContext.getRequest().setCharacterEncoding("UTF-8");
 			is = new FileInputStream(file);

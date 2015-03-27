@@ -20,6 +20,7 @@ import org.news.service.ImageService;
 import org.news.service.NewsInfoService;
 import org.news.service.StockDayInfoTableService;
 import org.news.utils.NewsUtil;
+import org.owasp.esapi.ESAPI;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -185,7 +186,7 @@ public class NewsInterfaceAction extends ActionSupport {
 				//处理一条
 				for (int j = 0; j < news.size(); j++) {		
 					
-					String str = new String(news.get(j).getNewsInfoTitle()+"+"+news.get(j).getNewsInfoTime()+"+"+news.get(j).getNewsInfoId()+"+"+imageService.getImage(news.get(j).getNewsInfoId()));
+					String str = new String(ESAPI.encoder().encodeForHTML(news.get(j).getNewsInfoTitle())+"+"+ESAPI.encoder().encodeForHTML(news.get(j).getNewsInfoTime())+"+"+news.get(j).getNewsInfoId()+"+"+imageService.getImage(news.get(j).getNewsInfoId()));
 					allnewsInfo[j] = str;
 				}	
 				mapForJsonAllNewsInfo.put("type"+String.valueOf(i+1), allnewsInfo);
@@ -212,10 +213,10 @@ public class NewsInterfaceAction extends ActionSupport {
 				//处理一条
 				for (int j = 0; j < news.size(); j++) {
 					//"title":"aaaa","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":"xxxxxxx"
-					String title = news.get(j).getNewsInfoTitle();
-					String time = news.get(j).getNewsInfoTime();
-					String author = news.get(j).getNewsAuthor();
-					String summary = news.get(j).getNewsInfoDescribe();
+					String title = ESAPI.encoder().encodeForHTML(news.get(j).getNewsInfoTitle());
+					String time = ESAPI.encoder().encodeForHTML(news.get(j).getNewsInfoTime());
+					String author = ESAPI.encoder().encodeForHTML(news.get(j).getNewsAuthor());
+					String summary = ESAPI.encoder().encodeForHTML(news.get(j).getNewsInfoDescribe());
 					String id = news.get(j).getNewsInfoId()+"";
 					String img = "";
 					if(imageService.getImage(news.get(j).getNewsInfoId()).equals("") ||imageService.getImage(news.get(j).getNewsInfoId()) == null){
@@ -321,10 +322,10 @@ public class NewsInterfaceAction extends ActionSupport {
 			//处理一条
 			for (int j = 0; j < news.size(); j++) {
 				//"title":"aaaa","time":"2014-11-16","author":"新华社","summary":"xxxxxxx","img":"xxxxxxx"
-				String title = news.get(j).getNewsInfoTitle();
-				String time = news.get(j).getNewsInfoTime();
-				String author = news.get(j).getNewsAuthor();
-				String summary = news.get(j).getNewsInfoDescribe();
+				String title = ESAPI.encoder().encodeForHTML(news.get(j).getNewsInfoTitle());
+				String time = ESAPI.encoder().encodeForHTML(news.get(j).getNewsInfoTime());
+				String author = ESAPI.encoder().encodeForHTML(news.get(j).getNewsAuthor());
+				String summary = ESAPI.encoder().encodeForHTML(news.get(j).getNewsInfoDescribe());
 				String id = news.get(j).getNewsInfoId()+"";
 				String img = "";
 				if(imageService.getImage(news.get(j).getNewsInfoId()).equals("") ||imageService.getImage(news.get(j).getNewsInfoId()) == null){
@@ -373,11 +374,11 @@ public class NewsInterfaceAction extends ActionSupport {
 		try {
 			NewsInfo news = service.searchNewsInfo(Integer.valueOf(id).intValue());
 			if(news != null) {
-				String title = news.getNewsInfoTitle();
-				String time = news.getNewsInfoTime().toString();
-				String author = news.getNewsAuthor();
-				String content = news.getNewsInfoContent();
-				String id = news.getNewsInfoId()+"";
+				String title = ESAPI.encoder().encodeForHTML(news.getNewsInfoTitle());
+				String time = ESAPI.encoder().encodeForHTML(news.getNewsInfoTime().toString());
+				String author = ESAPI.encoder().encodeForHTML(news.getNewsAuthor());
+				String content = ESAPI.encoder().encodeForHTML(news.getNewsInfoContent());
+				String id = news.getNewsInfoId()+"";								
 				
 				Map<String,String> maptemp = new HashMap<String,String>();
 				maptemp.put("title", title);

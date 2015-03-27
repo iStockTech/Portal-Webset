@@ -16,6 +16,10 @@
 .STYLE10 {font-size: 14px; font-weight: bold; }
 -->
 </style></head>
+<%
+	String str = Math.random()+"";//生成令牌
+	session.setAttribute("admin_token", str); //将str 添加到session对象中
+ %>
 <body>
 	<script language="javascript">
 		function changeColor(obj,color){
@@ -33,6 +37,7 @@
 
 <center> 
 <form action="Admin_insert" method="post" onSubmit="return validate(this)">
+<input type="hidden" name="admin_token" value="${session.admin_token}"/>
 <table border="1" width="100%" cellpadding="5" cellspacing="0" bgcolor="F2F2F2">
 	<tr onMouseOver="changeColor(this,'white')" onMouseOut="changeColor(this,'F2F2F2')">
 		<td colspan="3">

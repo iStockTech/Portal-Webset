@@ -540,6 +540,22 @@ public class NewsInfoAction extends ActionSupport {
 				return ERROR;
 			}
 			
+			String suffixs[]={"bmp","png","gif","jpeg","jpg","pjpeg","tiff","pcx","tga","exif","fpx","svg","psd","cdr","pcd","dxf","ufo","eps","ai","raw"};
+			String fileType=imageFileFileName.substring(imageFileFileName.lastIndexOf(".")+1);
+
+			boolean flag = false;
+			for(int i = 0; i < suffixs.length ; i++){
+			 if (fileType.equalsIgnoreCase(suffixs[i])){
+				 flag = true;
+			     break;
+			 }
+			}
+			//文件类型错误
+			if (!flag){
+				setMsg("文件类型错误！请上传图片");
+				return ERROR;
+			}
+			
 			if(imageService.imageExecute(imageFile, imageFileFileName)){
 				Image image = new Image();
 				List<Image> images = imageService.getAllImages();

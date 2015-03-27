@@ -8,12 +8,14 @@
 package org.news.action;
 
 import java.util.List;
+import java.util.Map;
 
 import org.news.model.Admin;
 import org.news.service.AdminService;
 import org.news.utils.MD5Code;
 import org.news.utils.MessageUtil;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -42,6 +44,23 @@ public class AdminAction extends ActionSupport {
 	String url;//URL
 	String adminid;//管理员ID
 	Admin admin;//管理员信息
+	String admin_token;
+	
+	
+
+	/**
+	 * @return the admin_token
+	 */
+	public String getAdmin_token() {
+		return admin_token;
+	}
+
+	/**
+	 * @param adminToken the admin_token to set
+	 */
+	public void setAdmin_token(String adminToken) {
+		admin_token = adminToken;
+	}
 
 	/**
 	 * @return the adminid
@@ -183,6 +202,15 @@ public class AdminAction extends ActionSupport {
 	 * @return
 	 */
 	public String insert(){
+		ActionContext ctx = ActionContext.getContext();
+		
+		 Map session = ctx.getSession();
+	     String obj = (String) session.get("admin_token");
+	     if (admin_token == null || !admin_token.equals(obj)) {
+	    	 return ERROR;	
+	     }
+	     session.remove("admin_token");
+		
 		Admin admin = new Admin(0,"","","");
 		List<Admin> adminList = adminService.getAllAdmin();
 	    int adminID = ((adminList.size() == 0)? 1 : (adminList.get(adminList.size()-1).getAdminId()+1));

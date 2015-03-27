@@ -13,7 +13,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
-import org.news.dao.AdminHibernateDAO;
 import org.news.model.Orders;
 import org.news.model.Software;
 import org.news.model.TradeLog;
@@ -22,14 +21,11 @@ import org.news.service.OrderService;
 import org.news.service.SoftwareService;
 import org.news.service.TradeLogService;
 import org.news.service.UserService;
-import org.news.utils.Common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alipay.config.AlipayConfig;
-import com.alipay.sign.Payment;
 import com.alipay.util.AlipayNotify;
-import com.alipay.util.AlipaySubmit;
 import com.alipay.util.UtilDate;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
